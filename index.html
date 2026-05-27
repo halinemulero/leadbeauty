@@ -3,29 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lead Beauty - Haline Mulero</title>
+  <title>Lead Beauty - Conectando o Mercado da Beleza</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --cor-fundo: #2A1B15;      /* Marrom Café Escuro */
-      --cor-card: #FDFBF9;       /* Creme Off-White super limpo */
-      --cor-dourado: #C5A059;    /* Dourado Matte */
-      --cor-texto-esquro: #3D2820;
+      /* Nova paleta: Preto Premium, Branco e Dourado Champagne Comercial */
+      --cor-fundo: #121212;       /* Preto fosco de aplicativo moderno */
+      --cor-card: #FFFFFF;       /* Branco limpo para contraste profissional */
+      --cor-destaque: #D4AF37;   /* Dourado para passar valor */
+      --cor-texto: #1C1C1E;
+      --cor-cinza-subtil: #F8F9FA;
     }
 
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
       background-color: var(--cor-fundo);
-      /* Textura sutil de fundo para elegância extra */
-      background-image: radial-gradient(circle at 50% 50%, #3d271e 0%, #2A1B15 100%);
-      color: #333;
+      color: #FFFFFF;
       text-align: center;
-      min-h: 100vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -35,131 +35,131 @@
 
     .container {
       width: 100%;
-      max-width: 440px;
+      max-width: 460px;
       margin: auto;
     }
 
     header {
-      margin-bottom: 30px;
+      margin-bottom: 25px;
     }
 
     h1 {
       font-family: 'Playfair Display', serif;
-      color: var(--cor-dourado);
-      font-size: 42px;
-      font-weight: 400;
-      margin: 0 0 8px 0;
-      letter-spacing: 1px;
+      color: var(--cor-destaque);
+      font-size: 36px;
+      font-weight: 600;
+      margin: 0 0 5px 0;
+      letter-spacing: 0.5px;
     }
 
     .tagline {
-      color: #F4EFEA;
+      color: #A1A1AA;
       font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 3px;
+      font-weight: 600;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      opacity: 0.85;
     }
 
-    /* Card com visual de Clinica de Alto Padrão */
+    /* Card com visual de Startup / Plataforma Nacional */
     .card {
       background: var(--cor-card);
-      padding: 40px 30px;
+      padding: 35px 25px;
       border-radius: 24px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-      border: 1px solid rgba(197, 160, 89, 0.2); /* Borda dourada ultra fina */
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
       box-sizing: border-box;
+      color: var(--cor-texto);
     }
 
     .card p {
       font-size: 15px;
-      line-height: 1.7;
+      line-height: 1.6;
       margin-top: 0;
-      margin-bottom: 30px;
-      color: var(--cor-texto-esquro);
-      font-weight: 400;
+      margin-bottom: 20px;
+      color: #444446;
     }
 
-    .card p strong {
+    /* Alerta da Isca Digital: 3 Leads Gratuitos */
+    .alerta-leads {
+      background-color: #FFF9E6;
+      border: 1px solid #FFE082;
+      color: #B78103;
+      padding: 12px;
+      border-radius: 12px;
+      font-size: 13px;
       font-weight: 600;
-      color: var(--cor-fundo);
-      border-bottom: 1px solid rgba(197, 160, 89, 0.4);
+      margin-bottom: 25px;
     }
 
-    /* Botão Principal - visual sólido e imponente */
-    .botao-principal {
+    /* Botão de Ação Principal (Preto para destacar no fundo branco) */
+    .botao-plataforma {
       display: block;
-      padding: 16px 24px;
+      padding: 16px 20px;
       background: var(--cor-fundo);
-      color: #F4EFEA;
+      color: #FFFFFF;
       text-decoration: none;
       border-radius: 14px;
       font-size: 14px;
-      font-weight: 500;
+      font-weight: 600;
       transition: all 0.3s ease;
       box-sizing: border-box;
       letter-spacing: 0.5px;
-      margin-bottom: 14px;
-      border: 1px solid transparent;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
-    .botao-principal:hover {
-      background: #1A100C;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    .botao-plataforma:hover {
+      background: #232326;
+      transform: translateY(-1px);
     }
 
-    /* Botão Secundário - visual Outline sofisticado */
-    .botao-secundario {
+    /* Botão Secundário (Vazado/Outline) */
+    .botao-outline {
       display: block;
-      padding: 16px 24px;
+      padding: 15px 20px;
       background: transparent;
       color: var(--cor-fundo);
       text-decoration: none;
       border-radius: 14px;
       font-size: 14px;
-      font-weight: 500;
+      font-weight: 600;
       transition: all 0.3s ease;
       box-sizing: border-box;
-      border: 1px solid rgba(61, 40, 32, 0.3);
+      border: 2px solid var(--cor-fundo);
       letter-spacing: 0.5px;
     }
 
-    .botao-secundario:hover {
-      background: rgba(42, 27, 21, 0.04);
-      border-color: var(--cor-fundo);
-      transform: translateY(-2px);
+    .botao-outline:hover {
+      background: rgba(0, 0, 0, 0.05);
+      transform: translateY(-1px);
     }
 
-    /* Benefícios / Subtextos de forma minimalista */
-    .sub {
-      margin-top: 35px;
-      padding-top: 25px;
-      border-top: 1px solid rgba(61, 40, 32, 0.1);
+    /* Rodapé do Card com os Pilares do Negócio */
+    .info-adicional {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #E5E5EA;
       text-align: left;
     }
 
-    .item-beneficio {
+    .topico {
       display: flex;
       align-items: center;
       gap: 10px;
       font-size: 13px;
-      color: #614E46;
-      margin-bottom: 10px;
-      font-weight: 400;
+      color: #636366;
+      margin-bottom: 8px;
     }
 
-    .item-beneficio span {
-      color: var(--cor-dourado);
-      font-size: 14px;
+    .topico span {
+      color: var(--cor-destaque);
+      font-weight: bold;
     }
 
     .footer {
       margin-top: 30px;
       font-size: 10px;
-      color: rgba(244, 239, 234, 0.5);
+      color: #71717A;
       letter-spacing: 1px;
-      text-transform: uppercase;
     }
   </style>
 </head>
@@ -170,35 +170,39 @@
 
     <header>
       <h1>Lead Beauty</h1>
-      <div class="tagline">Haline Mulero • Estética Avançada</div>
+      <div class="tagline">Plataforma Nacional de Beleza</div>
     </header>
 
     <div class="card">
       <p>
-        Uma plataforma exclusiva desenvolvida para conectar pessoas que buscam tratamentos especializados em <strong>Estrias e Cicatrizes</strong> aos melhores profissionais do mercado.
+        Conectamos clientes que buscam cuidados de excelência aos melhores profissionais de estética, cabelo, unhas e bem-estar de todo o Brasil.
       </p>
 
-      <a class="botao-principal"
+      <div class="alerta-leads">
+        🎁 ATENÇÃO PROFISSIONAL: Cadastre-se hoje e receba seus 3 primeiros contatos (leads) totalmente grátis!
+      </div>
+
+      <a class="botao-plataforma"
          href="https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform"
          target="_blank">
-         Quero encontrar um profissional
+         Buscar um Profissional na minha Região
       </a>
 
-      <a class="botao-secundario"
+      <a class="botao-outline"
          href="https://docs.google.com/forms/d/e/1FAIpQLScgzX3XcoVnweDoo_qIuiyYTcjik38eVaNI4nZvND3wrNSNzQ/viewform"
          target="_blank">
-        Sou profissional e quero clientes
+        Quero Receber Clientes no meu WhatsApp
       </a>
 
-      <div class="sub">
-        <div class="item-beneficio"><span>✦</span> Foco em Regeneração e Camuflagem Estética</div>
-        <div class="item-beneficio"><span>✦</span> Intermediação simples, rápida e segura</div>
-        <div class="item-beneficio"><span>✦</span> Conexão direta via WhatsApp profissional</div>
+      <div class="info-adicional">
+        <div class="topico"><span>✓</span> Todos os nichos da beleza e bem-estar</div>
+        <div class="topico"><span>✓</span> Conexão direta e sem intermediários</div>
+        <div class="topico"><span>✓</span> Leads qualificados e filtrados por região</div>
       </div>
     </div>
 
     <div class="footer">
-      Haline Mulero • Lead Beauty © 2026
+      Lead Beauty © 2026 • Idealizado por Haline Mulero
     </div>
 
   </div>
