@@ -141,4 +141,95 @@
       line-height: 1.6;
     }
 
-    /* Botão Dourado de
+    /* Botão Dourado de Alta Conversão */
+    .botao-enviar {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, #DEC085 0%, var(--cor-dourado) 100%);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(197, 160, 89, 0.2);
+    }
+
+    .botao-enviar:hover {
+      background: linear-gradient(135deg, var(--cor-dourado) 0%, var(--cor-dourado-hover) 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(197, 160, 89, 0.3);
+    }
+
+    .link-voltar {
+      display: block;
+      text-align: center;
+      margin-top: 25px;
+      color: var(--cor-texto-mutado);
+      font-size: 12px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .link-voltar:hover {
+      color: var(--cor-dourado);
+    }
+
+    .footer {
+      margin-top: 35px;
+      font-size: 10px;
+      color: #A69E9A;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <header>
+      <h1>Haline Lead Beauty</h1>
+      <div class="tagline">Plataforma Nacional de Beleza</div>
+    </header>
+
+    <div class="card">
+      <p class="instrucao">Insira os seus detalhes abaixo para que a nossa curadoria encontre a profissional ideal na sua região.</p>
+      
+      <form action="https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/formResponse" method="POST" target="_blank">
+        
+        <label>Nome Completo</label>
+        <input type="text" name="entry.1983790113" class="campo" placeholder="Ex: Maria Silva" required>
+
+        <label>Cidade de Atendimento</label>
+        <input type="text" name="entry.1449830573" class="campo" placeholder="Ex: Praia Grande" required>
+
+        <label>Estado (UF)</label>
+        <input type="text" name="entry.1223901844" class="campo" placeholder="Ex: SP" maxlength="2" required>
+
+        <label>Qual procedimento ou serviço deseja?</label>
+        <textarea name="entry.2001934812" class="campo" rows="3" placeholder="Ex: Camuflagem de estrias, reconstrução de sobrancelhas ou detalhe aqui a sua necessidade..." required></textarea>
+
+        <div class="box-aviso-personalizado">
+          <p>✨ <strong>Busca Personalizada ativa:</strong> Se você não souber o nome exato do tratamento, não se preocupe! Pode escrever com suas palavras no campo acima que a nossa central encontra a especialista perfeita para você.</p>
+        </div>
+
+        <button type="submit" class="botao-enviar">Solicitar Atendimento</button>
+      </form>
+      
+      <a href="index.html" class="link-voltar">← Voltar para o início</a>
+    </div>
+
+    <div class="footer">
+      Haline Lead Beauty © 2026 • Design Exclusivo
+    </div>
+
+  </div>
+
+</body>
+</html>
