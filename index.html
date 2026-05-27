@@ -11,12 +11,12 @@
 
   <style>
     :root {
-      /* Paleta Rose Gold Ultra Leve e Confiável */
-      --cor-fundo: #FBF6F6;       /* Fundo rose/creme clarinho, traz muita leveza */
-      --cor-card: #FFFFFF;        /* Branco puro para dar contraste e limpeza */
-      --cor-dourado: #C5A059;     /* Dourado Matte elegante para os títulos */
-      --cor-rose-botao: #D4A3A3;  /* Rose Gold sofisticado para o botão principal */
-      --cor-texto: #3A302E;       /* Marrom bem escuro para o texto ficar legível */
+      /* Paleta Rose Gold Ultra Leve, Transparente e Confiável */
+      --cor-fundo: #FBF6F6;       
+      --cor-card: #FFFFFF;        
+      --cor-dourado: #C5A059;     
+      --cor-rose-botao: #D4A3A3;  
+      --cor-texto: #3A302E;       
     }
 
     body {
@@ -35,7 +35,7 @@
 
     .container {
       width: 100%;
-      max-width: 450px;
+      max-width: 460px;
       margin: auto;
     }
 
@@ -63,33 +63,30 @@
     /* Card Central Iluminado */
     .card {
       background: var(--cor-card);
-      padding: 35px 25px;
+      padding: 35px 22px;
       border-radius: 24px;
       box-shadow: 0 15px 35px rgba(158, 130, 127, 0.1);
       box-sizing: border-box;
       border: 1px solid #F5EBEB;
     }
 
-    /* Seção de Explicação Simplificada Contra Golpes */
-    .como-funciona {
+    /* Como funciona a plataforma */
+    .secao-explicativa {
       text-align: left;
       background-color: #FAF6F6;
       padding: 20px;
       border-radius: 16px;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
       border: 1px dashed #E6D5D5;
     }
 
-    .como-funciona h2 {
+    .secao-explicativa h2 {
       font-size: 14px;
       margin-top: 0;
       margin-bottom: 12px;
       color: var(--cor-texto);
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
     }
 
     .passo {
@@ -104,20 +101,64 @@
     }
 
     .passo strong {
-      color: var(--cor-dourado);
+      color: #B57A7A;
     }
 
-    /* Alerta de Leads Gratuitos para o Profissional */
-    .alerta-leads {
-      background-color: #FFF9F2;
-      border: 1px solid #F3E1CD;
-      color: #A67C52;
-      padding: 12px;
-      border-radius: 12px;
+    /* Vitrine de Planos Transparente para Profissionais */
+    .vitrine-planos {
+      margin-top: 25px;
+      margin-bottom: 25px;
+      text-align: left;
+      border-top: 1px solid #F5EBEB;
+      padding-top: 20px;
+    }
+
+    .vitrine-planos h3 {
+      font-size: 13px;
+      color: var(--cor-dourado);
+      text-transform: uppercase;
+      margin-top: 0;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+
+    .tabela-planos {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .plano-box {
+      background: #FFFBFB;
+      border: 1px solid #EADCC2;
+      border-radius: 10px;
+      padding: 10px 6px;
+      text-align: center;
+    }
+
+    .plano-box.destaque {
+      border-color: var(--cor-rose-botao);
+      background: #FFF5F5;
+    }
+
+    .plano-nome {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--cor-texto);
+    }
+
+    .plano-preco {
       font-size: 12px;
-      font-weight: 600;
-      margin-bottom: 20px;
-      line-height: 1.4;
+      font-weight: 700;
+      color: #B57A7A;
+      margin-top: 4px;
+    }
+
+    .plano-obs {
+      font-size: 9px;
+      color: #8C7A6B;
+      margin-top: 2px;
     }
 
     /* Botão Buscar Profissional (Rose Gold) */
@@ -183,15 +224,37 @@
 
     <div class="card">
       
-      <div class="como-funciona">
-        <h2>✨ Como funciona nossa plataforma?</h2>
-        <div class="passo"><strong>1. É 100% Gratuito:</strong> Nós não cobramos nenhuma taxa de quem está buscando atendimento e nem comissão sobre os serviços.</div>
-        <div class="passo"><strong>2. Conexão Direta:</strong> Você preenche o formulário rápido para sabermos sua região e o que precisa, e nós te conectamos direto ao WhatsApp do profissional ideal.</div>
-        <div class="passo"><strong>3. Segurança:</strong> Seus dados servem apenas para a indicação e são protegidos. Sem pegadinhas e sem cadastros de cartão.</div>
+      <div class="secao-explicativa">
+        <h2>✨ Para quem busca profissionais</h2>
+        <div class="passo">• <strong>100% Gratuito para Clientes:</strong> Busque especialistas na sua região e fale direto no WhatsApp deles sem pagar nada por isso.</div>
+        <div class="passo">• <strong>Transparência total:</strong> Sem taxas escondidas e sem necessidade de cadastrar cartões.</div>
       </div>
 
-      <div class="alerta-leads">
-        🎁 SOU PROFISSIONAL: Cadastre-se e ganhe seus 3 primeiros contatos de clientes totalmente grátis para testar.
+      <div class="secao-explicativa" style="background-color: #FFFBF7; border-color: #EADCC2;">
+        <h2>💼 Para Profissionais da Beleza</h2>
+        <div class="passo">• <strong>Seus 3 primeiros clientes são grátis:</strong> Cadastre sua especialidade e receba seus primeiros contatos sem custo nenhum.</div>
+        <div class="passo">• <strong>Planos Mensais Flexíveis:</strong> Após os 3 contatos gratuitos, escolha o plano ideal para continuar recebendo indicações diariamente.</div>
+      </div>
+
+      <div class="vitrine-planos">
+        <h3>Nossos Planos Profissionais</h3>
+        <div class="tabela-planos">
+          <div class="plano-box">
+            <div class="plano-nome">Basic</div>
+            <div class="plano-preco">R$ 9,90</div>
+            <div class="plano-obs">Leads Iniciais</div>
+          </div>
+          <div class="plano-box destaque">
+            <div class="plano-nome">Premium</div>
+            <div class="plano-preco">R$ 29,90</div>
+            <div class="plano-obs">Mais Clientes</div>
+          </div>
+          <div class="plano-box">
+            <div class="plano-nome">Elite</div>
+            <div class="plano-preco">R$ 49,90</div>
+            <div class="plano-obs">Destaque Máximo</div>
+          </div>
+        </div>
       </div>
 
       <a class="botao-plataforma"
