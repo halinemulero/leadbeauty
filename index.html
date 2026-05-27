@@ -7,16 +7,16 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      /* Paleta Leve, Iluminada e Profissional */
-      --cor-fundo: #FBF9F6;       /* Fundo pérola/creme ultra leve e limpo */
-      --cor-card: #FFFFFF;        /* Branco puro para o bloco central */
-      --cor-dourado: #C5A059;     /* Dourado elegante para o título */
-      --cor-botao-principal: #4A3B32; /* Marrom suave acetinado para o botão de destaque */
-      --cor-texto: #2C2520;
+      /* Paleta Rose Gold Ultra Leve e Confiável */
+      --cor-fundo: #FBF6F6;       /* Fundo rose/creme clarinho, traz muita leveza */
+      --cor-card: #FFFFFF;        /* Branco puro para dar contraste e limpeza */
+      --cor-dourado: #C5A059;     /* Dourado Matte elegante para os títulos */
+      --cor-rose-botao: #D4A3A3;  /* Rose Gold sofisticado para o botão principal */
+      --cor-texto: #3A302E;       /* Marrom bem escuro para o texto ficar legível */
     }
 
     body {
@@ -40,62 +40,91 @@
     }
 
     header {
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
 
     h1 {
       font-family: 'Playfair Display', serif;
       color: var(--cor-dourado);
-      font-size: 36px;
+      font-size: 34px;
       font-weight: 500;
       margin: 0 0 5px 0;
       letter-spacing: 0.5px;
     }
 
     .tagline {
-      color: #8C7A6B;
+      color: #9E827F;
       font-size: 11px;
       font-weight: 600;
       letter-spacing: 2px;
       text-transform: uppercase;
     }
 
-    /* Card Central Elegante e Iluminado */
+    /* Card Central Iluminado */
     .card {
       background: var(--cor-card);
-      padding: 40px 28px;
+      padding: 35px 25px;
       border-radius: 24px;
-      box-shadow: 0 15px 35px rgba(140, 122, 107, 0.1);
+      box-shadow: 0 15px 35px rgba(158, 130, 127, 0.1);
       box-sizing: border-box;
-      border: 1px solid #EFEBE6;
+      border: 1px solid #F5EBEB;
     }
 
-    .card p {
-      font-size: 14px;
-      line-height: 1.7;
-      margin-top: 0;
+    /* Seção de Explicação Simplificada Contra Golpes */
+    .como-funciona {
+      text-align: left;
+      background-color: #FAF6F6;
+      padding: 20px;
+      border-radius: 16px;
       margin-bottom: 25px;
-      color: #544941;
+      border: 1px dashed #E6D5D5;
     }
 
-    /* Caixa de Destaque da sua Estratégia de Negócio */
+    .como-funciona h2 {
+      font-size: 14px;
+      margin-top: 0;
+      margin-bottom: 12px;
+      color: var(--cor-texto);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .passo {
+      font-size: 13px;
+      line-height: 1.5;
+      margin-bottom: 10px;
+      color: #5C4E4B;
+    }
+
+    .passo:last-child {
+      margin-bottom: 0;
+    }
+
+    .passo strong {
+      color: var(--cor-dourado);
+    }
+
+    /* Alerta de Leads Gratuitos para o Profissional */
     .alerta-leads {
-      background-color: #FAF5EC;
-      border: 1px solid #EADCC2;
-      color: #A38244;
-      padding: 14px;
-      border-radius: 14px;
+      background-color: #FFF9F2;
+      border: 1px solid #F3E1CD;
+      color: #A67C52;
+      padding: 12px;
+      border-radius: 12px;
       font-size: 12px;
       font-weight: 600;
-      margin-bottom: 25px;
-      line-height: 1.5;
+      margin-bottom: 20px;
+      line-height: 1.4;
     }
 
-    /* Botão Buscar Profissional (Sofisticado e com Presença) */
+    /* Botão Buscar Profissional (Rose Gold) */
     .botao-plataforma {
       display: block;
       padding: 16px 20px;
-      background: var(--cor-botao-principal);
+      background: var(--cor-rose-botao);
       color: #FFFFFF;
       text-decoration: none;
       border-radius: 14px;
@@ -104,62 +133,40 @@
       transition: all 0.3s ease;
       box-sizing: border-box;
       letter-spacing: 0.5px;
-      margin-bottom: 14px;
-      box-shadow: 0 4px 12px rgba(74, 59, 50, 0.15);
+      margin-bottom: 12px;
+      box-shadow: 0 4px 12px rgba(212, 163, 163, 0.3);
     }
 
     .botao-plataforma:hover {
-      background: #382D26;
+      background: #C79292;
       transform: translateY(-1px);
     }
 
-    /* Botão Sou Profissional (Clean e Delicado) */
+    /* Botão Sou Profissional (Vazado com borda Rose) */
     .botao-outline {
       display: block;
       padding: 15px 20px;
       background: transparent;
-      color: var(--cor-botao-principal);
+      color: #B57A7A;
       text-decoration: none;
       border-radius: 14px;
       font-size: 14px;
       font-weight: 600;
       transition: all 0.3s ease;
       box-sizing: border-box;
-      border: 2px solid var(--cor-botao-principal);
+      border: 2px solid var(--cor-rose-botao);
       letter-spacing: 0.5px;
     }
 
     .botao-outline:hover {
-      background: rgba(74, 59, 50, 0.04);
+      background: rgba(212, 163, 163, 0.05);
       transform: translateY(-1px);
-    }
-
-    /* Rodapé do Card */
-    .info-adicional {
-      margin-top: 30px;
-      padding-top: 20px;
-      border-top: 1px solid #F0EAE1;
-      text-align: left;
-    }
-
-    .topico {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 13px;
-      color: #7A6E65;
-      margin-bottom: 10px;
-    }
-
-    .topico span {
-      color: var(--cor-dourado);
-      font-weight: bold;
     }
 
     .footer {
       margin-top: 30px;
       font-size: 10px;
-      color: #A3968E;
+      color: #B5A6A4;
       letter-spacing: 1px;
     }
   </style>
@@ -175,18 +182,22 @@
     </header>
 
     <div class="card">
-      <p>
-        Conectamos clientes que buscam cuidados de excelência aos melhores profissionais de estética, cabelo, unhas e bem-estar de todo o Brasil.
-      </p>
+      
+      <div class="como-funciona">
+        <h2>✨ Como funciona nossa plataforma?</h2>
+        <div class="passo"><strong>1. É 100% Gratuito:</strong> Nós não cobramos nenhuma taxa de quem está buscando atendimento e nem comissão sobre os serviços.</div>
+        <div class="passo"><strong>2. Conexão Direta:</strong> Você preenche o formulário rápido para sabermos sua região e o que precisa, e nós te conectamos direto ao WhatsApp do profissional ideal.</div>
+        <div class="passo"><strong>3. Segurança:</strong> Seus dados servem apenas para a indicação e são protegidos. Sem pegadinhas e sem cadastros de cartão.</div>
+      </div>
 
       <div class="alerta-leads">
-        🎁 ATENÇÃO PROFISSIONAL: Cadastre-se hoje e receba seus 3 primeiros contatos (leads) totalmente grátis!
+        🎁 SOU PROFISSIONAL: Cadastre-se e ganhe seus 3 primeiros contatos de clientes totalmente grátis para testar.
       </div>
 
       <a class="botao-plataforma"
          href="https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform"
          target="_blank">
-         Buscar um Profissional na minha Região
+         Buscar Profissional na minha Região
       </a>
 
       <a class="botao-outline"
@@ -195,15 +206,10 @@
         Quero Receber Clientes no meu WhatsApp
       </a>
 
-      <div class="info-adicional">
-        <div class="topico"><span>✦</span> Todos os nichos da beleza e bem-estar</div>
-        <div class="topico"><span>✦</span> Conexão direta e sem intermediários</div>
-        <div class="topico"><span>✦</span> Leads qualificados e filtrados por região</div>
-      </div>
     </div>
 
     <div class="footer">
-      Haline Lead Beauty © 2026 • Todos os direitos reservados
+      Haline Lead Beauty © 2026 • Termos de Uso Seguros e Transparentes
     </div>
 
   </div>
