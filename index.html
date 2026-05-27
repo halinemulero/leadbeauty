@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lead Beauty</title>
+  <title>Lead Beauty - Haline Mulero</title>
 
   <style>
     body{
@@ -16,31 +16,51 @@
 
     .container{
       padding:60px 20px;
+      max-width:800px;
+      margin:auto;
     }
 
     h1{
       color:#c06c84;
       font-size:48px;
+      margin-bottom:10px;
     }
 
     p{
-      font-size:20px;
-      margin-top:20px;
+      font-size:18px;
+      margin-top:10px;
+      line-height:1.5;
     }
 
     .botao{
       display:inline-block;
-      margin-top:30px;
+      margin-top:25px;
       padding:15px 30px;
       background:#c06c84;
       color:white;
       text-decoration:none;
       border-radius:10px;
       font-size:18px;
+      transition:0.3s;
     }
 
     .botao:hover{
       background:#a9546d;
+      transform:scale(1.03);
+    }
+
+    .card{
+      background:white;
+      padding:25px;
+      border-radius:12px;
+      margin-top:30px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .footer{
+      margin-top:40px;
+      font-size:12px;
+      color:#888;
     }
   </style>
 </head>
@@ -48,16 +68,43 @@
 <body>
 
   <div class="container">
+
     <h1>Lead Beauty ✨</h1>
 
     <p>
-      Bem-vinda ao meu site de estética e beleza.
+      Plataforma criada por <strong>Haline Mulero</strong><br>
+      Conectando clientes e profissionais da beleza
     </p>
 
-    <a class="botao" href="#">
-      Agendar Atendimento
+    <div class="card">
+      <p>
+        Encontre profissionais da sua região ou receba novos clientes diretamente.
+        Cadastro simples, rápido e gratuito na fase inicial.
+      </p>
+    </div>
+
+    <!-- BOTÃO CLIENTE -->
+    <a class="botao"
+       href="https://docs.google.com/forms/d/e/SEU-LINK-CLIENTE/viewform"
+       target="_blank">
+      💅 Quero encontrar um profissional
     </a>
+
+    <br>
+
+    <!-- BOTÃO PROFISSIONAL -->
+    <a class="botao"
+       href="https://docs.google.com/forms/d/e/SEU-LINK-PROFISSIONAL/viewform"
+       target="_blank">
+      🧑‍💼 Sou profissional e quero clientes
+    </a>
+
+    <div class="footer">
+      Criado por Haline Mulero • Lead Beauty © 2026
+    </div>
+
   </div>
 
 </body>
 </html>
+  
