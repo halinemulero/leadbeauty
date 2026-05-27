@@ -3,27 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lead Beauty - Conectando o Mercado da Beleza</title>
+  <title>Haline Lead Beauty - Plataforma Nacional de Beleza</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      /* Nova paleta: Preto Premium, Branco e Dourado Champagne Comercial */
-      --cor-fundo: #121212;       /* Preto fosco de aplicativo moderno */
-      --cor-card: #FFFFFF;       /* Branco limpo para contraste profissional */
-      --cor-destaque: #D4AF37;   /* Dourado para passar valor */
-      --cor-texto: #1C1C1E;
-      --cor-cinza-subtil: #F8F9FA;
+      /* Paleta Leve, Iluminada e Profissional */
+      --cor-fundo: #FBF9F6;       /* Fundo pérola/creme ultra leve e limpo */
+      --cor-card: #FFFFFF;        /* Branco puro para o bloco central */
+      --cor-dourado: #C5A059;     /* Dourado elegante para o título */
+      --cor-botao-principal: #4A3B32; /* Marrom suave acetinado para o botão de destaque */
+      --cor-texto: #2C2520;
     }
 
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
       background-color: var(--cor-fundo);
-      color: #FFFFFF;
+      color: var(--cor-texto);
       text-align: center;
       min-height: 100vh;
       display: flex;
@@ -35,7 +35,7 @@
 
     .container {
       width: 100%;
-      max-width: 460px;
+      max-width: 450px;
       margin: auto;
     }
 
@@ -45,56 +45,57 @@
 
     h1 {
       font-family: 'Playfair Display', serif;
-      color: var(--cor-destaque);
+      color: var(--cor-dourado);
       font-size: 36px;
-      font-weight: 600;
+      font-weight: 500;
       margin: 0 0 5px 0;
       letter-spacing: 0.5px;
     }
 
     .tagline {
-      color: #A1A1AA;
+      color: #8C7A6B;
       font-size: 11px;
       font-weight: 600;
       letter-spacing: 2px;
       text-transform: uppercase;
     }
 
-    /* Card com visual de Startup / Plataforma Nacional */
+    /* Card Central Elegante e Iluminado */
     .card {
       background: var(--cor-card);
-      padding: 35px 25px;
+      padding: 40px 28px;
       border-radius: 24px;
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 15px 35px rgba(140, 122, 107, 0.1);
       box-sizing: border-box;
-      color: var(--cor-texto);
+      border: 1px solid #EFEBE6;
     }
 
     .card p {
-      font-size: 15px;
-      line-height: 1.6;
+      font-size: 14px;
+      line-height: 1.7;
       margin-top: 0;
-      margin-bottom: 20px;
-      color: #444446;
+      margin-bottom: 25px;
+      color: #544941;
     }
 
-    /* Alerta da Isca Digital: 3 Leads Gratuitos */
+    /* Caixa de Destaque da sua Estratégia de Negócio */
     .alerta-leads {
-      background-color: #FFF9E6;
-      border: 1px solid #FFE082;
-      color: #B78103;
-      padding: 12px;
-      border-radius: 12px;
-      font-size: 13px;
+      background-color: #FAF5EC;
+      border: 1px solid #EADCC2;
+      color: #A38244;
+      padding: 14px;
+      border-radius: 14px;
+      font-size: 12px;
       font-weight: 600;
       margin-bottom: 25px;
+      line-height: 1.5;
     }
 
-    /* Botão de Ação Principal (Preto para destacar no fundo branco) */
+    /* Botão Buscar Profissional (Sofisticado e com Presença) */
     .botao-plataforma {
       display: block;
       padding: 16px 20px;
-      background: var(--cor-fundo);
+      background: var(--cor-botao-principal);
       color: #FFFFFF;
       text-decoration: none;
       border-radius: 14px;
@@ -103,41 +104,41 @@
       transition: all 0.3s ease;
       box-sizing: border-box;
       letter-spacing: 0.5px;
-      margin-bottom: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      margin-bottom: 14px;
+      box-shadow: 0 4px 12px rgba(74, 59, 50, 0.15);
     }
 
     .botao-plataforma:hover {
-      background: #232326;
+      background: #382D26;
       transform: translateY(-1px);
     }
 
-    /* Botão Secundário (Vazado/Outline) */
+    /* Botão Sou Profissional (Clean e Delicado) */
     .botao-outline {
       display: block;
       padding: 15px 20px;
       background: transparent;
-      color: var(--cor-fundo);
+      color: var(--cor-botao-principal);
       text-decoration: none;
       border-radius: 14px;
       font-size: 14px;
       font-weight: 600;
       transition: all 0.3s ease;
       box-sizing: border-box;
-      border: 2px solid var(--cor-fundo);
+      border: 2px solid var(--cor-botao-principal);
       letter-spacing: 0.5px;
     }
 
     .botao-outline:hover {
-      background: rgba(0, 0, 0, 0.05);
+      background: rgba(74, 59, 50, 0.04);
       transform: translateY(-1px);
     }
 
-    /* Rodapé do Card com os Pilares do Negócio */
+    /* Rodapé do Card */
     .info-adicional {
       margin-top: 30px;
       padding-top: 20px;
-      border-top: 1px solid #E5E5EA;
+      border-top: 1px solid #F0EAE1;
       text-align: left;
     }
 
@@ -146,19 +147,19 @@
       align-items: center;
       gap: 10px;
       font-size: 13px;
-      color: #636366;
-      margin-bottom: 8px;
+      color: #7A6E65;
+      margin-bottom: 10px;
     }
 
     .topico span {
-      color: var(--cor-destaque);
+      color: var(--cor-dourado);
       font-weight: bold;
     }
 
     .footer {
       margin-top: 30px;
       font-size: 10px;
-      color: #71717A;
+      color: #A3968E;
       letter-spacing: 1px;
     }
   </style>
@@ -169,8 +170,8 @@
   <div class="container">
 
     <header>
-      <h1>Lead Beauty</h1>
-      <div class="tagline">Plataforma Nacional de Beleza</div>
+      <h1>Haline Lead Beauty</h1>
+      <div class="tagline">Sua Plataforma Nacional de Beleza</div>
     </header>
 
     <div class="card">
@@ -195,14 +196,14 @@
       </a>
 
       <div class="info-adicional">
-        <div class="topico"><span>✓</span> Todos os nichos da beleza e bem-estar</div>
-        <div class="topico"><span>✓</span> Conexão direta e sem intermediários</div>
-        <div class="topico"><span>✓</span> Leads qualificados e filtrados por região</div>
+        <div class="topico"><span>✦</span> Todos os nichos da beleza e bem-estar</div>
+        <div class="topico"><span>✦</span> Conexão direta e sem intermediários</div>
+        <div class="topico"><span>✦</span> Leads qualificados e filtrados por região</div>
       </div>
     </div>
 
     <div class="footer">
-      Lead Beauty © 2026 • Idealizado por Haline Mulero
+      Haline Lead Beauty © 2026 • Todos os direitos reservados
     </div>
 
   </div>
