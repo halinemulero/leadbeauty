@@ -3,26 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lead Beauty - Plataforma Nacional de Beleza</title>
-
+  <title>Cadastro de Cliente - Lead Beauty</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-
   <style>
-    :root {
-      --cor-fundo: #0D0D0D;       
-      --cor-card: #1A1A1A;        
-      --cor-dourado: #C5A059;     
-      --cor-texto-claro: #FFFFFF; 
-      --cor-texto-mutado: #A6A6A6;
-    }
-
+    /* Fundo escuro nas bordas para manter o padrão do seu site */
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
-      background-color: var(--cor-fundo);
-      color: var(--cor-texto-claro);
+      background-color: #0D0D0D; 
+      color: #333333;
       text-align: center;
       min-height: 100vh;
       display: flex;
@@ -31,278 +22,155 @@
       padding: 20px;
       box-sizing: border-box;
     }
-
-    .container {
-      width: 100%;
-      max-width: 500px;
-      margin: auto;
-    }
-
-    header {
-      margin-bottom: 25px;
-    }
-
-    h1 {
-      font-family: 'Playfair Display', serif;
-      color: var(--cor-dourado);
-      font-size: 38px;
+    
+    .container { width: 100%; max-width: 480px; margin: auto; }
+    
+    /* Título idêntico ao da sua página inicial (Dourado Elegante) */
+    h1 { 
+      font-family: 'Playfair Display', serif; 
+      color: #C5A059; 
+      font-size: 36px; 
+      margin: 0 0 25px 0; 
       font-weight: 600;
-      margin: 0 0 5px 0;
-      letter-spacing: 1px;
     }
-
-    .tagline {
-      color: var(--cor-texto-mutado);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-
-    .card {
-      background: var(--cor-card);
-      padding: 35px 25px;
-      border-radius: 24px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    
+    /* Card Branco Puro - Igualzinho ao da sua página inicial antiga */
+    .card { 
+      background: #FFFFFF; 
+      padding: 40px 30px; 
+      border-radius: 24px; 
+      text-align: left; 
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3); 
       box-sizing: border-box;
-      border: 1px solid #2A2A2A;
     }
-
-    .introducao {
-      font-size: 14px;
-      line-height: 1.6;
-      color: var(--cor-texto-mutado);
-      margin-bottom: 30px;
+    
+    .instrucao { 
+      font-size: 14px; 
+      color: #666666; 
+      margin-bottom: 30px; 
+      line-height: 1.6; 
+      text-align: center; 
     }
-
-    .titulo-secao {
-      font-size: 14px;
-      font-weight: 600;
-      text-align: left;
-      margin: 0 0 15px 5px;
-      color: var(--cor-dourado);
-      text-transform: uppercase;
-      letter-spacing: 1px;
+    
+    /* Etiquetas em Dourado/Marrom Sofisticado */
+    label { 
+      display: block; 
+      font-size: 12px; 
+      color: #C5A059; 
+      font-weight: 700; 
+      text-transform: uppercase; 
+      margin-bottom: 8px; 
+      letter-spacing: 0.5px; 
     }
-
-    .grade-nichos {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-bottom: 25px;
+    
+    /* Campos de digitação claros e modernos */
+    .campo { 
+      width: 100%; 
+      padding: 14px; 
+      background: #F9F9F9; 
+      border: 1px solid #E0E0E0; 
+      border-radius: 12px; 
+      color: #333333; 
+      font-family: 'Montserrat', sans-serif; 
+      font-size: 14px; 
+      margin-bottom: 22px; 
+      box-sizing: border-box; 
+      transition: all 0.3s; 
     }
-
-    .nicho-item {
-      background: #222222;
-      border: 1px solid #333333;
-      border-radius: 14px;
-      padding: 18px 10px;
-      text-decoration: none;
-      color: var(--cor-texto-claro);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      font-size: 13px;
+    
+    .campo:focus { 
+      outline: none; 
+      border-color: #C5A059; 
+      background: #FFFFFF;
+      box-shadow: 0 0 0 4px rgba(197, 160, 89, 0.1);
+    }
+    
+    /* Caixa de aviso sutil para a cliente escrever caso não encontre */
+    .box-aviso { 
+      background: #FAF6F0; 
+      border: 1px dashed #C5A059; 
+      padding: 15px; 
+      border-radius: 12px; 
+      margin-bottom: 25px; 
+    }
+    
+    .box-aviso p { 
+      margin: 0; 
+      font-size: 12px; 
+      color: #7A6336; 
+      line-height: 1.5; 
+    }
+    
+    /* Botão Preto Marcante - Igual ao botão "Buscar" da sua home original */
+    .botao-enviar { 
+      display: block; 
+      width: 100%; 
+      padding: 16px; 
+      background: #111111; 
+      color: #FFFFFF; 
+      border: 1px solid #333333; 
+      border-radius: 12px; 
+      font-size: 14px; 
+      font-weight: 600; 
+      cursor: pointer; 
+      transition: all 0.3s ease; 
+      text-align: center; 
+      text-decoration: none; 
+      box-sizing: border-box; 
+    }
+    
+    .botao-enviar:hover { 
+      background: #1C1C1C; 
+      border-color: #C5A059;
+      transform: translateY(-2px); 
+    }
+    
+    .link-voltar { 
+      display: block; 
+      text-align: center; 
+      margin-top: 25px; 
+      color: #999999; 
+      font-size: 12px; 
+      text-decoration: none; 
       font-weight: 500;
-      transition: all 0.25s ease;
     }
-
-    .nicho-item:hover {
-      border-color: var(--cor-dourado);
-      background: #2A251C;
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(197, 160, 89, 0.15);
-    }
-
-    .nicho-icone {
-      font-size: 24px;
-    }
-
-    .nao-encontrou-box {
-      background: #1F1B15;
-      border: 1px dashed var(--cor-dourado);
-      border-radius: 14px;
-      padding: 20px;
-      margin-bottom: 30px;
-      text-align: left;
-    }
-
-    .nao-encontrou-box h3 {
-      font-size: 13px;
-      color: var(--cor-dourado);
-      margin: 0 0 8px 0;
-      text-transform: uppercase;
-    }
-
-    .nao-encontrou-box p {
-      font-size: 12px;
-      color: var(--cor-texto-mutado);
-      line-height: 1.5;
-      margin: 0 0 15px 0;
-    }
-
-    .campo-texto {
-      width: 100%;
-      padding: 12px;
-      background: #0D0D0D;
-      border: 1px solid #333333;
-      border-radius: 8px;
-      color: #FFFFFF;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 13px;
-      box-sizing: border-box;
-      resize: vertical;
-      margin-bottom: 12px;
-    }
-
-    .campo-texto:focus {
-      outline: none;
-      border-color: var(--cor-dourado);
-    }
-
-    .divisoria {
-      border-top: 1px solid #2A2A2A;
-      margin: 30px 0 25px 0;
-      padding-top: 25px;
-    }
-
-    .botao-acao {
-      display: block;
-      width: 100%;
-      padding: 15px 20px;
-      background: var(--cor-dourado);
-      color: #0D0D0D;
-      text-decoration: none;
-      border-radius: 12px;
-      font-size: 14px;
-      font-weight: 700;
-      transition: all 0.3s ease;
-      box-sizing: border-box;
-      letter-spacing: 0.5px;
-      border: none;
-      cursor: pointer;
-    }
-
-    .botao-acao:hover {
-      background: #DEC085;
-      transform: translateY(-1px);
-    }
-
-    .botao-outline {
-      display: block;
-      padding: 14px 20px;
-      background: transparent;
-      color: var(--cor-dourado);
-      text-decoration: none;
-      border-radius: 12px;
-      font-size: 13px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      box-sizing: border-box;
-      border: 1px solid var(--cor-dourado);
-      margin-top: 15px;
-    }
-
-    .botao-outline:hover {
-      background: rgba(197, 160, 89, 0.05);
-    }
-
-    .footer {
-      margin-top: 30px;
-      font-size: 10px;
-      color: #555555;
-      letter-spacing: 1px;
+    
+    .link-voltar:hover { 
+      color: #666666; 
     }
   </style>
 </head>
 <body>
 
   <div class="container">
-
-    <header>
-      <h1>Lead Beauty</h1>
-      <div class="tagline">Plataforma Nacional de Beleza</div>
-    </header>
-
+    <h1>Lead Beauty</h1>
+    
     <div class="card">
+      <p class="instrucao">Preencha os dados abaixo para localizarmos as melhores profissionais na sua região.</p>
       
-      <div class="introducao">
-        Conectamos clientes que buscam cuidados de excelência aos melhores profissionais de estética, cabelo, unhas e bem-estar de todo o Brasil.
-      </div>
-
-      <div class="titulo-secao">Qual serviço procura?</div>
-
-      <div class="grade-nichos">
+      <form action="https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/formResponse" method="POST" target="_blank">
         
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform" target="_blank" class="nicho-item">
-          <span class="nicho-icone">✨</span>
-          <span>Estética Corporal</span>
-        </a>
+        <label>Seu Nome Completo</label>
+        <input type="text" name="entry.1983790113" class="campo" placeholder="Digite seu nome" required>
 
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform" target="_blank" class="nicho-item">
-          <span class="nicho-icone">🧬</span>
-          <span>Estética Avançada</span>
-        </a>
+        <label>Cidade</label>
+        <input type="text" name="entry.1449830573" class="campo" placeholder="Ex: São Vicente" required>
 
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform" target="_blank" class="nicho-item">
-          <span class="nicho-icone">💇‍♀️</span>
-          <span>Cabelos & Cachos</span>
-        </a>
+        <label>Estado (UF)</label>
+        <input type="text" name="entry.1223901844" class="campo" placeholder="Ex: SP" maxlength="2" required>
 
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform" target="_blank" class="nicho-item">
-          <span class="nicho-icone">💅</span>
-          <span>Design de Unhas</span>
-        </a>
+        <label>Qual serviço você procura?</label>
+        <textarea name="entry.2001934812" class="campo" rows="3" placeholder="Ex: Microagulhamento, Design de Unhas ou descreva o que precisa..." required></textarea>
 
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform" target="_blank" class="nicho-item">
-          <span class="nicho-icone">💆‍♀️</span>
-          <span>Massagens & SPA</span>
-        </a>
+        <div class="box-aviso">
+          <p><strong>Não encontrou o que queria?</strong> Pode escrever a sua necessidade acima! Nossa central vai buscar uma especialista para você mesmo que ela ainda não esteja cadastrada.</p>
+        </div>
 
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform" target="_blank" class="nicho-item">
-          <span class="nicho-icone">👣</span>
-          <span>Podologia</span>
-        </a>
-
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform" target="_blank" class="nicho-item">
-          <span class="nicho-icone">📐</span>
-          <span>Sobrancelhas & Cílios</span>
-        </a>
-
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform" target="_blank" class="nicho-item">
-          <span class="nicho-icone">💄</span>
-          <span>Maquiagem Social</span>
-        </a>
-
-      </div>
-
-      <div class="nao-encontrou-box">
-        <h3>Não encontrou a especialista ideal?</h3>
-        <p>Escreva abaixo o procedimento ou a sua necessidade, que a nossa equipe localiza a profissional perfeita na sua região.</p>
-        
-        <form action="https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform" target="_blank" method="GET">
-          <textarea class="campo-texto" placeholder="Ex: Preciso de camuflagem de estrias ou podologia especializada em Santos..." rows="3" required></textarea>
-          <button type="submit" class="botao-acao" style="padding: 10px 15px; font-size: 12px; border-radius: 8px;">Solicitar Especialista</button>
-        </form>
-      </div>
-
-      <div class="divisoria">
-        <div class="titulo-secao" style="text-align: center; margin-bottom: 5px;">Área do Profissional</div>
-        <p style="font-size: 12px; color: var(--cor-texto-mutado); margin-bottom: 15px;">Cadastre-se hoje e receba seus 3 primeiros leads totalmente grátis!</p>
-        
-        <a class="botao-outline" href="https://docs.google.com/forms/d/e/1FAIpQLScgzX3XcoVnweDoo_qIuiyYTcjik38eVaNI4nZvND3wrNSNzQ/viewform" target="_blank">
-          Quero Receber Clientes no meu WhatsApp
-        </a>
-      </div>
-
+        <button type="submit" class="botao-enviar">Buscar Especialista</button>
+      </form>
+      
+      <a href="index.html" class="link-voltar">← Voltar para a página inicial</a>
     </div>
-
-    <div class="footer">
-      Lead Beauty © 2026 • Idealizado por Haline Mulero
-    </div>
-
   </div>
 
 </body>
