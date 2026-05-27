@@ -3,27 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Haline Lead Beauty - Plataforma Nacional de Beleza</title>
+  <title>Lead Beauty - Plataforma Nacional de Beleza</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2 family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      /* Paleta Rose Gold Ultra Leve, Transparente e Confiável */
-      --cor-fundo: #FBF6F6;       
-      --cor-card: #FFFFFF;        
+      /* Cores alinhadas perfeitamente com a sua página inicial atual */
+      --cor-fundo: #0D0D0D;       
+      --cor-card: #1A1A1A;        
       --cor-dourado: #C5A059;     
-      --cor-rose-botao: #D4A3A3;  
-      --cor-texto: #3A302E;       
+      --cor-texto-claro: #FFFFFF; 
+      --cor-texto-mutado: #A6A6A6;
     }
 
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
       background-color: var(--cor-fundo);
-      color: var(--cor-texto);
+      color: var(--cor-texto-claro);
       text-align: center;
       min-height: 100vh;
       display: flex;
@@ -35,83 +35,59 @@
 
     .container {
       width: 100%;
-      max-width: 480px;
+      max-width: 500px;
       margin: auto;
     }
 
     header {
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
 
     h1 {
       font-family: 'Playfair Display', serif;
       color: var(--cor-dourado);
-      font-size: 34px;
-      font-weight: 500;
+      font-size: 38px;
+      font-weight: 600;
       margin: 0 0 5px 0;
-      letter-spacing: 0.5px;
+      letter-spacing: 1px;
     }
 
     .tagline {
-      color: #9E827F;
+      color: var(--cor-texto-mutado);
       font-size: 11px;
       font-weight: 600;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
       text-transform: uppercase;
     }
 
-    /* Card Central Iluminado */
+    /* Card Central Luxuoso */
     .card {
       background: var(--cor-card);
-      padding: 30px 20px;
+      padding: 35px 25px;
       border-radius: 24px;
-      box-shadow: 0 15px 35px rgba(158, 130, 127, 0.1);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
       box-sizing: border-box;
-      border: 1px solid #F5EBEB;
+      border: 1px solid #2A2A2A;
     }
 
-    /* Seção Informativa Simples */
-    .secao-explicativa {
-      text-align: left;
-      background-color: #FAF6F6;
-      padding: 15px;
-      border-radius: 16px;
-      margin-bottom: 20px;
-      border: 1px dashed #E6D5D5;
+    .introducao {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--cor-texto-mutado);
+      margin-bottom: 30px;
     }
 
-    .secao-explicativa h2 {
-      font-size: 13px;
-      margin-top: 0;
-      margin-bottom: 8px;
-      color: var(--cor-texto);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .passo {
-      font-size: 12px;
-      line-height: 1.5;
-      color: #5C4E4B;
-    }
-
-    /* Título da Grade de Seleção */
     .titulo-secao {
       font-size: 14px;
       font-weight: 600;
       text-align: left;
-      margin: 20px 0 12px 5px;
-      color: var(--cor-texto);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .titulo-secao span {
+      margin: 0 0 15px 5px;
       color: var(--cor-dourado);
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
-    /* Grade de Nichos (Igual ao seu Print de Referência) */
+    /* Grade de Nichos de Beleza - O Grande Leque */
     .grade-nichos {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -119,111 +95,132 @@
       margin-bottom: 25px;
     }
 
-    /* Item do Nicho (Estilo Card Interativo) */
+    /* Cards Interativos de Serviços */
     .nicho-item {
-      background: #FFFBFB;
-      border: 1px solid #EFEBE6;
-      border-radius: 16px;
-      padding: 16px 10px;
+      background: #222222;
+      border: 1px solid #333333;
+      border-radius: 14px;
+      padding: 18px 10px;
       text-decoration: none;
-      color: var(--cor-texto);
+      color: var(--cor-texto-claro);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 10px;
       font-size: 13px;
       font-weight: 500;
-      transition: all 0.2s ease;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.01);
+      transition: all 0.25s ease;
     }
 
     .nicho-item:hover {
-      border-color: var(--cor-rose-botao);
-      background: #FFF5F5;
-      transform: translateY(-2px);
-      box-shadow: 0 5px 12px rgba(212, 163, 163, 0.15);
+      border-color: var(--cor-dourado);
+      background: #2A251C;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(197, 160, 89, 0.15);
     }
 
     .nicho-icone {
-      font-size: 22px;
+      font-size: 24px;
     }
 
-    /* Vitrine de Preços Sutil para Profissionais */
-    .vitrine-planos {
-      margin-top: 25px;
-      margin-bottom: 25px;
-      text-align: left;
-      border-top: 1px solid #F5EBEB;
-      padding-top: 20px;
-    }
-
-    .vitrine-planos h3 {
-      font-size: 12px;
-      color: var(--cor-dourado);
-      text-transform: uppercase;
-      margin-top: 0;
-      margin-bottom: 12px;
-      letter-spacing: 0.5px;
-      text-align: center;
-    }
-
-    .tabela-planos {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-    }
-
-    .plano-box {
-      background: #FFFBFB;
-      border: 1px solid #EADCC2;
-      border-radius: 10px;
-      padding: 10px 4px;
-      text-align: center;
-    }
-
-    .plano-box.destaque {
-      border-color: var(--cor-rose-botao);
-      background: #FFF5F5;
-    }
-
-    .plano-nome {
-      font-size: 11px;
-      font-weight: 700;
-    }
-
-    .plano-preco {
-      font-size: 12px;
-      font-weight: 700;
-      color: #B57A7A;
-      margin-top: 3px;
-    }
-
-    /* Botão de Destaque para o Profissional se Cadastrar */
-    .botao-profissional {
-      display: block;
-      padding: 15px 20px;
-      background: var(--cor-rose-botao);
-      color: #FFFFFF;
-      text-decoration: none;
+    /* Seção de Solicitação Personalizada */
+    .nao-encontrou-box {
+      background: #1F1B15;
+      border: 1px dashed var(--cor-dourado);
       border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 30px;
+      text-align: left;
+    }
+
+    .nao-encontrou-box h3 {
+      font-size: 13px;
+      color: var(--cor-dourado);
+      margin: 0 0 8px 0;
+      text-transform: uppercase;
+    }
+
+    .nao-encontrou-box p {
+      font-size: 12px;
+      color: var(--cor-texto-mutado);
+      line-height: 1.5;
+      margin: 0 0 15px 0;
+    }
+
+    /* Input Elegante para a Cliente Escrever */
+    .campo-texto {
+      width: 100%;
+      padding: 12px;
+      background: #0D0D0D;
+      border: 1px solid #333333;
+      border-radius: 8px;
+      color: #FFFFFF;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      box-sizing: border-box;
+      resize: vertical;
+      margin-bottom: 12px;
+    }
+
+    .campo-texto:focus {
+      outline: none;
+      border-color: var(--cor-dourado);
+    }
+
+    /* Linha Divisória de Área Profissional */
+    .divisoria {
+      border-top: 1px solid #2A2A2A;
+      margin: 30px 0 25px 0;
+      padding-top: 25px;
+    }
+
+    /* Botões de Ação */
+    .botao-acao {
+      display: block;
+      width: 100%;
+      padding: 15px 20px;
+      background: var(--cor-dourado);
+      color: #0D0D0D;
+      text-decoration: none;
+      border-radius: 12px;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 700;
       transition: all 0.3s ease;
       box-sizing: border-box;
       letter-spacing: 0.5px;
-      box-shadow: 0 4px 12px rgba(212, 163, 163, 0.3);
+      border: none;
+      cursor: pointer;
     }
 
-    .botao-profissional:hover {
-      background: #C79292;
+    .botao-acao:hover {
+      background: #DEC085;
       transform: translateY(-1px);
+    }
+
+    .botao-outline {
+      display: block;
+      padding: 14px 20px;
+      background: transparent;
+      color: var(--cor-dourado);
+      text-decoration: none;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+      border: 1px solid var(--cor-dourado);
+      margin-top: 15px;
+    }
+
+    .botao-outline:hover {
+      background: rgba(197, 160, 89, 0.05);
     }
 
     .footer {
       margin-top: 30px;
       font-size: 10px;
-      color: #B5A6A4;
+      color: #555555;
       letter-spacing: 1px;
     }
   </style>
@@ -234,41 +231,43 @@
   <div class="container">
 
     <header>
-      <h1>Haline Lead Beauty</h1>
-      <div class="tagline">Sua Plataforma Nacional de Beleza</div>
+      <h1>Lead Beauty</h1>
+      <div class="tagline">Plataforma Nacional de Beleza</div>
     </header>
 
     <div class="card">
       
-      <div class="secao-explicativa">
-        <h2>✨ Conexão Segura e Gratuita</h2>
-        <div class="passo">Escolha abaixo o serviço que você procura. Conectamos você diretamente ao WhatsApp do profissional ideal na sua região, sem taxas e sem pegadinhas.</div>
+      <div class="introducao">
+        Conectamos clientes que buscam cuidados de excelência aos melhores profissionais de estética, cabelo, unhas e bem-estar de todo o Brasil.
       </div>
 
-      <div class="titulo-secao">
-        <span>●</span> Escolha o serviço que você procura:
-      </div>
+      <div class="titulo-secao">Qual serviço você procura?</div>
 
       <div class="grade-nichos">
         
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform" target="_blank" class="nicho-item">
           <span class="nicho-icone">✨</span>
-          <span>Estética</span>
+          <span>Estética Corporal</span>
+        </a>
+
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform" target="_blank" class="nicho-item">
+          <span class="nicho-icone">🧬</span>
+          <span>Estética Avançada</span>
         </a>
 
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform" target="_blank" class="nicho-item">
           <span class="nicho-icone">💇‍♀️</span>
-          <span>Cabelos</span>
+          <span>Cabelos & Cachos</span>
         </a>
 
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform" target="_blank" class="nicho-item">
           <span class="nicho-icone">💅</span>
-          <span>Unhas</span>
+          <span>Design de Unhas</span>
         </a>
 
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform" target="_blank" class="nicho-item">
           <span class="nicho-icone">💆‍♀️</span>
-          <span>Massagem</span>
+          <span>Massagens & SPA</span>
         </a>
 
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform" target="_blank" class="nicho-item">
@@ -277,34 +276,40 @@
         </a>
 
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform" target="_blank" class="nicho-item">
-          <span class="nicho-icone">🪒</span>
-          <span>Depilação</span>
+          <span class="nicho-icone">📐</span>
+          <span>Sobrancelhas & Cílios</span>
         </a>
 
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform" target="_blank" class="nicho-item" style="grid-column: span 2;">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform" target="_blank" class="nicho-item">
           <span class="nicho-icone">💄</span>
-          <span>Maquiagem</span>
+          <span>Maquiagem Social</span>
         </a>
 
       </div>
 
-      <div class="vitrine-planos">
-        <h3>Trabalha na área da beleza?</h3>
-        <div class="secao-explicativa" style="background-color: #FFFBF7; border-color: #EADCC2; margin-bottom: 15px;">
-          <div class="passo" style="text-align: center;">Cadastre-se e ganhe seus <strong>3 primeiros leads grátis</strong>. Planos a partir de R$ 9,90/mês.</div>
-        </div>
+      <div class="nao-encontrou-box">
+        <h3>Não encontrou a especialista ideal?</h3>
+        <p>Escreva abaixo o procedimento ou a sua necessidade, que a nossa equipe localiza o profissional ideal para você na sua cidade.</p>
         
-        <a class="botao-profissional"
-           href="https://docs.google.com/forms/d/e/1FAIpQLScgzX3XcoVnweDoo_qIuiyYTcjik38eVaNI4nZvND3wrNSNzQ/viewform"
-           target="_blank">
-          Sou Profissional e quero Clientes
+        <form action="https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform" target="_blank" method="GET">
+          <textarea class="campo-texto" placeholder="Ex: Preciso de camuflagem de estrias na Praia Grande ou especialista em loiros..." rows="3" required></textarea>
+          <button type="submit" class="botao-acao" style="padding: 10px 15px; font-size: 12px; border-radius: 8px;">Solicitar Especialista</button>
+        </form>
+      </div>
+
+      <div class="divisoria">
+        <div class="titulo-secao" style="text-align: center; margin-bottom: 5px;">Área do Profissional</div>
+        <p style="font-size: 12px; color: var(--cor-texto-mutado); margin-bottom: 15px;">Cadastre-se hoje e receba seus 3 primeiros leads totalmente grátis!</p>
+        
+        <a class="botao-outline" href="https://docs.google.com/forms/d/e/1FAIpQLScgzX3XcoVnweDoo_qIuiyYTcjik38eVaNI4nZvND3wrNSNzQ/viewform" target="_blank">
+          Quero Receber Clientes no meu WhatsApp
         </a>
       </div>
 
     </div>
 
     <div class="footer">
-      Haline Lead Beauty © 2026 • Conectando Profissionais e Clientes com Segurança
+      Lead Beauty © 2026 • Idealizado por Haline Mulero
     </div>
 
   </div>
