@@ -7,7 +7,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2 family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -35,7 +35,7 @@
 
     .container {
       width: 100%;
-      max-width: 460px;
+      max-width: 480px;
       margin: auto;
     }
 
@@ -63,48 +63,93 @@
     /* Card Central Iluminado */
     .card {
       background: var(--cor-card);
-      padding: 35px 22px;
+      padding: 30px 20px;
       border-radius: 24px;
       box-shadow: 0 15px 35px rgba(158, 130, 127, 0.1);
       box-sizing: border-box;
       border: 1px solid #F5EBEB;
     }
 
-    /* Como funciona a plataforma */
+    /* Seção Informativa Simples */
     .secao-explicativa {
       text-align: left;
       background-color: #FAF6F6;
-      padding: 20px;
+      padding: 15px;
       border-radius: 16px;
       margin-bottom: 20px;
       border: 1px dashed #E6D5D5;
     }
 
     .secao-explicativa h2 {
-      font-size: 14px;
+      font-size: 13px;
       margin-top: 0;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
       color: var(--cor-texto);
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
 
     .passo {
-      font-size: 13px;
+      font-size: 12px;
       line-height: 1.5;
-      margin-bottom: 10px;
       color: #5C4E4B;
     }
 
-    .passo:last-child {
-      margin-bottom: 0;
+    /* Título da Grade de Seleção */
+    .titulo-secao {
+      font-size: 14px;
+      font-weight: 600;
+      text-align: left;
+      margin: 20px 0 12px 5px;
+      color: var(--cor-texto);
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
-    .passo strong {
-      color: #B57A7A;
+    .titulo-secao span {
+      color: var(--cor-dourado);
     }
 
-    /* Vitrine de Planos Transparente para Profissionais */
+    /* Grade de Nichos (Igual ao seu Print de Referência) */
+    .grade-nichos {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+
+    /* Item do Nicho (Estilo Card Interativo) */
+    .nicho-item {
+      background: #FFFBFB;
+      border: 1px solid #EFEBE6;
+      border-radius: 16px;
+      padding: 16px 10px;
+      text-decoration: none;
+      color: var(--cor-texto);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.01);
+    }
+
+    .nicho-item:hover {
+      border-color: var(--cor-rose-botao);
+      background: #FFF5F5;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 12px rgba(212, 163, 163, 0.15);
+    }
+
+    .nicho-icone {
+      font-size: 22px;
+    }
+
+    /* Vitrine de Preços Sutil para Profissionais */
     .vitrine-planos {
       margin-top: 25px;
       margin-bottom: 25px;
@@ -114,7 +159,7 @@
     }
 
     .vitrine-planos h3 {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--cor-dourado);
       text-transform: uppercase;
       margin-top: 0;
@@ -133,7 +178,7 @@
       background: #FFFBFB;
       border: 1px solid #EADCC2;
       border-radius: 10px;
-      padding: 10px 6px;
+      padding: 10px 4px;
       text-align: center;
     }
 
@@ -145,26 +190,19 @@
     .plano-nome {
       font-size: 11px;
       font-weight: 700;
-      color: var(--cor-texto);
     }
 
     .plano-preco {
       font-size: 12px;
       font-weight: 700;
       color: #B57A7A;
-      margin-top: 4px;
+      margin-top: 3px;
     }
 
-    .plano-obs {
-      font-size: 9px;
-      color: #8C7A6B;
-      margin-top: 2px;
-    }
-
-    /* Botão Buscar Profissional (Rose Gold) */
-    .botao-plataforma {
+    /* Botão de Destaque para o Profissional se Cadastrar */
+    .botao-profissional {
       display: block;
-      padding: 16px 20px;
+      padding: 15px 20px;
       background: var(--cor-rose-botao);
       color: #FFFFFF;
       text-decoration: none;
@@ -174,33 +212,11 @@
       transition: all 0.3s ease;
       box-sizing: border-box;
       letter-spacing: 0.5px;
-      margin-bottom: 12px;
       box-shadow: 0 4px 12px rgba(212, 163, 163, 0.3);
     }
 
-    .botao-plataforma:hover {
+    .botao-profissional:hover {
       background: #C79292;
-      transform: translateY(-1px);
-    }
-
-    /* Botão Sou Profissional (Vazado com borda Rose) */
-    .botao-outline {
-      display: block;
-      padding: 15px 20px;
-      background: transparent;
-      color: #B57A7A;
-      text-decoration: none;
-      border-radius: 14px;
-      font-size: 14px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      box-sizing: border-box;
-      border: 2px solid var(--cor-rose-botao);
-      letter-spacing: 0.5px;
-    }
-
-    .botao-outline:hover {
-      background: rgba(212, 163, 163, 0.05);
       transform: translateY(-1px);
     }
 
@@ -225,54 +241,70 @@
     <div class="card">
       
       <div class="secao-explicativa">
-        <h2>✨ Para quem busca profissionais</h2>
-        <div class="passo">• <strong>100% Gratuito para Clientes:</strong> Busque especialistas na sua região e fale direto no WhatsApp deles sem pagar nada por isso.</div>
-        <div class="passo">• <strong>Transparência total:</strong> Sem taxas escondidas e sem necessidade de cadastrar cartões.</div>
+        <h2>✨ Conexão Segura e Gratuita</h2>
+        <div class="passo">Escolha abaixo o serviço que você procura. Conectamos você diretamente ao WhatsApp do profissional ideal na sua região, sem taxas e sem pegadinhas.</div>
       </div>
 
-      <div class="secao-explicativa" style="background-color: #FFFBF7; border-color: #EADCC2;">
-        <h2>💼 Para Profissionais da Beleza</h2>
-        <div class="passo">• <strong>Seus 3 primeiros clientes são grátis:</strong> Cadastre sua especialidade e receba seus primeiros contatos sem custo nenhum.</div>
-        <div class="passo">• <strong>Planos Mensais Flexíveis:</strong> Após os 3 contatos gratuitos, escolha o plano ideal para continuar recebendo indicações diariamente.</div>
+      <div class="titulo-secao">
+        <span>●</span> Escolha o serviço que você procura:
+      </div>
+
+      <div class="grade-nichos">
+        
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform" target="_blank" class="nicho-item">
+          <span class="nicho-icone">✨</span>
+          <span>Estética</span>
+        </a>
+
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform" target="_blank" class="nicho-item">
+          <span class="nicho-icone">💇‍♀️</span>
+          <span>Cabelos</span>
+        </a>
+
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform" target="_blank" class="nicho-item">
+          <span class="nicho-icone">💅</span>
+          <span>Unhas</span>
+        </a>
+
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform" target="_blank" class="nicho-item">
+          <span class="nicho-icone">💆‍♀️</span>
+          <span>Massagem</span>
+        </a>
+
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform" target="_blank" class="nicho-item">
+          <span class="nicho-icone">👣</span>
+          <span>Podologia</span>
+        </a>
+
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform" target="_blank" class="nicho-item">
+          <span class="nicho-icone">🪒</span>
+          <span>Depilação</span>
+        </a>
+
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform" target="_blank" class="nicho-item" style="grid-column: span 2;">
+          <span class="nicho-icone">💄</span>
+          <span>Maquiagem</span>
+        </a>
+
       </div>
 
       <div class="vitrine-planos">
-        <h3>Nossos Planos Profissionais</h3>
-        <div class="tabela-planos">
-          <div class="plano-box">
-            <div class="plano-nome">Basic</div>
-            <div class="plano-preco">R$ 9,90</div>
-            <div class="plano-obs">Leads Iniciais</div>
-          </div>
-          <div class="plano-box destaque">
-            <div class="plano-nome">Premium</div>
-            <div class="plano-preco">R$ 29,90</div>
-            <div class="plano-obs">Mais Clientes</div>
-          </div>
-          <div class="plano-box">
-            <div class="plano-nome">Elite</div>
-            <div class="plano-preco">R$ 49,90</div>
-            <div class="plano-obs">Destaque Máximo</div>
-          </div>
+        <h3>Trabalha na área da beleza?</h3>
+        <div class="secao-explicativa" style="background-color: #FFFBF7; border-color: #EADCC2; margin-bottom: 15px;">
+          <div class="passo" style="text-align: center;">Cadastre-se e ganhe seus <strong>3 primeiros leads grátis</strong>. Planos a partir de R$ 9,90/mês.</div>
         </div>
+        
+        <a class="botao-profissional"
+           href="https://docs.google.com/forms/d/e/1FAIpQLScgzX3XcoVnweDoo_qIuiyYTcjik38eVaNI4nZvND3wrNSNzQ/viewform"
+           target="_blank">
+          Sou Profissional e quero Clientes
+        </a>
       </div>
-
-      <a class="botao-plataforma"
-         href="https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform"
-         target="_blank">
-         Buscar Profissional na minha Região
-      </a>
-
-      <a class="botao-outline"
-         href="https://docs.google.com/forms/d/e/1FAIpQLScgzX3XcoVnweDoo_qIuiyYTcjik38eVaNI4nZvND3wrNSNzQ/viewform"
-         target="_blank">
-        Quero Receber Clientes no meu WhatsApp
-      </a>
 
     </div>
 
     <div class="footer">
-      Haline Lead Beauty © 2026 • Termos de Uso Seguros e Transparentes
+      Haline Lead Beauty © 2026 • Conectando Profissionais e Clientes com Segurança
     </div>
 
   </div>
