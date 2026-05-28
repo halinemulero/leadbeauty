@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ficha de Solicitação - Haline Lead Beauty</title>
+  <title>Haline Lead Beauty | Plataforma Nacional de Beleza</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
@@ -13,39 +13,274 @@
       font-family: 'Montserrat', sans-serif;
       background-color: #FBF9F6;
       color: #3D3530;
+    }
+    .hero {
+      background-color: #111111;
+      color: #FFFFFF;
+      padding: 60px 20px;
       text-align: center;
-      min-height: 100vh;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      color: #C5A059;
+      font-size: 42px;
+      margin: 0 0 10px 0;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+    .hero .subtitulo {
+      color: #EAE3DC;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+    .box-introducao {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px dashed rgba(197, 160, 89, 0.3);
+      padding: 30px 20px;
+      border-radius: 24px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .box-introducao p {
+      margin: 0 0 30px 0;
+      font-size: 14px;
+      color: #D1C9C2;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+    .titulo-secao {
+      font-size: 12px;
+      color: #C5A059;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 20px;
+    }
+    .grid-servicos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .item-servico {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(234, 227, 220, 0.1);
+      padding: 18px 10px;
+      border-radius: 14px;
+      font-size: 13px;
+      color: #FFFFFF;
+      font-weight: 500;
+    }
+    .item-servico span {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+    .secao-detalhes {
+      max-width: 540px;
+      margin: -30px auto 0 auto;
+      padding: 0 20px 60px 20px;
+    }
+    .card-info {
+      background: #FFFFFF;
+      padding: 35px 30px;
+      border-radius: 24px;
+      box-shadow: 0 15px 35px rgba(140, 122, 107, 0.08);
+      border: 1px solid #EAE3DC;
+      margin-bottom: 35px;
+    }
+    .card-info h3 {
+      font-family: 'Playfair Display', serif;
+      color: #3D3530;
+      font-size: 20px;
+      margin: 0 0 20px 0;
       display: flex;
       align-items: center;
-      justify-content: center;
-      padding: 20px;
-      box-sizing: border-box;
+      gap: 10px;
     }
-    .container { width: 100%; max-width: 500px; margin: auto; }
-    h1 { font-family: 'Playfair Display', serif; color: #C5A059; font-size: 34px; margin: 0 0 5px 0; font-weight: 500; }
-    .tagline { color: #A69E9A; font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 25px; }
-    .card { background: #FFFFFF; padding: 20px 15px; border-radius: 24px; box-shadow: 0 15px 35px rgba(140, 122, 107, 0.1); border: 1px solid #EAE3DC; box-sizing: border-box; }
-    
-    iframe {
+    .card-info ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .card-info li {
+      position: relative;
+      padding-left: 15px;
+      margin-bottom: 15px;
+      font-size: 13px;
+      color: #7A726E;
+      line-height: 1.6;
+    }
+    .card-info li strong {
+      color: #CDA49E;
+    }
+    .card-info li::before {
+      content: "•";
+      color: #CDA49E;
+      font-weight: bold;
+      font-size: 18px;
+      position: absolute;
+      left: 0;
+      top: -2px;
+    }
+    .titulo-planos {
+      font-size: 11px;
+      color: #C5A059;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .grid-planos {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+    .plano-box {
+      background: #FFFFFF;
+      border: 1px solid #EAE3DC;
+      border-radius: 12px;
+      padding: 15px 5px;
+      text-align: center;
+    }
+    .plano-box.destaque {
+      border-color: #CDA49E;
+      background: #FFFBFB;
+    }
+    .plano-nome {
+      font-size: 11px;
+      font-weight: 700;
+      color: #3D3530;
+      margin-bottom: 4px;
+    }
+    .plano-preco {
+      font-size: 13px;
+      font-weight: 700;
+      color: #CDA49E;
+      margin-bottom: 2px;
+    }
+    .plano-desc {
+      font-size: 9px;
+      color: #A69E9A;
+    }
+    .botao-principal {
+      display: block;
       width: 100%;
-      height: 700px;
+      padding: 18px;
+      background: #CDA49E;
+      color: #FFFFFF;
       border: none;
       border-radius: 16px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      text-align: center;
+      box-sizing: border-box;
+      margin-bottom: 15px;
+      box-shadow: 0 6px 20px rgba(205, 164, 158, 0.3);
     }
-    
-    .link-voltar { display: block; text-align: center; margin-top: 20px; color: #A69E9A; font-size: 12px; text-decoration: none; font-weight: 500; }
+    .botao-principal:hover {
+      background: #BD938D;
+    }
+    .botao-secundario {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      background: #FFFFFF;
+      color: #CDA49E;
+      border: 2px solid #CDA49E;
+      border-radius: 16px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      text-align: center;
+      box-sizing: border-box;
+    }
+    .botao-secundario:hover {
+      background: #FFFBFB;
+    }
+    .footer {
+      text-align: center;
+      padding: 0 20px 40px 20px;
+      font-size: 10px;
+      color: #A69E9A;
+      letter-spacing: 0.5px;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
+
+  <div class="hero">
     <h1>Haline Lead Beauty</h1>
-    <div class="tagline">Ficha de Solicitação Oficial</div>
+    <div class="subtitulo">Sua Plataforma Nacional de Beleza</div>
     
-    <div class="card">
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform?embedded=true">Carregando...</iframe>
+    <div class="box-introducao">
+      <p>Conectamos clientes que buscam cuidados de excelência aos melhores profissionais de estética, cabelo, unhas e bem-estar de todo o Brasil.</p>
+      
+      <div class="titulo-secao">Qual serviço procura?</div>
+      <div class="grid-servicos">
+        <div class="item-servico"><span>✨</span>Estética Corporal</div>
+        <div class="item-servico"><span>🧬</span>Estética Avançada</div>
+        <div class="item-servico"><span>💇‍♀️</span>Cabelos & Cachos</div>
+        <div class="item-servico"><span>💅</span>Design de Unhas</div>
+        <div class="item-servico"><span>💆‍♀️</span>Massagens & SPA</div>
+        <div class="item-servico"><span>🦶</span>Podologia</div>
+      </div>
     </div>
-    
-    <a href="index.html" class="link-voltar">← Voltar para a Página Inicial</a>
   </div>
+
+  <div class="secao-detalhes">
+    <div class="card-info">
+      <h3><span>✨</span> Para quem busca profissionais</h3>
+      <ul>
+        <li><strong>100% Gratuito para Clientes:</strong> Busque especialistas na sua região e fale direto no WhatsApp deles sem pagar nada por isso.</li>
+        <li><strong>Transparência total:</strong> Sem taxas escondidas e sem necessidade de cadastrar cartões.</li>
+      </ul>
+    </div>
+
+    <div class="card-info">
+      <h3><span>💼</span> Para profissionais da beleza</h3>
+      <ul>
+        <li><strong>Seus 3 primeiros clientes são grátis:</strong> Cadastre sua especialidade e receba seus primeiros contatos sem custo nenhum.</li>
+        <li><strong>Planos Mensais Flexíveis:</strong> Após os 3 contatos gratuitos, escolha o plano ideal para continuar recebendo indicações diariamente.</li>
+      </ul>
+      
+      <div class="titulo-planos">Nossos Planos Profissionais</div>
+      <div class="grid-planos">
+        <div class="plano-box">
+          <div class="plano-nome">Basic</div>
+          <div class="plano-preco">R$ 9,90</div>
+          <div class="plano-desc">Leads Iniciais</div>
+        </div>
+        <div class="plano-box destaque">
+          <div class="plano-nome">Premium</div>
+          <div class="plano-preco">R$ 29,90</div>
+          <div class="plano-desc">Mais Clientes</div>
+        </div>
+        <div class="plano-box">
+          <div class="plano-nome">Elite</div>
+          <div class="plano-preco">R$ 49,90</div>
+          <div class="plano-desc">Destaque Máximo</div>
+        </div>
+      </div>
+
+      <a href="cadastro-cliente.html" class="botao-principal">Buscar Profissional na minha Região</a>
+      <a href="cadastro-profissional.html" class="botao-secundario">Quero Receber Clientes no meu WhatsApp</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    Haline Lead Beauty © 2026 • Termos de Uso Seguros e Transparentes
+  </div>
+
 </body>
 </html>
