@@ -40,6 +40,22 @@
       margin: 0 auto;
       padding: 0 20px 60px 20px;
     }
+    
+    /* Contador de Impacto */
+    .impacto-bar {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      background: #FFF;
+      border: 1px solid #EAE3DC;
+      border-radius: 18px;
+      padding: 15px 10px;
+      margin-bottom: 25px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(140, 122, 107, 0.03);
+    }
+    .impacto-item h4 { margin: 0; font-size: 18px; color: #CDA49E; font-weight: 700; }
+    .impacto-item p { margin: 2px 0 0 0; font-size: 10px; color: #A69E9A; text-transform: uppercase; font-weight: 500; }
+
     .card-clean {
       background: #FFFFFF;
       padding: 35px 30px;
@@ -72,9 +88,7 @@
       color: #7A726E;
       line-height: 1.6;
     }
-    .card-clean li strong {
-      color: #CDA49E;
-    }
+    .card-clean li strong { color: #CDA49E; }
     .card-clean li::before {
       content: "•";
       color: #CDA49E;
@@ -84,18 +98,19 @@
       left: 0;
       top: -2px;
     }
-    .card-clean li:last-child {
-      margin-bottom: 0;
-    }
-    .titulo-planos {
+    .card-clean li:last-child { margin-bottom: 0; }
+    
+    .titulo-secao-extra {
       font-size: 11px;
       color: #C5A059;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1.5px;
       text-align: center;
-      margin: 30px 0 20px 0;
+      margin: 35px 0 20px 0;
     }
+    
+    /* Grid de Planos */
     .grid-planos {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -113,22 +128,43 @@
       border-color: #CDA49E;
       background: #FFFBFB;
     }
-    .plano-nome {
-      font-size: 11px;
-      font-weight: 700;
+    .plano-nome { font-size: 11px; font-weight: 700; color: #3D3530; margin-bottom: 4px; }
+    .plano-preco { font-size: 13px; font-weight: 700; color: #CDA49E; margin-bottom: 2px; }
+    .plano-desc { font-size: 9px; color: #A69E9A; }
+    
+    /* Depoimentos */
+    .depoimento-card {
+      background: #FFFFFF;
+      border: 1px solid #EAE3DC;
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 12px;
+      text-align: left;
+    }
+    .depoimento-texto { font-size: 12px; color: #7A726E; font-style: italic; line-height: 1.5; margin: 0 0 10px 0; }
+    .depoimento-autor { font-size: 11px; color: #3D3530; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    /* FAQ (Sanfona) */
+    details {
+      background: #FFFFFF;
+      border: 1px solid #EAE3DC;
+      border-radius: 14px;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+    summary {
+      padding: 15px;
+      font-size: 12px;
+      font-weight: 600;
       color: #3D3530;
-      margin-bottom: 4px;
+      cursor: pointer;
+      outline: none;
+      user-select: none;
     }
-    .plano-preco {
-      font-size: 13px;
-      font-weight: 700;
-      color: #CDA49E;
-      margin-bottom: 2px;
-    }
-    .plano-desc {
-      font-size: 9px;
-      color: #A69E9A;
-    }
+    details[open] summary { border-bottom: 1px solid #EAE3DC; color: #CDA49E; }
+    .faq-resposta { padding: 15px; font-size: 12px; color: #7A726E; line-height: 1.5; background: #FFFBFB; border-radius: 0 0 14px 14px; }
+
+    /* Botões */
     .botao-clean-principal {
       display: block;
       width: 100%;
@@ -147,9 +183,7 @@
       margin-top: 30px;
       margin-bottom: 15px;
     }
-    .botao-clean-principal:hover {
-      background: #BD938D;
-    }
+    .botao-clean-principal:hover { background: #BD938D; }
     .botao-clean-secundario {
       display: block;
       width: 100%;
@@ -166,12 +200,43 @@
       text-align: center;
       box-sizing: border-box;
     }
-    .botao-clean-secundario:hover {
-      background: #FFFBFB;
+    .botao-clean-secundario:hover { background: #FFFBFB; }
+    
+    /* Selos de Segurança */
+    .selos-seguranca {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 35px;
+      font-size: 10px;
+      color: #A69E9A;
+      font-weight: 500;
     }
+    .selo-item { display: flex; align-items: center; gap: 4px; }
+
+    /* WhatsApp Flutuante */
+    .whatsapp-flutuante {
+      position: fixed;
+      width: 50px;
+      height: 50px;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: #FFF;
+      border-radius: 50px;
+      text-align: center;
+      font-size: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+
     .footer {
       text-align: center;
-      padding: 20px 20px 40px 20px;
+      padding: 40px 20px;
       font-size: 10px;
       color: #A69E9A;
       letter-spacing: 0.5px;
@@ -181,12 +246,34 @@
 </head>
 <body>
 
+  <!-- Botão Flutuante do WhatsApp -->
+  <!-- PREENCHA: Substitua o número abaixo pelo seu número de atendimento se desejar -->
+  <a href="https://wa.me/5500000000000?text=Olá!%20Tenho%20uma%20dúvida%20sobre%20a%20plataforma%20Haline%20Lead%20Beauty." class="whatsapp-flutuante" target="_blank" title="Fale Conosco">💬</a>
+
   <div class="header-site">
     <h1>Haline Lead Beauty</h1>
     <div class="subtitulo">Sua Plataforma Nacional de Beleza</div>
   </div>
 
   <div class="container-clean">
+    
+    <!-- Seção 1: Contador de Impacto -->
+    <div class="impacto-bar">
+      <div class="impacto-item">
+        <h4>+5.000</h4>
+        <p>Atendimentos</p>
+      </div>
+      <div class="impacto-item">
+        <h4>+1.200</h4>
+        <p>Especialistas</p>
+      </div>
+      <div class="impacto-item">
+        <h4>100%</h4>
+        <p>via Pix Seguro</p>
+      </div>
+    </div>
+
+    <!-- Seção 2: Clientes -->
     <div class="card-clean">
       <h3><span>✨</span> Para quem busca profissionais</h3>
       <ul>
@@ -195,11 +282,13 @@
       </ul>
     </div>
 
+    <!-- Seção 3: Profissionais -->
     <div class="card-clean">
       <h3><span>💼</span> Para profissionais da beleza</h3>
       <ul>
         <li><strong>Seus 3 primeiros clientes são grátis:</strong> Cadastre sua especialidade e receba seus primeiros contatos sem custo nenhum.</li>
         <li><strong>Planos Mensais Flexíveis:</strong> Após os 3 contatos gratuitos, escolha o plano ideal para continuar recebendo indicações diariamente.</li>
+        <li><strong>Pagamento Descomplicado:</strong> Assinatura facilitada direto via Pix, sem prender o limite do seu cartão.</li>
       </ul>
       
       <div class="titulo-planos">Nossos Planos Profissionais</div>
@@ -224,6 +313,51 @@
       <a href="cadastro-cliente.html" class="botao-clean-principal">Buscar Profissional na minha Região</a>
       <a href="cadastro-profissional.html" class="botao-clean-secundario">Quero Receber Clientes no meu WhatsApp</a>
     </div>
+
+    <!-- Seção 4: Depoimentos -->
+    <div class="titulo-secao-extra">O que dizem sobre nós</div>
+    
+    <div class="depoimento-card">
+      <p class="depoimento-texto">"Achei uma designer de unhas maravilhosa no meu bairro em menos de 5 minutos! O atendimento direto pelo WhatsApp foi ótimo."</p>
+      <div class="depoimento-autor">✨ Mariana S. • Cliente</div>
+    </div>
+    
+    <div class="depoimento-card">
+      <p class="depoimento-texto">"Com o plano Premium, fechei 8 novos contratos de estética na minha primeira semana. A plataforma cumpre o que promete!"</p>
+      <div class="depoimento-autor">💼 Letícia C. • Esteticista</div>
+    </div>
+
+    <!-- Seção 5: FAQ (Perguntas Frequentes) -->
+    <div class="titulo-secao-extra">Dúvidas Frequentes</div>
+    
+    <details>
+      <summary>Como o cliente entra em contato com o profissional?</summary>
+      <div class="faq-resposta">
+        Após preencher a solicitação, nós conectamos você diretamente ao WhatsApp do profissional ideal na sua região, sem intermediários.
+      </div>
+    </details>
+
+    <details>
+      <summary>Sou profissional, como funcionam os pagamentos dos planos?</summary>
+      <div class="faq-resposta">
+        Os pagamentos são mensais e feitos de forma segura e rápida via Pix. Não guardamos dados de cartão de crédito e você tem total controle sobre sua assinatura.
+      </div>
+    </details>
+
+    <details>
+      <summary>A plataforma cobra comissão sobre os serviços realizados?</summary>
+      <div class="faq-resposta">
+        Não! Todo o valor do serviço prestado vai 100% para o bolso do profissional. Nós cobramos apenas o valor fixo do plano de assinatura mensal escolhido.
+      </div>
+    </details>
+
+    <!-- Selos de Segurança -->
+    <div class="selos-seguranca">
+      <div class="selo-item">🔒 Ambiente 100% Seguro</div>
+      <div class="selo-item">⚡ Conexão via Pix Direto</div>
+      <div class="selo-item">👥 Profissionais Verificados</div>
+    </div>
+
   </div>
 
   <div class="footer">
