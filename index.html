@@ -3,373 +3,437 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Haline Lead Beauty | Plataforma Nacional de Beleza</title>
+  <title>Haline Lead Beauty | Conectando o Mercado da Beleza</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
+    /* Configurações Globais - Estilo Startup Premium */
+    :root {
+      --bg-principal: #FBF9F6;
+      --cor-texto-escuro: #3D3530;
+      --cor-texto-suave: #7A726E;
+      --cor-auxiliar: #A69E9A;
+      --dourado: #C5A059;
+      --rose: #CDA49E;
+      --rose-hover: #BD938D;
+      --sombra-padrao: 0 10px 30px rgba(140, 122, 107, 0.05);
+      --borda-padrao: 1px solid #EAE3DC;
+    }
+
+    * { box-sizing: border-box; transition: all 0.3s ease; }
+
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
-      background-color: #FBF9F6;
-      color: #3D3530;
-      padding: 0;
-    }
-    .header-site {
-      padding: 40px 20px 20px 20px;
-      text-align: center;
-      background-color: #FBF9F6;
-    }
-    .logo-site {
-      width: 100px;
-      height: auto;
-      margin-bottom: 15px;
-      border-radius: 50%;
-    }
-    .header-site h1 {
-      font-family: 'Playfair Display', serif;
-      color: #C5A059;
-      font-size: 38px;
-      margin: 0 0 5px 0;
-      font-weight: 500;
-      letter-spacing: 1px;
-    }
-    .header-site .subtitulo {
-      color: #A69E9A;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-    .container-clean {
-      max-width: 540px;
-      margin: 0 auto;
-      padding: 0 20px 60px 20px;
-    }
-    
-    .boas-vindas-box {
-      background: #3D3530;
-      color: #FFFFFF;
-      padding: 30px 25px;
-      border-radius: 24px;
-      margin-bottom: 25px;
-      text-align: center;
-      box-shadow: 0 12px 30px rgba(61, 53, 48, 0.15);
-    }
-    .boas-vindas-box h2 {
-      font-family: 'Playfair Display', serif;
-      color: #FFF;
-      font-size: 22px;
-      margin: 0 0 12px 0;
-      font-weight: 500;
-    }
-    .boas-vindas-box p {
-      font-size: 13px;
-      color: #EAE3DC;
-      line-height: 1.6;
-      margin: 0;
-    }
-    .boas-vindas-box strong {
-      color: #CDA49E;
+      background-color: var(--bg-principal);
+      color: var(--cor-texto-escuro);
+      overflow-x: hidden;
     }
 
-    .impacto-bar {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      background: #FFF;
-      border: 1px solid #EAE3DC;
-      border-radius: 18px;
-      padding: 15px 10px;
-      margin-bottom: 25px;
+    /* Animações Modernas Leves */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animar { animation: fadeInUp 0.6s ease forwards; }
+
+    /* Container de Controle Mobile First */
+    .app-container {
+      max-width: 480px;
+      margin: 0 auto;
+      background: var(--bg-principal);
+      min-height: 100vh;
+      padding: 0 20px 40px 20px;
+    }
+
+    /* Topo do Site / Header com Logo corrigido */
+    .brand-header {
+      padding: 30px 0 15px 0;
       text-align: center;
-      box-shadow: 0 10px 25px rgba(140, 122, 107, 0.03);
     }
-    .impacto-item h4 { margin: 0; font-size: 18px; color: #CDA49E; font-weight: 700; }
-    .impacto-item p { margin: 2px 0 0 0; font-size: 10px; color: #A69E9A; text-transform: uppercase; font-weight: 500; }
-    
-    .card-clean {
+    .logo-container {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 12px auto;
       background: #FFFFFF;
-      padding: 35px 30px;
-      border-radius: 24px;
-      box-shadow: 0 15px 35px rgba(140, 122, 107, 0.06);
-      border: 1px solid #EAE3DC;
-      margin-bottom: 25px;
-      box-sizing: border-box;
-    }
-    .card-clean h3 {
-      font-size: 12px;
-      color: #3D3530;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin: 0 0 20px 0;
+      border-radius: 50%;
+      box-shadow: var(--sombra-padrao);
+      border: var(--borda-padrao);
       display: flex;
       align-items: center;
-      gap: 8px;
+      justify-content: center;
+      overflow: hidden;
     }
-    .card-clean ul { margin: 0; padding: 0; list-style: none; text-align: left; }
-    .card-clean li {
-      position: relative;
-      padding-left: 18px;
-      margin-bottom: 15px;
-      font-size: 13px;
-      color: #7A726E;
-      line-height: 1.6;
+    .logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Garante que o logo não quebre nem corte nas bordas */
     }
-    .card-clean li strong { color: #CDA49E; }
-    .card-clean li::before {
-      content: "•";
-      color: #CDA49E;
-      font-weight: bold;
-      font-size: 18px;
-      position: absolute;
-      left: 0;
-      top: -2px;
-    }
-    .card-clean li:last-child { margin-bottom: 0; }
-    
-    .titulo-secao-extra {
-      font-size: 11px;
-      color: #C5A059;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
+
+    /* Bloco Hero - Alto Impacto Visual */
+    .hero-section {
+      background: #FFFFFF;
+      border-radius: 28px;
+      padding: 30px 20px;
       text-align: center;
-      margin: 35px 0 20px 0;
+      box-shadow: var(--sombra-padrao);
+      border: var(--borda-padrao);
+      margin-bottom: 20px;
     }
-    .grid-planos {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 10px;
+    .tagline-premium {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      color: var(--dourado);
+      text-transform: uppercase;
       margin-bottom: 10px;
     }
-    .plano-box {
-      background: #FFFFFF;
-      border: 1px solid #EAE3DC;
-      border-radius: 14px;
-      padding: 15px 5px;
-      text-align: center;
-    }
-    .plano-box.destaque {
-      border-color: #CDA49E;
-      background: #FFFBFB;
-    }
-    .plano-nome { font-size: 11px; font-weight: 700; color: #3D3530; margin-bottom: 4px; }
-    .plano-preco { font-size: 13px; font-weight: 700; color: #CDA49E; margin-bottom: 2px; }
-    .plano-desc { font-size: 9px; color: #A69E9A; }
-    
-    .botao-clean-principal {
-      display: block;
-      width: 100%;
-      padding: 18px;
-      background: #CDA49E;
-      color: #FFFFFF;
-      border: none;
-      border-radius: 18px;
-      font-size: 14px;
+    .hero-section h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      color: var(--cor-texto-escuro);
+      margin: 0 0 12px 0;
+      line-height: 1.3;
       font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      text-align: center;
-      box-sizing: border-box;
-      margin-top: 30px;
-      margin-bottom: 15px;
     }
-    .botao-clean-principal:hover { background: #BD938D; }
-    .botao-clean-secundario {
+    .hero-section p {
+      font-size: 13px;
+      color: var(--cor-texto-suave);
+      line-height: 1.6;
+      margin: 0 0 25px 0;
+    }
+
+    /* Simulação de Interface/Mockup Integrado */
+    .mockup-app {
+      background: #3D3530;
+      border-radius: 20px;
+      padding: 15px;
+      margin-bottom: 25px;
+      box-shadow: 0 15px 35px rgba(61, 53, 48, 0.15);
+    }
+    .mockup-screen {
+      background: #FFF;
+      border-radius: 14px;
+      padding: 15px;
+      text-align: left;
+    }
+    .mockup-title { font-size: 11px; font-weight: 700; color: var(--dourado); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+    .mockup-user { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--cor-texto-suave); }
+    .mockup-avatar { width: 24px; height: 24px; background: #EAE3DC; border-radius: 50%; }
+
+    /* Botões Principais de Ação Imediata (CTAs) */
+    .btn-plataforma {
       display: block;
       width: 100%;
       padding: 16px;
-      background: #FFFFFF;
-      color: #CDA49E;
-      border: 1px solid #CDA49E;
-      border-radius: 18px;
+      border-radius: 16px;
       font-size: 13px;
       font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
       text-decoration: none;
       text-align: center;
       box-sizing: border-box;
+      margin-bottom: 10px;
     }
-    .botao-clean-secundario:hover { background: #FFFBFB; }
+    .btn-principal {
+      background: var(--rose);
+      color: #FFFFFF;
+      box-shadow: 0 6px 20px rgba(205, 164, 158, 0.3);
+    }
+    .btn-principal:hover { background: var(--rose-hover); transform: translateY(-2px); }
     
-    .depoimento-card {
+    .btn-secundario {
       background: #FFFFFF;
-      border: 1px solid #EAE3DC;
-      border-radius: 18px;
-      padding: 20px;
-      margin-bottom: 12px;
-      text-align: left;
+      color: var(--cor-texto-escuro);
+      border: var(--borda-padrao);
     }
-    .depoimento-texto { font-size: 12px; color: #7A726E; font-style: italic; line-height: 1.5; margin: 0 0 10px 0; }
-    .depoimento-autor { font-size: 11px; color: #3D3530; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-    
+    .btn-secundario:hover { background: #FAF6F2; transform: translateY(-2px); }
+
+    /* Categorias Visuais Estilo Aplicativo */
+    .secao-titulo {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--cor-auxiliar);
+      margin: 25px 0 15px 0;
+      text-align: center;
+    }
+    .grid-categorias {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .categoria-item {
+      background: #FFFFFF;
+      border: var(--borda-padrao);
+      border-radius: 16px;
+      padding: 12px 5px;
+      text-align: center;
+      box-shadow: var(--sombra-padrao);
+    }
+    .categoria-icon { font-size: 18px; margin-bottom: 4px; }
+    .categoria-nome { font-size: 10px; font-weight: 600; color: var(--cor-texto-escuro); }
+
+    /* Fluxo Como Funciona Modernizado */
+    .timeline-fluxo {
+      background: #FFFFFF;
+      border-radius: 24px;
+      padding: 25px 20px;
+      border: var(--borda-padrao);
+      box-shadow: var(--sombra-padrao);
+      margin-bottom: 20px;
+    }
+    .fluxo-passo {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .fluxo-passo:last-child { margin-bottom: 0; }
+    .passo-numero {
+      width: 24px;
+      height: 24px;
+      background: var(--bg-principal);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--dourado);
+      border: var(--borda-padrao);
+      flex-shrink: 0;
+    }
+    .passo-conteudo h4 { margin: 0 0 4px 0; font-size: 13px; font-weight: 600; color: var(--cor-texto-escuro); }
+    .passo-conteudo p { margin: 0; font-size: 11px; color: var(--cor-texto-suave); line-height: 1.5; }
+
+    /* Cards Gerais Padronizados */
+    .card-plataforma {
+      background: #FFFFFF;
+      border-radius: 24px;
+      padding: 25px 20px;
+      border: var(--borda-padrao);
+      box-shadow: var(--sombra-padrao);
+      margin-bottom: 20px;
+    }
+
+    /* Tabela de Planos Limpa */
+    .grid-planos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    .plano-box {
+      background: var(--bg-principal);
+      border-radius: 16px;
+      padding: 15px;
+      text-align: center;
+      border: var(--borda-padrao);
+    }
+    .plano-box.destaque {
+      border-color: var(--rose);
+      background: #FFFBFB;
+    }
+    .plano-nome { font-size: 11px; font-weight: 700; color: var(--cor-texto-escuro); text-transform: uppercase; }
+    .plano-preco { font-size: 16px; font-weight: 700; color: var(--rose); margin: 4px 0; }
+    .plano-desc { font-size: 9px; color: var(--cor-texto-suave); }
+
+    /* Abas FAQ Sanfona */
     details {
       background: #FFFFFF;
-      border: 1px solid #EAE3DC;
+      border: var(--borda-padrao);
       border-radius: 14px;
-      margin-bottom: 10px;
-      text-align: left;
+      margin-bottom: 8px;
     }
     summary {
-      padding: 15px;
+      padding: 14px;
       font-size: 12px;
       font-weight: 600;
-      color: #3D3530;
+      color: var(--cor-texto-escuro);
       cursor: pointer;
       outline: none;
     }
-    details[open] summary { border-bottom: 1px solid #EAE3DC; color: #CDA49E; }
-    .faq-resposta { padding: 15px; font-size: 12px; color: #7A726E; line-height: 1.5; background: #FFFBFB; border-radius: 0 0 14px 14px; }
-    
-    .selos-seguranca {
+    details[open] summary { color: var(--rose); border-bottom: var(--borda-padrao); }
+    .faq-resposta { padding: 14px; font-size: 11px; color: var(--cor-texto-suave); line-height: 1.5; background: #FFFBFB; border-radius: 0 0 14px 14px; }
+
+    /* Rodapé Corporativo Robusto */
+    .footer-robust {
+      margin-top: 40px;
+      padding: 30px 0;
+      border-top: var(--borda-padrao);
+      text-align: center;
+    }
+    .footer-links {
       display: flex;
       justify-content: center;
       gap: 15px;
-      margin-top: 35px;
-      font-size: 10px;
-      color: #A69E9A;
-      font-weight: 500;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
     }
-    .selo-item { display: flex; align-items: center; gap: 4px; }
-    
-    .footer {
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 10px;
-      color: #A69E9A;
-      letter-spacing: 0.5px;
-      background-color: #FBF9F6;
-    }
+    .footer-links a { font-size: 11px; color: var(--cor-texto-suave); text-decoration: none; font-weight: 500; }
+    .footer-links a:hover { color: var(--rose); }
+    .footer-copy { font-size: 10px; color: var(--cor-auxiliar); }
   </style>
 </head>
 <body>
 
-  <div class="header-site">
-    <!-- IMAGEM DO LOGO ADICIONADA AQUI -->
-    <img src="WhatsApp Image 2026-05-28 at 15.40.56_2.jpeg" alt="Logo Haline Lead Beauty" class="logo-site">
-    <h1>Haline Lead Beauty</h1>
-    <div class="subtitulo">Sua Plataforma Nacional de Beleza</div>
-  </div>
-
-  <div class="container-clean">
+  <div class="app-container animar">
     
-    <div class="boas-vindas-box">
-      <h2>O que é a nossa plataforma?</h2>
-      <p>
-        Somos o elo de conexão direta na estética e bem-estar. 
-        Para <strong>clientes</strong>, somos um guia gratuito para encontrar os melhores especialistas da sua região. 
-        Para <strong>profissionais da beleza</strong>, somos a ferramenta ideal para captar novos clientes qualificados direto no seu WhatsApp.
-      </p>
-    </div>
-    
-    <div class="impacto-bar">
-      <div class="impacto-item">
-        <h4>+5.000</h4>
-        <p>Atendimentos</p>
+    <!-- Topo / Identidade Visual Corrigida -->
+    <header class="brand-header">
+      <div class="logo-container">
+        <!-- Caminho ajustado para o logo oficial -->
+        <img src="logo.jpeg" alt="Logo Haline Lead Beauty" class="logo-img" onerror="this.src='https://via.placeholder.com/70x70?text=Beauty'">
       </div>
-      <div class="impacto-item">
-        <h4>+1.200</h4>
-        <p>Especialistas</p>
-      </div>
-      <div class="impacto-item">
-        <h4>100%</h4>
-        <p>via Pix Seguro</p>
-      </div>
-    </div>
+    </header>
 
-    <div class="card-clean">
-      <h3><span>✨</span> Para quem busca profissionais</h3>
-      <ul>
-        <li><strong>100% Gratuito para Clientes:</strong> Busque especialistas na sua região e fale direto no WhatsApp deles sem pagar nada por isso.</li>
-        <li><strong>Transparência total:</strong> Sem taxas escondidas e sem necessidade de cadastrar cartões.</li>
-      </ul>
-    </div>
-
-    <div class="card-clean">
-      <h3><span>💼</span> Para profissionais da beleza</h3>
-      <ul>
-        <li><strong>Seus 3 primeiros clientes são grátis:</strong> Cadastre sua especialidade e receba seus primeiros contatos sem custo nenhum.</li>
-        <li><strong>Planos Mensais Flexíveis:</strong> Após os 3 contatos gratuitos, escolha o plano ideal para continuar recebendo indicações diariamente.</li>
-        <li><strong>Pagamento Descomplicado:</strong> Assinatura facilitada direto via Pix, sem prender o limite do seu cartão.</li>
-      </ul>
+    <!-- Bloco Hero Principal de Alto Impacto -->
+    <section class="hero-section">
+      <div class="tagline-premium">Plataforma Oficial</div>
+      <h1>A ponte inteligente que conecta você ao especialista em beleza ideal</h1>
+      <p>Encontre profissionais verificados da estética na sua região e agende direto pelo WhatsApp. Sem taxas, sem burocracia, 100% gratuito para clientes.</p>
       
-      <div style="font-size: 11px; color: #C5A059; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; text-align: center; margin: 30px 0 20px 0;">Nossos Planos Profissionais</div>
+      <!-- Mockup de Interface Estilo App -->
+      <div class="mockup-app">
+        <div class="mockup-screen">
+          <div class="mockup-title">⚡ Conexão Direta Ativa</div>
+          <div class="mockup-user">
+            <div class="mockup-avatar"></div>
+            <div><strong>Sua Especialista está pronta</strong><br><span style="font-size:9px;">Clique no botão abaixo para iniciar</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTAs de Entrada Rápida -->
+      <a href="cadastro-cliente.html" class="btn-plataforma btn-principal">Encontrar Profissionais na Minha Região</a>
+      <a href="cadastro-profissional.html" class="btn-plataforma btn-secundario">Quero Receber Clientes no WhatsApp</a>
+    </section>
+
+    <!-- Categorias Visuais Estilo Aplicativo -->
+    <div class="secao-titulo">Navegar por Especialidades</div>
+    <section class="grid-categorias">
+      <div class="categoria-item">
+        <div class="categoria-icon">✨</div>
+        <div class="categoria-nome">Estética</div>
+      </div>
+      <div class="categoria-item">
+        <div class="categoria-icon">🦋</div>
+        <div class="categoria-nome">Camuflagem</div>
+      </div>
+      <div class="categoria-item">
+        <div class="categoria-icon">💅</div>
+        <div class="categoria-nome">Manicure</div>
+      </div>
+      <div class="categoria-item">
+        <div class="categoria-icon">👁️</div>
+        <div class="categoria-nome">Lash Design</div>
+      </div>
+      <div class="categoria-item">
+        <div class="categoria-icon">🖋️</div>
+        <div class="categoria-nome">Micropig.</div>
+      </div>
+      <div class="categoria-item">
+        <div class="categoria-icon">💈</div>
+        <div class="categoria-nome">Barbearia</div>
+      </div>
+    </section>
+
+    <!-- Fluxo de Funcionamento Limpo -->
+    <div class="secao-titulo">Como Funciona</div>
+    <section class="timeline-fluxo">
+      <div class="fluxo-passo">
+        <div class="passo-numero">1</div>
+        <div class="passo-conteudo">
+          <h4>Selecione o Serviço</h4>
+          <p>Escolha a especialidade de estética ou bem-estar que você precisa no momento.</p>
+        </div>
+      </div>
+      <div class="fluxo-passo">
+        <div class="passo-numero">2</div>
+        <div class="passo-conteudo">
+          <h4>Conexão no WhatsApp</h4>
+          <p>Nossa plataforma direciona a solicitação sem intermediários direto para o profissional.</p>
+        </div>
+      </div>
+      <div class="fluxo-passo">
+        <div class="passo-numero">3</div>
+        <div class="passo-conteudo">
+          <h4>Agenda Concluída</h4>
+          <p>Combine o horário ideal e faça o pagamento diretamente de forma segura e rápida.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Área do Profissional Parceiro -->
+    <div class="secao-titulo">Para Especialistas</div>
+    <section class="card-plataforma">
+      <h3 style="font-size: 14px; margin: 0 0 10px 0; font-family: 'Playfair Display', serif;">Aumente sua carteira de clientes</h3>
+      <p style="font-size: 11px; color: var(--cor-texto-suave); line-height: 1.6; margin: 0 0 15px 0;">Cadastre seu espaço ou serviço e comece a receber notificações de leads altamente qualificados na sua região. Teste sem riscos.</p>
+      
       <div class="grid-planos">
         <div class="plano-box">
-          <div class="plano-nome">Basic</div>
-          <div class="plano-preco">R$ 9,90</div>
-          <div class="plano-desc">Leads Iniciais</div>
+          <div class="plano-nome">Inicial</div>
+          <div class="plano-preco">Grátis</div>
+          <div class="plano-desc">Primeiros 3 contatos</div>
         </div>
         <div class="plano-box destaque">
-          <div class="plano-nome">Premium</div>
+          <div class="plano-nome">Mensal</div>
           <div class="plano-preco">R$ 29,90</div>
-          <div class="plano-desc">Mais Clientes</div>
-        </div>
-        <div class="plano-box">
-          <div class="plano-nome">Elite</div>
-          <div class="plano-preco">R$ 49,90</div>
-          <div class="plano-desc">Destaque Máximo</div>
+          <div class="plano-desc">Acesso ilimitado via Pix</div>
         </div>
       </div>
+    </section>
 
-      <a href="cadastro-cliente.html" class="botao-clean-principal">Buscar Profissional na minha Região</a>
-      <a href="cadastro-profissional.html" class="botao-clean-secundario">Quero Receber Clientes no meu WhatsApp</a>
-    </div>
+    <!-- Prova Social e Avaliações Reais -->
+    <div class="secao-titulo">Confiança Verificada</div>
+    <section class="card-plataforma" style="border-left: 3px solid var(--dourado);">
+      <div style="font-size: 12px; font-weight: 700; margin-bottom: 10px; color: var(--cor-texto-escuro);">⭐ Avaliações Oficiais do Google</div>
+      <p style="font-size: 11px; color: var(--cor-texto-suave); font-style: italic; margin: 0 0 10px 0; line-height: 1.5;">"Encontrei uma especialista excelente pertinho do meu trabalho em minutos. O fluxo direto pelo WhatsApp facilita muito o dia a dia."</p>
+      <div style="font-size: 10px; font-weight: 600; color: var(--cor-texto-escuro); text-transform: uppercase;">— Mariana S., Cliente</div>
+    </section>
 
-    <div class="titulo-secao-extra">🗣️ Co-criação Haline Lead Beauty</div>
-    <div class="card-clean" style="text-align: center; border-color: #CDA49E; background: #FFFBFB;">
-      <h3 style="justify-content: center; color: #CDA49E;"><span>📸</span> Nosso Instagram é Seu!</h3>
-      <p style="font-size: 13px; color: #7A726E; line-height: 1.6; margin-bottom: 20px;">
-        Quer ver sua dúvida, dica de estética ou sugestão de tema virar um post oficial no nosso perfil? Conta para a gente o que você gostaria de assistir ou ler no nosso feed!
-      </p>
-      <textarea id="ideiaInstagram" placeholder="Digite sua ideia de postagem aqui..." style="width: 100%; height: 90px; border-radius: 12px; border: 1px solid #EAE3DC; padding: 12px; font-family: 'Montserrat', sans-serif; font-size: 12px; box-sizing: border-box; resize: none; margin-bottom: 15px; outline: none;"></textarea>
-      <button onclick="enviarIdeia()" style="width: 100%; padding: 14px; background: #3D3530; color: #FFFFFF; border: none; border-radius: 14px; font-size: 12px; font-weight: 600; cursor: pointer; letter-spacing: 0.5px; text-transform: uppercase;">Enviar Ideia de Post</button>
-    </div>
+    <!-- Caixa Co-criação Interativa -->
+    <div class="secao-titulo">Comunidade Ativa</div>
+    <section class="card-plataforma" style="text-align: center; background: #FFFBFB; border-color: var(--rose);">
+      <h3 style="font-size: 13px; color: var(--rose); margin: 0 0 8px 0;">📸 Nosso Feed do Instagram é Seu</h3>
+      <p style="font-size: 11px; color: var(--cor-texto-suave); line-height: 1.5; margin-bottom: 15px;">Deseja ver uma dica de estética ou dúvida sua virando conteúdo oficial da marca? Deixe sua sugestão abaixo!</p>
+      <textarea id="ideiaInstagram" placeholder="Qual conteúdo você quer assistir no feed?" style="width: 100%; height: 70px; border-radius: 12px; border: var(--borda-padrao); padding: 10px; font-family: 'Montserrat', sans-serif; font-size: 11px; box-sizing: border-box; resize: none; margin-bottom: 12px; outline: none;"></textarea>
+      <button onclick="enviarIdeia()" style="width: 100%; padding: 12px; background: var(--cor-texto-escuro); color: #FFFFFF; border: none; border-radius: 12px; font-size: 11px; font-weight: 600; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px;">Enviar Sugestão</button>
+    </section>
 
-    <div class="titulo-secao-extra">O que dizem sobre nós</div>
-    <div class="depoimento-card">
-      <p class="depoimento-texto">"Achei uma designer de unhas maravilhosa no meu bairro em menos de 5 minutos! O atendimento direto pelo WhatsApp foi ótimo."</p>
-      <div class="depoimento-autor">✨ Mariana S. • Cliente</div>
-    </div>
-    <div class="depoimento-card">
-      <p class="depoimento-texto">"Com o plano Premium, fechei 8 novos contratos de estética na minha primeira semana. A plataforma cumpre o que promete!"</p>
-      <div class="depoimento-autor">💼 Letícia C. • Esteticista</div>
-    </div>
+    <!-- Dúvidas Frequentes (FAQ) -->
+    <div class="secao-titulo">Suporte & FAQ</div>
+    <section style="margin-bottom: 20px;">
+      <details>
+        <summary>A plataforma cobra comissão por atendimento?</summary>
+        <div class="faq-resposta">Não. Todo o valor combinado pelo serviço vai 100% diretamente para a conta da profissional de beleza.</div>
+      </details>
+      <details>
+        <summary>Como funcionam os planos para profissionais?</summary>
+        <div class="faq-resposta">Os 3 primeiros leads de clientes são inteiramente gratuitos. Após isso, você pode optar pela assinatura fixa mensal descomplicada direto por Pix.</div>
+      </details>
+    </section>
 
-    <div class="titulo-secao-extra">Dúvidas Frequentes</div>
-    <details>
-      <summary>Como o cliente entra em contato com o profissional?</summary>
-      <div class="faq-resposta">Após preencher a solicitação, nós conectamos você diretamente ao WhatsApp do profissional ideal na sua região, sem intermediários.</div>
-    </details>
-    <details>
-      <summary>Sou profissional, como funcionam os pagamentos dos planos?</summary>
-      <div class="faq-resposta">Os pagamentos são mensais e feitos de forma segura e rápida via Pix. Não guardamos dados de cartão de crédito e você tem total controle sobre sua assinatura.</div>
-    </details>
-    <details>
-      <summary>A plataforma cobra comissão sobre os serviços realizados?</summary>
-      <div class="faq-resposta">Não! Todo o valor do serviço prestado vai 100% para o bolso do profissional. Nós cobramos apenas o valor fixo do plano de assinatura mensal escolhido.</div>
-    </details>
+    <!-- Rodapé Estruturado e Robusto -->
+    <footer class="footer-robust">
+      <div class="footer-links">
+        <a href="https://wa.me/5513991444144" target="_blank">Suporte WhatsApp</a>
+        <a href="#">Termos de Uso</a>
+        <a href="#">Políticas de Privacidade</a>
+      </div>
+      <div class="footer-copy">Haline Lead Beauty © 2026<br><span style="font-size:8px; color: var(--cor-auxiliar);">Conectando Beleza com Tecnologia</span></div>
+    </footer>
 
-    <div class="selos-seguranca">
-      <div class="selo-item">🔒 Ambiente Seguro</div>
-      <div class="selo-item">⚡ Pix Direto</div>
-      <div class="selo-item">👥 Verificados</div>
-    </div>
-
-  </div>
-
-  <div class="footer">
-    Haline Lead Beauty © 2026
   </div>
 
   <script>
     function enviarIdeia() {
       var texto = document.getElementById('ideiaInstagram').value;
-      if(texto.trim() === "") { alert("Por favor, digite sua ideia antes de enviar! ✨"); return; }
-      var linkReadme = "https://wa.me/5513991444144?text=Olá%20Haline!%20Tenho%20uma%20ideia%20para%20o%20Instagram:%20" + encodeURIComponent(texto);
+      if(texto.trim() === "") { alert("Por favor, digite sua ideia de conteúdo antes de enviar! ✨"); return; }
+      var linkReadme = "https://wa.me/5513991444144?text=Olá%20Haline!%20Tenho%20uma%20sugestão%20para%20o%20Instagram:%20" + encodeURIComponent(texto);
       window.open(linkReadme, '_blank');
     }
   </script>
