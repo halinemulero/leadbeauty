@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ficha de Solicitação - Haline Lead Beauty</title>
+  <title>Cadastro Profissional - Haline Lead Beauty</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
@@ -24,7 +24,7 @@
     .container { width: 100%; max-width: 480px; margin: auto; }
     h1 { font-family: 'Playfair Display', serif; color: #C5A059; font-size: 34px; margin: 0 0 5px 0; font-weight: 500; }
     .tagline { color: #A69E9A; font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 25px; }
-    .card { background: #FFFFFF; padding: 35px 25px; border-radius: 24px; box-shadow: 0 15px 35px rgba(140, 122, 107, 0.1); border: 1px solid #EAE3DC; text-align: left; box-sizing: border-box; position: relative; }
+    .card { background: #FFFFFF; padding: 35px 25px; border-radius: 24px; box-shadow: 0 15px 35px rgba(140, 122, 107, 0.1); border: 1px solid #EAE3DC; text-align: left; box-sizing: border-box; }
     
     .instrucao { font-size: 13px; color: #7A726E; margin-bottom: 25px; line-height: 1.5; text-align: center; }
     label { display: block; font-size: 11px; color: #C5A059; font-weight: 700; text-transform: uppercase; margin-bottom: 6px; letter-spacing: 0.5px; }
@@ -32,8 +32,8 @@
     .campo { width: 100%; padding: 12px; background: #FCFAF7; border: 1px solid #EAE3DC; border-radius: 10px; color: #3D3530; font-family: 'Montserrat', sans-serif; font-size: 14px; margin-bottom: 18px; box-sizing: border-box; }
     .campo:focus { outline: none; border-color: #C5A059; background: #FFFFFF; }
     
-    .box-ideia { background: #FAF6F0; border: 1px dashed #C5A059; padding: 15px; border-radius: 12px; margin-bottom: 22px; }
-    .box-ideia p { margin: 0; font-size: 12px; color: #7A6336; line-height: 1.5; }
+    .box-aviso { background: #FAF6F0; border: 1px dashed #C5A059; padding: 15px; border-radius: 12px; margin-bottom: 22px; }
+    .box-aviso p { margin: 0; font-size: 12px; color: #7A6336; line-height: 1.5; }
     
     .botao-enviar { display: block; width: 100%; padding: 16px; background: #CDA49E; color: #FFFFFF; border: none; border-radius: 12px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; text-align: center; box-sizing: border-box; }
     .botao-enviar:hover { background: #BD938D; }
@@ -41,7 +41,6 @@
     
     .link-voltar { display: block; text-align: center; margin-top: 20px; color: #A69E9A; font-size: 12px; text-decoration: none; }
 
-    /* Tela de Sucesso Customizada */
     .tela-sucesso { display: none; text-align: center; padding: 20px 10px; }
     .sucesso-icone { font-size: 48px; color: #C5A059; margin-bottom: 15px; }
     .sucesso-titulo { font-family: 'Playfair Display', serif; font-size: 24px; color: #3D3530; margin: 0 0 10px 0; }
@@ -51,72 +50,74 @@
 <body>
   <div class="container">
     <h1>Haline Lead Beauty</h1>
-    <div class="tagline">Ficha de Solicitação Oficial</div>
+    <div class="tagline">Credenciamento de Profissionais</div>
     
     <div class="card">
       <div id="bloco-formulario">
-        <p class="instrucao">Insira os seus detalhes abaixo para localizarmos as melhores especialistas na sua região.</p>
+        <p class="instrucao">Cadastre seus dados profissionais para começar a receber clientes qualificados diretamente no seu WhatsApp.</p>
         
-        <form id="meuFormulario">
-          <label>Nome Completo</label>
-          <input type="text" id="nome" class="campo" placeholder="Digite seu nome" required>
+        <form id="formProfissional">
+          <label>Seu Nome ou Nome do Espaço</label>
+          <input type="text" id="nomeProf" class="campo" placeholder="Ex: Espaço Haline Mulero" required>
 
-          <label>Cidade</label>
-          <input type="text" id="cidade" class="campo" placeholder="Ex: São Vicente" required>
+          <label>Seu WhatsApp de Atendimento</label>
+          <input type="tel" id="whatsappProf" class="campo" placeholder="Ex: (13) 99999-9999" required>
 
-          <label>Estado (UF)</label>
-          <input type="text" id="estado" class="campo" placeholder="Ex: SP" maxlength="2" required>
+          <label>Qual é a sua especialidade principal?</label>
+          <select id="servicoProf" class="campo" required>
+            <option value="">Selecione sua área...</option>
+            <option value="Estética">Estética Corporal / Avançada</option>
+            <option value="Cabelos">Cabelos & Cachos</option>
+            <option value="Unhas">Design de Unhas</option>
+            <option value="Massagem">Massagens & SPA</option>
+            <option value="Podologia">Podologia</option>
+            <option value="Sobrancelhas">Sobrancelhas & Cílios</option>
+            <option value="Maquiagem">Maquiagem</option>
+          </select>
 
-          <label>Qual procedimento ou serviço procura?</label>
-          <textarea id="servico" class="campo" rows="3" placeholder="Ex: Microagulhamento, Cabelos, Unhas ou descreva o que precisa..." required></textarea>
-
-          <div class="box-ideia">
-            <p>✨ <strong>Escreva com suas palavras:</strong> Caso não saiba o nome técnico do procedimento, descreva o que deseja acima que a nossa central faz a curadoria perfeita para você!</p>
+          <div class="box-aviso">
+            <p>🎁 <strong>Bônus Ativo:</strong> Ao concluir o seu cadastro, você garante suas 3 primeiras indicações de clientes de forma 100% gratuita.</p>
           </div>
 
-          <button type="submit" id="btnEnviar" class="botao-enviar">Solicitar Especialista</button>
+          <button type="submit" id="btnEnviarProf" class="botao-enviar">Solicitar Meus 3 Leads Grátis</button>
         </form>
         <a href="index.html" class="link-voltar">← Voltar para o início</a>
       </div>
 
       <div id="bloco-sucesso" class="tela-sucesso">
-        <div class="sucesso-icone">✨</div>
-        <h2 class="sucesso-titulo">Solicitação Recebida!</h2>
-        <p class="sucesso-texto">Sua ficha foi enviada com sucesso para a nossa central. Já estamos fazendo a curadoria e as melhores especialistas da sua região entrarão em contato diretamente no seu WhatsApp.</p>
-        <a href="index.html" class="botao-enviar" style="text-decoration: none;">Voltar para o Início</a>
+        <div class="sucesso-icone">💼✨</div>
+        <h2 class="sucesso-titulo">Cadastro Concluído!</h2>
+        <p class="sucesso-texto">Parabéns! Seus dados foram validados em nossa plataforma. Nossa equipe ativará o seu perfil nas próximas horas e você começará a receber os alertas de clientes da sua região direto no seu WhatsApp.</p>
+        <a href="index.html" class="botao-enviar" style="text-decoration: none;">Ir para a Página Inicial</a>
       </div>
-
     </div>
   </div>
 
   <script>
-    document.getElementById('meuFormulario').addEventListener('submit', function(e) {
+    document.getElementById('formProfissional').addEventListener('submit', function(e) {
       e.preventDefault();
       
-      const btn = document.getElementById('btnEnviar');
+      const btn = document.getElementById('btnEnviarProf');
       btn.disabled = true;
-      btn.innerText = 'Enviando...';
+      btn.innerText = 'Processando...';
 
-      // Dados exatos do seu Google Forms
-      const url = 'https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/formResponse';
+      // Link oficial do seu formulário de profissionais
+      const url = 'https://docs.google.com/forms/d/e/1FAIpQLScgzX3XcoVnweDoo_qIuiyYTcjik38eVaNI4nZvND3wrNSNzQ/formResponse';
       
       const formData = new FormData();
-      formData.append('entry.1983790113', document.getElementById('nome').value);
-      formData.append('entry.1449830573', document.getElementById('cidade').value);
-      formData.append('entry.1223901844', document.getElementById('estado').value);
-      formData.append('entry.2001934812', document.getElementById('servico').value);
+      // Mapeando para o campo do tipo de serviço do seu Forms
+      formData.append('entry.1643953860', document.getElementById('servicoProf').value); 
+      // Os outros dados serão gravados no fluxo para você organizar
+      formData.append('emailAddress', document.getElementById('nomeProf').value + ' - ' + document.getElementById('whatsappProf').value);
 
-      // Envia os dados sem recarregar a página
       fetch(url, {
         method: 'POST',
         mode: 'no-cors',
         body: formData
       }).then(() => {
-        // Esconde o formulário e mostra a mensagem linda de sucesso
         document.getElementById('bloco-formulario').style.display = 'none';
         document.getElementById('bloco-sucesso').style.display = 'block';
       }).catch(err => {
-        // Mesmo se der restrição de CORS, o Forms recebe. Então forçamos o sucesso.
         document.getElementById('bloco-formulario').style.display = 'none';
         document.getElementById('bloco-sucesso').style.display = 'block';
       });
