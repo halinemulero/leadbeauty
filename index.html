@@ -13,111 +13,69 @@
       font-family: 'Montserrat', sans-serif;
       background-color: #FBF9F6;
       color: #3D3530;
+      padding: 0;
     }
-    .hero {
-      background-color: #111111;
-      color: #FFFFFF;
-      padding: 60px 20px;
+    .header-site {
+      padding: 50px 20px 30px 20px;
       text-align: center;
+      background-color: #FBF9F6;
     }
-    .hero h1 {
+    .header-site h1 {
       font-family: 'Playfair Display', serif;
       color: #C5A059;
-      font-size: 42px;
-      margin: 0 0 10px 0;
+      font-size: 38px;
+      margin: 0 0 5px 0;
       font-weight: 500;
       letter-spacing: 1px;
     }
-    .hero .subtitulo {
-      color: #EAE3DC;
-      font-size: 11px;
+    .header-site .subtitulo {
+      color: #A69E9A;
+      font-size: 10px;
       font-weight: 600;
       letter-spacing: 3px;
       text-transform: uppercase;
-      margin-bottom: 40px;
     }
-    .box-introducao {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px dashed rgba(197, 160, 89, 0.3);
-      padding: 30px 20px;
-      border-radius: 24px;
-      max-width: 500px;
-      margin: 0 auto;
-    }
-    .box-introducao p {
-      margin: 0 0 30px 0;
-      font-size: 14px;
-      color: #D1C9C2;
-      line-height: 1.6;
-      font-weight: 300;
-    }
-    .titulo-secao {
-      font-size: 12px;
-      color: #C5A059;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 20px;
-    }
-    .grid-servicos {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 20px;
-    }
-    .item-servico {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(234, 227, 220, 0.1);
-      padding: 18px 10px;
-      border-radius: 14px;
-      font-size: 13px;
-      color: #FFFFFF;
-      font-weight: 500;
-    }
-    .item-servico span {
-      display: block;
-      font-size: 20px;
-      margin-bottom: 8px;
-    }
-    .secao-detalhes {
+    .container-clean {
       max-width: 540px;
-      margin: -30px auto 0 auto;
+      margin: 0 auto;
       padding: 0 20px 60px 20px;
     }
-    .card-info {
+    .card-clean {
       background: #FFFFFF;
       padding: 35px 30px;
       border-radius: 24px;
-      box-shadow: 0 15px 35px rgba(140, 122, 107, 0.08);
+      box-shadow: 0 15px 35px rgba(140, 122, 107, 0.06);
       border: 1px solid #EAE3DC;
-      margin-bottom: 35px;
+      margin-bottom: 25px;
     }
-    .card-info h3 {
-      font-family: 'Playfair Display', serif;
+    .card-clean h3 {
+      font-size: 12px;
       color: #3D3530;
-      font-size: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
       margin: 0 0 20px 0;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
-    .card-info ul {
+    .card-clean ul {
       margin: 0;
       padding: 0;
       list-style: none;
     }
-    .card-info li {
+    .card-clean li {
       position: relative;
-      padding-left: 15px;
+      padding-left: 18px;
       margin-bottom: 15px;
       font-size: 13px;
       color: #7A726E;
       line-height: 1.6;
     }
-    .card-info li strong {
+    .card-clean li strong {
       color: #CDA49E;
     }
-    .card-info li::before {
+    .card-clean li::before {
       content: "•";
       color: #CDA49E;
       font-weight: bold;
@@ -126,6 +84,9 @@
       left: 0;
       top: -2px;
     }
+    .card-clean li:last-child {
+      margin-bottom: 0;
+    }
     .titulo-planos {
       font-size: 11px;
       color: #C5A059;
@@ -133,18 +94,18 @@
       text-transform: uppercase;
       letter-spacing: 1.5px;
       text-align: center;
-      margin-bottom: 20px;
+      margin: 30px 0 20px 0;
     }
     .grid-planos {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       gap: 10px;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
     }
     .plano-box {
       background: #FFFFFF;
       border: 1px solid #EAE3DC;
-      border-radius: 12px;
+      border-radius: 14px;
       padding: 15px 5px;
       text-align: center;
     }
@@ -168,35 +129,14 @@
       font-size: 9px;
       color: #A69E9A;
     }
-    .botao-principal {
+    .botao-clean-principal {
       display: block;
       width: 100%;
       padding: 18px;
       background: #CDA49E;
       color: #FFFFFF;
       border: none;
-      border-radius: 16px;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      text-align: center;
-      box-sizing: border-box;
-      margin-bottom: 15px;
-      box-shadow: 0 6px 20px rgba(205, 164, 158, 0.3);
-    }
-    .botao-principal:hover {
-      background: #BD938D;
-    }
-    .botao-secundario {
-      display: block;
-      width: 100%;
-      padding: 16px;
-      background: #FFFFFF;
-      color: #CDA49E;
-      border: 2px solid #CDA49E;
-      border-radius: 16px;
+      border-radius: 18px;
       font-size: 14px;
       font-weight: 600;
       cursor: pointer;
@@ -204,42 +144,50 @@
       text-decoration: none;
       text-align: center;
       box-sizing: border-box;
+      margin-top: 30px;
+      margin-bottom: 15px;
     }
-    .botao-secundario:hover {
+    .botao-clean-principal:hover {
+      background: #BD938D;
+    }
+    .botao-clean-secundario {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      background: #FFFFFF;
+      color: #CDA49E;
+      border: 1px solid #CDA49E;
+      border-radius: 18px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      text-align: center;
+      box-sizing: border-box;
+    }
+    .botao-clean-secundario:hover {
       background: #FFFBFB;
     }
     .footer {
       text-align: center;
-      padding: 0 20px 40px 20px;
+      padding: 20px 20px 40px 20px;
       font-size: 10px;
       color: #A69E9A;
       letter-spacing: 0.5px;
+      background-color: #FBF9F6;
     }
   </style>
 </head>
 <body>
 
-  <div class="hero">
+  <div class="header-site">
     <h1>Haline Lead Beauty</h1>
     <div class="subtitulo">Sua Plataforma Nacional de Beleza</div>
-    
-    <div class="box-introducao">
-      <p>Conectamos clientes que buscam cuidados de excelência aos melhores profissionais de estética, cabelo, unhas e bem-estar de todo o Brasil.</p>
-      
-      <div class="titulo-secao">Qual serviço procura?</div>
-      <div class="grid-servicos">
-        <div class="item-servico"><span>✨</span>Estética Corporal</div>
-        <div class="item-servico"><span>🧬</span>Estética Avançada</div>
-        <div class="item-servico"><span>💇‍♀️</span>Cabelos & Cachos</div>
-        <div class="item-servico"><span>💅</span>Design de Unhas</div>
-        <div class="item-servico"><span>💆‍♀️</span>Massagens & SPA</div>
-        <div class="item-servico"><span>🦶</span>Podologia</div>
-      </div>
-    </div>
   </div>
 
-  <div class="secao-detalhes">
-    <div class="card-info">
+  <div class="container-clean">
+    <div class="card-clean">
       <h3><span>✨</span> Para quem busca profissionais</h3>
       <ul>
         <li><strong>100% Gratuito para Clientes:</strong> Busque especialistas na sua região e fale direto no WhatsApp deles sem pagar nada por isso.</li>
@@ -247,7 +195,7 @@
       </ul>
     </div>
 
-    <div class="card-info">
+    <div class="card-clean">
       <h3><span>💼</span> Para profissionais da beleza</h3>
       <ul>
         <li><strong>Seus 3 primeiros clientes são grátis:</strong> Cadastre sua especialidade e receba seus primeiros contatos sem custo nenhum.</li>
@@ -273,8 +221,8 @@
         </div>
       </div>
 
-      <a href="cadastro-cliente.html" class="botao-principal">Buscar Profissional na minha Região</a>
-      <a href="cadastro-profissional.html" class="botao-secundario">Quero Receber Clientes no meu WhatsApp</a>
+      <a href="cadastro-cliente.html" class="botao-clean-principal">Buscar Profissional na minha Região</a>
+      <a href="cadastro-profissional.html" class="botao-clean-secundario">Quero Receber Clientes no meu WhatsApp</a>
     </div>
   </div>
 
