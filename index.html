@@ -16,9 +16,15 @@
       padding: 0;
     }
     .header-site {
-      padding: 50px 20px 20px 20px;
+      padding: 40px 20px 20px 20px;
       text-align: center;
       background-color: #FBF9F6;
+    }
+    .logo-site {
+      width: 100px;
+      height: auto;
+      margin-bottom: 15px;
+      border-radius: 50%;
     }
     .header-site h1 {
       font-family: 'Playfair Display', serif;
@@ -41,7 +47,6 @@
       padding: 0 20px 60px 20px;
     }
     
-    /* Box de Proposta de Valor Clara e Objetiva */
     .boas-vindas-box {
       background: #3D3530;
       color: #FFFFFF;
@@ -243,13 +248,14 @@
 <body>
 
   <div class="header-site">
+    <!-- IMAGEM DO LOGO ADICIONADA AQUI -->
+    <img src="WhatsApp Image 2026-05-28 at 15.40.56_2.jpeg" alt="Logo Haline Lead Beauty" class="logo-site">
     <h1>Haline Lead Beauty</h1>
     <div class="subtitulo">Sua Plataforma Nacional de Beleza</div>
   </div>
 
   <div class="container-clean">
     
-    <!-- NOVO BLOCO: O QUE É O SITE? EXPLICADO EM SEGUNDOS -->
     <div class="boas-vindas-box">
       <h2>O que é a nossa plataforma?</h2>
       <p>
@@ -259,7 +265,6 @@
       </p>
     </div>
     
-    <!-- Seção de Impacto -->
     <div class="impacto-bar">
       <div class="impacto-item">
         <h4>+5.000</h4>
@@ -275,7 +280,6 @@
       </div>
     </div>
 
-    <!-- Card Clientes -->
     <div class="card-clean">
       <h3><span>✨</span> Para quem busca profissionais</h3>
       <ul>
@@ -284,7 +288,6 @@
       </ul>
     </div>
 
-    <!-- Card Profissionais -->
     <div class="card-clean">
       <h3><span>💼</span> Para profissionais da beleza</h3>
       <ul>
@@ -316,7 +319,6 @@
       <a href="cadastro-profissional.html" class="botao-clean-secundario">Quero Receber Clientes no meu WhatsApp</a>
     </div>
 
-    <!-- Caixinha do Instagram -->
     <div class="titulo-secao-extra">🗣️ Co-criação Haline Lead Beauty</div>
     <div class="card-clean" style="text-align: center; border-color: #CDA49E; background: #FFFBFB;">
       <h3 style="justify-content: center; color: #CDA49E;"><span>📸</span> Nosso Instagram é Seu!</h3>
@@ -327,7 +329,6 @@
       <button onclick="enviarIdeia()" style="width: 100%; padding: 14px; background: #3D3530; color: #FFFFFF; border: none; border-radius: 14px; font-size: 12px; font-weight: 600; cursor: pointer; letter-spacing: 0.5px; text-transform: uppercase;">Enviar Ideia de Post</button>
     </div>
 
-    <!-- Depoimentos -->
     <div class="titulo-secao-extra">O que dizem sobre nós</div>
     <div class="depoimento-card">
       <p class="depoimento-texto">"Achei uma designer de unhas maravilhosa no meu bairro em menos de 5 minutos! O atendimento direto pelo WhatsApp foi ótimo."</p>
@@ -338,7 +339,6 @@
       <div class="depoimento-autor">💼 Letícia C. • Esteticista</div>
     </div>
 
-    <!-- Dúvidas Frequentes -->
     <div class="titulo-secao-extra">Dúvidas Frequentes</div>
     <details>
       <summary>Como o cliente entra em contato com o profissional?</summary>
@@ -353,7 +353,6 @@
       <div class="faq-resposta">Não! Todo o valor do serviço prestado vai 100% para o bolso do profissional. Nós cobramos apenas o valor fixo do plano de assinatura mensal escolhido.</div>
     </details>
 
-    <!-- Selos de Segurança -->
     <div class="selos-seguranca">
       <div class="selo-item">🔒 Ambiente Seguro</div>
       <div class="selo-item">⚡ Pix Direto</div>
@@ -369,7 +368,7 @@
   <script>
     function enviarIdeia() {
       var texto = document.getElementById('ideiaInstagram').value;
-      if(texto.trim() === "") { alert("Por favor, digite sua idea antes de enviar! ✨"); return; }
+      if(texto.trim() === "") { alert("Por favor, digite sua ideia antes de enviar! ✨"); return; }
       var linkReadme = "https://wa.me/5513991444144?text=Olá%20Haline!%20Tenho%20uma%20ideia%20para%20o%20Instagram:%20" + encodeURIComponent(texto);
       window.open(linkReadme, '_blank');
     }
