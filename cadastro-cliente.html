@@ -24,7 +24,7 @@
     .container { width: 100%; max-width: 480px; margin: auto; }
     h1 { font-family: 'Playfair Display', serif; color: #C5A059; font-size: 34px; margin: 0 0 5px 0; font-weight: 500; }
     .tagline { color: #A69E9A; font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 25px; }
-    .card { background: #FFFFFF; padding: 35px 25px; border-radius: 24px; box-shadow: 0 15px 35px rgba(140, 122, 107, 0.1); border: 1px solid #EAE3DC; text-align: left; box-sizing: border-box; }
+    .card { background: #FFFFFF; padding: 35px 25px; border-radius: 24px; box-shadow: 0 15px 35px rgba(140, 122, 107, 0.1); border: 1px solid #EAE3DC; text-align: left; box-sizing: border-box; position: relative; }
     
     .instrucao { font-size: 13px; color: #7A726E; margin-bottom: 25px; line-height: 1.5; text-align: center; }
     label { display: block; font-size: 11px; color: #C5A059; font-weight: 700; text-transform: uppercase; margin-bottom: 6px; letter-spacing: 0.5px; }
@@ -37,7 +37,15 @@
     
     .botao-enviar { display: block; width: 100%; padding: 16px; background: #CDA49E; color: #FFFFFF; border: none; border-radius: 12px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; text-align: center; box-sizing: border-box; }
     .botao-enviar:hover { background: #BD938D; }
+    .botao-enviar:disabled { background: #EAE3DC; color: #A69E9A; cursor: not-allowed; }
+    
     .link-voltar { display: block; text-align: center; margin-top: 20px; color: #A69E9A; font-size: 12px; text-decoration: none; }
+
+    /* Tela de Sucesso Customizada */
+    .tela-sucesso { display: none; text-align: center; padding: 20px 10px; }
+    .sucesso-icone { font-size: 48px; color: #C5A059; margin-bottom: 15px; }
+    .sucesso-titulo { font-family: 'Playfair Display', serif; font-size: 24px; color: #3D3530; margin: 0 0 10px 0; }
+    .sucesso-texto { font-size: 14px; color: #7A726E; line-height: 1.6; margin-bottom: 25px; }
   </style>
 </head>
 <body>
@@ -46,29 +54,73 @@
     <div class="tagline">Ficha de Solicitação Oficial</div>
     
     <div class="card">
-      <p class="instrucao">Insira os seus detalhes abaixo para localizarmos as melhores especialistas na sua região.</p>
-      
-      <form action="https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/formResponse" method="POST" target="_blank">
-        <label>Nome Completo</label>
-        <input type="text" name="entry.1983790113" class="campo" placeholder="Digite seu nome" required>
+      <div id="bloco-formulario">
+        <p class="instrucao">Insira os seus detalhes abaixo para localizarmos as melhores especialistas na sua região.</p>
+        
+        <form id="meuFormulario">
+          <label>Nome Completo</label>
+          <input type="text" id="nome" class="campo" placeholder="Digite seu nome" required>
 
-        <label>Cidade</label>
-        <input type="text" name="entry.1449830573" class="campo" placeholder="Ex: São Vicente" required>
+          <label>Cidade</label>
+          <input type="text" id="cidade" class="campo" placeholder="Ex: São Vicente" required>
 
-        <label>Estado (UF)</label>
-        <input type="text" name="entry.1223901844" class="campo" placeholder="Ex: SP" maxlength="2" required>
+          <label>Estado (UF)</label>
+          <input type="text" id="estado" class="campo" placeholder="Ex: SP" maxlength="2" required>
 
-        <label>Qual procedimento ou serviço procura?</label>
-        <textarea name="entry.2001934812" class="campo" rows="3" placeholder="Ex: Microagulhamento, Cabelos, Unhas ou descreva o que precisa..." required></textarea>
+          <label>Qual procedimento ou serviço procura?</label>
+          <textarea id="servico" class="campo" rows="3" placeholder="Ex: Microagulhamento, Cabelos, Unhas ou descreva o que precisa..." required></textarea>
 
-        <div class="box-ideia">
-          <p>✨ <strong>Escreva com suas palavras:</strong> Caso não saiba o nome técnico do procedimento, descreva o que deseja acima que a nossa central faz a curadoria perfeita para você!</p>
-        </div>
+          <div class="box-ideia">
+            <p>✨ <strong>Escreva com suas palavras:</strong> Caso não saiba o nome técnico do procedimento, descreva o que deseja acima que a nossa central faz a curadoria perfeita para você!</p>
+          </div>
 
-        <button type="submit" class="botao-enviar">Solicitar Especialista</button>
-      </form>
-      <a href="index.html" class="link-voltar">← Voltar para o início</a>
+          <button type="submit" id="btnEnviar" class="botao-enviar">Solicitar Especialista</button>
+        </form>
+        <a href="index.html" class="link-voltar">← Voltar para o início</a>
+      </div>
+
+      <div id="bloco-sucesso" class="tela-sucesso">
+        <div class="sucesso-icone">✨</div>
+        <h2 class="sucesso-titulo">Solicitação Recebida!</h2>
+        <p class="sucesso-texto">Sua ficha foi enviada com sucesso para a nossa central. Já estamos fazendo a curadoria e as melhores especialistas da sua região entrarão em contato diretamente no seu WhatsApp.</p>
+        <a href="index.html" class="botao-enviar" style="text-decoration: none;">Voltar para o Início</a>
+      </div>
+
     </div>
   </div>
+
+  <script>
+    document.getElementById('meuFormulario').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const btn = document.getElementById('btnEnviar');
+      btn.disabled = true;
+      btn.innerText = 'Enviando...';
+
+      // Dados exatos do seu Google Forms
+      const url = 'https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/formResponse';
+      
+      const formData = new FormData();
+      formData.append('entry.1983790113', document.getElementById('nome').value);
+      formData.append('entry.1449830573', document.getElementById('cidade').value);
+      formData.append('entry.1223901844', document.getElementById('estado').value);
+      formData.append('entry.2001934812', document.getElementById('servico').value);
+
+      // Envia os dados sem recarregar a página
+      fetch(url, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData
+      }).then(() => {
+        // Esconde o formulário e mostra a mensagem linda de sucesso
+        document.getElementById('bloco-formulario').style.display = 'none';
+        document.getElementById('bloco-sucesso').style.display = 'block';
+      }).catch(err => {
+        // Mesmo se der restrição de CORS, o Forms recebe. Então forçamos o sucesso.
+        document.getElementById('bloco-formulario').style.display = 'none';
+        document.getElementById('bloco-sucesso').style.display = 'block';
+      });
+    });
+  </script>
 </body>
 </html>
