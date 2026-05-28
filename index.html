@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Haline Lead Beauty - Plataforma Nacional de Beleza</title>
+  <title>Cadastro Profissional - Haline Lead Beauty</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Cores exatas do seu layout clean e sofisticado */
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
@@ -22,82 +21,32 @@
       padding: 20px;
       box-sizing: border-box;
     }
-    .container { width: 100%; max-width: 480px; margin: auto; }
-    h1 { font-family: 'Playfair Display', serif; color: #C5A059; font-size: 38px; margin: 0 0 5px 0; font-weight: 500; }
+    .container { width: 100%; max-width: 500px; margin: auto; }
+    h1 { font-family: 'Playfair Display', serif; color: #C5A059; font-size: 34px; margin: 0 0 5px 0; font-weight: 500; }
     .tagline { color: #A69E9A; font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 25px; }
+    .card { background: #FFFFFF; padding: 20px 15px; border-radius: 24px; box-shadow: 0 15px 35px rgba(140, 122, 107, 0.1); border: 1px solid #EAE3DC; box-sizing: border-box; }
     
-    .card { background: #FFFFFF; padding: 35px 25px; border-radius: 24px; box-shadow: 0 15px 35px rgba(140, 122, 107, 0.1); border: 1px solid #EAE3DC; box-sizing: border-box; }
+    /* Estilo do formulário do Google embutido */
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      border-radius: 16px;
+    }
     
-    .secao-bloco { background: #FAF6F0; border: 1px dashed #C5A059; padding: 20px; border-radius: 16px; margin-bottom: 20px; text-align: left; }
-    .secao-bloco h2 { font-size: 13px; color: #3D3530; text-transform: uppercase; margin: 0 0 12px 0; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; }
-    .secao-bloco p { margin: 0 0 10px 0; font-size: 13px; color: #7A726E; line-height: 1.5; }
-    .secao-bloco p strong { color: #C5A059; }
-    .secao-bloco p:last-child { margin-bottom: 0; }
-
-    .titulo-planos { font-size: 11px; font-weight: 700; color: #C5A059; text-transform: uppercase; letter-spacing: 1px; margin: 25px 0 15px 0; }
-    
-    /* Grade de Planos igualzinha à foto */
-    .grade-planos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 25px; }
-    .plano-item { background: #FFFFFF; border: 1px solid #EAE3DC; border-radius: 10px; padding: 12px 5px; text-align: center; }
-    .plano-item.premium { border-color: #C5A059; background: #FAF6F0; }
-    .plano-nome { font-size: 11px; font-weight: 700; color: #3D3530; margin-bottom: 4px; }
-    .plano-preco { font-size: 12px; font-weight: 700; color: #C5A059; margin-bottom: 2px; }
-    .plano-obs { font-size: 9px; color: #A69E9A; }
-
-    /* Botões com as cores exatas do seu print rosé/nude sofisticado */
-    .botao-principal { display: block; width: 100%; padding: 16px 20px; background: #CDA49E; color: #FFFFFF; text-decoration: none; border-radius: 12px; font-size: 14px; font-weight: 600; margin-bottom: 15px; transition: all 0.3s ease; box-sizing: border-box; border: none; }
-    .botao-principal:hover { background: #BD938D; transform: translateY(-2px); }
-    
-    .botao-outline { display: block; width: 100%; padding: 16px 20px; background: #FFFFFF; color: #CDA49E; text-decoration: none; border-radius: 12px; font-size: 14px; font-weight: 600; transition: all 0.3s ease; box-sizing: border-box; border: 1px solid #CDA49E; }
-    .botao-outline:hover { background: #FAF6F0; }
-
-    .footer { margin-top: 25px; font-size: 10px; color: #A69E9A; }
+    .link-voltar { display: block; text-align: center; margin-top: 20px; color: #A69E9A; font-size: 12px; text-decoration: none; font-weight: 500; }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Haline Lead Beauty</h1>
-    <div class="tagline">Sua Plataforma Nacional de Beleza</div>
+    <div class="tagline">Credenciamento de Profissionais</div>
     
     <div class="card">
-      
-      <div class="secao-bloco">
-        <h2>✨ Para quem busca profissionais</h2>
-        <p>• <strong>100% Gratuito para Clientes:</strong> Busque especialistas na sua região e fale direto no WhatsApp deles sem pagar nada por isso.</p>
-        <p>• <strong>Transparência total:</strong> Sem taxas escondidas e sem necessidade de cadastrar cartões.</p>
-      </div>
-
-      <div class="secao-bloco">
-        <h2>💼 Para Profissionais da Beleza</h2>
-        <p>• <strong>Seus 3 primeiros clientes são grátis:</strong> Cadastre sua especialidade e receba seus primeiros contatos sem custo nenhum.</p>
-        <p>• <strong>Planos Mensais Flexíveis:</strong> Após os 3 contatos gratuitos, escolha o plano ideal para continuar recebendo indicações diariamente.</p>
-      </div>
-
-      <div class="titulo-planos">Nossos Planos Profissionais</div>
-      
-      <div class="grade-planos">
-        <div class="plano-item">
-          <div class="plano-nome">Basic</div>
-          <div class="plano-preco">R$ 9,90</div>
-          <div class="plano-obs">Leads Iniciais</div>
-        </div>
-        <div class="plano-item premium">
-          <div class="plano-nome">Premium</div>
-          <div class="plano-preco">R$ 29,90</div>
-          <div class="plano-obs">Mais Clientes</div>
-        </div>
-        <div class="plano-item">
-          <div class="plano-nome">Elite</div>
-          <div class="plano-preco">R$ 49,90</div>
-          <div class="plano-obs">Destaque Máximo</div>
-        </div>
-      </div>
-
-      <a class="botao-principal" href="cadastro-cliente.html">Buscar Profissional na minha Região</a>
-      
-      <a class="botao-outline"href="cadastro-profissional.html"
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScgzX3XcoVnweDoo_qIuiyYTcjik38eVaNI4nZvND3wrNSNzQ/viewform?embedded=true">Carregando...</iframe>
     </div>
-    <div class="footer">Haline Lead Beauty © 2026 • Termos de Uso Seguros e Transparentes</div>
+    
+    <a href="index.html" class="link-voltar">← Voltar para a Página Inicial</a>
   </div>
 </body>
 </html>
