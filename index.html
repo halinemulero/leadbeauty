@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lead Beauty | Plataforma de Estética Avançada e Camuflagem</title>
-
-  <meta name="description" content="Plataforma de conexão entre clientes e profissionais da beleza.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lead Beauty</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -13,87 +11,73 @@
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            roseGold: '#C5A059',
-            premiumRose: '#CDA49E',
-            premiumRoseHover: '#BD938D',
-            nudeBg: '#FBF9F6',
-            softBlack: '#2D2622',
-            softGray: '#7A726E',
-            cardBorder: '#EAE3DC'
-          }
-        }
-      }
-    }
-  </script>
-
   <style>
-    .hidden-section { display: none; }
+    .hidden { display: none; }
   </style>
 </head>
 
-<body class="bg-nudeBg text-softBlack">
+<body class="bg-gray-50">
 
 <!-- HOME -->
-<main id="view-home">
+<section id="home">
   <div class="text-center p-10">
     <h1 class="text-3xl font-bold">Lead Beauty</h1>
     <p class="mt-2">Conectando clientes e profissionais</p>
 
-    <button onclick="showView('cadastro-cliente')" class="mt-6 bg-black text-white px-4 py-2 rounded">
+    <button onclick="show('cliente')" class="mt-5 bg-black text-white px-4 py-2 rounded">
       Buscar Atendimento
     </button>
 
-    <button onclick="showView('login-profissional')" class="mt-2 bg-gray-700 text-white px-4 py-2 rounded">
+    <button onclick="show('login')" class="mt-2 bg-gray-700 text-white px-4 py-2 rounded">
       Área Profissional
     </button>
   </div>
-</main>
+</section>
 
 <!-- CLIENTE -->
-<section id="view-cadastro-cliente" class="hidden-section p-6">
-  <h2>Cadastro Cliente</h2>
+<section id="cliente" class="hidden p-6">
+  <h2 class="text-xl font-bold mb-4">Cadastro Cliente</h2>
 
-  <form onsubmit="handleCadastroCliente(event)">
-    <input id="cli-nome" placeholder="Nome" class="border p-2 w-full mb-2" required>
-    <input id="cli-whatsapp" placeholder="WhatsApp" class="border p-2 w-full mb-2" required>
-    <input id="cli-email" placeholder="Email" class="border p-2 w-full mb-2" required>
-    <input id="cli-cidade" placeholder="Cidade" class="border p-2 w-full mb-2" required>
+  <input id="nome" placeholder="Nome" class="border p-2 w-full mb-2">
+  <input id="whatsapp" placeholder="WhatsApp" class="border p-2 w-full mb-2">
+  <input id="email" placeholder="Email" class="border p-2 w-full mb-2">
+  <input id="cidade" placeholder="Cidade" class="border p-2 w-full mb-2">
 
-    <select id="cli-tratamento" class="border p-2 w-full mb-2">
-      <option>Camuflagem de Estrias</option>
-      <option>Camuflagem de Cicatrizes</option>
-      <option>Camuflagem de Olheiras</option>
-      <option>Microagulhamento</option>
-      <option>Estética Facial</option>
-    </select>
+  <select id="tratamento" class="border p-2 w-full mb-2">
+    <option>Camuflagem de Estrias</option>
+    <option>Camuflagem de Cicatrizes</option>
+    <option>Camuflagem de Olheiras</option>
+    <option>Microagulhamento</option>
+    <option>Estética Facial</option>
+  </select>
 
-    <button class="bg-black text-white px-4 py-2 w-full">Enviar</button>
-  </form>
+  <button onclick="salvarCliente()" class="bg-black text-white w-full py-2">
+    Enviar
+  </button>
 
-  <button onclick="showView('home')" class="mt-2 border p-2 w-full">Voltar</button>
+  <button onclick="show('home')" class="mt-2 border w-full py-2">
+    Voltar
+  </button>
 </section>
 
 <!-- LOGIN -->
-<section id="view-login-profissional" class="hidden-section p-6">
-  <h2>Login Profissional</h2>
+<section id="login" class="hidden p-6">
+  <h2 class="text-xl font-bold mb-4">Login Profissional</h2>
 
-  <form onsubmit="handleLoginProfissional(event)">
-    <input id="login-email" placeholder="Email" class="border p-2 w-full mb-2" required>
-    <input id="login-senha" placeholder="Senha" type="password" class="border p-2 w-full mb-2" required>
+  <input id="emailLogin" placeholder="Email" class="border p-2 w-full mb-2">
+  <input id="senhaLogin" type="password" placeholder="Senha" class="border p-2 w-full mb-2">
 
-    <button class="bg-black text-white px-4 py-2 w-full">Entrar</button>
-  </form>
+  <button onclick="login()" class="bg-black text-white w-full py-2">
+    Entrar
+  </button>
 
-  <button onclick="showView('home')" class="mt-2 border p-2 w-full">Voltar</button>
+  <button onclick="show('home')" class="mt-2 border w-full py-2">
+    Voltar
+  </button>
 </section>
 
 <script>
-  // 🔥 FIREBASE CONFIG (SEU DADOS REAIS)
+  // FIREBASE
   const firebaseConfig = {
     apiKey: "AIzaSyDX_vxiittvMdKEF5_p-rwCK_IkUIFs05o",
     authDomain: "lead-beauty.firebaseapp.com",
@@ -108,43 +92,37 @@
   const db = firebase.firestore();
   const auth = firebase.auth();
 
-  function showView(id) {
-    document.querySelectorAll('main, section').forEach(el => el.classList.add('hidden-section'));
-    document.getElementById('view-' + id).classList.remove('hidden-section');
+  function show(tela) {
+    document.querySelectorAll("section").forEach(s => s.classList.add("hidden"));
+    document.getElementById(tela).classList.remove("hidden");
   }
 
-  // CLIENTE
-  function handleCadastroCliente(e) {
-    e.preventDefault();
-
+  function salvarCliente() {
     const lead = {
-      nome: cli-nome.value,
-      whatsapp: cli-whatsapp.value,
-      email: cli-email.value,
-      cidade: cli-cidade.value,
-      tratamento: cli-tratamento.value,
+      nome: nome.value,
+      whatsapp: whatsapp.value,
+      email: email.value,
+      cidade: cidade.value,
+      tratamento: tratamento.value,
       data: new Date().toLocaleString()
     };
 
     db.collection("clientes").add(lead)
       .then(() => {
         alert("Enviado com sucesso!");
-        showView('home');
+        show("home");
       })
       .catch(err => alert(err.message));
   }
 
-  // LOGIN
-  function handleLoginProfissional(e) {
-    e.preventDefault();
-
+  function login() {
     auth.signInWithEmailAndPassword(
-      login-email.value,
-      login-senha.value
+      emailLogin.value,
+      senhaLogin.value
     )
     .then(() => {
-      alert("Login OK");
-      showView('home');
+      alert("Login realizado!");
+      show("home");
     })
     .catch(err => alert(err.message));
   }
