@@ -1,131 +1,171 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lead Beauty</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lead Beauty | Plataforma de Estética Avançada e Camuflagem</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
 
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            serif: ['Playfair Display', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
-    .hidden { display: none; }
+    .hidden-section { display: none; }
   </style>
 </head>
 
-<body class="bg-gray-50">
+<body class="bg-white text-gray-800 font-sans">
+
+<!-- NAV -->
+<nav class="p-4 border-b">
+  <div class="flex justify-between">
+    <h1 class="font-bold">Lead Beauty</h1>
+    <div>
+      <button onclick="showView('cadastro-cliente')">Buscar</button>
+      <button onclick="showView('login-profissional')">Profissional</button>
+    </div>
+  </div>
+</nav>
 
 <!-- HOME -->
-<section id="home">
-  <div class="text-center p-10">
-    <h1 class="text-3xl font-bold">Lead Beauty</h1>
-    <p class="mt-2">Conectando clientes e profissionais</p>
-
-    <button onclick="show('cliente')" class="mt-5 bg-black text-white px-4 py-2 rounded">
-      Buscar Atendimento
-    </button>
-
-    <button onclick="show('login')" class="mt-2 bg-gray-700 text-white px-4 py-2 rounded">
-      Área Profissional
-    </button>
-  </div>
+<section id="view-home" class="view-section p-6">
+  <h2 class="text-xl font-bold">Conectando clientes e profissionais</h2>
 </section>
 
 <!-- CLIENTE -->
-<section id="cliente" class="hidden p-6">
-  <h2 class="text-xl font-bold mb-4">Cadastro Cliente</h2>
+<section id="view-cadastro-cliente" class="view-section hidden-section p-6">
+  <h2>Cadastro Cliente</h2>
 
-  <input id="nome" placeholder="Nome" class="border p-2 w-full mb-2">
-  <input id="whatsapp" placeholder="WhatsApp" class="border p-2 w-full mb-2">
-  <input id="email" placeholder="Email" class="border p-2 w-full mb-2">
-  <input id="cidade" placeholder="Cidade" class="border p-2 w-full mb-2">
+  <form onsubmit="handleCadastroCliente(event)">
+    <input id="cli-nome" placeholder="Nome" required>
+    <input id="cli-whatsapp" placeholder="WhatsApp" required>
+    <input id="cli-email" placeholder="Email" required>
+    <input id="cli-cidade" placeholder="Cidade" required>
+    <input id="cli-estado" placeholder="UF" required>
 
-  <select id="tratamento" class="border p-2 w-full mb-2">
-    <option>Camuflagem de Estrias</option>
-    <option>Camuflagem de Cicatrizes</option>
-    <option>Camuflagem de Olheiras</option>
-    <option>Microagulhamento</option>
-    <option>Estética Facial</option>
-  </select>
+    <select id="cli-tratamento">
+      <option>Camuflagem de Estrias</option>
+      <option>Camuflagem de Cicatrizes</option>
+      <option>Camuflagem de Olheiras</option>
+    </select>
 
-  <button onclick="salvarCliente()" class="bg-black text-white w-full py-2">
-    Enviar
-  </button>
+    <button type="submit">Enviar</button>
+  </form>
+</section>
 
-  <button onclick="show('home')" class="mt-2 border w-full py-2">
-    Voltar
-  </button>
+<!-- PROFISSIONAL -->
+<section id="view-cadastro-profissional-view" class="view-section hidden-section p-6">
+  <h2>Cadastro Profissional</h2>
+
+  <form onsubmit="handleCadastroProfissional(event)">
+    <input id="prof-nome" placeholder="Nome" required>
+    <input id="prof-email" placeholder="Email" required>
+    <input id="prof-senha" placeholder="Senha" type="password" required>
+    <input id="prof-cidade" placeholder="Cidade" required>
+    <input id="prof-estado" placeholder="UF" required>
+    <input id="prof-whatsapp" placeholder="WhatsApp" required>
+
+    <button type="submit">Cadastrar</button>
+  </form>
 </section>
 
 <!-- LOGIN -->
-<section id="login" class="hidden p-6">
-  <h2 class="text-xl font-bold mb-4">Login Profissional</h2>
+<section id="view-login-profissional" class="view-section hidden-section p-6">
+  <h2>Login Profissional</h2>
 
-  <input id="emailLogin" placeholder="Email" class="border p-2 w-full mb-2">
-  <input id="senhaLogin" type="password" placeholder="Senha" class="border p-2 w-full mb-2">
-
-  <button onclick="login()" class="bg-black text-white w-full py-2">
-    Entrar
-  </button>
-
-  <button onclick="show('home')" class="mt-2 border w-full py-2">
-    Voltar
-  </button>
+  <form onsubmit="handleLoginProfissional(event)">
+    <input id="login-email" placeholder="Email" required>
+    <input id="login-senha" type="password" placeholder="Senha" required>
+    <button type="submit">Entrar</button>
+  </form>
 </section>
 
+<!-- FIREBASE -->
 <script>
-  // FIREBASE
-  const firebaseConfig = {
-    apiKey: "AIzaSyDX_vxiittvMdKEF5_p-rwCK_IkUIFs05o",
-    authDomain: "lead-beauty.firebaseapp.com",
-    projectId: "lead-beauty",
-    storageBucket: "lead-beauty.firebasestorage.app",
-    messagingSenderId: "348290705731",
-    appId: "1:348290705731:web:a4393a867938a842f727f6"
+const firebaseConfig = {
+  apiKey: "AIzaSyDX_vxiittvMdKEF5_p-rwCK_IkUIFs05o",
+  authDomain: "lead-beauty.firebaseapp.com",
+  projectId: "lead-beauty",
+  storageBucket: "lead-beauty.appspot.com",
+  messagingSenderId: "348290705731",
+  appId: "1:348290705731:web:a4393a867938a842f727f6",
+  measurementId: "G-S74YXWT7FY"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+const auth = firebase.auth();
+
+// navegação
+function showView(id){
+  document.querySelectorAll('.view-section').forEach(v=>v.classList.add('hidden-section'));
+  document.getElementById('view-'+id).classList.remove('hidden-section');
+}
+
+// CLIENTE
+function handleCadastroCliente(e){
+  e.preventDefault();
+
+  const lead = {
+    nome: cli-nome.value,
+    whatsapp: cli-whatsapp.value,
+    email: cli-email.value,
+    cidade: cli-cidade.value,
+    estado: cli-estado.value,
+    tratamento: cli-tratamento.value
   };
 
-  firebase.initializeApp(firebaseConfig);
+  db.collection("clientes").add(lead)
+    .then(()=> alert("Enviado com sucesso!"))
+    .catch(()=> alert("Erro ao enviar"));
+}
 
-  const db = firebase.firestore();
-  const auth = firebase.auth();
+// PROFISSIONAL
+function handleCadastroProfissional(e){
+  e.preventDefault();
 
-  function show(tela) {
-    document.querySelectorAll("section").forEach(s => s.classList.add("hidden"));
-    document.getElementById(tela).classList.remove("hidden");
-  }
+  const email = prof-email.value;
+  const senha = prof-senha.value;
 
-  function salvarCliente() {
-    const lead = {
-      nome: nome.value,
-      whatsapp: whatsapp.value,
-      email: email.value,
-      cidade: cidade.value,
-      tratamento: tratamento.value,
-      data: new Date().toLocaleString()
-    };
-
-    db.collection("clientes").add(lead)
-      .then(() => {
-        alert("Enviado com sucesso!");
-        show("home");
-      })
-      .catch(err => alert(err.message));
-  }
-
-  function login() {
-    auth.signInWithEmailAndPassword(
-      emailLogin.value,
-      senhaLogin.value
-    )
-    .then(() => {
-      alert("Login realizado!");
-      show("home");
+  auth.createUserWithEmailAndPassword(email, senha)
+    .then(user=>{
+      return db.collection("profissionais").doc(user.user.uid).set({
+        nome: prof-nome.value,
+        email,
+        cidade: prof-cidade.value,
+        estado: prof-estado.value,
+        whatsapp: prof-whatsapp.value
+      });
     })
-    .catch(err => alert(err.message));
-  }
+    .then(()=> alert("Profissional cadastrado!"))
+    .catch(err=> alert(err.message));
+}
+
+// LOGIN
+function handleLoginProfissional(e){
+  e.preventDefault();
+
+  auth.signInWithEmailAndPassword(login-email.value, login-senha.value)
+    .then(()=> alert("Login OK"))
+    .catch(err=> alert(err.message));
+}
 </script>
 
 </body>
