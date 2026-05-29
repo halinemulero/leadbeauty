@@ -1,42 +1,229 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cadastro Profissional - Haline Lead Beauty</title>
+  <title>Lead Beauty | Plataforma de Estética Avançada e Camuflagem</title>
+  
+  <meta name="description" content="Recupere a segurança da sua pele com tratamentos de estética avançada. Plataforma integrada para camuflagem de estrias, cicatrizes, olheiras e microagulhamento científico.">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background-color: #FBF9F6;
-      color: #3D3530;
-      text-align: center;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px 10px;
-      box-sizing: border-box;
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            serif: ['Playfair Display', 'serif']
+          },
+          colors: {
+            roseGold: '#C5A059',
+            premiumRose: '#CDA49E',
+            premiumRoseHover: '#BD938D',
+            nudeBg: '#FBF9F6',
+            softBlack: '#2D2622',
+            softGray: '#7A726E',
+            cardBorder: '#EAE3DC'
+          }
+        }
+      }
     }
-    .container { width: 100%; max-width: 640px; margin: auto; }
-    h1 { font-family: 'Playfair Display', serif; color: #C5A059; font-size: 34px; margin: 0 0 5px 0; font-weight: 500; }
-    .tagline { color: #A69E9A; font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 25px; }
-    .card { background: #FFFFFF; padding: 10px; border-radius: 24px; box-shadow: 0 15px 35px rgba(140, 122, 107, 0.06); border: 1px solid #EAE3DC; box-sizing: border-box; }
-    iframe { width: 100%; height: 750px; border: none; border-radius: 16px; }
-    .link-voltar { display: block; text-align: center; margin-top: 20px; color: #A69E9A; font-size: 12px; text-decoration: none; font-weight: 500; }
+  </script>
+  <style>
+    .premium-shadow { box-shadow: 0 10px 30px -10px rgba(140, 122, 107, 0.08); }
+    .card-hover:hover { transform: translateY(-2px); box-shadow: 0 20px 40px -15px rgba(140, 122, 107, 0.12); }
+    .hidden-section { display: none; }
   </style>
 </head>
-<body>
-  <div class="container">
-    <h1>Haline Lead Beauty</h1>
-    <div class="tagline">Credenciamento de Profissionais</div>
-    <div class="card">
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScgzX3XcoVnweDoo_qIuiyYTcjik38eVaNI4nZvND3wrNSNzQ/viewform?embedded=true">Carregando...</iframe>
+<body class="bg-nudeBg text-softBlack font-sans antialiased">
+
+  <nav class="sticky top-0 bg-white/90 backdrop-blur-md border-b border-cardBorder z-50 px-6 py-4">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-3 cursor-pointer" onclick="showView('home')">
+        <img src="logo.jpeg" alt="Logo" class="w-9 h-9 rounded-full object-cover border border-cardBorder" onerror="this.src='logo.jpg'">
+        <div>
+          <span class="font-serif font-bold text-sm block tracking-tight">Lead Beauty</span>
+          <span class="text-[8px] tracking-widest text-roseGold uppercase block -mt-1">by Haline Mulero</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="#tratamentos" onclick="showView('home')" class="text-xs text-softGray hover:text-softBlack transition">Tratamentos</a>
+        <button onclick="showView('login-profissional')" class="bg-softBlack text-white text-xs px-4 py-2 rounded-xl font-medium transition hover:bg-neutral-800">Área Profissional</button>
+      </div>
     </div>
-    <a href="index.html" class="link-voltar">← Voltar para a Página Inicial</a>
+  </nav>
+
+  <main id="view-home" class="view-section">
+    
+    <header class="text-center pt-16 pb-12 px-4 max-w-4xl mx-auto">
+      <div class="w-24 h-24 mx-auto rounded-full overflow-hidden border border-cardBorder p-1 bg-white mb-6 shadow-sm flex items-center justify-center">
+        <img src="logo.jpeg" alt="Logo Lead Beauty" class="w-full h-full object-cover rounded-full" onerror="this.src='logo.jpg'">
+      </div>
+      <h1 class="font-serif text-3xl md:text-5xl font-semibold leading-tight max-w-3xl mx-auto mb-4">
+        Recupere a segurança da sua pele com tratamentos de estética avançada.
+      </h1>
+      <p class="text-sm md:text-base text-softGray max-w-2xl mx-auto mb-8">
+        Plataforma integrada de inteligência para camuflagem de estrias, cicatrizes, olheiras e microagulhamento científico.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-md mx-auto">
+        <button onclick="showView('cadastro-cliente')" class="w-full bg-premiumRose text-white py-3.5 rounded-xl text-xs font-bold tracking-wider uppercase transition hover:bg-premiumRoseHover shadow-md">Solicitar Avaliação Especializada</button>
+        <button onclick="showView('cadastro-profissional-view')" class="w-full bg-white border border-cardBorder text-softBlack py-3.5 rounded-xl text-xs font-bold tracking-wider uppercase transition hover:bg-neutral-50">Credenciamento de Profissionais</button>
+      </div>
+    </header>
+
+    <section class="py-6 px-4 max-w-3xl mx-auto">
+      <div class="bg-softBlack text-white p-8 rounded-3xl text-center shadow-xl">
+        <h3 class="font-serif text-xl md:text-2xl mb-4">O que é a nossa plataforma?</h3>
+        <p class="text-xs md:text-sm text-neutral-300 leading-relaxed max-w-2xl mx-auto">
+          Somos o elo de conexão direta na estética e bem-estar. Para <span class="text-premiumRose font-semibold">clientes</span>, somos um guia gratuito para encontrar os melhores especialistas da sua região. Para <span class="text-roseGold font-semibold">profissionais da beleza</span>, somos a ferramenta ideal para captar novos clientes qualificados direto no seu WhatsApp.
+        </p>
+      </div>
+    </section>
+
+    <section class="py-12 px-6 max-w-4xl mx-auto border-t border-cardBorder mt-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div class="flex justify-center">
+          <div class="w-64 h-80 rounded-2xl overflow-hidden shadow-lg border border-cardBorder">
+            <img src="foto.jpeg" alt="Haline Mulero" class="w-full h-full object-cover" onerror="this.src='foto.jpg'">
+          </div>
+        </div>
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-widest text-roseGold block mb-1">Direção Técnica</span>
+          <h3 class="font-serif text-2xl font-semibold text-softBlack mb-4">Haline Mulero</h3>
+          <p class="text-xs text-softGray leading-relaxed mb-4">
+            Especialista em estética avançada, desenvolvendo protocolos científicos focados na regeneração celular, indução controlada de colágeno e harmonização por colorimetria dérmica.
+          </p>
+          <p class="text-xs text-softGray leading-relaxed">
+            A plataforma Lead Beauty nasce para unir a segurança de procedimentos validados à conveniência do atendimento regional personalizado.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="tratamentos" class="py-12 px-6 max-w-5xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="text-[10px] font-bold uppercase tracking-widest text-roseGold mb-1">Procedimentos Regulamentados</h2>
+        <p class="font-serif text-2xl font-medium text-softBlack">Especialidades Clínicas Disponíveis</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white border border-cardBorder rounded-2xl p-5 premium-shadow transition card-hover">
+          <h3 class="font-serif text-lg font-semibold mb-2">Regeneração de Estrias</h3>
+          <p class="text-xs text-softGray leading-relaxed">Indução controlada de colágeno via microagulhamento para reestruturação do tecido e redução da profundidade das estrias.</p>
+        </div>
+        <div class="bg-white border border-cardBorder rounded-2xl p-5 premium-shadow transition card-hover">
+          <h3 class="font-serif text-lg font-semibold mb-2">Camuflagem de Cicatrizes</h3>
+          <p class="text-xs text-softGray leading-relaxed">Harmonização pigmentar dérmica com ativos e colorimetria avançada para igualar o tom da cicatriz à pele sã.</p>
+        </div>
+        <div class="bg-white border border-cardBorder rounded-2xl p-5 premium-shadow transition card-hover">
+          <h3 class="font-serif text-lg font-semibold mb-2">Camuflagem de Olheiras</h3>
+          <p class="text-xs text-softGray leading-relaxed">Tratamento de tonalidades escuras e vasculares na região periocular, eliminando o aspecto de fadiga crônica.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <section id="view-cadastro-cliente" class="view-section hidden-section py-12 px-4 max-w-lg mx-auto">
+    <div class="bg-white p-8 rounded-3xl border border-cardBorder premium-shadow">
+      <h2 class="font-serif text-2xl font-bold text-center mb-2">Solicitação de Atendimento</h2>
+      <form id="form-cliente" class="space-y-4" onsubmit="handleCadastroCliente(event)">
+        <div>
+          <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Nome Completo</label>
+          <input type="text" id="cli-nome" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg focus:outline-none">
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Cidade</label>
+            <input type="text" id="cli-cidade" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg focus:outline-none">
+          </div>
+          <div>
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Estado (UF)</label>
+            <input type="text" id="cli-estado" maxlength="2" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg focus:outline-none">
+          </div>
+        </div>
+        <div>
+          <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Serviço Procurado</label>
+          <select id="cli-tratamento" class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg focus:outline-none">
+            <option>Regeneração de Estrias</option>
+            <option>Camuflagem de Cicatrizes</option>
+            <option>Camuflagem de Olheiras</option>
+          </select>
+        </div>
+        <button type="submit" class="w-full bg-softBlack text-white py-4 rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-neutral-800 transition">Enviar Solicitação</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="view-cadastro-profissional-view" class="view-section hidden-section py-12 px-4 max-w-lg mx-auto">
+    <div class="bg-white p-8 rounded-3xl border border-cardBorder premium-shadow">
+      <h2 class="font-serif text-2xl font-bold text-center mb-2">Credenciamento Profissional</h2>
+      <p class="text-xs text-softGray text-center mb-6">Cadastre seu espaço ou clínica para receber os leads filtrados da sua região.</p>
+      <form class="space-y-4" onsubmit="event.preventDefault(); alert('Cadastro operacional salvo!'); showView('home');">
+        <div>
+          <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Nome Profissional / Clínica</label>
+          <input type="text" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg focus:outline-none">
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Cidade de Atuação</label>
+            <input type="text" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg focus:outline-none">
+          </div>
+          <div>
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">WhatsApp Comercial</label>
+            <input type="tel" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg focus:outline-none">
+          </div>
+        </div>
+        <button type="submit" class="w-full bg-premiumRose text-white py-4 rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-premiumRoseHover transition">Concluir Credenciamento</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="view-login-profissional" class="view-section hidden-section py-12 px-4 max-w-sm mx-auto">
+    <div class="bg-white p-8 rounded-3xl border border-cardBorder premium-shadow">
+      <h2 class="font-serif text-xl font-bold text-center mb-4">Painel do Especialista</h2>
+      <form onsubmit="event.preventDefault(); alert('Acesso simulação administrativa'); showView('home');" class="space-y-4">
+        <div>
+          <label class="text-[10px] font-bold text-softGray uppercase block mb-1">E-mail</label>
+          <input type="email" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg focus:outline-none">
+        </div>
+        <div>
+          <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Senha</label>
+          <input type="password" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg focus:outline-none">
+        </div>
+        <button type="submit" class="w-full bg-softBlack text-white py-3 rounded-xl text-xs font-semibold uppercase tracking-wider transition hover:bg-neutral-800">Entrar no Console</button>
+      </form>
+    </div>
+  </section>
+
+  <div id="ai-chat" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+    <button onclick="toggleChat()" class="w-12 h-12 bg-softBlack text-white rounded-full flex items-center justify-center shadow-xl hover:scale-105 transition-transform">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+    </button>
+    <div id="chat-window" class="hidden-section w-80 md:w-96 h-[380px] bg-white rounded-2xl border border-cardBorder shadow-2xl mt-3 flex flex-col overflow-hidden">
+      <div class="bg-softBlack text-white p-4 flex items-center justify-between">
+        <span class="font-serif text-xs tracking-wide">Suporte Clínico Virtual</span>
+        <button onclick="toggleChat()" class="text-xs opacity-80 hover:opacity-100">Fechar</button>
+      </div>
+      <div class="flex-1 p-4 bg-nudeBg text-xs overflow-y-auto">
+        <div class="bg-white p-3 rounded-xl border border-cardBorder max-w-[85%] text-softBlack">
+          Olá! Sou a especialista assistente da Lead Beauty. Como posso ajudar na evolução e cuidados da sua pele hoje?
+        </div>
+      </div>
+      <div class="p-3 border-t border-cardBorder bg-white flex gap-2">
+        <input type="text" placeholder="Digite sua dúvida clínica..." class="flex-1 border border-cardBorder rounded-xl px-3 py-2 text-xs bg-nudeBg focus:outline-none">
+        <button onclick="alert('Mensagem enviada para triagem técnica!')" class="bg-premiumRose text-white px-4 py-2 rounded-xl text-xs font-semibold">Enviar</button>
+      </div>
+    </div>
   </div>
-</body>
-</html>
+
+  <footer class="border-t border-cardBorder bg-white py-8 px-6 text-center mt-12">
+    <p class="font-serif text-sm font-bold text-softBlack">Lead Beauty</p>
+    <p class="text-[8px] text-roseGold tracking-widest uppercase mb-4">by Haline Mulero</p>
+    <p class="text-[10px] text-softGray">Todos os direitos reservados
