@@ -1,972 +1,302 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lead Beauty by Haline Mulero | Conectando Beleza</title>
-    <meta name="description" content="Plataforma que conecta clientes e profissionais da beleza na sua região. Encontre os melhores profissionais ou receba novos clientes.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lead Beauty | Conectando o Mercado da Beleza</title>
+  
+  <!-- SEO Básico e Open Graph -->
+  <meta name="description" content="A plataforma inteligente que conecta clientes aos melhores profissionais de beleza e estética da região. Geração de leads simplificada e direta por Haline Mulero.">
+  <meta property="og:title" content="Lead Beauty by Haline Mulero | Plataforma de Beleza">
+  <meta property="og:description" content="Conecte-se com profissionais verificados ou encontre novos clientes na sua região de forma rápida e segura.">
+  <meta property="og:type" content="website">
+  
+  <!-- Google Fonts & Tailwind CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          colors: {
+            roseGold: '#C5A059',
+            premiumRose: '#CDA49E',
+            premiumRoseHover: '#BD938D',
+            nudeBg: '#FBF9F6',
+            softBlack: '#2D2622',
+            softGray: '#7A726E',
+            cardBorder: '#EAE3DC'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .glass-effect { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); }
+    .premium-shadow { box-shadow: 0 20px 40px -15px rgba(140, 122, 107, 0.12); }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 30px 50px -20px rgba(140, 122, 107, 0.2); }
     
-    <!-- Open Graph -->
-    <meta property="og:title" content="Lead Beauty by Haline Mulero">
-    <meta property="og:description" content="Conectando clientes e profissionais da beleza na sua região.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="[images.unsplash.com](https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200)">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='[w3.org](http://www.w3.org/2000/svg)' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💎</text></svg>">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="[fonts.googleapis.com](https://fonts.googleapis.com)">
-    <link rel="preconnect" href="[fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
-    <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap)" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
-    <script src="[cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        rose: {
-                            gold: '#B76E79',
-                            light: '#E8B4B8',
-                            pale: '#F5E6E8'
-                        },
-                        nude: {
-                            100: '#FDF8F6',
-                            200: '#F5EBE6',
-                            300: '#E8D5CC',
-                            400: '#D4B5A5'
-                        },
-                        charcoal: '#2D2D2D',
-                        slate: {
-                            warm: '#4A4A4A',
-                            soft: '#6B6B6B'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Poppins', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            overflow-x: hidden;
-        }
-        
-        /* Glassmorphism */
-        .glass {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-        
-        .glass-dark {
-            background: rgba(45, 45, 45, 0.9);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-        }
-        
-        /* Gradients */
-        .gradient-hero {
-            background: linear-gradient(135deg, #FDF8F6 0%, #F5E6E8 50%, #E8D5CC 100%);
-        }
-        
-        .gradient-rose {
-            background: linear-gradient(135deg, #B76E79 0%, #E8B4B8 100%);
-        }
-        
-        .gradient-text {
-            background: linear-gradient(135deg, #B76E79 0%, #8B5A5A 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        @keyframes pulse-soft {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-        
-        .animate-fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-        
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        .animate-delay-100 { animation-delay: 0.1s; }
-        .animate-delay-200 { animation-delay: 0.2s; }
-        .animate-delay-300 { animation-delay: 0.3s; }
-        .animate-delay-400 { animation-delay: 0.4s; }
-        
-        /* Cards hover */
-        .card-hover {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px -12px rgba(183, 110, 121, 0.25);
-        }
-        
-        /* Button styles */
-        .btn-primary {
-            background: linear-gradient(135deg, #B76E79 0%, #9A5A63 100%);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s ease;
-        }
-        
-        .btn-primary:hover::before {
-            left: 100%;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px -10px rgba(183, 110, 121, 0.5);
-        }
-        
-        .btn-secondary {
-            border: 2px solid #B76E79;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-secondary:hover {
-            background: #B76E79;
-            color: white;
-            transform: translateY(-2px);
-        }
-        
-        /* Hero decoration */
-        .hero-blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(60px);
-            opacity: 0.6;
-        }
-        
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: #FDF8F6;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: #B76E79;
-            border-radius: 4px;
-        }
-        
-        /* Plan card highlight */
-        .plan-premium {
-            position: relative;
-        }
-        
-        .plan-premium::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            background: linear-gradient(135deg, #B76E79, #E8B4B8, #B76E79);
-            border-radius: 1.5rem;
-            z-index: -1;
-            animation: pulse-soft 2s ease-in-out infinite;
-        }
-    </style>
+    /* Animações e Efeitos do Logo */
+    @keyframes logoEntrance {
+      0% { opacity: 0; transform: scale(0.92); filter: blur(4px); }
+      100% { opacity: 1; transform: scale(1); filter: blur(0); }
+    }
+    .logo-glow-effect {
+      box-shadow: 0 0 25px rgba(197, 160, 89, 0.08), 0 10px 20px rgba(140, 122, 107, 0.06);
+      animation: logoEntrance 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+  </style>
 </head>
-<body class="bg-nude-100 text-charcoal">
-    
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 glass">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16 md:h-20">
-                <a href="#" class="flex items-center gap-2">
-                    <div class="w-10 h-10 rounded-xl gradient-rose flex items-center justify-center">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
-                        </svg>
-                    </div>
-                    <span class="font-semibold text-lg text-charcoal">Lead Beauty</span>
-                </a>
-                
-                <div class="hidden md:flex items-center gap-8">
-                    <a href="#como-funciona" class="text-slate-warm hover:text-rose-gold transition-colors text-sm font-medium">Como Funciona</a>
-                    <a href="#categorias" class="text-slate-warm hover:text-rose-gold transition-colors text-sm font-medium">Categorias</a>
-                    <a href="#planos" class="text-slate-warm hover:text-rose-gold transition-colors text-sm font-medium">Planos</a>
-                    <a href="#sobre" class="text-slate-warm hover:text-rose-gold transition-colors text-sm font-medium">Sobre</a>
-                </div>
-                
-                <div class="flex items-center gap-3">
-                    <a href="[docs.google.com](https://docs.google.com/forms/d/e/1FAIpQLScgzX3XcoVnweDoo_qIuiyYTcjik38eVaNI4nZvND3wrNSNzQ/viewform)" target="_blank" class="hidden sm:inline-flex px-4 py-2 text-sm font-medium text-rose-gold border border-rose-gold rounded-full hover:bg-rose-gold hover:text-white transition-all">
-                        Sou Profissional
-                    </a>
-                    <a href="[docs.google.com](https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform)" target="_blank" class="btn-primary px-4 py-2 text-sm font-medium text-white rounded-full">
-                        Buscar Profissional
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
+<body class="bg-nudeBg text-softBlack font-sans antialiased selection:bg-premiumRose selection:text-white">
 
-    <!-- Hero Section -->
-    <section class="relative min-h-screen gradient-hero overflow-hidden pt-20">
-        <!-- Background Elements -->
-        <div class="hero-blob w-96 h-96 bg-rose-light top-20 -left-48"></div>
-        <div class="hero-blob w-80 h-80 bg-nude-300 bottom-20 right-0"></div>
-        <div class="hero-blob w-64 h-64 bg-rose-pale top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-        
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <!-- Content -->
-                <div class="text-center lg:text-left">
-                    <!-- Logo Badge -->
-                    <div class="inline-flex items-center gap-3 glass rounded-2xl px-5 py-3 mb-8 animate-fade-in-up">
-                        <div class="w-12 h-12 rounded-xl gradient-rose flex items-center justify-center shadow-lg">
-                            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
-                            </svg>
-                        </div>
-                        <div class="text-left">
-                            <p class="text-lg font-semibold text-charcoal">Lead Beauty</p>
-                            <p class="text-xs text-slate-soft">by Haline Mulero</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Headline -->
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 animate-fade-in-up animate-delay-100">
-                        <span class="text-charcoal">Conectando</span>
-                        <span class="gradient-text"> clientes e profissionais</span>
-                        <span class="text-charcoal"> da beleza</span>
-                    </h1>
-                    
-                    <p class="text-lg sm:text-xl text-slate-warm mb-8 max-w-xl mx-auto lg:mx-0 animate-fade-in-up animate-delay-200">
-                        Uma plataforma criada para ajudar profissionais da beleza a encontrarem clientes e clientes a encontrarem profissionais confiáveis na sua região.
-                    </p>
-                    
-                    <!-- CTA Buttons -->
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up animate-delay-300">
-                        <a href="[docs.google.com](https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform)" target="_blank" class="btn-primary px-8 py-4 text-white font-semibold rounded-full text-center shadow-xl">
-                            Encontrar Profissional
-                        </a>
-                        <a href="[docs.google.com](https://docs.google.com/forms/d/e/1FAIpQLScgzX3XcoVnweDoo_qIuiyYTcjik38eVaNI4nZvND3wrNSNzQ/viewform)" target="_blank" class="btn-secondary px-8 py-4 text-rose-gold font-semibold rounded-full text-center">
-                            Cadastrar como Profissional
-                        </a>
-                    </div>
-                    
-                    <!-- Stats -->
-                    <div class="flex items-center justify-center lg:justify-start gap-8 mt-10 animate-fade-in-up animate-delay-400">
-                        <div class="text-center">
-                            <p class="text-2xl font-bold gradient-text">500+</p>
-                            <p class="text-xs text-slate-soft">Profissionais</p>
-                        </div>
-                        <div class="w-px h-10 bg-nude-300"></div>
-                        <div class="text-center">
-                            <p class="text-2xl font-bold gradient-text">2k+</p>
-                            <p class="text-xs text-slate-soft">Clientes</p>
-                        </div>
-                        <div class="w-px h-10 bg-nude-300"></div>
-                        <div class="text-center">
-                            <p class="text-2xl font-bold gradient-text">15+</p>
-                            <p class="text-xs text-slate-soft">Categorias</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Hero Visual -->
-                <div class="relative animate-float hidden lg:block">
-                    <div class="relative">
-                        <!-- Main Card -->
-                        <div class="glass rounded-3xl p-6 shadow-2xl">
-                            <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-4">
-                                <img src="[images.unsplash.com](https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80)" alt="Salão de beleza premium" class="w-full h-full object-cover">
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-full gradient-rose flex items-center justify-center">
-                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="font-semibold text-charcoal">Profissionais Verificados</p>
-                                    <p class="text-sm text-slate-soft">Na sua região</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Floating Cards -->
-                        <div class="absolute -top-4 -right-4 glass rounded-2xl p-4 shadow-xl">
-                            <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
-                                    <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-medium">Lead Recebido</p>
-                                    <p class="text-xs text-slate-soft">Agora mesmo</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="absolute -bottom-4 -left-4 glass rounded-2xl p-4 shadow-xl">
-                            <div class="flex items-center gap-2">
-                                <div class="flex -space-x-2">
-                                    <div class="w-8 h-8 rounded-full bg-rose-light border-2 border-white"></div>
-                                    <div class="w-8 h-8 rounded-full bg-nude-300 border-2 border-white"></div>
-                                    <div class="w-8 h-8 rounded-full bg-rose-gold border-2 border-white"></div>
-                                </div>
-                                <p class="text-sm font-medium">+120 conexões hoje</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <!-- 1. HERO SECTION (TOPO) -->
+  <header class="relative overflow-hidden pt-14 pb-20 px-4 md:px-8">
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      
+      <!-- Bloco de Identidade Visual e Logo Centralizado -->
+      <div class="mb-8 inline-block text-center">
+        <div class="w-24 h-24 md:w-28 md:h-28 mx-auto bg-white rounded-full flex items-center justify-center border border-cardBorder logo-glow-effect overflow-hidden p-0.5">
+          <!-- Logo oficial configurado com carregamento rápido e proteção contra quebras -->
+          <img 
+            src="logo.jpeg" 
+            alt="Logo Lead Beauty by Haline Mulero" 
+            class="w-full h-full object-cover rounded-full"
+            loading="eager"
+            decoding="async"
+            onerror="this.src='https://via.placeholder.com/112x112?text=LB'"
+          >
         </div>
         
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <svg class="w-6 h-6 text-rose-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-            </svg>
+        <!-- Nomes da Marca com Espaçamento Premium -->
+        <h1 class="font-serif text-3xl font-bold tracking-tight text-softBlack md:text-4xl mt-5">
+          Lead Beauty
+        </h1>
+        <p class="text-[10px] font-bold tracking-[0.3em] text-roseGold uppercase mt-1.5 mb-1">
+          by Haline Mulero
+        </p>
+      </div>
+
+      <!-- Headlines de Impacto -->
+      <h2 class="font-serif text-3xl md:text-5xl font-semibold text-softBlack leading-[1.2] max-w-2xl mx-auto mb-6">
+        Conectando clientes e profissionais da beleza na sua região.
+      </h2>
+      <p class="text-sm md:text-base text-softGray max-w-xl mx-auto leading-relaxed mb-10">
+        Uma plataforma criada para ajudar profissionais da beleza a conseguirem clientes e clientes a encontrarem profissionais confiáveis de forma direta e sem burocracias.
+      </p>
+
+      <!-- Mockup de Interface Estilo App Integrado -->
+      <div class="max-w-sm mx-auto mb-10 transform scale-95 md:scale-100">
+        <div class="bg-softBlack text-white rounded-3xl p-4 shadow-2xl text-left border border-neutral-800">
+          <div class="bg-white text-softBlack rounded-2xl p-4 border border-cardBorder">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-[10px] font-bold text-roseGold uppercase tracking-wider">● Conexão Inteligente</span>
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            </div>
+            <p class="font-serif text-sm font-semibold mb-1">Seu atendimento está pronto</p>
+            <p class="text-[11px] text-softGray">Especialistas qualificados aguardando seu contato.</p>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- Como Funciona -->
-    <section id="como-funciona" class="py-16 md:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <span class="inline-block px-4 py-1.5 rounded-full bg-rose-pale text-rose-gold text-sm font-medium mb-4">Simples e Rápido</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-4">Como Funciona</h2>
-                <p class="text-slate-warm max-w-2xl mx-auto">Conectamos clientes e profissionais de forma prática e segura</p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
-                <!-- Card 1 -->
-                <div class="card-hover glass rounded-2xl p-6 lg:p-8 text-center">
-                    <div class="w-16 h-16 rounded-2xl gradient-rose flex items-center justify-center mx-auto mb-6 shadow-lg">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                        </svg>
-                    </div>
-                    <span class="inline-block px-3 py-1 rounded-full bg-rose-pale text-rose-gold text-xs font-semibold mb-3">Passo 1</span>
-                    <h3 class="text-xl font-semibold text-charcoal mb-3">Cliente</h3>
-                    <p class="text-slate-warm text-sm">Preenche o formulário com o serviço desejado e localização para encontrar profissionais qualificados próximos.</p>
-                </div>
-                
-                <!-- Card 2 -->
-                <div class="card-hover glass rounded-2xl p-6 lg:p-8 text-center">
-                    <div class="w-16 h-16 rounded-2xl gradient-rose flex items-center justify-center mx-auto mb-6 shadow-lg">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                        </svg>
-                    </div>
-                    <span class="inline-block px-3 py-1 rounded-full bg-rose-pale text-rose-gold text-xs font-semibold mb-3">Passo 2</span>
-                    <h3 class="text-xl font-semibold text-charcoal mb-3">Profissional</h3>
-                    <p class="text-slate-warm text-sm">Se cadastra na plataforma informando seus serviços e área de atendimento para receber novos clientes.</p>
-                </div>
-                
-                <!-- Card 3 -->
-                <div class="card-hover glass rounded-2xl p-6 lg:p-8 text-center">
-                    <div class="w-16 h-16 rounded-2xl gradient-rose flex items-center justify-center mx-auto mb-6 shadow-lg">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                        </svg>
-                    </div>
-                    <span class="inline-block px-3 py-1 rounded-full bg-rose-pale text-rose-gold text-xs font-semibold mb-3">Passo 3</span>
-                    <h3 class="text-xl font-semibold text-charcoal mb-3">Lead Beauty</h3>
-                    <p class="text-slate-warm text-sm">Conecta clientes e profissionais de forma rápida, segura e inteligente baseada em localização.</p>
-                </div>
-            </div>
+      <!-- Botões de Ação Principais (CTAs abrem em Nova Aba) -->
+      <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto justify-center px-4">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScyBf03Z6-lAn8W9H2L9p3V9C4_EXAMPLE1/viewform" target="_blank" class="w-full bg-premiumRose text-white text-center py-4 px-6 rounded-2xl text-sm font-semibold shadow-lg shadow-premiumRose/20 transition-all duration-300 hover:bg-premiumRoseHover hover:-translate-y-0.5">
+          💅 Quero encontrar um profissional
+        </a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScyBf03Z6-lAn8W9H2L9p3V9C4_EXAMPLE2/viewform" target="_blank" class="w-full bg-white text-softBlack text-center py-4 px-6 rounded-2xl text-sm font-semibold border border-cardBorder transition-all duration-300 hover:bg-neutral-50 hover:-translate-y-0.5">
+          🧑‍💼 Sou profissional e quero clientes
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- 2. SEÇÃO "COMO FUNCIONA" -->
+  <section class="py-16 px-4 bg-white/60 border-y border-cardBorder">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <h3 class="text-xs font-bold uppercase tracking-[0.2em] text-softGray mb-2">Fluxo de Operação</h3>
+        <p class="font-serif text-2xl font-semibold text-softBlack">Como Funciona a Plataforma</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="bg-white border border-cardBorder rounded-2xl p-6 premium-shadow transition-all duration-300 card-hover">
+          <div class="w-10 h-10 bg-nudeBg rounded-xl flex items-center justify-center mb-4 text-roseGold font-bold text-sm">01</div>
+          <h4 class="font-serif text-lg font-semibold text-softBlack mb-2">Cliente</h4>
+          <p class="text-xs text-softGray leading-relaxed">Preenche o formulário personalizado de forma rápida e encontra os profissionais mais qualificados da sua própria região.</p>
         </div>
-    </section>
-
-    <!-- Categorias -->
-    <section id="categorias" class="py-16 md:py-24 bg-nude-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <span class="inline-block px-4 py-1.5 rounded-full bg-rose-pale text-rose-gold text-sm font-medium mb-4">Serviços</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-4">Categorias Disponíveis</h2>
-                <p class="text-slate-warm max-w-2xl mx-auto">Encontre profissionais especializados em diversas áreas da beleza e estética</p>
-            </div>
-            
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                <!-- Categorias -->
-                <div class="card-hover bg-white rounded-xl p-4 text-center cursor-pointer group">
-                    <div class="w-12 h-12 rounded-xl bg-rose-pale flex items-center justify-center mx-auto mb-3 group-hover:bg-rose-gold transition-colors">
-                        <svg class="w-6 h-6 text-rose-gold group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                    </div>
-                    <p class="text-sm font-medium text-charcoal">Maquiagem</p>
-                </div>
-                
-                <div class="card-hover bg-white rounded-xl p-4 text-center cursor-pointer group">
-                    <div class="w-12 h-12 rounded-xl bg-rose-pale flex items-center justify-center mx-auto mb-3 group-hover:bg-rose-gold transition-colors">
-                        <svg class="w-6 h-6 text-rose-gold group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
-                        </svg>
-                    </div>
-                    <p class="text-sm font-medium text-charcoal">Cabelo</p>
-                </div>
-                
-                <div class="card-hover bg-white rounded-xl p-4 text-center cursor-pointer group">
-                    <div class="w-12 h-12 rounded-xl bg-rose-pale flex items-center justify-center mx-auto mb-3 group-hover:bg-rose-gold transition-colors">
-                        <svg class="w-6 h-6 text-rose-gold group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
-                        </svg>
-                    </div>
-                    <p class="text-sm font-medium text-charcoal">Unhas</p>
-                </div>
-                
-                <div class="card-hover bg-white rounded-xl p-4 text-center cursor-pointer group">
-                    <div class="w-12 h-12 rounded-xl bg-rose-pale flex items-center justify-center mx-auto mb-3 group-hover:bg-rose-gold transition-colors">
-                        <svg class="w-6 h-6 text-rose-gold group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                        </svg>
-                    </div>
-                    <p class="text-sm font-medium text-charcoal">Sobrancelhas</p>
-                </div>
-                
-                <div class="card-hover bg-white rounded-xl p-4 text-center cursor-pointer group">
-                    <div class="w-12 h-12 rounded-xl bg-rose-pale flex items-center justify-center mx-auto mb-3 group-hover:bg-rose-gold transition-colors">
-                        <svg class="w-6 h-6 text-rose-gold group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
-                        </svg>
-                    </div>
-                    <p class="text-sm font-medium text-charcoal">Cílios</p>
-                </div>
-                
-                <div class="card-hover bg-white rounded-xl p-4 text-center cursor-pointer group">
-                    <div class="w-12 h-12 rounded-xl bg-rose-pale flex items-center justify-center mx-auto mb-3 group-hover:bg-rose-gold transition-colors">
-                        <svg class="w-6 h-6 text-rose-gold group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-                        </svg>
-                    </div>
-                    <p class="text-sm font-medium text-charcoal">Estética Facial</p>
-                </div>
-                
-                <div class="card-hover bg-white rounded-xl p-4 text-center cursor-pointer group">
-                    <div class="w-12 h-12 rounded-xl bg-rose-pale flex items-center justify-center mx-auto mb-3 group-hover:bg-rose-gold transition-colors">
-                        <svg class="w-6 h-6 text-rose-gold group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
-                        </svg>
-                    </div>
-                    <p class="text-sm font-medium text-charcoal">Estética Corporal</p>
-                </div>
-                
-                <div class="card-hover bg-white rounded-xl p-4 text-center cursor-pointer group">
-                    <div class="w-12 h-12 rounded-xl bg-rose-pale flex items-center justify-center mx-auto mb-3 group-hover:bg-rose-gold transition-colors">
-                        <svg class="w-6 h-6 text-rose-gold group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/>
-                        </svg>
-                    </div>
-                    <p class="text-sm font-medium text-charcoal">Depilação</p>
-                </div>
-                
-                <div class="card-hover bg-white rounded-xl p-4 text-center cursor-pointer group">
-                    <div class="w-12 h-12 rounded-xl bg-rose-pale flex items-center justify-center mx-auto mb-3 group-hover:bg-rose-gold transition-colors">
-                        <svg class="w-6 h-6 text-rose-gold group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                        </svg>
-                    </div>
-                    <p class="text-sm font-medium text-charcoal">Massagem</p>
-                </div>
-                
-                <div class="card-hover bg-white rounded-xl p-4 text-center cursor-pointer group">
-                    <div class="w-12 h-12 rounded-xl bg-rose-pale flex items-center justify-center mx-auto mb-3 group-hover:bg-rose-gold transition-colors">
-                        <svg class="w-6 h-6 text-rose-gold group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                        </svg>
-                    </div>
-                    <p class="text-sm font-medium text-charcoal">Micropigmentação</p>
-                </div>
-                
-                <div class="card-hover bg-white rounded-xl p-4 text-center cursor-pointer group">
-                    <div class="w-12 h-12 rounded-xl bg-rose-pale flex items-center justify-center mx-auto mb-3 group-hover:bg-rose-gold transition-colors">
-                        <svg class="w-6 h-6 text-rose-gold group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
-                        </svg>
-                    </div>
-                    <p class="text-sm font-medium text-charcoal">Bronzeamento</p>
-                </div>
-                
-                <div class="card-hover bg-white rounded-xl p-4 text-center cursor-pointer group">
-                    <div class="w-12 h-12 rounded-xl bg-rose-pale flex items-center justify-center mx-auto mb-3 group-hover:bg-rose-gold transition-colors">
-                        <svg class="w-6 h-6 text-rose-gold group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.871 4A17.926 17.926 0 003 12c0 2.874.673 5.59 1.871 8m14.13 0a17.926 17.926 0 001.87-8c0-2.874-.673-5.59-1.87-8M9 9h1.246a1 1 0 01.961.725l1.586 5.55a1 1 0 00.961.725H15m-6 0l3-1.5M15 9l-3 1.5"/>
-                        </svg>
-                    </div>
-                    <p class="text-sm font-medium text-charcoal">Podologia</p>
-                </div>
-                
-                <!-- Novas Categorias -->
-                <div class="card-hover bg-white rounded-xl p-4 text-center cursor-pointer group ring-2 ring-rose-gold ring-opacity-50">
-                    <div class="absolute -top-2 -right-2 px-2 py-0.5 bg-rose-gold text-white text-xs rounded-full">Novo</div>
-                    <div class="w-12 h-12 rounded-xl bg-rose-pale flex items-center justify-center mx-auto mb-3 group-hover:bg-rose-gold transition-colors">
-                        <svg class="w-6 h-6 text-rose-gold group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                        </svg>
-                    </div>
-                    <p class="text-sm font-medium text-charcoal">Microagulhamento de Estrias</p>
-                </div>
-                
-                <div class="card-hover bg-white rounded-xl p-4 text-center cursor-pointer group ring-2 ring-rose-gold ring-opacity-50 relative">
-                    <div class="absolute -top-2 -right-2 px-2 py-0.5 bg-rose-gold text-white text-xs rounded-full">Novo</div>
-                    <div class="w-12 h-12 rounded-xl bg-rose-pale flex items-center justify-center mx-auto mb-3 group-hover:bg-rose-gold transition-colors">
-                        <svg class="w-6 h-6 text-rose-gold group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
-                        </svg>
-                    </div>
-                    <p class="text-sm font-medium text-charcoal">Camuflagem de Cicatriz</p>
-                </div>
-                
-                <div class="card-hover bg-white rounded-xl p-4 text-center cursor-pointer group">
-                    <div class="w-12 h-12 rounded-xl bg-rose-pale flex items-center justify-center mx-auto mb-3 group-hover:bg-rose-gold transition-colors">
-                        <svg class="w-6 h-6 text-rose-gold group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
-                        </svg>
-                    </div>
-                    <p class="text-sm font-medium text-charcoal">E muito mais...</p>
-                </div>
-            </div>
+        <!-- Card 2 -->
+        <div class="bg-white border border-cardBorder rounded-2xl p-6 premium-shadow transition-all duration-300 card-hover">
+          <div class="w-10 h-10 bg-nudeBg rounded-xl flex items-center justify-center mb-4 text-roseGold font-bold text-sm">02</div>
+          <h4 class="font-serif text-lg font-semibold text-softBlack mb-2">Profissional</h4>
+          <p class="text-xs text-softGray leading-relaxed">Se cadastra na nossa rede mapeada para receber novas oportunidades, agendamentos diretos e novos clientes recorrentes.</p>
         </div>
-    </section>
-
-    <!-- Benefícios -->
-    <section class="py-16 md:py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <span class="inline-block px-4 py-1.5 rounded-full bg-rose-pale text-rose-gold text-sm font-medium mb-4">Vantagens</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-4">Por que escolher a Lead Beauty?</h2>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-8 lg:gap-16">
-                <!-- Para Clientes -->
-                <div class="glass rounded-3xl p-8">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-14 h-14 rounded-2xl gradient-rose flex items-center justify-center shadow-lg">
-                            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-charcoal">Para Clientes</h3>
-                    </div>
-                    
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3">
-                            <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="font-medium text-charcoal">Praticidade total</p>
-                                <p class="text-sm text-slate-warm">Encontre profissionais em poucos cliques</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="font-medium text-charcoal">Profissionais próximos</p>
-                                <p class="text-sm text-slate-warm">Conexão baseada em localização</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="font-medium text-charcoal">Facilidade no contato</p>
-                                <p class="text-sm text-slate-warm">Comunicação direta com profissionais</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="font-medium text-charcoal">Segurança garantida</p>
-                                <p class="text-sm text-slate-warm">Profissionais verificados e confiáveis</p>
-                            </div>
-                        </li>
-                    </ul>
-                    
-                    <a href="[docs.google.com](https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform)" target="_blank" class="mt-6 inline-flex items-center gap-2 text-rose-gold font-semibold hover:gap-3 transition-all">
-                        Buscar Profissional
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                        </svg>
-                    </a>
-                </div>
-                
-                <!-- Para Profissionais -->
-                <div class="glass rounded-3xl p-8">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-14 h-14 rounded-2xl gradient-rose flex items-center justify-center shadow-lg">
-                            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-charcoal">Para Profissionais</h3>
-                    </div>
-                    
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3">
-                            <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="font-medium text-charcoal">Geração de leads</p>
-                                <p class="text-sm text-slate-warm">Receba contatos de clientes interessados</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="font-medium text-charcoal">Maior visibilidade</p>
-                                <p class="text-sm text-slate-warm">Apareça para clientes da sua região</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="font-medium text-charcoal">Novos clientes</p>
-                                <p class="text-sm text-slate-warm">Expanda sua carteira de clientes</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="font-medium text-charcoal">Crescimento profissional</p>
-                                <p class="text-sm text-slate-warm">Fortaleça sua marca pessoal</p>
-                            </div>
-                        </li>
-                    </ul>
-                    
-                    <a href="[docs.google.com](https://docs.google.com/forms/d/e/1FAIpQLScgzX3XcoVnweDoo_qIuiyYTcjik38eVaNI4nZvND3wrNSNzQ/viewform)" target="_blank" class="mt-6 inline-flex items-center gap-2 text-rose-gold font-semibold hover:gap-3 transition-all">
-                        Cadastrar-se
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
+        <!-- Card 3 -->
+        <div class="bg-white border border-cardBorder rounded-2xl p-6 premium-shadow transition-all duration-300 card-hover">
+          <div class="w-10 h-10 bg-softBlack text-white rounded-xl flex items-center justify-center mb-4 font-bold text-sm">03</div>
+          <h4 class="font-serif text-lg font-semibold text-softBlack mb-2">Lead Beauty</h4>
+          <p class="text-xs text-softGray leading-relaxed">Faz a inteligência de conexão aproximando as duas pontas do mercado de estética de forma ágil, segura e profissional.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Planos -->
-    <section id="planos" class="py-16 md:py-24 gradient-hero">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <span class="inline-block px-4 py-1.5 rounded-full bg-white text-rose-gold text-sm font-medium mb-4">Planos</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-4">Escolha o melhor para você</h2>
-                <p class="text-slate-warm max-w-2xl mx-auto">Opções flexíveis para profissionais que querem crescer</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
-                <!-- Plano Gratuito -->
-                <div class="card-hover bg-white rounded-3xl p-8">
-                    <div class="mb-6">
-                        <h3 class="text-xl font-bold text-charcoal mb-2">Gratuito</h3>
-                        <p class="text-slate-warm text-sm">Ideal para começar</p>
-                    </div>
-                    
-                    <div class="mb-6">
-                        <span class="text-4xl font-bold text-charcoal">R$ 0</span>
-                        <span class="text-slate-warm">/mês</span>
-                    </div>
-                    
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center gap-3">
-                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span class="text-sm text-slate-warm">Até <strong>3 leads</strong> por mês</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span class="text-sm text-slate-warm">Cadastro gratuito</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span class="text-sm text-slate-warm">Perfil na plataforma</span>
-                        </li>
-                        <li class="flex items-center gap-3 opacity-50">
-                            <svg class="w-5 h-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                            </svg>
-                            <span class="text-sm text-slate-soft">Destaque na plataforma</span>
-                        </li>
-                    </ul>
-                    
-                    <a href="[docs.google.com](https://docs.google.com/forms/d/e/1FAIpQLScgzX3XcoVnweDoo_qIuiyYTcjik38eVaNI4nZvND3wrNSNzQ/viewform)" target="_blank" class="block w-full py-3 text-center border-2 border-rose-gold text-rose-gold font-semibold rounded-full hover:bg-rose-gold hover:text-white transition-all">
-                        Começar Grátis
-                    </a>
-                </div>
-                
-                <!-- Plano Premium -->
-                <div class="plan-premium card-hover bg-white rounded-3xl p-8 relative">
-                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                        <span class="px-4 py-1.5 gradient-rose text-white text-sm font-semibold rounded-full shadow-lg">Mais Popular</span>
-                    </div>
-                    
-                    <div class="mb-6 pt-2">
-                        <h3 class="text-xl font-bold text-charcoal mb-2">Premium</h3>
-                        <p class="text-slate-warm text-sm">Para quem quer crescer</p>
-                    </div>
-                    
-                    <div class="mb-6">
-                        <span class="text-4xl font-bold gradient-text">R$ 9,90</span>
-                        <span class="text-slate-warm">/mês</span>
-                    </div>
-                    
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center gap-3">
-                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span class="text-sm text-slate-warm">Leads <strong>ilimitados</strong></span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span class="text-sm text-slate-warm"><strong>Destaque</strong> na plataforma</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span class="text-sm text-slate-warm"><strong>Prioridade</strong> nos leads</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span class="text-sm text-slate-warm">Maior visibilidade</span>
-                        </li>
-                    </ul>
-                    
-                    <a href="[docs.google.com](https://docs.google.com/forms/d/e/1FAIpQLScgzX3XcoVnweDoo_qIuiyYTcjik38eVaNI4nZvND3wrNSNzQ/viewform)" target="_blank" class="block w-full py-3 text-center btn-primary text-white font-semibold rounded-full shadow-lg">
-                        Assinar Premium
-                    </a>
-                </div>
-            </div>
+  <!-- 3. SEÇÃO DE CATEGORIAS -->
+  <section class="py-16 px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <h3 class="text-xs font-bold uppercase tracking-[0.2em] text-softGray mb-2">Segmentos Atendidos</h3>
+        <p class="font-serif text-2xl font-semibold text-softBlack">Categorias em Destaque</p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div class="bg-white border border-cardBorder rounded-xl p-4 text-center transition-all duration-300 card-hover premium-shadow">
+          <span class="text-2xl mb-2 block">💇‍♀️</span>
+          <p class="text-xs font-semibold text-softBlack">Cabelos</p>
         </div>
-    </section>
-
-    <!-- Sobre -->
-    <section id="sobre" class="py-16 md:py-24 bg-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="glass rounded-3xl p-8 lg:p-12">
-                <div class="text-center mb-8">
-                    <div class="w-20 h-20 rounded-2xl gradient-rose flex items-center justify-center mx-auto mb-6 shadow-xl">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
-                        </svg>
-                    </div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-charcoal mb-4">Sobre a Lead Beauty</h2>
-                </div>
-                
-                <div class="prose prose-lg max-w-none text-center">
-                    <p class="text-slate-warm text-lg leading-relaxed mb-6">
-                        A <strong class="text-charcoal">Lead Beauty</strong> nasceu com um propósito claro: <strong class="gradient-text">conectar pessoas</strong>. De um lado, clientes que buscam profissionais qualificados para cuidar da sua beleza. Do outro, profissionais talentosos que desejam expandir sua clientela e crescer no mercado.
-                    </p>
-                    
-                    <p class="text-slate-warm text-lg leading-relaxed mb-6">
-                        Criada por <strong class="text-charcoal">Haline Mulero</strong>, a plataforma utiliza tecnologia para facilitar essas conexões de forma inteligente, baseada em localização e especialidades, garantindo que cada match seja relevante e produtivo para ambas as partes.
-                    </p>
-                    
-                    <p class="text-slate-warm text-lg leading-relaxed">
-                        Acreditamos que a beleza vai além da estética — ela transforma vidas, gera confiança e cria oportunidades. Por isso, trabalhamos todos os dias para tornar esse mercado mais acessível, profissional e conectado.
-                    </p>
-                </div>
-                
-                <div class="flex justify-center mt-8">
-                    <a href="[docs.google.com](https://docs.google.com/forms/d/e/1FAIpQLScgzX3XcoVnweDoo_qIuiyYTcjik38eVaNI4nZvND3wrNSNzQ/viewform)" target="_blank" class="btn-primary px-8 py-4 text-white font-semibold rounded-full shadow-xl">
-                        Faça Parte da Lead Beauty
-                    </a>
-                </div>
-            </div>
+        <div class="bg-white border border-cardBorder rounded-xl p-4 text-center transition-all duration-300 card-hover premium-shadow">
+          <span class="text-2xl mb-2 block">💅</span>
+          <p class="text-xs font-semibold text-softBlack">Unhas</p>
         </div>
-    </section>
-
-    <!-- CTA Final -->
-    <section class="py-16 md:py-20 gradient-rose">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Pronto para começar?</h2>
-            <p class="text-white/90 text-lg mb-8 max-w-2xl mx-auto">Junte-se à Lead Beauty e faça parte da maior plataforma de conexão entre clientes e profissionais da beleza.</p>
-            
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="[docs.google.com](https://docs.google.com/forms/d/e/1FAIpQLSc6PFqYWwHE8mgdTk_viUeWM_5vhL1JsOG98ndeKo6DKY9C0g/viewform)" target="_blank" class="px-8 py-4 bg-white text-rose-gold font-semibold rounded-full hover:shadow-xl hover:transform hover:-translate-y-1 transition-all">
-                    Sou Cliente
-                </a>
-                <a href="[docs.google.com](https://docs.google.com/forms/d/e/1FAIpQLScgzX3XcoVnweDoo_qIuiyYTcjik38eVaNI4nZvND3wrNSNzQ/viewform)" target="_blank" class="px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-rose-gold transition-all">
-                    Sou Profissional
-                </a>
-            </div>
+        <div class="bg-white border border-cardBorder rounded-xl p-4 text-center transition-all duration-300 card-hover premium-shadow">
+          <span class="text-2xl mb-2 block">✨</span>
+          <p class="text-xs font-semibold text-softBlack">Estética Facial</p>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-charcoal py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-                <!-- Logo -->
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl gradient-rose flex items-center justify-center">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-white">Lead Beauty</p>
-                        <p class="text-xs text-gray-400">by Haline Mulero</p>
-                    </div>
-                </div>
-                
-                <!-- Social Links -->
-                <div class="flex items-center gap-4">
-                    <a href="#" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-rose-gold transition-colors">
-                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                        </svg>
-                    </a>
-                    <a href="#" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-green-500 transition-colors">
-                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                        </svg>
-                    </a>
-                </div>
-                
-                <!-- Copyright -->
-                <p class="text-gray-400 text-sm">
-                    © 2025 Lead Beauty by Haline Mulero. Todos os direitos reservados.
-                </p>
-            </div>
+        <div class="bg-white border border-cardBorder rounded-xl p-4 text-center transition-all duration-300 card-hover premium-shadow">
+          <span class="text-2xl mb-2 block">💆‍♀️</span>
+          <p class="text-xs font-semibold text-softBlack">Massagem</p>
         </div>
-    </footer>
+        <div class="bg-white border border-cardBorder rounded-xl p-4 text-center transition-all duration-300 card-hover premium-shadow">
+          <span class="text-2xl mb-2 block">🍯</span>
+          <p class="text-xs font-semibold text-softBlack">Depilação</p>
+        </div>
+        <div class="bg-white border border-cardBorder rounded-xl p-4 text-center transition-all duration-300 card-hover premium-shadow">
+          <span class="text-2xl mb-2 block">🦋</span>
+          <p class="text-xs font-semibold text-softBlack">Sobrancelhas</p>
+        </div>
+        <div class="bg-white border border-cardBorder rounded-xl p-4 text-center transition-all duration-300 card-hover premium-shadow">
+          <span class="text-2xl mb-2 block">💄</span>
+          <p class="text-xs font-semibold text-softBlack">Maquiagem</p>
+        </div>
+        <div class="bg-white border border-cardBorder rounded-xl p-4 text-center transition-all duration-300 card-hover premium-shadow">
+          <span class="text-2xl mb-2 block">👣</span>
+          <p class="text-xs font-semibold text-softBlack">Podologia</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Scroll Animation Script -->
-    <script>
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+  <!-- 4. SEÇÃO DE BENEFÍCIOS -->
+  <section class="py-16 px-4 bg-white/40 border-t border-cardBorder">
+    <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+      
+      <!-- Benefícios Clientes -->
+      <div class="bg-white p-8 rounded-2xl border border-cardBorder premium-shadow">
+        <h4 class="font-serif text-xl font-semibold text-softBlack mb-6 pb-2 border-b border-nudeBg flex items-center gap-2">
+          <span>👑</span> Para Clientes
+        </h4>
+        <ul class="space-y-4 text-xs text-softGray">
+          <li class="flex items-start gap-3"><span class="text-roseGold">✔</span> Encontre profissionais qualificados e validados bem próximos à sua localização.</li>
+          <li class="flex items-start gap-3"><span class="text-roseGold">✔</span> Praticidade absoluta no envio de solicitações em poucos cliques.</li>
+          <li class="flex items-start gap-3"><span class="text-roseGold">✔</span> Atendimento personalizado focado na sua real necessidade de estética.</li>
+          <li class="flex items-start gap-3"><span class="text-roseGold">✔</span> Ambiente seguro baseado em conexões diretas e transparentes.</li>
+        </ul>
+      </div>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-in-up');
-                    entry.target.style.opacity = '1';
-                }
-            });
-        }, observerOptions);
+      <!-- Benefícios Profissionais -->
+      <div class="bg-white p-8 rounded-2xl border border-cardBorder premium-shadow">
+        <h4 class="font-serif text-xl font-semibold text-softBlack mb-6 pb-2 border-b border-nudeBg flex items-center gap-2">
+          <span>💼</span> Para Profissionais
+        </h4>
+        <ul class="space-y-4 text-xs text-softGray">
+          <li class="flex items-start gap-3"><span class="text-premiumRose">✔</span> Geração de leads aquecidos de pessoas procurando ativamente por serviços.</li>
+          <li class="flex items-start gap-3"><span class="text-premiumRose">✔</span> Visibilidade digital exponencial para a sua marca ou estúdio de estética.</li>
+          <li class="flex items-start gap-3"><span class="text-premiumRose">✔</span> Atração constante de novos clientes aumentando o faturamento mensal.</li>
+          <li class="flex items-start gap-3"><span class="text-premiumRose">✔</span> Divulgação profissional simplificada sem a necessidade de gerenciar anúncios complexos.</li>
+        </ul>
+      </div>
 
-        // Observe all sections
-        document.querySelectorAll('section > div').forEach(el => {
-            el.style.opacity = '0';
-            observer.observe(el);
-        });
+    </div>
+  </section>
 
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+  <!-- 5. SEÇÃO DE CREDIBILIDADE -->
+  <section class="py-16 px-4 text-center">
+    <div class="max-w-xl mx-auto bg-white rounded-3xl p-8 border border-cardBorder premium-shadow">
+      <span class="inline-block bg-roseGold/10 text-roseGold font-bold uppercase text-[9px] tracking-widest px-3 py-1 rounded-full mb-4">Mapeamento Ativo</span>
+      <h3 class="font-serif text-2xl font-semibold text-softBlack mb-3">Projeto em Expansão</h3>
+      <p class="text-xs text-softGray leading-relaxed mb-4">
+        Estamos expandindo nacionalmente para mapear os polos de estética mais renomados. Cadastros gratuitos disponíveis por tempo estritamente limitado nesta fase de lançamento.
+      </p>
+      <div class="pt-4 border-t border-nudeBg text-[11px] text-softGray italic">
+        Plataforma idealizada e criada por <strong class="text-softBlack not-italic font-semibold">Haline Mulero</strong>.
+      </div>
+    </div>
+  </section>
 
-        // Navbar background on scroll
-        const nav = document.querySelector('nav');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                nav.classList.add('shadow-lg');
-            } else {
-                nav.classList.remove('shadow-lg');
-            }
-        });
-    </script>
+  <!-- 6. PLANOS -->
+  <section class="py-16 px-4 bg-neutral-50/50 border-t border-cardBorder">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-12">
+        <h3 class="text-xs font-bold uppercase tracking-[0.2em] text-softGray mb-2">Monetização & Crescimento</h3>
+        <p class="font-serif text-2xl font-semibold text-softBlack">Escolha seu Modelo de Parceria</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <!-- Plano Gratuito -->
+        <div class="bg-white border border-cardBorder rounded-2xl p-6 flex flex-col justify-between premium-shadow">
+          <div>
+            <h4 class="text-xs font-bold tracking-wider text-softGray uppercase mb-2">Plano Gratuito</h4>
+            <div class="font-serif text-3xl font-bold text-softBlack mb-4">R$ 0</div>
+            <ul class="space-y-3 text-xs text-softGray mb-6">
+              <li class="flex items-center gap-2"><span>•</span> Recebimento de até 3 leads de clientes</li>
+              <li class="flex items-center gap-2"><span>•</span> Cadastro inicial totalmente gratuito</li>
+              <li class="flex items-center gap-2"><span>•</span> Visibilidade básica dentro da plataforma</li>
+            </ul>
+          </div>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScyBf03Z6-lAn8W9H2L9p3V9C4_EXAMPLE2/viewform" target="_blank" class="w-full py-3 bg-nudeBg border border-cardBorder text-softBlack text-center rounded-xl text-xs font-semibold hover:bg-neutral-50 transition-all">Começar Agora</a>
+        </div>
+
+        <!-- Plano Premium -->
+        <div class="bg-white border-2 border-premiumRose rounded-2xl p-6 flex flex-col justify-between premium-shadow relative overflow-hidden">
+          <div class="absolute top-0 right-0 bg-premiumRose text-white font-bold text-[9px] uppercase tracking-wider px-3 py-1 rounded-bl-xl">Mais Recomendado</div>
+          <div>
+            <h4 class="text-xs font-bold tracking-wider text-premiumRose uppercase mb-2">Plano Premium</h4>
+            <div class="font-serif text-3xl font-bold text-softBlack mb-4">R$ 9,90 <span class="text-xs text-softGray font-sans font-normal">/mês</span></div>
+            <ul class="space-y-3 text-xs text-softGray mb-6">
+              <li class="flex items-center gap-2 text-softBlack font-medium"><span>•</span> Destaque máximo na plataforma local</li>
+              <li class="flex items-center gap-2"><span>•</span> Prioridade total na distribuição de leads</li>
+              <li class="flex items-center gap-2"><span>•</span> Maior visibilidade orgânica regional</li>
+              <li class="flex items-center gap-2"><span>•</span> Canal de contato direto facilitado</li>
+            </ul>
+          </div>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScyBf03Z6-lAn8W9H2L9p3V9C4_EXAMPLE2/viewform" target="_blank" class="w-full py-3 bg-premiumRose text-white text-center rounded-xl text-xs font-semibold hover:bg-premiumRoseHover transition-all shadow-md shadow-premiumRose/10">Garantir Vaga Premium</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. RODAPÉ -->
+  <footer class="border-t border-cardBorder bg-white py-12 px-4 text-center">
+    <div class="max-w-4xl mx-auto">
+      <p class="font-serif text-lg font-semibold text-softBlack mb-2">Lead Beauty</p>
+      <p class="text-[11px] text-roseGold tracking-[0.15em] uppercase mb-6">by Haline Mulero</p>
+      
+      <div class="flex justify-center gap-6 mb-8">
+        <a href="https://instagram.com" target="_blank" class="text-xs text-softGray hover:text-premiumRose font-medium transition-colors">Instagram</a>
+        <a href="https://wa.me/5513991444144" target="_blank" class="text-xs text-softGray hover:text-premiumRose font-medium transition-colors">WhatsApp</a>
+      </div>
+      
+      <p class="text-[10px] text-softGray">Todos os direitos reservados © 2026 — Criando conexões profissionais de alto valor.</p>
+    </div>
+  </footer>
+
 </body>
 </html>
-
