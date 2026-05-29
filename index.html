@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
@@ -42,48 +42,24 @@
     .glass-effect { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); }
     .premium-shadow { box-shadow: 0 20px 40px -15px rgba(140, 122, 107, 0.12); }
     .card-hover:hover { transform: translateY(-4px); box-shadow: 0 30px 50px -20px rgba(140, 122, 107, 0.2); }
-    
-    /* Animações e Efeitos do Logo */
-    @keyframes logoEntrance {
-      0% { opacity: 0; transform: scale(0.92); filter: blur(4px); }
-      100% { opacity: 1; transform: scale(1); filter: blur(0); }
-    }
-    .logo-glow-effect {
-      box-shadow: 0 0 25px rgba(197, 160, 89, 0.08), 0 10px 20px rgba(140, 122, 107, 0.06);
-      animation: logoEntrance 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
   </style>
 </head>
 <body class="bg-nudeBg text-softBlack font-sans antialiased selection:bg-premiumRose selection:text-white">
 
   <!-- 1. HERO SECTION (TOPO) -->
-  <header class="relative overflow-hidden pt-14 pb-20 px-4 md:px-8">
+  <header class="relative overflow-hidden pt-12 pb-20 px-4 md:px-8">
     <div class="max-w-4xl mx-auto text-center relative z-10">
       
-      <!-- Bloco de Identidade Visual e Logo Centralizado -->
-      <div class="mb-8 inline-block text-center">
-        <div class="w-24 h-24 md:w-28 md:h-28 mx-auto bg-white rounded-full flex items-center justify-center border border-cardBorder logo-glow-effect overflow-hidden p-0.5">
-          <!-- Logo oficial configurado com carregamento rápido e proteção contra quebras -->
-          <img 
-            src="logo.jpeg" 
-            alt="Logo Lead Beauty by Haline Mulero" 
-            class="w-full h-full object-cover rounded-full"
-            loading="eager"
-            decoding="async"
-            onerror="this.src='https://via.placeholder.com/112x112?text=LB'"
-          >
+      <!-- Logo & Subnome -->
+      <div class="mb-10 inline-block">
+        <div class="w-20 height-20 h-20 mx-auto bg-white rounded-full flex items-center justify-center border border-cardBorder shadow-sm overflow-hidden mb-3">
+          <img src="logo.jpeg" alt="Logo Lead Beauty" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/80?text=LB'">
         </div>
-        
-        <!-- Nomes da Marca com Espaçamento Premium -->
-        <h1 class="font-serif text-3xl font-bold tracking-tight text-softBlack md:text-4xl mt-5">
-          Lead Beauty
-        </h1>
-        <p class="text-[10px] font-bold tracking-[0.3em] text-roseGold uppercase mt-1.5 mb-1">
-          by Haline Mulero
-        </p>
+        <h1 class="font-serif text-3xl font-bold tracking-tight text-softBlack md:text-4xl">Lead Beauty</h1>
+        <p class="text-xs font-semibold tracking-[0.25em] text-roseGold uppercase mt-1">by Haline Mulero</p>
       </div>
 
-      <!-- Headlines de Impacto -->
+      <!-- Headlines -->
       <h2 class="font-serif text-3xl md:text-5xl font-semibold text-softBlack leading-[1.2] max-w-2xl mx-auto mb-6">
         Conectando clientes e profissionais da beleza na sua região.
       </h2>
@@ -158,34 +134,42 @@
       </div>
 
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <!-- Categoria 1 -->
         <div class="bg-white border border-cardBorder rounded-xl p-4 text-center transition-all duration-300 card-hover premium-shadow">
           <span class="text-2xl mb-2 block">💇‍♀️</span>
           <p class="text-xs font-semibold text-softBlack">Cabelos</p>
         </div>
+        <!-- Categoria 2 -->
         <div class="bg-white border border-cardBorder rounded-xl p-4 text-center transition-all duration-300 card-hover premium-shadow">
           <span class="text-2xl mb-2 block">💅</span>
           <p class="text-xs font-semibold text-softBlack">Unhas</p>
         </div>
+        <!-- Categoria 3 -->
         <div class="bg-white border border-cardBorder rounded-xl p-4 text-center transition-all duration-300 card-hover premium-shadow">
           <span class="text-2xl mb-2 block">✨</span>
           <p class="text-xs font-semibold text-softBlack">Estética Facial</p>
         </div>
+        <!-- Categoria 4 -->
         <div class="bg-white border border-cardBorder rounded-xl p-4 text-center transition-all duration-300 card-hover premium-shadow">
           <span class="text-2xl mb-2 block">💆‍♀️</span>
           <p class="text-xs font-semibold text-softBlack">Massagem</p>
         </div>
+        <!-- Categoria 5 -->
         <div class="bg-white border border-cardBorder rounded-xl p-4 text-center transition-all duration-300 card-hover premium-shadow">
           <span class="text-2xl mb-2 block">🍯</span>
           <p class="text-xs font-semibold text-softBlack">Depilação</p>
         </div>
+        <!-- Categoria 6 -->
         <div class="bg-white border border-cardBorder rounded-xl p-4 text-center transition-all duration-300 card-hover premium-shadow">
           <span class="text-2xl mb-2 block">🦋</span>
           <p class="text-xs font-semibold text-softBlack">Sobrancelhas</p>
         </div>
+        <!-- Categoria 7 -->
         <div class="bg-white border border-cardBorder rounded-xl p-4 text-center transition-all duration-300 card-hover premium-shadow">
           <span class="text-2xl mb-2 block">💄</span>
           <p class="text-xs font-semibold text-softBlack">Maquiagem</p>
         </div>
+        <!-- Categoria 8 -->
         <div class="bg-white border border-cardBorder rounded-xl p-4 text-center transition-all duration-300 card-hover premium-shadow">
           <span class="text-2xl mb-2 block">👣</span>
           <p class="text-xs font-semibold text-softBlack">Podologia</p>
