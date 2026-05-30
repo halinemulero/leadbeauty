@@ -5,61 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lead Beauty | Conexão Estética por Haline Mulero</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: { sans: ['Plus Jakarta Sans'], serif: ['Playfair Display'] } } } }
+  </script>
   <style>
     .watermark-bg {
       position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-      width: 600px; height: 600px; background-image: url('logo.png');
+      width: 650px; height: 650px; background-image: url('logo.png');
       background-size: contain; background-position: center; background-repeat: no-repeat;
-      opacity: 0.05; pointer-events: none; z-index: 0;
+      opacity: 0.06; pointer-events: none; z-index: 0;
     }
-    .hidden-section { display: none !important; }
     .view-section { display: block; }
+    .hidden-section { display: none !important; }
   </style>
 </head>
-<body class="bg-[#FBF9F6] text-[#1E1A17] font-sans antialiased">
+<body class="bg-[#FBF9F6] text-[#1E1A17]">
 
   <nav class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-[#E2D9D0] z-50 px-6 py-4">
     <div class="max-w-6xl mx-auto flex items-center justify-between">
       <div class="flex items-center gap-4 cursor-pointer" onclick="showView('home')">
         <img src="logo.png" alt="Logo" class="h-24 w-24 object-contain">
         <div class="flex flex-col">
-          <span class="font-serif font-bold text-3xl tracking-tight">Lead Beauty</span>
-          <span class="text-sm tracking-[0.3em] text-[#C5A059] uppercase font-bold mt-2">BY HALINE MULERO</span>
+          <span class="font-serif font-bold text-3xl leading-none">Lead Beauty</span>
+          <span class="text-[12px] tracking-[0.4em] text-[#C5A059] uppercase font-bold mt-2">BY HALINE MULERO</span>
         </div>
       </div>
       <button onclick="showView('login-profissional')" class="bg-[#1E1A17] text-white px-6 py-3 rounded-xl text-xs font-bold uppercase">Área Profissional</button>
     </div>
   </nav>
-
-  <main id="view-home" class="view-section relative min-h-[70vh] flex flex-col items-center justify-center py-20">
-    <div class="watermark-bg"></div>
-    <header class="text-center z-10 px-4 max-w-4xl">
-      <h1 class="font-serif text-5xl font-semibold mb-6">A ponte perfeita entre estética e resultados.</h1>
-      <p class="text-lg text-[#665E5A] mb-10">Plataforma exclusiva idealizada por Haline Mulero para transformar a sua captação de clientes.</p>
-      <button onclick="showView('cadastro-cliente')" class="bg-[#CDA49E] text-white px-8 py-4 rounded-xl font-bold uppercase text-sm tracking-widest hover:bg-[#BD938D] transition">Iniciar Agora</button>
-    </header>
-  </main>
-
-  <section id="view-cadastro-cliente" class="view-section hidden-section py-20 px-4">
-    </section>
-
-  <footer class="py-12 px-6 text-center border-t border-[#E2D9D0] bg-white mt-auto">
-    <p class="font-serif text-xl font-bold">Lead Beauty</p>
-    <p class="text-xs text-[#C5A059] uppercase tracking-widest font-bold mt-2">© 2026 Por Haline Mulero</p>
-  </footer>
-
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
-  <script>
-    function showView(viewId) {
-      document.querySelectorAll('.view-section').forEach(s => s.classList.add('hidden-section'));
-      document.getElementById('view-' + viewId).classList.remove('hidden-section');
-    }
-    // Suas funções de handleCadastro, FirebaseConfig, etc, continuam aqui...
-  </script>
-</body>
-</html>
