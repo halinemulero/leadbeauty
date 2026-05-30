@@ -45,40 +45,45 @@
       background-color: #FBF9F6;
     }
 
-    /* MARCA D'ÁGUA REPOSICIONADA E OTIMIZADA NO CENTRO DA TELA */
+    /* CORREÇÃO DA MARCA D'ÁGUA: Forçada para cobrir o fundo sem sumir */
+    .watermark-container {
+      position: relative;
+      width: 100%;
+    }
+    
     .watermark-bg {
       position: absolute;
-      top: 50%;
+      top: 35%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 90%;
-      max-width: 620px;
-      height: 620px;
-      background-image: url('logo.png');
+      width: 100%;
+      max-width: 650px;
+      height: 650px;
+      background-image: url('logo.png') !important;
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
-      opacity: 0.05; /* Suave e sofisticada ao fundo */
+      opacity: 0.06; /* Suave e elegante para não atrapalhar a leitura */
       pointer-events: none;
       z-index: 0;
     }
     
-    .hero-container {
+    .hero-content {
       position: relative;
-      z-index: 1;
+      z-index: 10;
     }
   </style>
 </head>
 <body class="text-softBlack font-sans antialiased">
 
-  <nav class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-cardBorder z-50 px-6 py-3 shadow-sm">
+  <nav class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-cardBorder z-50 px-6 py-4 shadow-sm">
     <div class="max-w-6xl mx-auto flex items-center justify-between">
       
       <div class="flex items-center gap-4 cursor-pointer" onclick="showView('home')">
-        <img src="logo.png" alt="Haline Mulero Logo" class="h-20 w-20 rounded-full object-cover border border-cardBorder shadow-sm bg-white">
+        <img src="logo.png" alt="Logo" class="h-24 w-24 rounded-full object-cover border border-cardBorder shadow-sm bg-white p-1">
         <div class="flex flex-col">
           <span class="font-serif font-bold text-2xl md:text-3xl block tracking-tight text-softBlack leading-none">Lead Beauty</span>
-          <span class="text-[10px] tracking-widest text-roseGold uppercase block font-bold mt-1.5">by Haline Mulero</span>
+          <span class="text-[10px] tracking-widest text-roseGold uppercase block font-bold mt-2">by Haline Mulero</span>
         </div>
       </div>
       
@@ -89,12 +94,12 @@
     </div>
   </nav>
 
-  <main id="view-home" class="view-section relative overflow-hidden min-h-[70vh]">
+  <main id="view-home" class="view-section watermark-container min-h-[70vh]">
     
     <div class="watermark-bg"></div>
 
-    <div class="hero-container">
-      <header class="text-center pt-16 pb-14 px-4 max-w-5xl mx-auto">
+    <div class="hero-content">
+      <header class="text-center pt-20 pb-14 px-4 max-w-5xl mx-auto">
         <div class="inline-flex items-center gap-2 bg-white border border-cardBorder px-4 py-1.5 rounded-full mb-6 shadow-sm">
           <span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
           <span class="text-[11px] font-bold uppercase tracking-wider text-softGray">Aceleração de Negócios & Soluções Estéticas</span>
@@ -146,7 +151,7 @@
             
             <div class="border border-cardBorder p-6 rounded-2xl bg-nudeBg/50 flex flex-col justify-between">
               <div>
-                <h4 class="font-bold text-sm text-softBlack uppercase tracking-wide">Experiência Start</h4>
+                <h4 class="font-bold text-sm text-softBlack uppercase tracking-wide">Degustação Inicial</h4>
                 <div class="text-2xl font-serif font-bold text-roseGold my-2">Gratuito</div>
                 <p class="text-xs text-softGray font-medium leading-relaxed">• Receba seus primeiros 3 leads qualificados totalmente grátis para validar o sistema na sua região.</p>
               </div>
@@ -231,7 +236,7 @@
         <i class="fa-solid fa-arrow-left"></i> Voltar
       </button>
       <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Credenciamento de Especialista</h2>
-      <p class="text-center text-xs text-softGray mb-6">Cadastre sua estrutura operacional para receber solicitações direcionadas da sua cidade.</p>
+      <p class="text-center text-xs text-softGray mb-6">Cadastre sua estrutura operational para receber solicitações direcionadas da sua cidade.</p>
       
       <form id="form-prof-cadastro" class="space-y-4" onsubmit="handleCadastroProfissional(event)">
         <div>
@@ -312,8 +317,8 @@
   </div>
 
   <footer class="border-t border-cardBorder bg-white py-12 px-6 text-center mt-16">
-    <div class="flex justify-center mb-3">
-      <img src="logo.png" alt="Haline Mulero Logo" class="h-16 w-16 rounded-full object-cover border border-cardBorder bg-white">
+    <div class="flex justify-center mb-4">
+      <img src="logo.png" alt="Logo Rodapé" class="h-20 w-20 rounded-full object-cover border border-cardBorder bg-white p-0.5">
     </div>
     <p class="font-serif text-xl font-bold text-softBlack tracking-tight">Lead Beauty</p>
     <p class="text-xs text-roseGold tracking-widest uppercase mb-4 font-extrabold mt-1">Idealizado, Projetado e Desenvolvido por Haline Mulero</p>
@@ -341,7 +346,7 @@
       db = firebase.firestore();
       auth = firebase.auth();
     } catch (e) {
-      console.error("Erro crítico na inicialização do Banco Firebase:", e);
+      console.error("Erro na inicialização do Firebase:", e);
     }
 
     function showView(viewId) {
@@ -370,7 +375,7 @@
           await db.collection('leads').add(lead);
         }
       } catch(err) {
-        console.warn("Salvamento em nuvem indisponível temporariamente:", err);
+        console.warn("Salvamento em nuvem indisponível:", err);
       }
 
       alert(`Triagem concluída com sucesso! Redirecionando para o WhatsApp.`);
@@ -389,7 +394,7 @@
       showView('home');
     }
 
-    async function handleCadastroProfissional(e) {
+    async function handleCadastroProfessional(e) {
       e.preventDefault();
       
       const email = document.getElementById('prof-email').value;
@@ -400,7 +405,7 @@
       const whatsapp = document.getElementById('prof-whatsapp').value;
 
       if(!auth || !db) {
-        alert("O Banco de dados ainda está desconfigurado. Preencha as chaves do Firebase.");
+        alert("O Banco de dados ainda está desconfigurado.");
         return;
       }
 
@@ -413,11 +418,11 @@
           cidade: cidade,
           estado: estado,
           whatsapp: whatsapp,
-          plano: 'Experiência Start',
+          plano: 'Degustação Inicial',
           dataCadastro: new Date().toISOString()
         });
 
-        alert("Credenciamento efetuado com sucesso no Hub!");
+        alert("Credenciamento efetuado com sucesso!");
         document.getElementById('form-prof-cadastro').reset();
         showView('home');
       } catch(error) {
@@ -431,16 +436,16 @@
       const senha = document.getElementById('login-senha').value;
 
       if(!auth) {
-        alert("Sistema de validação inativo. Verifique as credenciais.");
+        alert("Sistema de validação inativo.");
         return;
       }
 
       try {
         await auth.signInWithEmailAndPassword(email, senha);
-        alert("Acesso autorizado ao console do especialista!");
+        alert("Acesso autorizado!");
         showView('home');
       } catch(error) {
-        alert("Erro de autenticação: Verifique se o e-mail ou a senha corporativa estão corretos.");
+        alert("Erro de autenticação: Verifique seus dados.");
       }
     }
 
@@ -456,7 +461,7 @@
       if(option === 1) {
         answer = "A <strong>Lead Beauty</strong> conecta clientes interessados em procedimentos a profissionais de estética de forma direta e regionalizada.";
       } else if (option === 2) {
-        answer = "Ao entrar na plataforma, o profissional inicia na <strong>Experiência Start</strong> e ganha até 3 leads iniciais de graça para testar.";
+        answer = "Ao entrar na plataforma, o profissional inicia na <strong>Degustação Inicial</strong> e ganha até 3 leads iniciais de graça para testar.";
       } else if (option === 3) {
         answer = "O plano principal é o <strong>Diamond Elite</strong>, que custa apenas R$ 9,90 por mês e dá direito a até 10 leads qualificados da sua região.";
       }
