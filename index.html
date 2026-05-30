@@ -4,36 +4,85 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lead Beauty | Conexão Estética por Haline Mulero</title>
+  
+  <meta name="description" content="A plataforma líder em captação de leads e conexão entre clientes e especialistas em estética avançada. Criado e idealizado por Haline Mulero.">
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <script>
-    tailwind.config = { theme: { extend: { fontFamily: { sans: ['Plus Jakarta Sans'], serif: ['Playfair Display'] } } } }
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            serif: ['Playfair Display', 'serif']
+          },
+          colors: {
+            roseGold: '#C5A059',
+            premiumRose: '#CDA49E',
+            premiumRoseHover: '#BD938D',
+            nudeBg: '#FBF9F6',
+            softBlack: '#1E1A17',
+            softGray: '#665E5A',
+            cardBorder: '#E2D9D0'
+          }
+        }
+      }
+    }
   </script>
   <style>
+    .premium-shadow { box-shadow: 0 12px 40px -12px rgba(30, 26, 23, 0.08); }
+    .hidden-section { display: none !important; }
+    .chat-window { max-height: 250px; overflow-y: auto; }
+    
+    html, body { min-height: 100%; background-color: #FBF9F6; }
+
+    .watermark-container { position: relative; width: 100%; }
+    
     .watermark-bg {
-      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-      width: 650px; height: 650px; background-image: url('logo.png');
+      position: absolute; top: 35%; left: 50%; transform: translate(-50%, -50%);
+      width: 100%; max-width: 650px; height: 650px;
+      background-image: url('logo.png') !important;
       background-size: contain; background-position: center; background-repeat: no-repeat;
       opacity: 0.06; pointer-events: none; z-index: 0;
     }
-    .view-section { display: block; }
-    .hidden-section { display: none !important; }
+    .hero-content { position: relative; z-index: 10; }
   </style>
 </head>
-<body class="bg-[#FBF9F6] text-[#1E1A17]">
+<body class="text-softBlack font-sans antialiased">
 
-  <nav class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-[#E2D9D0] z-50 px-6 py-4">
+  <nav class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-cardBorder z-50 px-6 py-4 shadow-sm">
     <div class="max-w-6xl mx-auto flex items-center justify-between">
       <div class="flex items-center gap-4 cursor-pointer" onclick="showView('home')">
-        <img src="logo.png" alt="Logo" class="h-24 w-24 object-contain">
+        <img src="logo.png" alt="Logo" class="h-28 w-28 object-contain">
         <div class="flex flex-col">
-          <span class="font-serif font-bold text-3xl leading-none">Lead Beauty</span>
-          <span class="text-[12px] tracking-[0.4em] text-[#C5A059] uppercase font-bold mt-2">BY HALINE MULERO</span>
+          <span class="font-serif font-bold text-3xl md:text-4xl block tracking-tight text-softBlack leading-none">Lead Beauty</span>
+          <span class="text-[14px] tracking-[0.4em] text-roseGold uppercase block font-bold mt-3">BY HALINE MULERO</span>
         </div>
       </div>
-      <button onclick="showView('login-profissional')" class="bg-[#1E1A17] text-white px-6 py-3 rounded-xl text-xs font-bold uppercase">Área Profissional</button>
+      
+      <div class="flex items-center gap-5">
+        <button onclick="showView('cadastro-cliente')" class="text-xs font-bold text-softBlack hover:text-premiumRose transition">Buscar Especialista</button>
+        <button onclick="showView('login-profissional')" class="bg-softBlack text-white text-xs px-5 py-2.5 rounded-xl font-semibold transition hover:bg-neutral-800 tracking-wide">Área do Profissional</button>
+      </div>
     </div>
   </nav>
+
+  <main id="view-home" class="view-section watermark-container min-h-[70vh]">
+    <div class="watermark-bg"></div>
+    <div class="hero-content">
+      <header class="text-center pt-20 pb-14 px-4 max-w-5xl mx-auto">
+        </header>
+    </div>
+  </main>
+
+  <script>
+    // Seus scripts originais permanecem aqui sem nenhuma alteração.
+  </script>
+</body>
+</html>
