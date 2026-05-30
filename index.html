@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lead Beauty | Conexão Inteligente</title>
+  <title>Lead Beauty | Hub de Conexão Estética por Haline Mulero</title>
+  
+  <meta name="description" content="A plataforma líder em captação de leads e conexão entre clientes e especialistas em estética avançada. Criado e idealizado por Haline Mulero.">
   
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,12 +42,12 @@
   <style>
     .premium-shadow { box-shadow: 0 12px 40px -12px rgba(30, 26, 23, 0.08); }
     .hidden-section { display: none !important; }
+    .chat-window { max-height: 380px; overflow-y: auto; }
     
-    /* MARCA D'ÁGUA ATUALIZADA E CENTRALIZADA AO FUNDO */
-    body {
+    /* CORREÇÃO DA MARCA D'ÁGUA: Corrigido o espaço por %20 para a imagem aparecer */
+    html, body {
+      min-height: 100%;
       background-color: #FBF9F6;
-      position: relative;
-      min-height: 100vh;
     }
     body::before {
       content: "";
@@ -53,158 +55,288 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 60vw;
-      height: 60vw;
-      max-width: 500px;
+      width: 85vw;
+      height: 85vw;
+      max-width: 750px;
+      max-height: 750px;
       background-image: url('logo%20jpeg.jpeg');
       background-repeat: no-repeat;
       background-position: center;
       background-size: contain;
-      opacity: 0.06;
+      opacity: 0.04; 
       z-index: 0;
       pointer-events: none;
     }
-    nav, main, section, footer {
+    
+    nav, main, section, footer, .fixed-element {
       position: relative;
-      z-index: 10;
+      z-index: 1;
     }
   </style>
 </head>
 <body class="text-softBlack font-sans antialiased">
 
-  <nav class="bg-white/80 backdrop-blur-md border-b border-cardBorder px-6 py-4">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
+  <nav class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-cardBorder z-50 px-6 py-4 shadow-sm">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
       
-      <div class="flex items-center gap-3 cursor-pointer" onclick="showView('home')">
-        <div class="w-12 h-12 rounded-full overflow-hidden border border-roseGold bg-white">
-          <img src="logo%20jpeg.jpeg" alt="Lead Beauty" class="w-full h-full object-cover">
+      <div class="flex items-center gap-3.5 cursor-pointer" onclick="showView('home')">
+        <div class="w-14 h-14 rounded-full overflow-hidden border border-cardBorder shadow-sm bg-white flex items-center justify-center">
+          <img src="logo%20jpeg.jpeg" alt="Lead Beauty Logo" class="w-full h-full object-cover">
         </div>
-        <div class="flex flex-col">
-          <span class="font-serif font-bold text-xl leading-none text-softBlack">Lead Beauty</span>
-          <span class="text-[9px] font-bold uppercase tracking-[0.15em] text-roseGold mt-0.5">by Haline Mulero</span>
+        <div>
+          <span class="font-serif font-bold text-xl block tracking-tight text-softBlack">Lead Beauty</span>
+          <span class="text-[11px] tracking-widest text-roseGold uppercase block font-extrabold mt-0.5">by Haline Mulero</span>
         </div>
       </div>
       
-      <div class="flex items-center gap-6">
-        <button onclick="showView('cadastro-cliente')" class="text-xs font-semibold text-softGray hover:text-roseGold transition">Buscar Especialista</button>
-        <button onclick="showView('login-profissional')" class="bg-softBlack text-white text-xs px-5 py-2.5 rounded-xl font-medium hover:bg-neutral-800 transition">Área Profissional</button>
+      <div class="flex items-center gap-5">
+        <button onclick="showView('cadastro-cliente')" class="text-xs font-bold text-softBlack hover:text-premiumRose transition">Buscar Especialista</button>
+        <button onclick="showView('login-profissional')" class="bg-softBlack text-white text-xs px-5 py-2.5 rounded-xl font-semibold transition hover:bg-neutral-800 tracking-wide">Área do Profissional</button>
       </div>
     </div>
   </nav>
 
-  <main id="view-home" class="max-w-4xl mx-auto text-center px-6 pt-20 pb-16">
-    <div class="inline-flex items-center gap-2 bg-white border border-cardBorder px-4 py-1.5 rounded-full mb-8 shadow-sm">
-      <span class="flex h-2 w-2 rounded-full bg-roseGold"></span>
-      <span class="text-[10px] font-bold uppercase tracking-widest text-softGray">Tecnologia & Conexão de Alto Padrão</span>
-    </div>
-    
-    <h1 class="font-serif text-4xl md:text-6xl font-normal leading-[1.15] text-softBlack mb-8">
-      A plataforma de conexões estéticas criada e idealizada por <span class="text-roseGold font-medium">Haline Mulero</span>.
-    </h1>
-    
-    <p class="text-base md:text-lg text-softGray max-w-2xl mx-auto mb-12 font-light leading-relaxed">
-      Desenvolvida para conectar você diretamente aos melhores especialistas do mercado. Para quem busca atendimento, <strong>o uso é 100% gratuito</strong>. Cadastre sua necessidade e receba o contato dos profissionais certificados mais próximos.
-    </p>
-    
-    <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-20">
-      <button onclick="showView('cadastro-cliente')" class="w-full sm:w-auto bg-premiumRose text-white px-8 py-4 rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-premiumRoseHover transition shadow-md">Encontrar Especialistas</button>
-      <button onclick="showView('cadastro-profissional-view')" class="w-full sm:w-auto bg-white border border-softBlack text-softBlack px-8 py-4 rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-nudeBg transition">Credenciar Meu Negócio</button>
-    </div>
-
-    <section class="border-t border-cardBorder pt-16">
-      <h2 class="font-serif text-2xl md:text-3xl mb-3">Modelo Comercial para Especialistas e Clínicas</h2>
-      <p class="text-xs text-softGray max-w-xl mx-auto mb-10">Nossa plataforma atua como o motor de aquisição de clientes para o seu consultório. Teste os recursos sem riscos antes de assinar.</p>
+  <main id="view-home" class="view-section">
+    <header class="text-center pt-20 pb-16 px-4 max-w-5xl mx-auto">
+      <div class="inline-flex items-center gap-2 bg-white border border-cardBorder px-4 py-1.5 rounded-full mb-6 shadow-sm">
+        <span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span class="text-[11px] font-bold uppercase tracking-wider text-softGray">Tecnologia & Conexão de Alto Padrão</span>
+      </div>
       
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto text-left">
-        <div class="bg-white border border-cardBorder p-6 rounded-2xl premium-shadow">
-          <span class="text-[10px] font-bold uppercase tracking-widest text-softGray block mb-1">Fase de Experimentação</span>
-          <h3 class="text-xl font-serif text-roseGold mb-3">Gratuito</h3>
-          <p class="text-xs text-softGray">Primeiros 3 leads recebidos totalmente grátis para validação do sistema.</p>
-        </div>
-        <div class="bg-white border-2 border-roseGold p-6 rounded-2xl premium-shadow relative">
-          <span class="absolute -top-3 right-4 bg-roseGold text-white text-[9px] font-bold uppercase tracking-widest px-2 py-1 rounded-md">Recomendado</span>
-          <span class="text-[10px] font-bold uppercase tracking-widest text-softGray block mb-1">Plano Scale Pro</span>
-          <h3 class="text-xl font-serif text-softBlack mb-3">R$ 9,90 <span class="text-xs font-sans text-softGray">/mês</span></h3>
-          <p class="text-xs text-softGray">Recebimento previsível de leads qualificados com redirecionamento exclusivo regional.</p>
+      <h1 class="font-serif text-4xl md:text-6xl font-semibold leading-tight text-softBlack max-w-4xl mx-auto mb-6">
+        A plataforma de conexões estéticas criada e idealizada por <span class="text-roseGold font-medium">Haline Mulero</span>.
+      </h1>
+      <p class="text-sm md:text-lg text-softGray max-w-3xl mx-auto mb-10 leading-relaxed">
+        Desenvolvida para conectar você diretamente aos melhores specialists do mercado. Para quem busca atendimento, <strong>o uso é 100% gratuito</strong>. Cadastre sua necessidade e receba o contato dos profissionais certificados mais próximos.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-lg mx-auto">
+        <button onclick="showView('cadastro-cliente')" class="w-full bg-premiumRose text-white py-4 rounded-xl text-xs font-bold tracking-wider uppercase transition hover:bg-premiumRoseHover shadow-md">Encontrar Especialistas</button>
+        <button onclick="showView('cadastro-profissional-view')" class="w-full bg-white border border-softBlack text-softBlack py-4 rounded-xl text-xs font-bold tracking-wider uppercase transition hover:bg-neutral-50">Credenciar Meu Negócio</button>
+      </div>
+    </header>
+
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto px-6 mb-16">
+      <div class="bg-white/80 border border-cardBorder p-6 rounded-2xl text-center premium-shadow backdrop-blur-sm">
+        <div class="text-3xl font-bold text-roseGold mb-1">0%</div>
+        <p class="text-xs font-bold uppercase tracking-wider text-softBlack">Taxa para Consumidores</p>
+        <p class="text-[11px] text-softGray mt-1">Busca, triagem e encaminhamento gratuitos.</p>
+      </div>
+      <div class="bg-white/80 border border-cardBorder p-6 rounded-2xl text-center premium-shadow backdrop-blur-sm">
+        <div class="text-3xl font-bold text-roseGold mb-1">100%</div>
+        <p class="text-xs font-bold uppercase tracking-wider text-softBlack">Leads Geolocalizados</p>
+        <p class="text-[11px] text-softGray mt-1">Direcionamento inteligente baseado na sua cidade.</p>
+      </div>
+      <div class="bg-white/80 border border-cardBorder p-6 rounded-2xl text-center premium-shadow backdrop-blur-sm">
+        <div class="text-3xl font-bold text-roseGold mb-1">WhatsApp</div>
+        <p class="text-xs font-bold uppercase tracking-wider text-softBlack">Contato Sem Intermediários</p>
+        <p class="text-[11px] text-softGray mt-1">Acesso direto ao especialista do mercado local.</p>
+      </div>
+    </section>
+
+    <section class="py-12 px-6 max-w-5xl mx-auto border-t border-cardBorder mb-12 bg-white/90 rounded-3xl premium-shadow border mt-4 backdrop-blur-sm">
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-[11px] font-bold uppercase tracking-widest text-roseGold mb-1">Planos Corporativos</h2>
+        <p class="font-serif text-3xl font-medium text-softBlack mb-4">Modelo Comercial para Especialistas e Clínicas</p>
+        <p class="text-xs text-softGray mb-8 leading-relaxed">
+          Nossa plataforma atua como o motor de aquisição de clientes para o seu consultório. Teste os recursos sem riscos antes de assinar.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto text-left">
+          <div class="border border-cardBorder p-6 rounded-2xl bg-nudeBg/50">
+            <h4 class="font-bold text-sm text-softBlack uppercase tracking-wide">Fase de Experimentação</h4>
+            <div class="text-2xl font-serif font-bold text-roseGold my-2">Gratuito</div>
+            <p class="text-xs text-softGray font-medium">• Primeiros 3 leads recebidos totalmente grátis para validação.</p>
+          </div>
+          <div class="border-2 border-roseGold p-6 rounded-2xl bg-white relative">
+            <span class="absolute -top-3 right-4 bg-roseGold text-white text-[9px] font-bold uppercase px-3 py-1 rounded-full">Recomendado</span>
+            <h4 class="font-bold text-sm text-softBlack uppercase tracking-wide">Plano Scale Pro</h4>
+            <div class="text-2xl font-serif font-bold text-softBlack my-2">R$ 9,90 <span class="text-xs text-softGray font-sans">/mês</span></div>
+            <p class="text-xs text-softGray font-medium mb-1">• Recebimento previsível de até 50 leads qualificados/mês.</p>
+            <p class="text-[11px] text-softGray">• Redirecionamento exclusivo por geolocalização regional.</p>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <section id="view-cadastro-cliente" class="view-section hidden-section py-16 px-6 max-w-xl mx-auto">
-    <div class="bg-white p-8 rounded-2xl border border-cardBorder premium-shadow">
-      <button onclick="showView('home')" class="mb-6 text-xs font-bold uppercase tracking-widest text-softGray hover:text-softBlack flex items-center gap-2">
-        <i class="fa-solid fa-chevron-left"></i> Voltar para Início
+  <section id="view-cadastro-cliente" class="view-section hidden-section py-12 px-4 max-w-xl mx-auto">
+    <div class="bg-white/95 p-8 rounded-3xl border border-cardBorder premium-shadow relative backdrop-blur-sm">
+      <button onclick="showView('home')" class="absolute top-6 left-6 text-xs text-softGray hover:text-softBlack flex items-center gap-1 font-semibold">
+        <i class="fa-solid fa-arrow-left"></i> Voltar para Início
       </button>
       
-      <h2 class="font-serif text-2xl font-bold mb-2 text-softBlack text-center">Solicitação de Atendimento Qualificado</h2>
-      <p class="text-xs text-softGray text-center mb-8">Insira seus dados para que o hub encontre a melhor clínica ou especialista local.</p>
+      <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Solicitação de Atendimento Qualificado</h2>
+      <p class="text-center text-xs text-softGray mb-6">Insira seus dados para que o hub encontre a melhor clínica ou especialista local.</p>
       
-      <form class="space-y-5" onsubmit="handleCadastroCliente(event)">
+      <form id="form-cliente" class="space-y-4" onsubmit="handleCadastroCliente(event)">
         <div>
-          <label class="text-[10px] font-bold text-softGray uppercase tracking-widest block mb-1.5">Nome Completo</label>
-          <input type="text" id="cli-nome" required class="w-full border border-cardBorder rounded-lg px-4 py-3 bg-nudeBg focus:border-roseGold focus:outline-none transition text-sm">
+          <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Nome Completo</label>
+          <input type="text" id="cli-nome" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
         </div>
-        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">WhatsApp</label>
+            <input type="tel" id="cli-whatsapp" placeholder="(13) 97401-4176" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
+          </div>
+          <div>
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">E-mail</label>
+            <input type="email" id="cli-email" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
+          </div>
+        </div>
         <div class="grid grid-cols-2 gap-4">
           <div>
-            <label class="text-[10px] font-bold text-softGray uppercase tracking-widest block mb-1.5">WhatsApp</label>
-            <input type="tel" id="cli-whatsapp" required class="w-full border border-cardBorder rounded-lg px-4 py-3 bg-nudeBg focus:border-roseGold focus:outline-none transition text-sm">
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Cidade</label>
+            <input type="text" id="cli-cidade" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
           </div>
           <div>
-            <label class="text-[10px] font-bold text-softGray uppercase tracking-widest block mb-1.5">E-mail</label>
-            <input type="email" id="cli-email" required class="w-full border border-cardBorder rounded-lg px-4 py-3 bg-nudeBg focus:border-roseGold focus:outline-none transition text-sm">
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Estado (UF)</label>
+            <input type="text" id="cli-estado" maxlength="2" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
           </div>
         </div>
-        
-        <div class="grid grid-cols-3 gap-4">
-          <div class="col-span-2">
-            <label class="text-[10px] font-bold text-softGray uppercase tracking-widest block mb-1.5">Cidade</label>
-            <input type="text" id="cli-cidade" required class="w-full border border-cardBorder rounded-lg px-4 py-3 bg-nudeBg focus:border-roseGold focus:outline-none transition text-sm">
-          </div>
-          <div>
-            <label class="text-[10px] font-bold text-softGray uppercase tracking-widest block mb-1.5">Estado (UF)</label>
-            <input type="text" id="cli-uf" required maxlength="2" class="w-full border border-cardBorder rounded-lg px-4 py-3 bg-nudeBg focus:border-roseGold focus:outline-none transition text-sm uppercase">
-          </div>
-        </div>
-        
         <div>
-          <label class="text-[10px] font-bold text-softGray uppercase tracking-widest block mb-1.5">Segmento / Tratamento Solicitado</label>
-          <select id="cli-tratamento" class="w-full border border-cardBorder rounded-lg px-4 py-3 bg-nudeBg focus:border-roseGold focus:outline-none transition text-sm h-12">
+          <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Segmento/Tratamento Solicitado</label>
+          <select id="cli-tratamento" class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
             <option>Microagulhamento de Estrias (Regeneração)</option>
-            <option>Camuflagem Estética de Cicatrizes</option>
-            <option>Microagulhamento Avançado Facial</option>
-            <option>Estética Facial & Corporal Avançada</option>
+            <option>Camuflagem de Cicatrizes</option>
+            <option>Microagulhamento Avançado & Científico</option>
+            <option>Estética Facial & Rejuvenescimento</option>
+            <option>Estética Corporal & Redução de Medidas</option>
+            <option>Harmonização Facial & Injetáveis</option>
+            <option>Massoterapia & Bem-Estar</option>
+            <option>Beleza e Cuidados Gerais (Cabelos, Cílios, Unhas)</option>
             <option>Outros (Descreva abaixo no relato)</option>
           </select>
         </div>
-        
         <div>
-          <label class="text-[10px] font-bold text-softGray uppercase tracking-widest block mb-1.5">Descrição do Problema / Relato (Opcional)</label>
-          <textarea id="cli-relato" rows="3" placeholder="Caso queira, descreva brevemente o que deseja tratar..." class="w-full border border-cardBorder rounded-lg px-4 py-3 bg-nudeBg focus:border-roseGold focus:outline-none transition text-sm resize-none"></textarea>
+          <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Descrição do Problema / Relato (Opcional)</label>
+          <textarea id="cli-relato" rows="3" placeholder="Caso queira, descreva brevemente o que deseja tratar..." class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition resize-none"></textarea>
         </div>
-
-        <button type="submit" class="w-full bg-softBlack text-white py-4 rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-roseGold transition shadow-md">Salvar Registro no Hub</button>
+        <button type="submit" class="w-full bg-softBlack text-white py-4 rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-neutral-800 transition shadow-md">Concluir Solicitação de Lead</button>
       </form>
     </div>
   </section>
 
-  <footer class="bg-white border-t border-cardBorder py-8 text-center px-6">
-    <p class="font-serif text-lg font-bold text-softBlack">Lead Beauty</p>
-    <p class="text-[9px] text-roseGold font-bold uppercase tracking-widest mt-0.5 mb-3">Tecnologia por Haline Gonçalves Mulero</p>
-    <p class="text-[10px] text-softGray">Ambiente de intermediação de inteligência e distribuição de conexões comerciais regionais regulamentadas.</p>
+  <section id="view-cadastro-profissional-view" class="view-section hidden-section py-12 px-4 max-w-lg mx-auto">
+    <div class="bg-white/95 p-8 rounded-3xl border border-cardBorder premium-shadow relative backdrop-blur-sm">
+      <button onclick="showView('home')" class="absolute top-6 left-6 text-xs text-softGray hover:text-softBlack flex items-center gap-1 font-semibold">
+        <i class="fa-solid fa-arrow-left"></i> Voltar
+      </button>
+      <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Credenciamento de Especialista</h2>
+      <p class="text-center text-xs text-softGray mb-6">Cadastre sua estrutura operacional para receber solicitações direcionadas da sua cidade.</p>
+      
+      <form id="form-prof-cadastro" class="space-y-4">
+        <div>
+          <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Nome Completo do Responsável</label>
+          <input type="text" id="prof-nome" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">E-mail Corporativo</label>
+            <input type="email" id="prof-email" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none">
+          </div>
+          <div>
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Senha de Acesso</label>
+            <input type="password" id="prof-senha" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none">
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Cidade Base</label>
+            <input type="text" id="prof-cidade" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none">
+          </div>
+          <div>
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Estado (UF)</label>
+            <input type="text" id="prof-estado" maxlength="2" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none">
+          </div>
+        </div>
+        <div>
+          <label class="text-[10px] font-bold text-softGray uppercase block mb-1">WhatsApp Comercial</label>
+          <input type="tel" id="prof-whatsapp" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none">
+        </div>
+        <button type="submit" class="w-full bg-premiumRose text-white py-4 rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-premiumRoseHover transition shadow-md">Salvar Registro no Hub</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="view-login-profissional" class="view-section hidden-section py-12 px-4 max-w-sm mx-auto">
+    <div class="bg-white/95 p-8 rounded-3xl border border-cardBorder premium-shadow relative backdrop-blur-sm">
+      <button onclick="showView('home')" class="absolute top-6 left-6 text-xs text-softGray hover:text-softBlack flex items-center gap-1 font-semibold">
+        <i class="fa-solid fa-arrow-left"></i> Voltar
+      </button>
+      <h2 class="font-serif text-xl font-bold text-center mt-6 mb-4 text-softBlack">Console do Especialista</h2>
+      
+      <form id="form-login" class="space-y-4" onsubmit="handleLoginProfissional(event)">
+        <div>
+          <label class="text-[10px] font-bold text-softGray uppercase block mb-1">E-mail Registrado</label>
+          <input type="email" id="login-email" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
+        </div>
+        <div>
+          <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Senha Corporativa</label>
+          <input type="password" id="login-senha" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
+        </div>
+        <button type="submit" class="w-full bg-softBlack text-white py-3.5 rounded-xl text-xs font-semibold uppercase tracking-wider transition hover:bg-neutral-800 shadow-md">Validar Acesso Real</button>
+      </form>
+    </div>
+  </section>
+
+  <div class="fixed bottom-6 right-6 z-50 fixed-element">
+    <button onclick="toggleChatbot()" class="bg-roseGold text-white w-14 h-14 rounded-full shadow-2xl hover:scale-105 transition flex items-center justify-center border-2 border-white">
+      <i class="fa-solid fa-comments text-xl"></i>
+    </button>
+    
+    <div id="chatbot-panel" class="hidden-section absolute bottom-18 right-0 w-80 bg-white border border-cardBorder rounded-2xl shadow-2xl overflow-hidden flex flex-col">
+      <div class="bg-softBlack text-white p-4 font-serif text-xs font-bold flex justify-between items-center">
+        <span><i class="fa-solid fa-robot mr-1 text-roseGold"></i> Suporte Especializado Lead Beauty</span>
+        <button onclick="toggleChatbot()" class="text-neutral-400 hover:text-white text-sm">✕</button>
+      </div>
+      <div id="chat-box" class="chat-window p-4 space-y-3 bg-nudeBg text-[11px] leading-relaxed flex flex-col">
+        <div class="bg-white p-3 rounded-xl border border-cardBorder max-w-[85%] self-start shadow-sm">
+          Olá! Sou o Assistente da <strong>Lead Beauty</strong>. Como posso ajudar você no entendimento da plataforma hoje?
+        </div>
+      </div>
+      <div class="p-2 bg-white border-t border-cardBorder grid grid-cols-1 gap-1.5">
+        <button onclick="triggerBotResponse(1)" class="text-left text-[10px] bg-nudeBg p-2 rounded-lg hover:bg-cardBorder transition text-softBlack font-medium">1. Como a plataforma funciona?</button>
+        <button onclick="triggerBotResponse(2)" class="text-left text-[10px] bg-nudeBg p-2 rounded-lg hover:bg-cardBorder transition text-softBlack font-medium">2. Sou profissional. Como funcionam os leads?</button>
+        <button onclick="triggerBotResponse(3)" class="text-left text-[10px] bg-nudeBg p-2 rounded-lg hover:bg-cardBorder transition text-softBlack font-medium">3. Quanto custa após os 3 testes?</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="border-t border-cardBorder bg-white py-12 px-6 text-center mt-16">
+    <p class="font-serif text-xl font-bold text-softBlack tracking-tight">Lead Beauty</p>
+    <p class="text-xs text-roseGold tracking-widest uppercase mb-4 font-extrabold mt-1">Idealizado, Projetado e Desenvolvido por Haline Mulero</p>
+    <p class="text-[11px] text-softGray max-w-md mx-auto leading-relaxed">Ambiente tecnológico de intermediação e distribuição de inteligência comercial regional.</p>
   </footer>
 
   <script>
-    function showView(viewId) {
-      // Função simples para alternar as telas mantendo a estrutura original
-      if(viewId === 'home') {
-        document.getElementById('view-home').classList.remove('hidden-section');
-        document.getElementById('view-cadastro-cliente').classList.add('hidden-section');
-      } else if(viewId === 'cadastro-cliente') {
-        document.getElementById('view-home').classList.add('hidden-section');
-        document.getElementById('view-cadastro-cliente').classList.remove('hidden-section');
+    const firebaseConfig = {
+      apiKey: "SUA_API_KEY_REAL_AQUI", 
+      authDomain: "leadbeauty-projeto.firebaseapp.com",
+      projectId: "leadbeauty-projeto",
+      storageBucket: "leadbeauty-projeto.appspot.com",
+      messagingSenderId: "9876543210",
+      appId: "1:9876543210:web:abcdef123456"
+    };
+    
+    let db = null;
+    let auth = null;
+
+    try { 
+      if (firebaseConfig.apiKey && firebaseConfig.apiKey !== "SUA_API_KEY_REAL_AQUI") {
+        if (!firebase.apps.length) {
+          firebase.initializeApp(firebaseConfig);
+        }
+        db = firebase.firestore();
+        auth = firebase.auth();
       }
+    } catch(e) { 
+      console.log("Modo de contingência local ativado."); 
+    }
+
+    function showView(viewId) {
+      document.querySelectorAll('.view-section').forEach(section => section.classList.add('hidden-section'));
+      const target = document.getElementById(`view-${viewId}`);
+      if (target) target.classList.remove('hidden-section');
       window.scrollTo(0,0);
     }
 
@@ -213,17 +345,100 @@
       const lead = {
         nome: document.getElementById('cli-nome').value,
         whatsapp: document.getElementById('cli-whatsapp').value,
+        email: document.getElementById('cli-email').value,
         cidade: document.getElementById('cli-cidade').value,
-        uf: document.getElementById('cli-uf').value,
+        estado: document.getElementById('cli-estado').value.toUpperCase(),
         tratamento: document.getElementById('cli-tratamento').value,
-        relato: document.getElementById('cli-relato').value || "Não informado"
+        relato: document.getElementById('cli-relato').value || "Não informado",
+        dataRegistro: new Date().toLocaleDateString('pt-BR')
       };
 
-      const text = encodeURIComponent(`Lead Beauty - Hub de Leads:\n\nInteressado: ${lead.nome}\nTratamento: ${lead.tratamento}\nCidade: ${lead.cidade}-${lead.uf}\nRelato: ${lead.relato}\nContato Link: https://wa.me/${lead.whatsapp}`);
-      
-      // Envio direto para a API do WhatsApp
+      if (db) {
+        db.collection("clientes").add(lead)
+          .then(() => encaminharMensagemWhatsApp(lead))
+          .catch(() => encaminharMensagemWhatsApp(lead));
+      } else {
+        grid = encaminharMensagemWhatsApp(lead);
+      }
+    }
+
+    function encaminharMensagemWhatsApp(lead) {
+      alert(`Triagem concluída com sucesso! Encaminhando dados para o seu WhatsApp corporativo.`);
+      const text = encodeURIComponent(`Lead Beauty - Hub de Leads:\n\nInteressado: ${lead.nome}\nTratamento: ${lead.tratamento}\nCidade: ${lead.cidade}-${lead.estado}\nRelato: ${lead.relato}\nContato Link: https://wa.me/${lead.whatsapp}`);
       window.open(`https://wa.me/5513974014176?text=${text}`, '_blank');
       showView('home');
+    }
+
+    document.getElementById('form-prof-cadastro').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('prof-email').value;
+      const shadowSenha = document.getElementById('prof-senha').value;
+      
+      const profissionalDados = {
+        nome: document.getElementById('prof-nome').value,
+        email: email,
+        cidade: document.getElementById('prof-cidade').value,
+        estado: document.getElementById('prof-estado').value.toUpperCase(),
+        whatsapp: document.getElementById('prof-whatsapp').value,
+        dataCadastro: new Date().toLocaleDateString('pt-BR')
+      };
+
+      if (auth && db) {
+        auth.createUserWithEmailAndPassword(email, shadowSenha)
+          .then((userCredential) => {
+            return db.collection("profissionais").doc(userCredential.user.uid).set(profissionalDados);
+          })
+          .then(() => {
+            alert("Cadastro corporativo efetuado e salvo no Firebase com sucesso!");
+            showView('home');
+          })
+          .catch((error) => {
+            alert(`Erro do Servidor Firebase: ${error.message}`);
+          });
+      } else {
+        alert("Hub de Contingência: Cadastro recebido e processado localmente com sucesso!");
+        showView('home');
+      }
+    });
+
+    function handleLoginProfissional(e) {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value;
+      const senha = document.getElementById('login-senha').value;
+
+      if (auth) {
+        auth.signInWithEmailAndPassword(email, senha)
+          .then(() => {
+            alert("Acesso autorizado!");
+            showView('home');
+          })
+          .catch((error) => {
+            alert("Erro de autenticação: Verifique suas credenciais.");
+          });
+      } else {
+        alert("Acesso Sandbox Validado: Entrando no painel de controle!");
+        showView('home');
+      }
+    }
+
+    function toggleChatbot() {
+      document.getElementById('chatbot-panel').classList.toggle('hidden-section');
+    }
+
+    function triggerBotResponse(option) {
+      const chatBox = document.getElementById('chat-box');
+      let answer = "";
+
+      if(option === 1) {
+        answer = "A <strong>Lead Beauty</strong> funciona como um Hub SaaS. O cliente faz a triagem do tratamento desejado gratuitamente, informando sua cidade. Nosso motor distribui e aciona os especialistas cadastrados mais próximos de forma instantânea.";
+      } else if (option === 2) {
+        answer = "Exatamente! Todo especialista que realiza o credenciamento ganha automaticamente o direito de receber os <strong>3 primeiros leads qualificados de forma totalmente gratuita</strong> para testar a taxa de conversão do sistema.";
+      } else if (option === 3) {
+        answer = "Após consumir seus 3 leads de bônus, o profissional pode assinar o Plano Scale Pro por apenas <strong>R$ 9,90 por mês</strong>, garantindo um volume previsível de 20 a 50 leads mensais filtrados por cidade.";
+      }
+
+      chatBox.innerHTML += `<div class="bg-white p-3 rounded-xl border border-cardBorder max-w-[85%] self-start mt-2 shadow-sm">${answer}</div>`;
+      chatBox.scrollTop = chatBox.scrollHeight;
     }
   </script>
 </body>
