@@ -10,7 +10,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;500;600;700&family=Playfair+Display:wght=400;500;600;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -44,28 +44,10 @@
     .hidden-section { display: none !important; }
     .chat-window { max-height: 380px; overflow-y: auto; }
     
-    /* CORREÇÃO DA MARCA D'ÁGUA: Corrigido o espaço por %20 para a imagem aparecer */
+    /* LAYOUT LIMPO: Sem nenhuma marca-d'água de fundo */
     html, body {
       min-height: 100%;
       background-color: #FBF9F6;
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 85vw;
-      height: 85vw;
-      max-width: 750px;
-      max-height: 750px;
-      background-image: url('logo%20jpeg.jpeg');
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: contain;
-      opacity: 0.04; 
-      z-index: 0;
-      pointer-events: none;
     }
     
     nav, main, section, footer, .fixed-element {
@@ -79,14 +61,9 @@
   <nav class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-cardBorder z-50 px-6 py-4 shadow-sm">
     <div class="max-w-6xl mx-auto flex items-center justify-between">
       
-      <div class="flex items-center gap-3.5 cursor-pointer" onclick="showView('home')">
-        <div class="w-14 h-14 rounded-full overflow-hidden border border-cardBorder shadow-sm bg-white flex items-center justify-center">
-          <img src="logo%20jpeg.jpeg" alt="Lead Beauty Logo" class="w-full h-full object-cover">
-        </div>
-        <div>
-          <span class="font-serif font-bold text-xl block tracking-tight text-softBlack">Lead Beauty</span>
-          <span class="text-[11px] tracking-widest text-roseGold uppercase block font-extrabold mt-0.5">by Haline Mulero</span>
-        </div>
+      <div class="flex flex-col cursor-pointer" onclick="showView('home')">
+        <span class="font-serif font-bold text-xl block tracking-tight text-softBlack">Lead Beauty</span>
+        <span class="text-[11px] tracking-widest text-roseGold uppercase block font-extrabold mt-0.5">by Haline Mulero</span>
       </div>
       
       <div class="flex items-center gap-5">
@@ -107,7 +84,7 @@
         A plataforma de conexões estéticas criada e idealizada por <span class="text-roseGold font-medium">Haline Mulero</span>.
       </h1>
       <p class="text-sm md:text-lg text-softGray max-w-3xl mx-auto mb-10 leading-relaxed">
-        Desenvolvida para conectar você diretamente aos melhores specialists do mercado. Para quem busca atendimento, <strong>o uso é 100% gratuito</strong>. Cadastre sua necessidade e receba o contato dos profissionais certificados mais próximos.
+        Desenvolvida para conectar você diretamente aos melhores especialistas do mercado. Para quem busca atendimento, <strong>o uso é 100% gratuito</strong>. Cadastre sua necessidade e receba o contato dos profissionais certificados mais próximos.
       </p>
       
       <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-lg mx-auto">
@@ -358,7 +335,7 @@
           .then(() => encaminharMensagemWhatsApp(lead))
           .catch(() => encaminharMensagemWhatsApp(lead));
       } else {
-        grid = encaminharMensagemWhatsApp(lead);
+        encaminharMensagemWhatsApp(lead);
       }
     }
 
