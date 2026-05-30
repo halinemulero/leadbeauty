@@ -45,19 +45,20 @@
       background-color: #FBF9F6;
     }
 
-    /* ESTILO EXCLUSIVO DA MARCA D'ÁGUA SUTIL NO FUNDO */
+    /* MARCA D'ÁGUA REPOSICIONADA E OTIMIZADA NO CENTRO DA TELA */
     .watermark-bg {
       position: absolute;
-      top: 45%;
+      top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 550px;
-      height: 550px;
+      width: 90%;
+      max-width: 620px;
+      height: 620px;
       background-image: url('logo.png');
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
-      opacity: 0.04; /* Deixa super suave ao fundo */
+      opacity: 0.05; /* Suave e sofisticada ao fundo */
       pointer-events: none;
       z-index: 0;
     }
@@ -70,11 +71,11 @@
 </head>
 <body class="text-softBlack font-sans antialiased">
 
-  <nav class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-cardBorder z-50 px-6 py-4 shadow-sm">
+  <nav class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-cardBorder z-50 px-6 py-3 shadow-sm">
     <div class="max-w-6xl mx-auto flex items-center justify-between">
       
       <div class="flex items-center gap-4 cursor-pointer" onclick="showView('home')">
-        <img src="logo.png" alt="Haline Mulero Logo" class="h-20 w-20 rounded-full object-cover border border-cardBorder shadow-sm">
+        <img src="logo.png" alt="Haline Mulero Logo" class="h-20 w-20 rounded-full object-cover border border-cardBorder shadow-sm bg-white">
         <div class="flex flex-col">
           <span class="font-serif font-bold text-2xl md:text-3xl block tracking-tight text-softBlack leading-none">Lead Beauty</span>
           <span class="text-[10px] tracking-widest text-roseGold uppercase block font-bold mt-1.5">by Haline Mulero</span>
@@ -88,12 +89,12 @@
     </div>
   </nav>
 
-  <main id="view-home" class="view-section relative overflow-hidden">
+  <main id="view-home" class="view-section relative overflow-hidden min-h-[70vh]">
     
     <div class="watermark-bg"></div>
 
     <div class="hero-container">
-      <header class="text-center pt-20 pb-14 px-4 max-w-5xl mx-auto">
+      <header class="text-center pt-16 pb-14 px-4 max-w-5xl mx-auto">
         <div class="inline-flex items-center gap-2 bg-white border border-cardBorder px-4 py-1.5 rounded-full mb-6 shadow-sm">
           <span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
           <span class="text-[11px] font-bold uppercase tracking-wider text-softGray">Aceleração de Negócios & Soluções Estéticas</span>
@@ -312,7 +313,7 @@
 
   <footer class="border-t border-cardBorder bg-white py-12 px-6 text-center mt-16">
     <div class="flex justify-center mb-3">
-      <img src="logo.png" alt="Haline Mulero Logo" class="h-16 w-16 rounded-full object-cover border border-cardBorder">
+      <img src="logo.png" alt="Haline Mulero Logo" class="h-16 w-16 rounded-full object-cover border border-cardBorder bg-white">
     </div>
     <p class="font-serif text-xl font-bold text-softBlack tracking-tight">Lead Beauty</p>
     <p class="text-xs text-roseGold tracking-widest uppercase mb-4 font-extrabold mt-1">Idealizado, Projetado e Desenvolvido por Haline Mulero</p>
@@ -324,7 +325,6 @@
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
   <script>
-    // Configurações reais do seu Firebase salvas perfeitamente
     const firebaseConfig = {
       apiKey: "AIzaSyDX_vxiittvMdKEF5_p-rwCK_IkUIfsO5o",
       authDomain: "lead-beauty.firebaseapp.com",
@@ -335,7 +335,6 @@
       measurementId: "G-S7YXWT7FY"
     };
 
-    // Inicialização do Firebase Protegida contra erros
     let db, auth;
     try {
       firebase.initializeApp(firebaseConfig);
@@ -352,7 +351,6 @@
       window.scrollTo(0,0);
     }
 
-    // Fluxo do WhatsApp + Salvamento do Lead no Firebase
     async function handleCadastroCliente(e) {
       e.preventDefault();
       
@@ -391,7 +389,6 @@
       showView('home');
     }
 
-    // Registro Real de Especialistas
     async function handleCadastroProfissional(e) {
       e.preventDefault();
       
@@ -428,7 +425,6 @@
       }
     }
 
-    // Login Real integrado ao Firebase
     async function handleLoginProfissional(e) {
       e.preventDefault();
       const email = document.getElementById('login-email').value;
