@@ -2,51 +2,49 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lead Beauty | Haline Mulero</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* Marca d'água fixa no centro */
-    .bg-watermark {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 400px;
-      height: 400px;
+    .watermark-bg {
+      position: absolute;
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 500px; height: 500px;
       background-image: url('logo.png');
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat;
-      opacity: 0.06;
-      z-index: -1;
+      background-size: contain; background-position: center;
+      background-repeat: no-repeat; opacity: 0.06;
+      pointer-events: none; z-index: 0;
     }
   </style>
 </head>
-<body class="bg-[#FBF9F6] text-[#1E1A17] flex flex-col min-h-screen">
+<body class="bg-[#FBF9F6]">
 
-  <div class="bg-watermark"></div>
-
-  <nav class="p-6 border-b border-[#E2D9D0] bg-white/50">
-    <div class="max-w-5xl mx-auto flex items-center gap-6">
-      <img src="logo.png" alt="Logo" class="h-20 w-20 object-contain">
-      <div>
-        <h1 class="text-3xl font-bold font-serif">Lead Beauty</h1>
-        <p class="text-xs uppercase tracking-[0.3em] text-[#C5A059] font-bold">By Haline Mulero</p>
+  <nav class="p-6 border-b border-[#E2D9D0] bg-white">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <img src="logo.png" alt="Logo" class="h-24 w-24 object-contain">
+        <div class="flex flex-col">
+          <h1 class="text-3xl font-bold font-serif">Lead Beauty</h1>
+          <p class="text-sm uppercase tracking-[0.3em] text-[#C5A059] font-bold mt-1">BY HALINE MULERO</p>
+        </div>
       </div>
     </div>
   </nav>
 
-  <main class="flex-grow flex items-center justify-center p-6 text-center">
-    <div class="max-w-2xl">
-      <h2 class="text-4xl font-serif mb-4">Conectando Estética e Excelência.</h2>
-      <p class="text-[#665E5A]">A plataforma idealizada por Haline Mulero para transformar a sua captação de clientes.</p>
+  <main id="view-home" class="relative min-h-[60vh] flex flex-col items-center justify-center">
+    <div class="watermark-bg"></div>
+    <div class="z-10 text-center px-4">
+      <h2 class="text-5xl font-serif mb-6">Conectando Estética e Excelência.</h2>
+      <p class="text-lg text-[#665E5A]">Plataforma de captação de leads de Haline Mulero.</p>
     </div>
   </main>
 
-  <footer class="p-8 text-center text-sm text-[#665E5A] border-t border-[#E2D9D0]">
-    <p>&copy; 2026 Lead Beauty - Desenvolvido para Haline Mulero</p>
+  <footer class="py-12 text-center border-t border-[#E2D9D0]">
+    <p class="text-[#665E5A]">Lead Beauty © 2026</p>
   </footer>
 
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script>
+    // Coloque aqui o restante da sua lógica Firebase original
+  </script>
 </body>
 </html>
