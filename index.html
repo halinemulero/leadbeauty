@@ -44,15 +44,37 @@
       min-height: 100%;
       background-color: #FBF9F6;
     }
+
+    /* ESTILO EXCLUSIVO DA MARCA D'ÁGUA SUTIL NO FUNDO */
+    .watermark-bg {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 550px;
+      height: 550px;
+      background-image: url('logo.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.04; /* Deixa super suave ao fundo */
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    .hero-container {
+      position: relative;
+      z-index: 1;
+    }
   </style>
 </head>
 <body class="text-softBlack font-sans antialiased">
 
-  <nav class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-cardBorder z-50 px-6 py-3 shadow-sm">
+  <nav class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-cardBorder z-50 px-6 py-4 shadow-sm">
     <div class="max-w-6xl mx-auto flex items-center justify-between">
       
-      <div class="flex items-center gap-3 cursor-pointer" onclick="showView('home')">
-        <img src="logo.png" alt="Haline Mulero Logo" class="h-14 w-14 rounded-full object-cover border border-cardBorder">
+      <div class="flex items-center gap-4 cursor-pointer" onclick="showView('home')">
+        <img src="logo.png" alt="Haline Mulero Logo" class="h-20 w-20 rounded-full object-cover border border-cardBorder shadow-sm">
         <div class="flex flex-col">
           <span class="font-serif font-bold text-2xl md:text-3xl block tracking-tight text-softBlack leading-none">Lead Beauty</span>
           <span class="text-[10px] tracking-widest text-roseGold uppercase block font-bold mt-1.5">by Haline Mulero</span>
@@ -66,78 +88,83 @@
     </div>
   </nav>
 
-  <main id="view-home" class="view-section">
-    <header class="text-center pt-16 pb-14 px-4 max-w-5xl mx-auto">
-      <div class="inline-flex items-center gap-2 bg-white border border-cardBorder px-4 py-1.5 rounded-full mb-6 shadow-sm">
-        <span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
-        <span class="text-[11px] font-bold uppercase tracking-wider text-softGray">Aceleração de Negócios & Soluções Estéticas</span>
-      </div>
-      
-      <h1 class="font-serif text-3xl md:text-5xl font-semibold leading-tight text-softBlack max-w-4xl mx-auto mb-6">
-        A ponte perfeita entre clientes que buscam autoestima e profissionais que entregam excelência.
-      </h1>
-      <p class="text-sm md:text-base text-softGray max-w-3xl mx-auto mb-10 leading-relaxed">
-        Idealizado por quem vive a rotina da estética e entende que o talento precisa de clientes reais. Para quem busca um procedimento, a plataforma é <span class="text-softBlack font-bold">100% gratuita do início ao fim</span>. Para o profissional, é a oportunidade de parar de depender do algoritmo do Instagram e receber contatos diretos de quem quer agendar na sua cidade.
-      </p>
-      
-      <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-xl mx-auto">
-        <button onclick="showView('cadastro-cliente')" class="w-full bg-premiumRose text-white py-4 rounded-xl text-xs font-bold tracking-wider uppercase transition hover:bg-premiumRoseHover shadow-md">
-          <i class="fa-solid fa-user-magnifying-glass mr-2"></i> Sou Cliente e Quero Agendar
-        </button>
-        <button onclick="showView('cadastro-profissional-view')" class="w-full bg-white border border-softBlack text-softBlack py-4 rounded-xl text-xs font-bold tracking-wider uppercase transition hover:bg-neutral-50 shadow-sm">
-          <i class="fa-solid fa-user-doctor mr-2"></i> Sou Profissional e Quero Clientes
-        </button>
-      </div>
-    </header>
+  <main id="view-home" class="view-section relative overflow-hidden">
+    
+    <div class="watermark-bg"></div>
 
-    <section class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto px-6 mb-16">
-      <div class="bg-white/80 border border-cardBorder p-6 rounded-2xl text-center premium-shadow backdrop-blur-sm">
-        <div class="text-3xl font-bold text-roseGold mb-1"><i class="fa-solid fa-gift"></i></div>
-        <p class="text-xs font-bold uppercase tracking-wider text-softBlack mt-2">100% Gratuito para Clientes</p>
-        <p class="text-[11px] text-softGray mt-1">Faça sua triagem, escolha o procedimento e não pague nenhuma taxa pelo uso da plataforma.</p>
-      </div>
-      <div class="bg-white/80 border border-cardBorder p-6 rounded-2xl text-center premium-shadow backdrop-blur-sm">
-        <div class="text-3xl font-bold text-roseGold mb-1"><i class="fa-solid fa-location-dot"></i></div>
-        <p class="text-xs font-bold uppercase tracking-wider text-softBlack mt-2">Clientes da sua Região</p>
-        <p class="text-[11px] text-softGray mt-1">Direcionamento inteligente baseado no seu bairro e na sua cidade de atuação.</p>
-      </div>
-      <div class="bg-white/80 border border-cardBorder p-6 rounded-2xl text-center premium-shadow backdrop-blur-sm">
-        <div class="text-3xl font-bold text-roseGold mb-1"><i class="fa-brands fa-whatsapp"></i></div>
-        <p class="text-xs font-bold uppercase tracking-wider text-softBlack mt-2">Conexão sem Intermediários</p>
-        <p class="text-[11px] text-softGray mt-1">O cliente preenche o formulário e o contato cai direto no WhatsApp comercial do profissional parceiro.</p>
-      </div>
-    </section>
-
-    <section class="py-12 px-6 max-w-5xl mx-auto border-t border-cardBorder mb-12 bg-white/90 rounded-3xl premium-shadow border mt-4 backdrop-blur-sm">
-      <div class="text-center max-w-3xl mx-auto">
-        <h2 class="text-[11px] font-bold uppercase tracking-widest text-roseGold mb-1">Crescimento Sustentável</h2>
-        <p class="font-serif text-3xl font-medium text-softBlack mb-4">Planos de Parceria para Especialistas e Clínicas</p>
-        <p class="text-xs text-softGray mb-8 leading-relaxed">
-          Nossa plataforma atua como o elo de ligação entre a sua maca e o cliente final. Valorizamos quem trabalha sério: teste os recursos sem riscos e comprove os resultados.
+    <div class="hero-container">
+      <header class="text-center pt-20 pb-14 px-4 max-w-5xl mx-auto">
+        <div class="inline-flex items-center gap-2 bg-white border border-cardBorder px-4 py-1.5 rounded-full mb-6 shadow-sm">
+          <span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-softGray">Aceleração de Negócios & Soluções Estéticas</span>
+        </div>
+        
+        <h1 class="font-serif text-3xl md:text-5xl font-semibold leading-tight text-softBlack max-w-4xl mx-auto mb-6">
+          A ponte perfeita entre clientes que buscam autoestima e profissionais que entregam excelência.
+        </h1>
+        <p class="text-sm md:text-base text-softGray max-w-3xl mx-auto mb-10 leading-relaxed">
+          Idealizado por quem vive a rotina da estética e entende que o talento precisa de clientes reais. Para quem busca um procedimento, a plataforma é <span class="text-softBlack font-bold">100% gratuita do início ao fim</span>. Para o profissional, é a oportunidade de parar de depender do algoritmo do Instagram e receber contatos diretos de quem quer agendar na sua cidade.
         </p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto text-left">
-          
-          <div class="border border-cardBorder p-6 rounded-2xl bg-nudeBg/50 flex flex-col justify-between">
-            <div>
-              <h4 class="font-bold text-sm text-softBlack uppercase tracking-wide">Experiência Start</h4>
-              <div class="text-2xl font-serif font-bold text-roseGold my-2">Gratuito</div>
-              <p class="text-xs text-softGray font-medium leading-relaxed">• Receba seus primeiros 3 leads qualificados totalmente grátis para validar o sistema na sua região.</p>
+        
+        <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-xl mx-auto">
+          <button onclick="showView('cadastro-cliente')" class="w-full bg-premiumRose text-white py-4 rounded-xl text-xs font-bold tracking-wider uppercase transition hover:bg-premiumRoseHover shadow-md">
+            <i class="fa-solid fa-user-magnifying-glass mr-2"></i> Sou Cliente e Quero Agendar
+          </button>
+          <button onclick="showView('cadastro-profissional-view')" class="w-full bg-white border border-softBlack text-softBlack py-4 rounded-xl text-xs font-bold tracking-wider uppercase transition hover:bg-neutral-50 shadow-sm">
+            <i class="fa-solid fa-user-doctor mr-2"></i> Sou Profissional e Quero Clientes
+          </button>
+        </div>
+      </header>
+
+      <section class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto px-6 mb-16">
+        <div class="bg-white/80 border border-cardBorder p-6 rounded-2xl text-center premium-shadow backdrop-blur-sm">
+          <div class="text-3xl font-bold text-roseGold mb-1"><i class="fa-solid fa-gift"></i></div>
+          <p class="text-xs font-bold uppercase tracking-wider text-softBlack mt-2">100% Gratuito para Clientes</p>
+          <p class="text-[11px] text-softGray mt-1">Faça sua triagem, escolha o procedimento e não pague nenhuma taxa pelo uso da plataforma.</p>
+        </div>
+        <div class="bg-white/80 border border-cardBorder p-6 rounded-2xl text-center premium-shadow backdrop-blur-sm">
+          <div class="text-3xl font-bold text-roseGold mb-1"><i class="fa-solid fa-location-dot"></i></div>
+          <p class="text-xs font-bold uppercase tracking-wider text-softBlack mt-2">Clientes da sua Região</p>
+          <p class="text-[11px] text-softGray mt-1">Direcionamento inteligente baseado no seu bairro e na sua cidade de atuação.</p>
+        </div>
+        <div class="bg-white/80 border border-cardBorder p-6 rounded-2xl text-center premium-shadow backdrop-blur-sm">
+          <div class="text-3xl font-bold text-roseGold mb-1"><i class="fa-brands fa-whatsapp"></i></div>
+          <p class="text-xs font-bold uppercase tracking-wider text-softBlack mt-2">Conexão sem Intermediários</p>
+          <p class="text-[11px] text-softGray mt-1">O cliente preenche o formulário e o contato cai direto no WhatsApp comercial do profissional parceiro.</p>
+        </div>
+      </section>
+
+      <section class="py-12 px-6 max-w-5xl mx-auto border-t border-cardBorder mb-12 bg-white/90 rounded-3xl premium-shadow border mt-4 backdrop-blur-sm">
+        <div class="text-center max-w-3xl mx-auto">
+          <h2 class="text-[11px] font-bold uppercase tracking-widest text-roseGold mb-1">Crescimento Sustentável</h2>
+          <p class="font-serif text-3xl font-medium text-softBlack mb-4">Planos de Parceria para Especialistas e Clínicas</p>
+          <p class="text-xs text-softGray mb-8 leading-relaxed">
+            Nossa plataforma atua como o elo de ligação entre a sua maca e o cliente final. Valorizamos quem trabalha sério: teste os recursos sem riscos e comprove os resultados.
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto text-left">
+            
+            <div class="border border-cardBorder p-6 rounded-2xl bg-nudeBg/50 flex flex-col justify-between">
+              <div>
+                <h4 class="font-bold text-sm text-softBlack uppercase tracking-wide">Experiência Start</h4>
+                <div class="text-2xl font-serif font-bold text-roseGold my-2">Gratuito</div>
+                <p class="text-xs text-softGray font-medium leading-relaxed">• Receba seus primeiros 3 leads qualificados totalmente grátis para validar o sistema na sua região.</p>
+              </div>
             </div>
-          </div>
-          
-          <div class="border-2 border-roseGold p-6 rounded-2xl bg-white relative flex flex-col justify-between">
-            <span class="absolute -top-3 right-4 bg-roseGold text-white text-[9px] font-bold uppercase px-3 py-1 rounded-full">Mais Escolhido</span>
-            <div>
-              <h4 class="font-bold text-sm text-softBlack uppercase tracking-wide">Plano Diamond Elite</h4>
-              <div class="text-2xl font-serif font-bold text-softBlack my-2">R$ 9,90 <span class="text-xs text-softGray font-sans">/mês</span></div>
-              <p class="text-xs text-softGray font-medium mb-1.5">• Recebimento de até 10 leads altamente qualificados por mês.</p>
-              <p class="text-xs text-softGray font-medium mb-1.5">• Redirecionamento exclusivo por geolocalização regional.</p>
-              <p class="text-[11px] text-softGray font-medium text-roseGold">• Perfil visível para buscas diretas na sua cidade.</p>
+            
+            <div class="border-2 border-roseGold p-6 rounded-2xl bg-white relative flex flex-col justify-between">
+              <span class="absolute -top-3 right-4 bg-roseGold text-white text-[9px] font-bold uppercase px-3 py-1 rounded-full">Mais Escolhido</span>
+              <div>
+                <h4 class="font-bold text-sm text-softBlack uppercase tracking-wide">Plano Diamond Elite</h4>
+                <div class="text-2xl font-serif font-bold text-softBlack my-2">R$ 9,90 <span class="text-xs text-softGray font-sans">/mês</span></div>
+                <p class="text-xs text-softGray font-medium mb-1.5">• Recebimento de até 10 leads altamente qualificados por mês.</p>
+                <p class="text-xs text-softGray font-medium mb-1.5">• Redirecionamento exclusivo por geolocalização regional.</p>
+                <p class="text-[11px] text-softGray font-medium text-roseGold">• Perfil visível para buscas diretas na sua cidade.</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </main>
 
   <section id="view-cadastro-cliente" class="view-section hidden-section py-12 px-4 max-w-xl mx-auto">
@@ -285,11 +312,11 @@
 
   <footer class="border-t border-cardBorder bg-white py-12 px-6 text-center mt-16">
     <div class="flex justify-center mb-3">
-      <img src="logo.png" alt="Haline Mulero Logo" class="h-12 w-12 rounded-full object-cover border border-cardBorder">
+      <img src="logo.png" alt="Haline Mulero Logo" class="h-16 w-16 rounded-full object-cover border border-cardBorder">
     </div>
     <p class="font-serif text-xl font-bold text-softBlack tracking-tight">Lead Beauty</p>
     <p class="text-xs text-roseGold tracking-widest uppercase mb-4 font-extrabold mt-1">Idealizado, Projetado e Desenvolvido por Haline Mulero</p>
-    <p class="text-[11px] text-softGray max-w-md mx-auto leading-relaxed">Ambiente tecnológico de intermediação e distribution de inteligência comercial regional.</p>
+    <p class="text-[11px] text-softGray max-w-md mx-auto leading-relaxed">Ambiente tecnológico de intermediação e distribuição de inteligência comercial regional.</p>
   </footer>
 
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
@@ -297,7 +324,7 @@
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
   <script>
-    // Configurações reais do seu Firebase
+    // Configurações reais do seu Firebase salvas perfeitamente
     const firebaseConfig = {
       apiKey: "AIzaSyDX_vxiittvMdKEF5_p-rwCK_IkUIfsO5o",
       authDomain: "lead-beauty.firebaseapp.com",
@@ -364,12 +391,7 @@
       showView('home');
     }
 
-    // Registro Real de Especialistas no Authentication + Firestore do Firebase
-    async function handleCadastroProfessional(e) {
-      // Fallback para suportar ambas as variações de chamada do formulário antigo
-      handleCadastroProfissional(e);
-    }
-
+    // Registro Real de Especialistas
     async function handleCadastroProfissional(e) {
       e.preventDefault();
       
@@ -386,10 +408,8 @@
       }
 
       try {
-        // Cria o usuário na aba Authentication do Firebase
         const cred = await auth.createUserWithEmailAndPassword(email, senha);
         
-        // Salva os detalhes adicionais na coleção de profissionais do banco de dados
         await db.collection('profissionais').doc(cred.user.uid).set({
           nome: nome,
           email: email,
