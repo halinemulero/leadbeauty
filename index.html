@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lead Beauty | Hub de Conexão Estética por Haline Mulero</title>
+  <title>Lead Beauty | Conexão Estética por Haline Mulero</title>
   
   <meta name="description" content="A plataforma líder em captação de leads e conexão entre clientes e especialistas em estética avançada. Criado e idealizado por Haline Mulero.">
   
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;500;600;700&family=Playfair+Display:wght=400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -44,7 +44,6 @@
     .hidden-section { display: none !important; }
     .chat-window { max-height: 380px; overflow-y: auto; }
     
-    /* LAYOUT LIMPO: Sem nenhuma marca-d'água de fundo */
     html, body {
       min-height: 100%;
       background-color: #FBF9F6;
@@ -62,8 +61,8 @@
     <div class="max-w-6xl mx-auto flex items-center justify-between">
       
       <div class="flex flex-col cursor-pointer" onclick="showView('home')">
-        <span class="font-serif font-bold text-xl block tracking-tight text-softBlack">Lead Beauty</span>
-        <span class="text-[11px] tracking-widest text-roseGold uppercase block font-extrabold mt-0.5">by Haline Mulero</span>
+        <span class="font-serif font-bold text-2xl md:text-3xl block tracking-tight text-softBlack">Lead Beauty</span>
+        <span class="text-xs tracking-widest text-roseGold uppercase block font-black mt-1">by Haline Mulero</span>
       </div>
       
       <div class="flex items-center gap-5">
@@ -77,59 +76,64 @@
     <header class="text-center pt-20 pb-16 px-4 max-w-5xl mx-auto">
       <div class="inline-flex items-center gap-2 bg-white border border-cardBorder px-4 py-1.5 rounded-full mb-6 shadow-sm">
         <span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
-        <span class="text-[11px] font-bold uppercase tracking-wider text-softGray">Tecnologia & Conexão de Alto Padrão</span>
+        <span class="text-[11px] font-bold uppercase tracking-wider text-softGray">Aceleração de Negócios & Soluções Estéticas</span>
       </div>
       
-      <h1 class="font-serif text-4xl md:text-6xl font-semibold leading-tight text-softBlack max-w-4xl mx-auto mb-6">
-        A plataforma de conexões estéticas criada e idealizada por <span class="text-roseGold font-medium">Haline Mulero</span>.
+      <h1 class="font-serif text-3xl md:text-5xl font-semibold leading-tight text-softBlack max-w-4xl mx-auto mb-6">
+        A ponte perfeita entre clientes que buscam autoestima e profissionais que entregam excelência.
       </h1>
-      <p class="text-sm md:text-lg text-softGray max-w-3xl mx-auto mb-10 leading-relaxed">
-        Desenvolvida para conectar você diretamente aos melhores especialistas do mercado. Para quem busca atendimento, <strong>o uso é 100% gratuito</strong>. Cadastre sua necessidade e receba o contato dos profissionais certificados mais próximos.
+      <p class="text-sm md:text-base text-softGray max-w-3xl mx-auto mb-10 leading-relaxed">
+        Idealizado por quem vive a rotina da estética e entende que o talento precisa de clientes reais. Para quem busca um procedimento, a plataforma é <strong>100% gratuita do início ao fim</strong>. Para o profissional, é a oportunidade de parar de depender do algoritmo do Instagram e receber contatos diretos de quem quer agendar na sua cidade.
       </p>
       
-      <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-lg mx-auto">
-        <button onclick="showView('cadastro-cliente')" class="w-full bg-premiumRose text-white py-4 rounded-xl text-xs font-bold tracking-wider uppercase transition hover:bg-premiumRoseHover shadow-md">Encontrar Especialistas</button>
-        <button onclick="showView('cadastro-profissional-view')" class="w-full bg-white border border-softBlack text-softBlack py-4 rounded-xl text-xs font-bold tracking-wider uppercase transition hover:bg-neutral-50">Credenciar Meu Negócio</button>
+      <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-xl mx-auto">
+        <button onclick="showView('cadastro-cliente')" class="w-full bg-premiumRose text-white py-4 rounded-xl text-xs font-bold tracking-wider uppercase transition hover:bg-premiumRoseHover shadow-md">
+          <i class="fa-solid fa-user-magnifying-glass mr-2"></i> Sou Cliente e Quero Agendar
+        </button>
+        <button onclick="showView('cadastro-profissional-view')" class="w-full bg-white border border-softBlack text-softBlack py-4 rounded-xl text-xs font-bold tracking-wider uppercase transition hover:bg-neutral-50 shadow-sm">
+          <i class="fa-solid fa-user-doctor mr-2"></i> Sou Profissional e Quero Clientes
+        </button>
       </div>
     </header>
 
     <section class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto px-6 mb-16">
       <div class="bg-white/80 border border-cardBorder p-6 rounded-2xl text-center premium-shadow backdrop-blur-sm">
-        <div class="text-3xl font-bold text-roseGold mb-1">0%</div>
-        <p class="text-xs font-bold uppercase tracking-wider text-softBlack">Taxa para Consumidores</p>
-        <p class="text-[11px] text-softGray mt-1">Busca, triagem e encaminhamento gratuitos.</p>
+        <div class="text-3xl font-bold text-roseGold mb-1"><i class="fa-solid fa-gift"></i></div>
+        <p class="text-xs font-bold uppercase tracking-wider text-softBlack mt-2">100% Gratuito para Clientes</p>
+        <p class="text-[11px] text-softGray mt-1">Faça sua triagem, escolha o procedimento e não pague nenhuma taxa pelo uso da plataforma.</p>
       </div>
       <div class="bg-white/80 border border-cardBorder p-6 rounded-2xl text-center premium-shadow backdrop-blur-sm">
-        <div class="text-3xl font-bold text-roseGold mb-1">100%</div>
-        <p class="text-xs font-bold uppercase tracking-wider text-softBlack">Leads Geolocalizados</p>
-        <p class="text-[11px] text-softGray mt-1">Direcionamento inteligente baseado na sua cidade.</p>
+        <div class="text-3xl font-bold text-roseGold mb-1"><i class="fa-solid fa-location-dot"></i></div>
+        <p class="text-xs font-bold uppercase tracking-wider text-softBlack mt-2">Clientes da sua Região</p>
+        <p class="text-[11px] text-softGray mt-1">Direcionamento inteligente baseado no seu bairro e na sua cidade de atuação.</p>
       </div>
       <div class="bg-white/80 border border-cardBorder p-6 rounded-2xl text-center premium-shadow backdrop-blur-sm">
-        <div class="text-3xl font-bold text-roseGold mb-1">WhatsApp</div>
-        <p class="text-xs font-bold uppercase tracking-wider text-softBlack">Contato Sem Intermediários</p>
-        <p class="text-[11px] text-softGray mt-1">Acesso direto ao especialista do mercado local.</p>
+        <div class="text-3xl font-bold text-roseGold mb-1"><i class="fa-brands fa-whatsapp"></i></div>
+        <p class="text-xs font-bold uppercase tracking-wider text-softBlack mt-2">Conexão sem Intermediários</p>
+        <p class="text-[11px] text-softGray mt-1">O cliente preenche o formulário e o contato cai direto no WhatsApp comercial do profissional parceiro.</p>
       </div>
     </section>
 
     <section class="py-12 px-6 max-w-5xl mx-auto border-t border-cardBorder mb-12 bg-white/90 rounded-3xl premium-shadow border mt-4 backdrop-blur-sm">
       <div class="text-center max-w-3xl mx-auto">
-        <h2 class="text-[11px] font-bold uppercase tracking-widest text-roseGold mb-1">Planos Corporativos</h2>
-        <p class="font-serif text-3xl font-medium text-softBlack mb-4">Modelo Comercial para Especialistas e Clínicas</p>
+        <h2 class="text-[11px] font-bold uppercase tracking-widest text-roseGold mb-1">Crescimento Sustentável</h2>
+        <p class="font-serif text-3xl font-medium text-softBlack mb-4">Planos de Parceria para Especialistas e Clínicas</p>
         <p class="text-xs text-softGray mb-8 leading-relaxed">
-          Nossa plataforma atua como o motor de aquisição de clientes para o seu consultório. Teste os recursos sem riscos antes de assinar.
+          Nossa plataforma atua como o elo de ligação entre a sua maca e o cliente final. Valorizamos quem trabalha sério: teste os recursos sem riscos e comprove os resultados.
         </p>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto text-left">
           <div class="border border-cardBorder p-6 rounded-2xl bg-nudeBg/50">
-            <h4 class="font-bold text-sm text-softBlack uppercase tracking-wide">Fase de Experimentação</h4>
+            <h4 class="font-bold text-sm text-softBlack uppercase tracking-wide">Degustação Inicial</h4>
             <div class="text-2xl font-serif font-bold text-roseGold my-2">Gratuito</div>
-            <p class="text-xs text-softGray font-medium">• Primeiros 3 leads recebidos totalmente grátis para validação.</p>
+            <p class="text-xs text-softGray font-medium">• Receba seus primeiros 3 leads qualificados totalmente grátis para validar o sistema.</p>
           </div>
           <div class="border-2 border-roseGold p-6 rounded-2xl bg-white relative">
-            <span class="absolute -top-3 right-4 bg-roseGold text-white text-[9px] font-bold uppercase px-3 py-1 rounded-full">Recomendado</span>
-            <h4 class="font-bold text-sm text-softBlack uppercase tracking-wide">Plano Scale Pro</h4>
+            <span class="absolute -top-3 right-4 bg-roseGold text-white text-[9px] font-bold uppercase px-3 py-1 rounded-full">Mais Escolhido</span>
+            <h4 class="font-bold text-sm text-softBlack uppercase tracking-wide">Plano Diamond Elite</h4>
             <div class="text-2xl font-serif font-bold text-softBlack my-2">R$ 9,90 <span class="text-xs text-softGray font-sans">/mês</span></div>
-            <p class="text-xs text-softGray font-medium mb-1">• Recebimento previsível de até 50 leads qualificados/mês.</p>
-            <p class="text-[11px] text-softGray">• Redirecionamento exclusivo por geolocalização regional.</p>
+            <p class="text-xs text-softGray font-medium mb-1">• Recebimento de até 10 leads altamente qualificados por mês.</p>
+            <p class="text-xs text-softGray font-medium mb-1">• Redirecionamento exclusivo por geolocalização regional.</p>
+            <p class="text-[11px] text-softGray">• Perfil visível para buscas diretas na sua cidade.</p>
           </div>
         </div>
       </div>
@@ -142,8 +146,8 @@
         <i class="fa-solid fa-arrow-left"></i> Voltar para Início
       </button>
       
-      <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Solicitação de Atendimento Qualificado</h2>
-      <p class="text-center text-xs text-softGray mb-6">Insira seus dados para que o hub encontre a melhor clínica ou especialista local.</p>
+      <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Solicitação de Atendimento</h2>
+      <p class="text-center text-xs text-softGray mb-6">Preencha seus dados para localizarmos o especialista ideal mais próximo de você.</p>
       
       <form id="form-cliente" class="space-y-4" onsubmit="handleCadastroCliente(event)">
         <div>
@@ -171,7 +175,7 @@
           </div>
         </div>
         <div>
-          <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Segmento/Tratamento Solicitado</label>
+          <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Procedimento Solicitado</label>
           <select id="cli-tratamento" class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
             <option>Microagulhamento de Estrias (Regeneração)</option>
             <option>Camuflagem de Cicatrizes</option>
@@ -185,10 +189,10 @@
           </select>
         </div>
         <div>
-          <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Descrição do Problema / Relato (Opcional)</label>
-          <textarea id="cli-relato" rows="3" placeholder="Caso queira, descreva brevemente o que deseja tratar..." class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition resize-none"></textarea>
+          <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Descrição do que deseja tratar (Opcional)</label>
+          <textarea id="cli-relato" rows="3" placeholder="Caso tenha escolhido a opção 'Outros' ou queira detalhar sua necessidade, escreva aqui..." class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition resize-none"></textarea>
         </div>
-        <button type="submit" class="w-full bg-softBlack text-white py-4 rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-neutral-800 transition shadow-md">Concluir Solicitação de Lead</button>
+        <button type="submit" class="w-full bg-softBlack text-white py-4 rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-neutral-800 transition shadow-md">Concluir Solicitação</button>
       </form>
     </div>
   </section>
@@ -411,7 +415,7 @@
       } else if (option === 2) {
         answer = "Exatamente! Todo especialista que realiza o credenciamento ganha automaticamente o direito de receber os <strong>3 primeiros leads qualificados de forma totalmente gratuita</strong> para testar a taxa de conversão do sistema.";
       } else if (option === 3) {
-        answer = "Após consumir seus 3 leads de bônus, o profissional pode assinar o Plano Scale Pro por apenas <strong>R$ 9,90 por mês</strong>, garantindo um volume previsível de 20 a 50 leads mensais filtrados por cidade.";
+        answer = "Após consumir seus 3 leads de bônus, o profissional pode assinar o Plano Diamond Elite por apenas <strong>R$ 9,90 por mês</strong>, garantindo um volume previsível de até 10 leads mensais filtrados por cidade.";
       }
 
       chatBox.innerHTML += `<div class="bg-white p-3 rounded-xl border border-cardBorder max-w-[85%] self-start mt-2 shadow-sm">${answer}</div>`;
