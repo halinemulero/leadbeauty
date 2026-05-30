@@ -6,7 +6,6 @@
   <title>Lead Beauty | Conexão Estética por Haline Mulero</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body { background-color: #FBF9F6; }
     .watermark-bg {
@@ -14,8 +13,9 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 500px;
-      height: 500px;
+      width: 400px;
+      height: 400px;
+      /* ESTA LINHA É A QUE IMPORTA: certifique-se que o arquivo no github se chama exatamente logo.png */
       background-image: url('logo.png');
       background-size: contain;
       background-position: center;
@@ -31,33 +31,25 @@
   <nav class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-[#E2D9D0] z-50 px-6 py-4">
     <div class="max-w-6xl mx-auto flex items-center justify-between">
       <div class="flex items-center gap-4">
-        <img src="logo.png" alt="Logo" class="h-28 w-28 object-contain">
+        <img src="logo.png" alt="Logo" class="h-24 w-24 object-contain">
         <div class="flex flex-col">
           <span class="font-serif font-bold text-3xl tracking-tight">Lead Beauty</span>
-          <span class="text-xs tracking-[0.2em] text-[#C5A059] uppercase font-bold mt-1">By Haline Mulero</span>
+          <span class="text-sm tracking-[0.2em] text-[#C5A059] uppercase font-bold mt-1">By Haline Mulero</span>
         </div>
       </div>
-      <button onclick="showView('cadastro-cliente')" class="bg-[#1E1A17] text-white px-6 py-3 rounded-xl text-xs font-bold uppercase tracking-wide">Área do Profissional</button>
     </div>
   </nav>
 
-  <main id="view-home" class="relative min-h-[60vh] flex flex-col justify-center items-center py-16">
+  <main class="relative min-h-[50vh] flex flex-col justify-center items-center py-20">
     <div class="watermark-bg"></div>
-    
     <header class="text-center px-4 z-10 max-w-4xl">
-      <h1 class="font-serif text-5xl font-semibold text-[#1E1A17] mb-6">Conectando Estética e Excelência.</h1>
-      <p class="text-lg text-[#665E5A] mb-10">A plataforma idealizada por Haline Mulero para transformar a sua captação de clientes.</p>
-      <button onclick="showView('cadastro-cliente')" class="bg-[#CDA49E] text-white px-10 py-5 rounded-2xl font-bold uppercase text-sm tracking-widest hover:bg-[#BD938D] transition">Iniciar Agora</button>
+      <h1 class="font-serif text-5xl font-semibold mb-6">Conectando Estética e Excelência.</h1>
+      <p class="text-lg text-[#665E5A] mb-10">A plataforma idealizada por Haline Mulero.</p>
     </header>
   </main>
 
-  <footer class="py-10 px-6 text-center border-t border-[#E2D9D0] bg-white mt-8">
-    <p class="font-serif text-lg font-bold text-[#1E1A17]">Lead Beauty</p>
-    <p class="text-[10px] text-[#C5A059] uppercase tracking-widest font-bold mt-2">© 2026 Por Haline Mulero</p>
+  <footer class="py-10 text-center border-t border-[#E2D9D0] bg-white">
+    <p class="font-serif text-lg font-bold">Lead Beauty</p>
   </footer>
-
-  <script>
-    function showView(viewId) { /* Lógica de navegação mantida */ }
-  </script>
 </body>
 </html>
