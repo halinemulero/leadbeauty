@@ -1,4 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lead Beauty</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+
+  <style>
+    .hidden { display: none; }
+  </style>
+</head>
+
+<body class="bg-white text-black">
+
+<!-- HOME -->
+<div id="home">
+  <h1 class="text-2xl font-bold p-6">Lead Beauty</h1>
+  <p class="px-6">Conectando clientes e profissionais</p>
+
+  <div class="p-6 space-y-3">
+    <button onclick="showView('cliente')" class="bg-black text-white px-4 py-2 w-full">
+      Buscar Atendimento
+    </button>
+
+    <button onclick="showView('login')" class="bg-gray-700 text-white px-4 py-2 w-full">
+      Área Profissional
+    </button>
+  </div>
+</div>
+
+<!-- CLIENTE -->
+<div id="cliente" class="hidden p-6">
+  <h2 class="text-xl font-bold mb-4">Cadastro Cliente</h2>
+
+  <form onsubmit="handleCliente(event)">
+    <input id="cli_nome" placeholder="Nome" class="border p-2 w-full mb-2" required />
+    <input id="cli_whatsapp" placeholder="WhatsApp" class="border p-2 w-full mb-2" required />
+    <input id="cli_email" placeholder="Email" class="border p-2 w-full mb-2" required />
+    <input id="cli_cidade" placeholder="Cidade" class="border p-2 w-full mb-2" required />
+
+    <select id="cli_tratamento" class="border p-2 w-full mb-2">
+      <option>Estrias</option>
+      <option>Cicatrizes</option>
+      <option>Olheiras</option>
+      <option>Microagulhamento</option>
+    </select>
+
+    <button class="bg-black text-white px-4 py-2 w-full">Enviar</button>
+  </form>
+
+  <button onclick="showView('home')" class="mt-3 border p-2 w-full">Voltar</button>
+</div>
+
+<!-- LOGIN -->
+<div id="login" class="hidden p-6">
+  <h2 class="text-xl font-bold mb-4">Login Profissional</h2>
+
+  <form onsubmit="loginProf(event)">
+    <input id="login_email" placeholder="Email" class="border p-2 w-full mb-2" required />
+    <input id="login_senha" type="password" placeholder="Senha" class="border p-2 w-full mb-2" required />
+
+    <button class="bg-black text-white px-4 py-2 w-full">Entrar</button>
+  </form>
+
+  <button onclick="showView('home')" class="mt-3 border p-2 w-full">Voltar</button>
+</div>
+
 <script>
+  // 🔥 FIREBASE (SEUS DADOS)
   const firebaseConfig = {
     apiKey: "AIzaSyDX_vxiittvMdKEF5_p-rwCK_IkUIFs05o",
     authDomain: "lead-beauty.firebaseapp.com",
@@ -13,47 +87,63 @@
   const db = firebase.firestore();
   const auth = firebase.auth();
 
-  // NAVIGAÇÃO
-  function showView(id) {
-    document.querySelectorAll('main, section').forEach(el => {
-      el.classList.add('hidden-section');
-    });
-    document.getElementById('view-' + id).classList.remove('hidden-section');
+  // garante que só home aparece no início
+  function init() {
+    document.getElementById("home").classList.remove("hidden");
+    document.getElementById("cliente").classList.add("hidden");
+    document.getElementById("login").classList.add("hidden");
+  }
+
+  init();
+
+  function showView(view) {
+    document.getElementById("home").classList.add("hidden");
+    document.getElementById("cliente").classList.add("hidden");
+    document.getElementById("login").classList.add("hidden");
+
+    document.getElementById(view).classList.remove("hidden");
   }
 
   // CLIENTE
-  function handleCadastroCliente(e) {
+  function handleCliente(e) {
     e.preventDefault();
 
     const lead = {
-      nome: document.getElementById('cli-nome').value,
-      whatsapp: document.getElementById('cli-whatsapp').value,
-      email: document.getElementById('cli-email').value,
-      cidade: document.getElementById('cli-cidade').value,
-      tratamento: document.getElementById('cli-tratamento').value,
+      nome: document.getElementById("cli_nome").value,
+      whatsapp: document.getElementById("cli_whatsapp").value,
+      email: document.getElementById("cli_email").value,
+      cidade: document.getElementById("cli_cidade").value,
+      tratamento: document.getElementById("cli_tratamento").value,
       data: new Date().toLocaleString()
     };
 
     db.collection("clientes").add(lead)
       .then(() => {
         alert("Enviado com sucesso!");
-        showView('home');
+        showView("home");
       })
-      .catch(err => alert("Erro: " + err.message));
+      .catch(err => {
+        alert("Erro: " + err.message);
+      });
   }
 
   // LOGIN
-  function handleLoginProfissional(e) {
+  function loginProf(e) {
     e.preventDefault();
 
-    const email = document.getElementById('login-email').value;
-    const senha = document.getElementById('login-senha').value;
+    const email = document.getElementById("login_email").value;
+    const senha = document.getElementById("login_senha").value;
 
     auth.signInWithEmailAndPassword(email, senha)
       .then(() => {
         alert("Login realizado com sucesso!");
-        showView('home');
+        showView("home");
       })
-      .catch(err => alert("Erro: " + err.message));
+      .catch(err => {
+        alert("Erro: " + err.message);
+      });
   }
 </script>
+
+</body>
+</html>
