@@ -75,30 +75,21 @@
   </style>
 </head>
 <body class="text-softBlack font-sans antialiased">
-
-  <nav class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-cardBorder z-50 px-6 py-4 shadow-sm">
-    <div class="max-w-6xl mx-auto flex items-center justify-between">
-      
-      <div class="flex items-center gap-4 cursor-pointer" onclick="showView('home')">
-       <div class="flex items-center gap-4 cursor-pointer" onclick="showView('home')">
-  <div class="flex flex-col">
-    <span class="font-serif font-bold text-3xl block tracking-tight text-softBlack leading-none">Lead Beauty</span>
-    <span class="text-[14px] tracking-[0.4em] text-roseGold uppercase block font-bold mt-2">BY HALINE MULERO</span>
-  </div>
-</div>
-        <div class="flex flex-col">
-          <span class="font-serif font-bold text-2xl md:text-3xl block tracking-tight text-softBlack leading-none">Lead Beauty</span>
-          <span class="text-[14px] tracking-[0.4em] text-roseGold uppercase block font-bold mt-2">BY HALINE MULERO</span>
-        </div>
-      </div>
-     <img src="logo.png" alt="Logo Rodapé" class="h-20 w-20 object-contain">
-      <div class="flex items-center gap-5">
-        <button onclick="showView('cadastro-cliente')" class="text-xs font-bold text-softBlack hover:text-premiumRose transition">Buscar Especialista</button>
-        <button onclick="showView('login-profissional')" class="bg-softBlack text-white text-xs px-5 py-2.5 rounded-xl font-semibold transition hover:bg-neutral-800 tracking-wide">Área do Profissional</button>
+<nav class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-cardBorder z-50 px-6 py-4 shadow-sm">
+  <div class="max-w-6xl mx-auto flex items-center justify-between">
+    <div class="flex items-center gap-4 cursor-pointer" onclick="showView('home')">
+      <div class="flex flex-col">
+        <span class="font-serif font-bold text-3xl tracking-tight text-softBlack">Lead Beauty</span>
+        <span class="text-[14px] tracking-[0.4em] text-roseGold uppercase font-bold">BY HALINE MULERO</span>
       </div>
     </div>
-  </nav>
-
+    <div class="flex items-center gap-5">
+      <button onclick="showView('cadastro-cliente')" class="text-xs font-bold text-softBlack hover:text-premiumRose transition">Buscar Especialista</button>
+      <button onclick="showView('login-profissional')" class="bg-softBlack text-white text-xs px-5 py-2.5 rounded-xl font-semibold transition hover:bg-neutral-800">Área do Profissional</button>
+    </div>
+  </div>
+</nav>
+  
   <main id="view-home" class="view-section watermark-container min-h-[70vh]">
     
     <div class="watermark-bg"></div>
@@ -321,14 +312,13 @@
     </div>
   </div>
 
-  <footer class="border-t border-cardBorder bg-white py-12 px-6 text-center mt-16">
-    <div class="flex justify-center mb-4">
-      <img src="logo.png" alt="Logo Rodapé" class="h-20 w-20 rounded-full object-cover border border-cardBorder bg-white p-0.5">
-    </div>
-    <p class="font-serif text-xl font-bold text-softBlack tracking-tight">Lead Beauty</p>
-    <p class="text-xs text-roseGold tracking-widest uppercase mb-4 font-extrabold mt-1">Idealizado, Projetado e Desenvolvido por Haline Mulero</p>
-    <p class="text-[11px] text-softGray max-w-md mx-auto leading-relaxed">Ambiente tecnológico de intermediação e distribuição de inteligência comercial regional.</p>
-  </footer>
+ <footer class="border-t border-cardBorder bg-white py-12 px-6 text-center mt-16">
+  <div class="flex justify-center mb-4">
+    <img src="logo.png" alt="Logo" class="h-20 w-20 object-contain">
+  </div>
+  <p class="font-serif text-xl font-bold text-softBlack tracking-tight">Lead Beauty</p>
+  <p class="text-xs text-roseGold tracking-widest uppercase mb-4 font-extrabold mt-1">Idealizado, Projetado e Desenvolvido por Haline Mulero</p>
+</footer>
 
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
