@@ -52,7 +52,7 @@
     <div class="max-w-6xl mx-auto flex items-center justify-between">
       
       <div class="flex items-center gap-3 cursor-pointer" onclick="showView('home')">
-        <img src="logo jpeg.jpeg" alt="Haline Mulero Logo" class="h-14 w-14 rounded-full object-cover border border-cardBorder">
+        <img src="logo.png" alt="Haline Mulero Logo" class="h-14 w-14 rounded-full object-cover border border-cardBorder">
         <div class="flex flex-col">
           <span class="font-serif font-bold text-2xl md:text-3xl block tracking-tight text-softBlack leading-none">Lead Beauty</span>
           <span class="text-[10px] tracking-widest text-roseGold uppercase block font-bold mt-1.5">by Haline Mulero</span>
@@ -285,15 +285,39 @@
 
   <footer class="border-t border-cardBorder bg-white py-12 px-6 text-center mt-16">
     <div class="flex justify-center mb-3">
-      <img src="logo jpeg.jpeg" alt="Haline Mulero Logo" class="h-12 w-12 rounded-full object-cover border border-cardBorder">
+      <img src="logo.png" alt="Haline Mulero Logo" class="h-12 w-12 rounded-full object-cover border border-cardBorder">
     </div>
     <p class="font-serif text-xl font-bold text-softBlack tracking-tight">Lead Beauty</p>
     <p class="text-xs text-roseGold tracking-widest uppercase mb-4 font-extrabold mt-1">Idealizado, Projetado e Desenvolvido por Haline Mulero</p>
-    <p class="text-[11px] text-softGray max-w-md mx-auto leading-relaxed">Ambiente tecnológico de intermediação e distribuição de inteligência comercial regional.</p>
+    <p class="text-[11px] text-softGray max-w-md mx-auto leading-relaxed">Ambiente tecnológico de intermediação e distribution de inteligência comercial regional.</p>
   </footer>
 
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
   <script>
-    // Gerenciador de Abas do Site
+    // Configurações reais do seu Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyDX_vxiittvMdKEF5_p-rwCK_IkUIfsO5o",
+      authDomain: "lead-beauty.firebaseapp.com",
+      projectId: "lead-beauty",
+      storageBucket: "lead-beauty.firebasestorage.app",
+      messagingSenderId: "348290705731",
+      appId: "1:348290705731:web:a4393a867938a842f727f6",
+      measurementId: "G-S7YXWT7FY"
+    };
+
+    // Inicialização do Firebase Protegida contra erros
+    let db, auth;
+    try {
+      firebase.initializeApp(firebaseConfig);
+      db = firebase.firestore();
+      auth = firebase.auth();
+    } catch (e) {
+      console.error("Erro crítico na inicialização do Banco Firebase:", e);
+    }
+
     function showView(viewId) {
       document.querySelectorAll('.view-section').forEach(section => section.classList.add('hidden-section'));
       const target = document.getElementById(`view-${viewId}`);
@@ -301,8 +325,8 @@
       window.scrollTo(0,0);
     }
 
-    // Fluxo do WhatsApp blindado e funcionando em qualquer dispositivo
-    function handleCadastroCliente(e) {
+    // Fluxo do WhatsApp + Salvamento do Lead no Firebase
+    async function handleCadastroCliente(e) {
       e.preventDefault();
       
       const lead = {
@@ -312,17 +336,20 @@
         cidade: document.getElementById('cli-cidade').value,
         estado: document.getElementById('cli-estado').value.toUpperCase(),
         tratamento: document.getElementById('cli-tratamento').value,
-        relato: document.getElementById('cli-relato').value || "Não informado"
+        relato: document.getElementById('cli-relato').value || "Não informado",
+        dataCriacao: new Date().toLocaleString('pt-BR')
       };
 
-      // Salva localmente no histórico interno do navegador
-      const bancoLocal = JSON.parse(localStorage.getItem('leads_beauty') || '[]');
-      bancoLocal.push({ ...lead, data: new Date().toLocaleString('pt-BR') });
-      localStorage.setItem('leads_beauty', JSON.stringify(bancoLocal));
+      try {
+        if(db) {
+          await db.collection('leads').add(lead);
+        }
+      } catch(err) {
+        console.warn("Salvamento em nuvem indisponível temporariamente:", err);
+      }
 
-      alert(`Triagem concluída com sucesso! Redirecionando os dados de atendimento.`);
+      alert(`Triagem concluída com sucesso! Redirecionando para o WhatsApp.`);
       
-      // Montagem do texto elegante e estruturado para o seu WhatsApp corporativo
       const textoMensagem = `Novo Lead - Lead Beauty ✨\n\n` +
                             `👤 Cliente: ${lead.nome}\n` +
                             `📞 WhatsApp: ${lead.whatsapp}\n` +
@@ -337,56 +364,75 @@
       showView('home');
     }
 
-    // Cadastro de Profissionais Local
-    function handleCadastroProfissional(e) {
-      e.preventDefault();
-      
-      const prof = {
-        nome: document.getElementById('prof-nome').value,
-        email: document.getElementById('prof-email').value,
-        senha: document.getElementById('prof-senha').value,
-        cidade: document.getElementById('prof-cidade').value,
-        estado: document.getElementById('prof-estado').value.toUpperCase(),
-        whatsapp: document.getElementById('prof-whatsapp').value
-      };
-
-      const profissionais = JSON.parse(localStorage.getItem('profissionais_beauty') || '[]');
-      profissionais.push(prof);
-      localStorage.setItem('profissionais_beauty', JSON.stringify(profissionais));
-
-      alert("Cadastro de especialista efetuado com sucesso!");
-      document.getElementById('form-prof-cadastro').reset();
-      showView('home');
+    // Registro Real de Especialistas no Authentication + Firestore do Firebase
+    async function handleCadastroProfessional(e) {
+      // Fallback para suportar ambas as variações de chamada do formulário antigo
+      handleCadastroProfissional(e);
     }
 
-    // Login Simulado
-    function handleLoginProfissional(e) {
+    async function handleCadastroProfissional(e) {
+      e.preventDefault();
+      
+      const email = document.getElementById('prof-email').value;
+      const senha = document.getElementById('prof-senha').value;
+      const nome = document.getElementById('prof-nome').value;
+      const cidade = document.getElementById('prof-cidade').value;
+      const estado = document.getElementById('prof-estado').value.toUpperCase();
+      const whatsapp = document.getElementById('prof-whatsapp').value;
+
+      if(!auth || !db) {
+        alert("O Banco de dados ainda está desconfigurado. Preencha as chaves do Firebase.");
+        return;
+      }
+
+      try {
+        // Cria o usuário na aba Authentication do Firebase
+        const cred = await auth.createUserWithEmailAndPassword(email, senha);
+        
+        // Salva os detalhes adicionais na coleção de profissionais do banco de dados
+        await db.collection('profissionais').doc(cred.user.uid).set({
+          nome: nome,
+          email: email,
+          cidade: cidade,
+          estado: estado,
+          whatsapp: whatsapp,
+          plano: 'Experiência Start',
+          dataCadastro: new Date().toISOString()
+        });
+
+        alert("Credenciamento efetuado com sucesso no Hub!");
+        document.getElementById('form-prof-cadastro').reset();
+        showView('home');
+      } catch(error) {
+        alert("Erro no cadastro: " + error.message);
+      }
+    }
+
+    // Login Real integrado ao Firebase
+    async function handleLoginProfissional(e) {
       e.preventDefault();
       const email = document.getElementById('login-email').value;
       const senha = document.getElementById('login-senha').value;
 
-      const profissionais = JSON.parse(localStorage.getItem('profissionais_beauty') || '[]');
-      const encontrado = profissionais.find(p => p.email === email && p.senha === senha);
+      if(!auth) {
+        alert("Sistema de validação inativo. Verifique as credenciais.");
+        return;
+      }
 
-      if (encontrado || (email === "halinemulero@gmail.com" && senha === "123456")) {
+      try {
+        await auth.signInWithEmailAndPassword(email, senha);
         alert("Acesso autorizado ao console do especialista!");
         showView('home');
-      } else {
-        alert("E-mail ou senha não localizados.");
+      } catch(error) {
+        alert("Erro de autenticação: Verifique se o e-mail ou a senha corporativa estão corretos.");
       }
     }
 
-    // Correção Estrutural da Janela do Chatbot
     function toggleChatbot() {
       const panel = document.getElementById('chatbot-panel');
-      if (panel.classList.contains('hidden-section')) {
-        panel.classList.remove('hidden-section');
-      } else {
-        panel.classList.add('hidden-section');
-      }
+      panel.classList.toggle('hidden-section');
     }
 
-    // Respostas Rápidas do Chatbot
     function triggerBotResponse(option) {
       const chatBox = document.getElementById('chat-box');
       let answer = "";
