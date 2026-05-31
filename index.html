@@ -1,4 +1,104 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lead Beauty | Conexão Estética por Haline Mulero</title>
+  
+  <meta name="description" content="A plataforma líder em captação de leads e conexão entre clientes e especialistas em estética avançada. Criado e idealizado por Haline Mulero.">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    html, body { min-height: 100%; background-color: #FBF9F6; }
+    .hidden-section { display: none !important; }
+    .watermark-bg { 
+      position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+      width: 500px; height: 500px; background-image: url('logo.png'); 
+      background-size: contain; background-position: center; background-repeat: no-repeat; 
+      opacity: 0.1; pointer-events: none; z-index: -1; 
+    }
+  </style>
+
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'], serif: ['Playfair Display', 'serif'] }, colors: { roseGold: '#C5A059', premiumRose: '#CDA49E', premiumRoseHover: '#BD938D', nudeBg: '#FBF9F6', softBlack: '#1E1A17', softGray: '#665E5A', cardBorder: '#E2D9D0' } } } }
+  </script>
+</head>
+<body>
+
+  <!-- Menu -->
+  <nav class="w-full bg-white/80 backdrop-blur-md border-b border-cardBorder p-6 sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-4 cursor-pointer" onclick="showView('home')">
+        <img src="logo.png" alt="Logo" class="h-12 w-12 object-contain">
+        <div class="flex flex-col">
+          <span class="font-serif font-bold text-3xl tracking-tight text-softBlack">Lead Beauty</span>
+          <span class="text-[14px] tracking-[0.4em] text-roseGold uppercase font-bold">BY HALINE MULERO</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-5">
+        <button onclick="showView('cadastro-cliente')" class="text-xs font-bold text-softBlack hover:text-premiumRose transition">Buscar Especialista</button>
+        <button onclick="showView('login-profissional')" class="bg-softBlack text-white text-xs px-5 py-2.5 rounded-xl font-semibold transition hover:bg-neutral-800">Área do Profissional</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HOME -->
+  <main id="view-home" class="view-section watermark-container min-h-[70vh]">
+    <div class="watermark-bg"></div>
+    <header class="text-center pt-20 pb-14 px-4 max-w-5xl mx-auto">
+      <h1 class="font-serif text-3xl md:text-5xl font-semibold text-softBlack mb-6">A ponte perfeita entre autoestima e excelência.</h1>
+      <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-xl mx-auto">
+        <button onclick="showView('cadastro-cliente')" class="bg-premiumRose text-white py-4 px-8 rounded-xl text-xs font-bold uppercase hover:bg-premiumRoseHover">Sou Cliente</button>
+        <button onclick="showView('cadastro-profissional-view')" class="bg-white border border-softBlack text-softBlack py-4 px-8 rounded-xl text-xs font-bold uppercase hover:bg-neutral-50">Sou Profissional</button>
+      </div>
+    </header>
+  </main>
+
+  <!-- As outras seções (Formulários) devem conter a classe "hidden-section" -->
+  <section id="view-cadastro-cliente" class="view-section hidden-section py-12 px-4 max-w-xl mx-auto">
+    <!-- Conteúdo do Formulário Cliente -->
+  </section>
+
+  <!-- Chatbot -->
+  <div class="fixed bottom-6 right-6 z-50">
+    <button onclick="toggleChatbot()" class="bg-roseGold text-white w-14 h-14 rounded-full shadow-2xl">
+      <i class="fa-solid fa-comments text-xl"></i>
+    </button>
+    <div id="chatbot-panel" class="hidden-section absolute bottom-16 right-0 w-80 bg-white border border-cardBorder rounded-2xl shadow-2xl">
+      <div class="bg-softBlack text-white p-4 font-bold flex justify-between">
+        <span>Suporte Lead Beauty</span>
+        <button onclick="toggleChatbot()">✕</button>
+      </div>
+      <div id="chat-box" class="p-4 bg-nudeBg">Olá! Como posso ajudar?</div>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+  <script>
+    function showView(viewId) {
+      document.querySelectorAll('.view-section').forEach(section => section.classList.add('hidden-section'));
+      const target = document.getElementById(`view-${viewId}`);
+      if (target) target.classList.remove('hidden-section');
+      window.scrollTo(0,0);
+    }
+
+    function toggleChatbot() {
+      const panel = document.getElementById('chatbot-panel');
+      panel.classList.toggle('hidden-section');
+    }
+    
+    // (Inclua aqui as suas funções handleCadastro, handleLogin, etc)
+  </script>
+</body>
+</html>
 <html lang="pt-BR" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
