@@ -170,7 +170,7 @@
         
           </div>
         </div>
-      </section>"view-login-profissional"
+     
     </div>
   </main>
 
@@ -209,7 +209,25 @@
         </div>
         <div>
           <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Procedimento Solicitado</label>
-<section id="view-login-profissional" class="view-section">
+<section id="view-login-profissional" class="view-section hidden py-12 px-4">
+    <div class="max-w-md mx-auto bg-white p-8 rounded-2xl shadow-lg">
+        <button onclick="showView('home')" class="text-xs text-softGray mb-4 flex items-center gap-1">
+            <i class="fa-solid fa-arrow-left"></i> Voltar
+        </button>
+        <h2 class="text-xl font-bold mb-6">Acesso Profissional</h2>
+        <form id="form-profissional" class="space-y-4" onsubmit="handleLoginProfissional(event)">
+            <div>
+                <label class="text-[10px] font-bold text-softGray uppercase block mb-1">E-mail Registrado</label>
+                <input type="email" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs">
+            </div>
+            <div>
+                <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Senha Corporativa</label>
+                <input type="password" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs">
+            </div>
+            <button type="submit" class="w-full bg-softBlack text-white py-3 rounded-xl font-bold text-xs">VALIDAR ACESSO REAL</button>
+        </form>
+    </div>
+</section>
     <h2 class="font-serif text-2xl font-bold text-center mb-6 text-softBlack">Área do Profissional</h2>
     <p class="text-xs text-center text-gray-600 mb-6 px-4">
         Receba seus 3 primeiros leads gratuitamente para testar a plataforma. Após utilizar os leads gratuitos, continue recebendo clientes por apenas R$ 9,90 mensais com direito a até 5 leads qualificados por mês.
