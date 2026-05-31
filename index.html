@@ -199,18 +199,18 @@
         </div>
         <div>
           <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Procedimento Solicitado</label>
-          <select id="cli-tratamento" class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
-  <option>Cabeleireiro</option>
-  <option>Manicure e Pedicure</option>
-  <option>Maquiagem</option>
-  <option>Designer de Sobrancelhas</option>
-  <select id="cli-tratamento" ... >
-  <option>Cabeleireiro</option>
-  <option>Manicure e Pedicure</option>
-  <option>Maquiagem</option>
-  <option>Designer de Sobrancelhas</option>
-  <option>Lash Designer</option>
-  <option>Barbeiro</option>
+          <select id="cli-tratamento" class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none">
+    <option value="cabeleireiro">Cabeleireiro</option>
+    <option value="manicure">Manicure e Pedicure</option>
+    <option value="maquiagem">Maquiagem</option>
+    <option value="sobrancelhas">Designer de Sobrancelhas</option>
+    <option value="lash">Lash Designer</option>
+    <option value="barbeiro">Barbeiro</option>
+    <option value="esteticista">Esteticista</option>
+    <option value="massoterapeuta">Massoterapeuta</option>
+    <option value="micropigmentacao">Micropigmentação</option>
+    <option value="harmonizacao">Harmonização Facial</option>
+</select>
   <option>Esteticista</option>
   <option>Massoterapeuta</option>
   <option>Micropigmentação</option>
@@ -282,12 +282,14 @@
     </div>
   </section>
 
- <h2 class="font-serif text-xl font-bold text-center mt-6 mb-4 text-softBlack">Área do Profissional</h2>
+
     <div class="bg-white/95 p-8 rounded-3xl border border-cardBorder premium-shadow relative backdrop-blur-sm">
       <button onclick="showView('home')" class="absolute top-6 left-6 text-xs text-softGray hover:text-softBlack flex items-center gap-1 font-semibold">
         <i class="fa-solid fa-arrow-left"></i> Voltar
       </button>
-<h2 class="font-serif text-xl font-bold text-center mt-6 mb-4 text-softBlack">Área do Profissional</h2>
+<p class="text-xs text-center text-gray-600 mb-6 px-4">
+    Receba seus 3 primeiros leads gratuitamente para testar a plataforma. Após utilizar os leads gratuitos, continue recebendo clientes por apenas R$ 9,90 mensais com direito a até 5 leads qualificados por mês.
+</p>
       
       <form id="form-login" class="space-y-4" onsubmit="handleLoginProfissional(event)">
         <div>
