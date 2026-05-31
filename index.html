@@ -60,16 +60,23 @@
   height: 500px; 
   background-image: url('logo.png') !important; 
   background-size: contain; 
-  background-position: center; 
-  background-repeat: no-repeat; 
-  opacity: 0.1; /* Aumentei um pouco para aparecer mais */
-  pointer-events: none; 
-  z-index: -1; /* Força o logo a ficar atrás de tudo */
-}
-</head>
-<body class="text-softBlack font-sans antialiased">
-<body>
- <nav class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-cardBorder z-50 px-6 py-4 shadow-sm">
+ <style>
+  .watermark-bg { 
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    width: 500px; 
+    height: 500px; 
+    background-image: url('logo.png'); 
+    background-size: contain; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    opacity: 0.1; 
+    pointer-events: none; 
+    z-index: -1; 
+  }
+</style>
   <div class="max-w-6xl mx-auto flex items-center justify-between">
     <div class="flex items-center gap-4 cursor-pointer" onclick="showView('home')">
       <!-- Logo ao lado do nome -->
