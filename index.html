@@ -169,8 +169,7 @@
       <button onclick="showView('home')" class="absolute top-6 left-6 text-xs text-softGray hover:text-softBlack flex items-center gap-1 font-semibold">
         <i class="fa-solid fa-arrow-left"></i> Voltar para Início
       </button>
-      
-      <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Solicitação de Atendimento</h2>
+      <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Encontre o Profissional Ideal</h2>
       <p class="text-center text-xs text-softGray mb-6">Preencha seus dados para localizarmos o especialista ideal mais próximo de você.</p>
       
       <form id="form-cliente" class="space-y-4" onsubmit="handleCadastroCliente(event)">
@@ -201,6 +200,26 @@
         <div>
           <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Procedimento Solicitado</label>
           <select id="cli-tratamento" class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
+  <option>Cabeleireiro</option>
+  <option>Manicure e Pedicure</option>
+  <option>Maquiagem</option>
+  <option>Designer de Sobrancelhas</option>
+  <select id="cli-tratamento" ... >
+  <option>Cabeleireiro</option>
+  <option>Manicure e Pedicure</option>
+  <option>Maquiagem</option>
+  <option>Designer de Sobrancelhas</option>
+  <option>Lash Designer</option>
+  <option>Barbeiro</option>
+  <option>Esteticista</option>
+  <option>Massoterapeuta</option>
+  <option>Micropigmentação</option>
+  <option>Harmonização Facial</option>
+  <option>Depilação</option>
+  <option>Bronzeamento</option>
+  <option>Outros</option>
+</select>
+</select>
             <option>Microagulhamento de Estrias (Regeneração)</option>
             <option>Camuflagem de Cicatrizes</option>
             <option>Microagulhamento Avançado & Científico</option>
@@ -213,7 +232,7 @@
           </select>
         </div>
         <div>
-          <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Descrição do que deseja tratar (Opcional)</label>
+         <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Serviço Desejado</label>
           <textarea id="cli-relato" rows="3" placeholder="Escreva detalhes adicionais aqui..." class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition resize-none"></textarea>
         </div>
         <button type="submit" class="w-full bg-softBlack text-white py-4 rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-neutral-800 transition shadow-md">Concluir Solicitação</button>
@@ -226,10 +245,10 @@
       <button onclick="showView('home')" class="absolute top-6 left-6 text-xs text-softGray hover:text-softBlack flex items-center gap-1 font-semibold">
         <i class="fa-solid fa-arrow-left"></i> Voltar
       </button>
-      <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Credenciamento de Especialista</h2>
+      <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Cadastro Profissional</h2>
       <p class="text-center text-xs text-softGray mb-6">Cadastre sua estrutura operational para receber solicitações direcionadas da sua cidade.</p>
       
-      <form id="form-prof-cadastro" class="space-y-4" onsubmit="handleCadastroProfissional(event)">
+     <form id="form-prof-cadastro" class="space-y-4" onsubmit="handleCadastroProfissional(event)">
         <div>
           <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Nome Completo do Responsável</label>
           <input type="text" id="prof-nome" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
@@ -263,12 +282,12 @@
     </div>
   </section>
 
-  <section id="view-login-profissional" class="view-section hidden-section py-12 px-4 max-w-sm mx-auto">
+ <h2 class="font-serif text-xl font-bold text-center mt-6 mb-4 text-softBlack">Área do Profissional</h2>
     <div class="bg-white/95 p-8 rounded-3xl border border-cardBorder premium-shadow relative backdrop-blur-sm">
       <button onclick="showView('home')" class="absolute top-6 left-6 text-xs text-softGray hover:text-softBlack flex items-center gap-1 font-semibold">
         <i class="fa-solid fa-arrow-left"></i> Voltar
       </button>
-      <h2 class="font-serif text-xl font-bold text-center mt-6 mb-4 text-softBlack">Console do Especialista</h2>
+<h2 class="font-serif text-xl font-bold text-center mt-6 mb-4 text-softBlack">Área do Profissional</h2>
       
       <form id="form-login" class="space-y-4" onsubmit="handleLoginProfissional(event)">
         <div>
@@ -384,7 +403,7 @@
       showView('home');
     }
 
-    async function handleCadastroProfessional(e) {
+   async function handleCadastroProfissional(e) {
       e.preventDefault();
       
       const email = document.getElementById('prof-email').value;
@@ -452,10 +471,8 @@
         answer = "A <strong>Lead Beauty</strong> conecta clientes interessados em procedimentos a profissionais de estética de forma direta e regionalizada.";
       } else if (option === 2) {
         answer = "Ao entrar na plataforma, o profissional inicia na <strong>Degustação Inicial</strong> e ganha até 3 leads iniciais de graça para testar.";
-      } else if (option === 3) {
-        answer = "O plano principal é o <strong>Diamond Elite</strong>, que custa apenas R$ 9,90 por mês e dá direito a até 10 leads qualificados da sua região.";
-      }
-
+      } else if (option === 3)
+        answer = "O nosso Plano Profissional custa apenas R$ 9,90 por mês e oferece leads ilimitados para destacar seu trabalho.";
       chatBox.innerHTML += `<div class="bg-white p-2.5 rounded-xl border border-cardBorder max-w-[85%] self-start mt-2 shadow-sm text-softBlack">${answer}</div>`;
       chatBox.scrollTop = chatBox.scrollHeight;
     }
