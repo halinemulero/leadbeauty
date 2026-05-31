@@ -51,28 +51,21 @@
       width: 100%;
     }
     
-    .watermark-bg {
-      position: absolute;
-      top: 35%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 100%;
-      max-width: 650px;
-      height: 650px;
-      background-image: url('logo.png') !important;
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat;
-      opacity: 0.06; /* Suave e elegante para não atrapalhar a leitura */
-      pointer-events: none;
-      z-index: 0;
-    }
-    
-    .hero-content {
-      position: relative;
-      z-index: 10;
-    }
-  </style>
+    .watermark-bg { 
+  position: fixed; /* Fixa o logo no centro da tela */
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  width: 500px; 
+  height: 500px; 
+  background-image: url('logo.png') !important; 
+  background-size: contain; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  opacity: 0.1; /* Aumentei um pouco para aparecer mais */
+  pointer-events: none; 
+  z-index: -1; /* Força o logo a ficar atrás de tudo */
+}
 </head>
 <body class="text-softBlack font-sans antialiased">
 <body>
