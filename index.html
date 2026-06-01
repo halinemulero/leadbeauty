@@ -170,7 +170,6 @@
       accent-color: #C5A059;
     }
     
-    /* ADICIONADO: Estilos para a seção de busca */
     .search-card {
       transition: all 0.3s ease;
     }
@@ -299,7 +298,7 @@
       </section>
     </section>
 
-    <!-- ADICIONADO: VIEW: BUSCA DE PROFISSIONAIS -->
+    <!-- VIEW: BUSCA DE PROFISSIONAIS -->
     <section id="view-busca-profissionais" class="view-section hidden-section py-12 px-4 max-w-6xl mx-auto">
       <div class="bg-white/95 p-8 rounded-3xl border border-cardBorder premium-shadow relative backdrop-blur-sm">
         <button onclick="showView('home')" class="absolute top-6 left-6 text-xs text-softGray hover:text-softBlack flex items-center gap-1 font-semibold">
@@ -308,7 +307,6 @@
         <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Encontre um Profissional</h2>
         <p class="text-center text-xs text-softGray mb-8">Filtre por cidade, especialidade ou tipo de atendimento</p>
         
-        <!-- Filtros de busca -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
           <div>
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Cidade</label>
@@ -333,14 +331,12 @@
           </div>
         </div>
         
-        <!-- Botão de buscar -->
         <div class="text-center mb-8">
           <button onclick="filtrarProfissionais()" class="bg-roseGold hover:bg-premiumRoseHover text-white font-semibold py-3 px-8 rounded-xl transition shadow-md">
             <i class="fa-solid fa-magnifying-glass mr-2"></i> Buscar Profissionais
           </button>
         </div>
         
-        <!-- Resultados -->
         <div id="resultados-busca" class="space-y-4">
           <div class="text-center text-softGray py-8">
             <i class="fa-solid fa-search text-4xl mb-2 opacity-50"></i>
@@ -350,7 +346,7 @@
       </div>
     </section>
 
-    <!-- VIEW: CADASTRO CLIENTE -->
+    <!-- VIEW: CADASTRO CLIENTE (COM CAMPO DE CIDADE DINÂMICO) -->
     <section id="view-cadastro-cliente" class="view-section hidden-section py-12 px-4 max-w-xl mx-auto">
       <div class="bg-white/95 p-8 rounded-3xl border border-cardBorder premium-shadow relative backdrop-blur-sm">
         <button onclick="showView('home')" class="absolute top-6 left-6 text-xs text-softGray hover:text-softBlack flex items-center gap-1 font-semibold">
@@ -374,11 +370,43 @@
               <input type="email" id="cli-email" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
             </div>
           </div>
+          
+          <!-- ADICIONADO: Campo de cidade com opção dinâmica -->
+          <div>
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Cidade *</label>
+            <select id="cli-cidade" name="cidade" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
+              <option value="">Selecione sua cidade</option>
+              <option value="São Paulo">São Paulo</option>
+              <option value="Rio de Janeiro">Rio de Janeiro</option>
+              <option value="Belo Horizonte">Belo Horizonte</option>
+              <option value="Brasília">Brasília</option>
+              <option value="Salvador">Salvador</option>
+              <option value="Fortaleza">Fortaleza</option>
+              <option value="Recife">Recife</option>
+              <option value="Porto Alegre">Porto Alegre</option>
+              <option value="Curitiba">Curitiba</option>
+              <option value="Campinas">Campinas</option>
+              <option value="Santos">Santos</option>
+              <option value="São Vicente">São Vicente</option>
+              <option value="Praia Grande">Praia Grande</option>
+              <option value="Guarujá">Guarujá</option>
+              <option value="Mogi das Cruzes">Mogi das Cruzes</option>
+              <option value="Suzano">Suzano</option>
+              <option value="São Caetano do Sul">São Caetano do Sul</option>
+              <option value="Santo André">Santo André</option>
+              <option value="São Bernardo do Campo">São Bernardo do Campo</option>
+              <option value="Diadema">Diadema</option>
+              <option value="Minha cidade não está na lista">Minha cidade não está na lista</option>
+            </select>
+          </div>
+          
+          <!-- ADICIONADO: Campo de texto para cidade manual (inicialmente escondido) -->
+          <div id="outra-cidade-container" class="hidden-section">
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Digite sua cidade *</label>
+            <input type="text" id="cli-cidade-manual" placeholder="Ex: Ribeirão Preto, Niterói, Florianópolis..." class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
+          </div>
+          
           <div class="grid grid-cols-2 gap-4">
-            <div>
-              <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Cidade</label>
-              <input type="text" id="cli-cidade" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
-            </div>
             <div>
               <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Estado (UF)</label>
               <input type="text" id="cli-estado" maxlength="2" placeholder="SP" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
@@ -678,67 +706,40 @@
       list.classList.toggle('hidden');
     }
     
-    // ==================== DADOS DOS PROFISSIONAIS (JSON LOCAL) ====================
-    // Base de dados inicial - pode ser substituída pelo Google Sheets
+    // ADICIONADO: Lógica do campo de cidade dinâmico
+    function initCidadeDinamico() {
+      const cidadeSelect = document.getElementById('cli-cidade');
+      const outraCidadeContainer = document.getElementById('outra-cidade-container');
+      const cidadeManual = document.getElementById('cli-cidade-manual');
+      
+      if (!cidadeSelect) return;
+      
+      cidadeSelect.addEventListener('change', function() {
+        if (this.value === 'Minha cidade não está na lista') {
+          outraCidadeContainer.classList.remove('hidden-section');
+          cidadeManual.required = true;
+          cidadeManual.focus();
+        } else {
+          outraCidadeContainer.classList.add('hidden-section');
+          cidadeManual.required = false;
+          cidadeManual.value = '';
+        }
+      });
+    }
+    
+    // ==================== DADOS DOS PROFISSIONAIS ====================
     let profissionaisDatabase = [
-      {
-        id: 1,
-        nome: "Clínica Derma Face",
-        cidade: "São Paulo",
-        estado: "SP",
-        whatsapp: "5511999999999",
-        tipoAtendimento: "Clínica de estética",
-        especialidades: ["Microagulhamento de estrias", "Tratamento facial", "Limpeza de pele"],
-        estrutura: ["Sala própria", "Clínica terceirizada"]
-      },
-      {
-        id: 2,
-        nome: "Haline Mulero Estética",
-        cidade: "Santos",
-        estado: "SP",
-        whatsapp: "5513974014176",
-        tipoAtendimento: "Profissional autônomo",
-        especialidades: ["Camuflagem de estrias", "Camuflagem de cicatrizes", "Tratamento corporal", "Estética íntima"],
-        estrutura: ["Atendimento domiciliar", "Consultoria online"]
-      },
-      {
-        id: 3,
-        nome: "Espaço Beleza & Bem-estar",
-        cidade: "Rio de Janeiro",
-        estado: "RJ",
-        whatsapp: "5521999999999",
-        tipoAtendimento: "Espaço compartilhado",
-        especialidades: ["Harmonização corporal", "Limpeza de pele", "Tratamento facial", "Outros"],
-        estrutura: ["Sala própria"]
-      },
-      {
-        id: 4,
-        nome: "Instituto de Estética Avançada",
-        cidade: "Campinas",
-        estado: "SP",
-        whatsapp: "5519988888888",
-        tipoAtendimento: "Clínica de estética",
-        especialidades: ["Microagulhamento de estrias", "Tratamento facial", "Tratamento corporal", "Harmonização corporal", "Estética íntima"],
-        estrutura: ["Sala própria", "Clínica terceirizada"]
-      },
-      {
-        id: 5,
-        nome: "Studio da Pele",
-        cidade: "São Vicente",
-        estado: "SP",
-        whatsapp: "5513974014176",
-        tipoAtendimento: "Profissional autônomo",
-        especialidades: ["Limpeza de pele", "Tratamento facial", "Camuflagem de cicatrizes"],
-        estrutura: ["Atendimento domiciliar"]
-      }
+      { id: 1, nome: "Clínica Derma Face", cidade: "São Paulo", estado: "SP", whatsapp: "5511999999999", tipoAtendimento: "Clínica de estética", especialidades: ["Microagulhamento de estrias", "Tratamento facial", "Limpeza de pele"], estrutura: ["Sala própria", "Clínica terceirizada"] },
+      { id: 2, nome: "Haline Mulero Estética", cidade: "Santos", estado: "SP", whatsapp: "5513974014176", tipoAtendimento: "Profissional autônomo", especialidades: ["Camuflagem de estrias", "Camuflagem de cicatrizes", "Tratamento corporal", "Estética íntima"], estrutura: ["Atendimento domiciliar", "Consultoria online"] },
+      { id: 3, nome: "Espaço Beleza & Bem-estar", cidade: "Rio de Janeiro", estado: "RJ", whatsapp: "5521999999999", tipoAtendimento: "Espaço compartilhado", especialidades: ["Harmonização corporal", "Limpeza de pele", "Tratamento facial", "Outros"], estrutura: ["Sala própria"] },
+      { id: 4, nome: "Instituto de Estética Avançada", cidade: "Campinas", estado: "SP", whatsapp: "5519988888888", tipoAtendimento: "Clínica de estética", especialidades: ["Microagulhamento de estrias", "Tratamento facial", "Tratamento corporal", "Harmonização corporal", "Estética íntima"], estrutura: ["Sala própria", "Clínica terceirizada"] },
+      { id: 5, nome: "Studio da Pele", cidade: "São Vicente", estado: "SP", whatsapp: "5513974014176", tipoAtendimento: "Profissional autônomo", especialidades: ["Limpeza de pele", "Tratamento facial", "Camuflagem de cicatrizes"], estrutura: ["Atendimento domiciliar"] }
     ];
     
-    // Carregar profissionais do localStorage (se existirem)
     function carregarProfissionaisDoStorage() {
       const saved = localStorage.getItem('lead_beauty_profissionais');
       if (saved) {
         const profissionaisSalvos = JSON.parse(saved);
-        // Mapear os profissionais salvos para o formato da busca
         profissionaisSalvos.forEach(prof => {
           if (!profissionaisDatabase.find(p => p.email === prof.email)) {
             profissionaisDatabase.push({
@@ -754,58 +755,29 @@
           }
         });
       }
-      console.log(`📊 ${profissionaisDatabase.length} profissionais carregados para busca`);
+      console.log(`📊 ${profissionaisDatabase.length} profissionais carregados`);
     }
     
-    // ==================== FUNÇÃO DE BUSCA ====================
     function filtrarProfissionais() {
       const cidadeFiltro = document.getElementById('filtro-cidade').value.toLowerCase();
       const especialidadeFiltro = document.getElementById('filtro-especialidade').value.toLowerCase();
       const tipoFiltro = document.getElementById('filtro-tipo').value;
-      
       let resultados = [...profissionaisDatabase];
-      
-      // Filtrar por cidade
-      if (cidadeFiltro) {
-        resultados = resultados.filter(p => p.cidade.toLowerCase().includes(cidadeFiltro));
-      }
-      
-      // Filtrar por especialidade
-      if (especialidadeFiltro) {
-        resultados = resultados.filter(p => 
-          p.especialidades.some(esp => esp.toLowerCase().includes(especialidadeFiltro))
-        );
-      }
-      
-      // Filtrar por tipo de atendimento
-      if (tipoFiltro) {
-        resultados = resultados.filter(p => p.tipoAtendimento === tipoFiltro);
-      }
-      
+      if (cidadeFiltro) resultados = resultados.filter(p => p.cidade.toLowerCase().includes(cidadeFiltro));
+      if (especialidadeFiltro) resultados = resultados.filter(p => p.especialidades.some(esp => esp.toLowerCase().includes(especialidadeFiltro)));
+      if (tipoFiltro) resultados = resultados.filter(p => p.tipoAtendimento === tipoFiltro);
       exibirResultados(resultados);
     }
     
-    // ==================== EXIBIR RESULTADOS ====================
     function exibirResultados(profissionais) {
       const container = document.getElementById('resultados-busca');
-      
       if (!container) return;
-      
       if (profissionais.length === 0) {
-        container.innerHTML = `
-          <div class="text-center text-softGray py-8">
-            <i class="fa-solid fa-face-frown text-4xl mb-2 opacity-50"></i>
-            <p>Nenhum profissional encontrado com os filtros selecionados.</p>
-            <p class="text-xs mt-2">Tente alterar os critérios de busca.</p>
-          </div>
-        `;
+        container.innerHTML = `<div class="text-center text-softGray py-8"><i class="fa-solid fa-face-frown text-4xl mb-2 opacity-50"></i><p>Nenhum profissional encontrado.</p></div>`;
         return;
       }
-      
       container.innerHTML = `
-        <div class="mb-4 text-center">
-          <p class="text-xs text-softGray">${profissionais.length} profissional(is) encontrado(s)</p>
-        </div>
+        <div class="mb-4 text-center"><p class="text-xs text-softGray">${profissionais.length} profissional(is) encontrado(s)</p></div>
         <div class="space-y-4">
           ${profissionais.map(prof => `
             <div class="resultado-item bg-white border border-cardBorder rounded-2xl p-5 hover:shadow-md transition-all">
@@ -816,26 +788,9 @@
                     <span class="text-xs text-softGray"><i class="fa-solid fa-location-dot text-roseGold mr-1"></i> ${prof.cidade}/${prof.estado}</span>
                     <span class="text-xs text-softGray"><i class="fa-solid fa-briefcase text-roseGold mr-1"></i> ${prof.tipoAtendimento}</span>
                   </div>
-                  <div class="mt-2">
-                    <p class="text-[10px] font-bold text-softGray uppercase mb-1">Especialidades:</p>
-                    <div class="flex flex-wrap gap-1">
-                      ${prof.especialidades.map(esp => `<span class="text-[10px] bg-nudeBg px-2 py-1 rounded-full text-softBlack">${esp}</span>`).join('')}
-                    </div>
-                  </div>
-                  ${prof.estrutura && prof.estrutura.length > 0 ? `
-                    <div class="mt-2">
-                      <p class="text-[10px] font-bold text-softGray uppercase mb-1">Estrutura:</p>
-                      <div class="flex flex-wrap gap-1">
-                        ${prof.estrutura.map(est => `<span class="text-[10px] bg-premiumRose/10 px-2 py-1 rounded-full text-softBlack">${est}</span>`).join('')}
-                      </div>
-                    </div>
-                  ` : ''}
+                  <div class="mt-2"><p class="text-[10px] font-bold text-softGray uppercase mb-1">Especialidades:</p><div class="flex flex-wrap gap-1">${prof.especialidades.map(esp => `<span class="text-[10px] bg-nudeBg px-2 py-1 rounded-full text-softBlack">${esp}</span>`).join('')}</div></div>
                 </div>
-                <div>
-                  <a href="https://wa.me/${prof.whatsapp}?text=Olá!%20Tenho%20interesse%20em%20seus%20serviços%20na%20Lead%20Beauty" target="_blank" class="btn-whatsapp-busca inline-flex items-center gap-2 bg-green-600 text-white font-semibold py-2.5 px-5 rounded-xl text-sm transition shadow-md">
-                    <i class="fa-brands fa-whatsapp text-base"></i> Falar no WhatsApp
-                  </a>
-                </div>
+                <div><a href="https://wa.me/${prof.whatsapp}?text=Olá!%20Tenho%20interesse%20em%20seus%20serviços%20na%20Lead%20Beauty" target="_blank" class="btn-whatsapp-busca inline-flex items-center gap-2 bg-green-600 text-white font-semibold py-2.5 px-5 rounded-xl text-sm transition shadow-md"><i class="fa-brands fa-whatsapp text-base"></i> Falar no WhatsApp</a></div>
               </div>
             </div>
           `).join('')}
@@ -843,35 +798,15 @@
       `;
     }
     
-    // ==================== POPULAR FILTROS ====================
     function popularFiltros() {
       const cidadeSelect = document.getElementById('filtro-cidade');
       const especialidadeSelect = document.getElementById('filtro-especialidade');
-      
       if (!cidadeSelect || !especialidadeSelect) return;
-      
-      // Cidades únicas
       const cidades = [...new Set(profissionaisDatabase.map(p => p.cidade))];
-      cidades.sort().forEach(cidade => {
-        const option = document.createElement('option');
-        option.value = cidade;
-        option.textContent = cidade;
-        cidadeSelect.appendChild(option);
-      });
-      
-      // Especialidades únicas
+      cidades.sort().forEach(cidade => { const option = document.createElement('option'); option.value = cidade; option.textContent = cidade; cidadeSelect.appendChild(option); });
       const todasEspecialidades = [];
-      profissionaisDatabase.forEach(p => {
-        p.especialidades.forEach(esp => {
-          if (!todasEspecialidades.includes(esp)) todasEspecialidades.push(esp);
-        });
-      });
-      todasEspecialidades.sort().forEach(esp => {
-        const option = document.createElement('option');
-        option.value = esp;
-        option.textContent = esp;
-        especialidadeSelect.appendChild(option);
-      });
+      profissionaisDatabase.forEach(p => { p.especialidades.forEach(esp => { if (!todasEspecialidades.includes(esp)) todasEspecialidades.push(esp); }); });
+      todasEspecialidades.sort().forEach(esp => { const option = document.createElement('option'); option.value = esp; option.textContent = esp; especialidadeSelect.appendChild(option); });
     }
     
     // ==================== FUNÇÕES DO FORMULÁRIO ====================
@@ -905,41 +840,15 @@
         const existing = localStorage.getItem(PROFISSIONAIS_KEY);
         let profissionais = [];
         if (existing) profissionais = JSON.parse(existing);
-        
         const especialidades = [];
         const espIds = ['esp-micro', 'esp-camuflagem-estrias', 'esp-camuflagem-cicatrizes', 'esp-tratamento-facial', 'esp-tratamento-corporal', 'esp-harmonizacao', 'esp-estetica-intima', 'esp-limpeza-pele', 'esp-outros'];
-        espIds.forEach(id => {
-          const checkbox = document.getElementById(id);
-          if (checkbox && checkbox.checked) especialidades.push(checkbox.value);
-        });
-        
+        espIds.forEach(id => { const checkbox = document.getElementById(id); if (checkbox && checkbox.checked) especialidades.push(checkbox.value); });
         const estrutura = [];
         const estrIds = ['estrutura-sala', 'estrutura-clinica', 'estrutura-domicilio', 'estrutura-online'];
-        estrIds.forEach(id => {
-          const checkbox = document.getElementById(id);
-          if (checkbox && checkbox.checked) estrutura.push(checkbox.value);
-        });
-        
-        profissionais.push({
-          ...profissional,
-          especialidades, estrutura,
-          id: Date.now(), timestamp: new Date().toISOString(),
-          plano: 'Degustação Inicial', statusPagamento: 'free', leadsConsumidos: 0
-        });
+        estrIds.forEach(id => { const checkbox = document.getElementById(id); if (checkbox && checkbox.checked) estrutura.push(checkbox.value); });
+        profissionais.push({ ...profissional, especialidades, estrutura, id: Date.now(), timestamp: new Date().toISOString(), plano: 'Degustação Inicial', statusPagamento: 'free', leadsConsumidos: 0 });
         localStorage.setItem(PROFISSIONAIS_KEY, JSON.stringify(profissionais));
-        
-        // Também adicionar à base de dados da busca
-        profissionaisDatabase.push({
-          id: profissionaisDatabase.length + 1,
-          nome: profissional.nome,
-          cidade: profissional.cidade,
-          estado: profissional.estado,
-          whatsapp: profissional.whatsapp,
-          tipoAtendimento: profissional.tipoAtendimento,
-          especialidades: especialidades,
-          estrutura: estrutura
-        });
-        
+        profissionaisDatabase.push({ id: profissionaisDatabase.length + 1, nome: profissional.nome, cidade: profissional.cidade, estado: profissional.estado, whatsapp: profissional.whatsapp, tipoAtendimento: profissional.tipoAtendimento, especialidades: especialidades, estrutura: estrutura });
         console.log("💾 Profissional salvo:", { ...profissional, especialidades, estrutura });
         return true;
       } catch (error) { console.error("❌ Erro:", error); return false; }
@@ -948,10 +857,7 @@
     function findProfissionalByEmail(email) {
       try {
         const existing = localStorage.getItem(PROFISSIONAIS_KEY);
-        if (existing) {
-          const profissionais = JSON.parse(existing);
-          return profissionais.find(p => p.email === email) || null;
-        }
+        if (existing) { const profissionais = JSON.parse(existing); return profissionais.find(p => p.email === email) || null; }
       } catch (error) { console.error("❌ Erro:", error); }
       return null;
     }
@@ -963,19 +869,35 @@
     
     async function handleCadastroCliente(e) {
       e.preventDefault();
+      
+      // ADICIONADO: Lógica para capturar cidade (selecionada ou digitada)
+      const cidadeSelect = document.getElementById('cli-cidade').value;
+      const cidadeManual = document.getElementById('cli-cidade-manual').value;
+      let cidadeFinal = cidadeSelect;
+      
+      if (cidadeSelect === 'Minha cidade não está na lista') {
+        if (!cidadeManual.trim()) {
+          showMessage("Por favor, digite o nome da sua cidade.", "error");
+          return;
+        }
+        cidadeFinal = cidadeManual.trim();
+      }
+      
       const lead = {
         nome: document.getElementById('cli-nome')?.value || '',
         whatsapp: document.getElementById('cli-whatsapp')?.value || '',
         email: document.getElementById('cli-email')?.value || '',
-        cidade: document.getElementById('cli-cidade')?.value || '',
+        cidade: cidadeFinal,
         estado: document.getElementById('cli-estado')?.value.toUpperCase() || '',
         tratamento: document.getElementById('cli-tratamento')?.value || '',
         relato: document.getElementById('cli-relato')?.value || 'Não informado'
       };
+      
       if (!lead.nome || !lead.whatsapp || !lead.email || !lead.cidade || !lead.estado) {
         showMessage("Preencha todos os campos obrigatórios.", "error");
         return;
       }
+      
       const submitBtn = document.getElementById('submit-lead-btn');
       const originalText = submitBtn?.innerHTML || 'Concluir Solicitação';
       if (submitBtn) { submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Processando...'; submitBtn.disabled = true; }
@@ -984,6 +906,11 @@
         showMessage("Cadastro realizado! Redirecionando para WhatsApp...", "success");
         sendLeadToWhatsApp(lead);
         document.getElementById('form-cliente').reset();
+        // Resetar campo dinâmico
+        const outraCidadeContainer = document.getElementById('outra-cidade-container');
+        const cidadeManualInput = document.getElementById('cli-cidade-manual');
+        if (outraCidadeContainer) outraCidadeContainer.classList.add('hidden-section');
+        if (cidadeManualInput) cidadeManualInput.value = '';
         setTimeout(() => showView('home'), 2000);
       } else { showMessage("Erro ao salvar. Tente novamente.", "error"); }
       if (submitBtn) { submitBtn.innerHTML = originalText; submitBtn.disabled = false; }
@@ -1011,11 +938,8 @@
       const existing = findProfissionalByEmail(profissional.email);
       if (existing) { showMessage("Este e-mail já está cadastrado.", "error"); return; }
       const saved = saveProfissionalToLocalStorage(profissional);
-      if (saved) {
-        showMessage("Credenciamento efetuado com sucesso!", "success");
-        document.getElementById('form-prof-cadastro').reset();
-        showView('home');
-      } else { showMessage("Erro ao salvar. Tente novamente.", "error"); }
+      if (saved) { showMessage("Credenciamento efetuado com sucesso!", "success"); document.getElementById('form-prof-cadastro').reset(); showView('home'); } 
+      else { showMessage("Erro ao salvar. Tente novamente.", "error"); }
     }
     
     async function handleLoginProfissional(e) {
@@ -1031,11 +955,7 @@
       } else { showMessage("E-mail ou senha incorretos.", "error"); }
     }
     
-    async function handleLogoutProfissional() {
-      currentUserData = null;
-      showView('home');
-      showMessage("Logout realizado!", "success");
-    }
+    async function handleLogoutProfissional() { currentUserData = null; showView('home'); showMessage("Logout realizado!", "success"); }
     
     function loadDashboardProfissional() {
       if(!currentUserData) return;
@@ -1079,10 +999,11 @@
     function copyPixCode() { showMessage("Sistema de pagamento em desenvolvimento.", "error"); }
     
     document.addEventListener('DOMContentLoaded', function() {
-      console.log("🚀 Lead Beauty - Sistema de Busca de Profissionais Ativado");
+      console.log("🚀 Lead Beauty - Sistema de Cadastro Atualizado");
+      console.log("📌 Campo de cidade agora suporta 'Minha cidade não está na lista'");
+      initCidadeDinamico();
       carregarProfissionaisDoStorage();
       popularFiltros();
-      console.log(`📊 ${profissionaisDatabase.length} profissionais disponíveis para busca`);
     });
   </script>
 </body>
