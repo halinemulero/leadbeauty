@@ -44,7 +44,6 @@
       background-color: #FBF9F6;
     }
 
-    /* ADICIONADO: Marca d'água */
     .watermark-bg {
         position: fixed;
         top: 50%;
@@ -121,10 +120,33 @@
       color: #7F1D1D;
     }
 
-    /* ADICIONADO: Estilos para o chat */
     .chat-modal {
       max-width: calc(100vw - 2rem);
       transition: all 0.3s ease;
+    }
+
+    /* ADICIONADO: Estilo para mensagens de erro/sucesso */
+    .form-message {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 500;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: all 0.3s ease;
+    }
+    .form-message.success {
+      background-color: #10B981;
+      color: white;
+      border-left: 4px solid #047857;
+    }
+    .form-message.error {
+      background-color: #EF4444;
+      color: white;
+      border-left: 4px solid #B91C1C;
     }
   </style>
 </head>
@@ -158,12 +180,10 @@
           <span class="text-[11px] font-bold uppercase tracking-wider text-softGray">Aceleração de Negócios & Soluções Estéticas</span>
         </div>
         
-        <!-- SUBSTITUÍDO: Nova headline principal -->
         <h1 class="font-serif text-3xl md:text-5xl font-semibold leading-tight text-softBlack max-w-4xl mx-auto mb-6">
           Encontre os melhores profissionais de estética da sua região de forma rápida, segura e sem complicação.
         </h1>
         
-        <!-- SUBSTITUÍDO: Novo texto institucional -->
         <p class="text-sm md:text-base text-softGray max-w-3xl mx-auto mb-10 leading-relaxed">
           A Lead Beauty conecta pessoas que buscam cuidados estéticos aos melhores profissionais da sua região. Para clientes, o uso da plataforma é totalmente gratuito. Para profissionais, os 3 primeiros contatos de clientes são gratuitos, sem custo e sem burocracia, para que você comece a receber agendamentos reais com facilidade.
         </p>
@@ -290,7 +310,7 @@
            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Serviço Desejado</label>
             <textarea id="cli-relato" rows="3" placeholder="Escreva detalhes adicionais aqui..." class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition resize-none"></textarea>
           </div>
-          <button type="submit" class="w-full bg-softBlack text-white py-4 rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-neutral-800 transition shadow-md">Concluir Solicitação</button>
+          <button type="submit" id="submit-lead-btn" class="w-full bg-softBlack text-white py-4 rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-neutral-800 transition shadow-md">Concluir Solicitação</button>
         </form>
       </div>
     </section>
@@ -488,7 +508,7 @@
     </section>
   </main>
 
-  <!-- ADICIONADO: CHAT FLUTUANTE ESTILO PROFISSIONAL -->
+  <!-- CHAT FLUTUANTE ESTILO PROFISSIONAL -->
   <div class="fixed bottom-6 right-6 z-50">
     <button onclick="toggleChat()" class="bg-roseGold text-white w-14 h-14 rounded-full shadow-2xl hover:scale-105 transition flex items-center justify-center border-2 border-white">
       <i class="fa-regular fa-comment-dots text-2xl"></i>
@@ -566,6 +586,19 @@
       list.classList.toggle('hidden');
     }
     
+    // ==================== FUNÇÃO PARA EXIBIR MENSAGENS ====================
+    function showMessage(message, type = 'success') {
+      const existingMsg = document.querySelector('.form-message');
+      if (existingMsg) existingMsg.remove();
+      
+      const msgDiv = document.createElement('div');
+      msgDiv.className = `form-message ${type}`;
+      msgDiv.innerHTML = `<i class="fa-${type === 'success' ? 'regular fa-circle-check' : 'fa-solid fa-circle-exclamation'} mr-2"></i> ${message}`;
+      document.body.appendChild(msgDiv);
+      
+      setTimeout(() => msgDiv.remove(), 5000);
+    }
+    
     // ==================== CONFIGURAÇÃO FIREBASE ====================
     const firebaseConfig = {
       apiKey: "AIzaSyDX_vxiittvMdKEF5_p-rwCK_IkUIfsO5o",
@@ -586,51 +619,170 @@
         firebase.initializeApp(firebaseConfig);
         db = firebase.firestore();
         auth = firebase.auth();
+        console.log("✅ Firebase inicializado com sucesso");
+      } else {
+        console.warn("⚠️ Firebase não disponível");
       }
     } catch (e) {
-      console.error("Erro na inicialização do Firebase:", e);
+      console.error("❌ Erro na inicialização do Firebase:", e);
     }
 
     const ASAAS_API_KEY = "YOUR_ASAAS_API_KEY_HERE";
     const ASAAS_BASE_URL = "https://api.asaas.com/v3";
 
+    // ==================== CHAVE PARA LOCALSTORAGE ====================
+    const LEADS_STORAGE_KEY = 'lead_beauty_leads';
+
+    // ==================== FUNÇÃO PARA SALVAR LEAD NO LOCALSTORAGE ====================
+    function saveLeadToLocalStorage(lead) {
+      try {
+        const existingLeads = localStorage.getItem(LEADS_STORAGE_KEY);
+        let leads = [];
+        if (existingLeads) {
+          leads = JSON.parse(existingLeads);
+        }
+        leads.push({
+          ...lead,
+          id: Date.now(),
+          timestamp: new Date().toISOString()
+        });
+        localStorage.setItem(LEADS_STORAGE_KEY, JSON.stringify(leads));
+        console.log("💾 Lead salvo no localStorage:", lead);
+        return true;
+      } catch (error) {
+        console.error("❌ Erro ao salvar no localStorage:", error);
+        return false;
+      }
+    }
+
+    // ==================== FUNÇÃO PARA SALVAR LEAD NO FIREBASE ====================
+    async function saveLeadToFirebase(lead) {
+      if (!db) {
+        console.warn("⚠️ Firebase não disponível, salvando apenas no localStorage");
+        return false;
+      }
+      try {
+        await db.collection('leads').add({
+          ...lead,
+          dataCriacao: new Date().toISOString(),
+          origem: 'formulario_site'
+        });
+        console.log("☁️ Lead salvo no Firebase:", lead);
+        return true;
+      } catch (error) {
+        console.error("❌ Erro ao salvar no Firebase:", error);
+        return false;
+      }
+    }
+
+    // ==================== FUNÇÃO PARA ENVIAR WHATSAPP ====================
+    function sendLeadToWhatsApp(lead) {
+      const mensagem = `*NOVO CADASTRO - LEAD BEAUTY* 🧴✨%0a%0a` +
+        `*👤 Nome:* ${lead.nome}%0a` +
+        `*📧 E-mail:* ${lead.email}%0a` +
+        `*📞 WhatsApp:* ${lead.whatsapp}%0a` +
+        `*📍 Cidade/UF:* ${lead.cidade} - ${lead.estado}%0a` +
+        `*💆‍♀️ Procedimento:* ${lead.tratamento}%0a` +
+        `*📝 Detalhes:* ${lead.relato || 'Não informado'}%0a%0a` +
+        `_Cadastro realizado em ${new Date().toLocaleString('pt-BR')}_`;
+      
+      const whatsappUrl = `https://wa.me/5513974014176?text=${mensagem}`;
+      console.log("📤 Abrindo WhatsApp com os dados:", lead);
+      window.open(whatsappUrl, '_blank');
+    }
+
+    // ==================== FUNÇÃO PRINCIPAL DO FORMULÁRIO ====================
+    async function handleCadastroCliente(e) {
+      e.preventDefault();
+      
+      console.log("🚀 Iniciando processamento do formulário...");
+      
+      // Coletar dados do formulário
+      const lead = {
+        nome: document.getElementById('cli-nome')?.value || '',
+        whatsapp: document.getElementById('cli-whatsapp')?.value || '',
+        email: document.getElementById('cli-email')?.value || '',
+        cidade: document.getElementById('cli-cidade')?.value || '',
+        estado: document.getElementById('cli-estado')?.value.toUpperCase() || '',
+        tratamento: document.getElementById('cli-tratamento')?.value || '',
+        relato: document.getElementById('cli-relato')?.value || 'Não informado'
+      };
+      
+      // VALIDAÇÃO: Verificar se os campos obrigatórios estão preenchidos
+      if (!lead.nome || !lead.whatsapp || !lead.email || !lead.cidade || !lead.estado) {
+        console.warn("⚠️ Campos obrigatórios não preenchidos");
+        showMessage("Por favor, preencha todos os campos obrigatórios.", "error");
+        return;
+      }
+      
+      console.log("📋 Dados coletados:", lead);
+      
+      // MOSTRAR INDICADOR DE CARREGAMENTO
+      const submitBtn = document.getElementById('submit-lead-btn');
+      const originalText = submitBtn?.innerHTML || 'Concluir Solicitação';
+      if (submitBtn) {
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Processando...';
+        submitBtn.disabled = true;
+      }
+      
+      let success = false;
+      let errorMessages = [];
+      
+      // 1. SALVAR NO LOCALSTORAGE (sempre disponível)
+      const localStorageSaved = saveLeadToLocalStorage(lead);
+      if (localStorageSaved) {
+        console.log("✅ Lead salvo no localStorage com sucesso");
+        success = true;
+      } else {
+        errorMessages.push("Falha no salvamento local");
+      }
+      
+      // 2. TENTAR SALVAR NO FIREBASE (se disponível)
+      if (db) {
+        const firebaseSaved = await saveLeadToFirebase(lead);
+        if (firebaseSaved) {
+          console.log("✅ Lead salvo no Firebase com sucesso");
+          success = true;
+        } else {
+          errorMessages.push("Falha na sincronização com nuvem");
+        }
+      } else {
+        console.log("ℹ️ Firebase não configurado, usando apenas localStorage");
+      }
+      
+      // 3. VERIFICAR SE HOUVE SUCESSO EM PELO MENOS UM MÉTODO DE SALVAMENTO
+      if (success) {
+        console.log("🎉 Cadastro realizado com sucesso! Redirecionando para WhatsApp...");
+        showMessage("Cadastro realizado com sucesso! Redirecionando para WhatsApp...", "success");
+        
+        // Enviar para o WhatsApp com os dados
+        sendLeadToWhatsApp(lead);
+        
+        // Limpar formulário
+        document.getElementById('form-cliente').reset();
+        
+        // Voltar para home após 2 segundos
+        setTimeout(() => {
+          showView('home');
+        }, 2000);
+      } else {
+        console.error("❌ Falha ao salvar o lead:", errorMessages);
+        showMessage(`Erro ao salvar: ${errorMessages.join(', ')}. Tente novamente.`, "error");
+      }
+      
+      // RESTAURAR BOTÃO
+      if (submitBtn) {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }
+    }
+
+    // ==================== FUNÇÕES ORIGINAIS (PRESERVADAS) ====================
     function showView(viewId) {
       document.querySelectorAll('.view-section').forEach(section => section.classList.add('hidden-section'));
       const target = document.getElementById(`view-${viewId}`);
       if (target) target.classList.remove('hidden-section');
       window.scrollTo(0, 0);
-    }
-
-    async function handleCadastroCliente(e) {
-      e.preventDefault();
-      
-      const lead = {
-        nome: document.getElementById('cli-nome').value,
-        whatsapp: document.getElementById('cli-whatsapp').value,
-        email: document.getElementById('cli-email').value,
-        cidade: document.getElementById('cli-cidade').value,
-        estado: document.getElementById('cli-estado').value.toUpperCase(),
-        tratamento: document.getElementById('cli-tratamento').value,
-        relato: document.getElementById('cli-relato').value || "Não informado",
-        dataCriacao: new Date().toLocaleString('pt-BR')
-      };
-      
-      try { if(db) await db.collection('leads').add(lead); } catch(err) { console.warn(err); }
-      
-      alert(`Triagem concluída com sucesso! Redirecionando para o WhatsApp.`);
-      
-      const textoMensagem = `Novo Lead - Lead Beauty\n\n` +
-                            `Cliente: ${lead.nome}\n` +
-                            `WhatsApp: ${lead.whatsapp}\n` +
-                            `E-mail: ${lead.email}\n` +
-                            `Local: ${lead.cidade} - ${lead.estado}\n` +
-                            `Procedimento: ${lead.tratamento}\n` +
-                            `Relato: ${lead.relato}`;
-                            
-      window.open(`https://wa.me/5513974014176?text=${encodeURIComponent(textoMensagem)}`, '_blank');
-      
-      document.getElementById('form-cliente').reset();
-      showView('home');
     }
 
     async function handleCadastroProfissional(e) {
@@ -641,35 +793,67 @@
       const cidade = document.getElementById('prof-cidade').value;
       const estado = document.getElementById('prof-estado').value.toUpperCase();
       const whatsapp = document.getElementById('prof-whatsapp').value;
-      if(!auth || !db) { alert("Banco de dados indisponível."); return; }
+      if(!auth || !db) { 
+        showMessage("Banco de dados indisponível. Tente novamente mais tarde.", "error");
+        return; 
+      }
       try {
         const cred = await auth.createUserWithEmailAndPassword(email, senha);
-        await db.collection('profissionais').doc(cred.user.uid).set({ nome, email, cidade, estado, whatsapp, plano: 'Degustação Inicial', statusPagamento: 'free', leadsConsumidos: 0, dataCadastro: new Date().toISOString(), proximoVencimento: null, dataPagamento: null, assinaturaAsaasId: null });
-        alert("Credenciamento efetuado com sucesso!");
+        await db.collection('profissionais').doc(cred.user.uid).set({ 
+          nome, email, cidade, estado, whatsapp, 
+          plano: 'Degustação Inicial', 
+          statusPagamento: 'free', 
+          leadsConsumidos: 0, 
+          dataCadastro: new Date().toISOString(), 
+          proximoVencimento: null, 
+          dataPagamento: null, 
+          assinaturaAsaasId: null 
+        });
+        showMessage("Credenciamento efetuado com sucesso!", "success");
         document.getElementById('form-prof-cadastro').reset();
         showView('home');
-      } catch(error) { alert("Erro no cadastro: " + error.message); }
+      } catch(error) { 
+        showMessage("Erro no cadastro: " + error.message, "error");
+      }
     }
 
     async function handleLoginProfissional(e) {
       e.preventDefault();
       const email = document.getElementById('login-email').value;
       const senha = document.getElementById('login-senha').value;
-      if(!auth) { alert("Sistema de validação inativo."); return; }
+      if(!auth) { 
+        showMessage("Sistema de validação inativo.", "error");
+        return; 
+      }
       try {
         const userCred = await auth.signInWithEmailAndPassword(email, senha);
         currentUser = userCred.user;
         if(db) {
           const docSnap = await db.collection('profissionais').doc(currentUser.uid).get();
-          if(docSnap.exists()) { currentUserData = docSnap.data(); currentUserData.uid = currentUser.uid; loadDashboardProfissional(); showView('dashboard-profissional'); }
-          else alert("Dados do profissional não encontrados.");
+          if(docSnap.exists()) { 
+            currentUserData = docSnap.data(); 
+            currentUserData.uid = currentUser.uid; 
+            loadDashboardProfissional(); 
+            showView('dashboard-profissional');
+          } else {
+            showMessage("Dados do profissional não encontrados.", "error");
+          }
         }
-      } catch(error) { alert("Erro de autenticação: Verifique seus dados."); }
+      } catch(error) { 
+        showMessage("Erro de autenticação: Verifique seus dados.", "error");
+      }
     }
 
     async function handleLogoutProfissional() {
-      try { await auth.signOut(); currentUser = null; currentUserData = null; showView('home'); }
-      catch(error) { alert("Erro ao fazer logout: " + error.message); }
+      try { 
+        await auth.signOut(); 
+        currentUser = null; 
+        currentUserData = null; 
+        showView('home');
+        showMessage("Logout realizado com sucesso!", "success");
+      } catch(error) { 
+        showMessage("Erro ao fazer logout: " + error.message, "error");
+      }
     }
 
     function loadDashboardProfissional() {
@@ -690,27 +874,46 @@
       leadsWarning.classList.add('hidden-section');
       limitWarning.classList.add('hidden-section');
       upgradeSection.classList.add('hidden-section');
-      if(currentUserData.plano === 'Degustação Inicial' && leadsConsumed >= 3) { leadsWarning.classList.remove('hidden-section'); upgradeSection.classList.remove('hidden-section'); }
-      else if(currentUserData.plano === 'Profissional' && leadsConsumed >= maxLeads) limitWarning.classList.remove('hidden-section');
-      else if(currentUserData.plano === 'Degustação Inicial') upgradeSection.classList.remove('hidden-section');
+      if(currentUserData.plano === 'Degustação Inicial' && leadsConsumed >= 3) { 
+        leadsWarning.classList.remove('hidden-section'); 
+        upgradeSection.classList.remove('hidden-section'); 
+      } else if(currentUserData.plano === 'Profissional' && leadsConsumed >= maxLeads) {
+        limitWarning.classList.remove('hidden-section');
+      } else if(currentUserData.plano === 'Degustação Inicial') {
+        upgradeSection.classList.remove('hidden-section');
+      }
     }
 
     async function generatePaymentQRCode() {
-      if(!currentUserData) { alert("Usuário não identificado."); return; }
+      if(!currentUserData) { 
+        showMessage("Usuário não identificado.", "error");
+        return; 
+      }
       try {
         let customerId = currentUserData.asaasCustomerId;
         if(!customerId) {
-          const customerResponse = await fetch(`${ASAAS_BASE_URL}/customers`, { method: 'POST', headers: { 'Content-Type': 'application/json', 'access_token': ASAAS_API_KEY }, body: JSON.stringify({ name: currentUserData.nome, email: currentUserData.email, phone: currentUserData.whatsapp, mobilePhone: currentUserData.whatsapp }) });
+          const customerResponse = await fetch(`${ASAAS_BASE_URL}/customers`, { 
+            method: 'POST', 
+            headers: { 'Content-Type': 'application/json', 'access_token': ASAAS_API_KEY }, 
+            body: JSON.stringify({ name: currentUserData.nome, email: currentUserData.email, phone: currentUserData.whatsapp, mobilePhone: currentUserData.whatsapp }) 
+          });
           if(!customerResponse.ok) throw new Error('Erro ao criar cliente no Asaas');
           const customerData = await customerResponse.json();
           customerId = customerData.id;
           await db.collection('profissionais').doc(currentUserData.uid).update({ asaasCustomerId: customerId });
         }
-        const paymentResponse = await fetch(`${ASAAS_BASE_URL}/payments`, { method: 'POST', headers: { 'Content-Type': 'application/json', 'access_token': ASAAS_API_KEY }, body: JSON.stringify({ customer: customerId, billingType: 'PIX', value: 9.90, dueDate: new Date().toISOString().split('T')[0], description: 'Plano Profissional - Lead Beauty' }) });
+        const paymentResponse = await fetch(`${ASAAS_BASE_URL}/payments`, { 
+          method: 'POST', 
+          headers: { 'Content-Type': 'application/json', 'access_token': ASAAS_API_KEY }, 
+          body: JSON.stringify({ customer: customerId, billingType: 'PIX', value: 9.90, dueDate: new Date().toISOString().split('T')[0], description: 'Plano Profissional - Lead Beauty' }) 
+        });
         if(!paymentResponse.ok) throw new Error('Erro ao criar cobrança PIX');
         const paymentData = await paymentResponse.json();
         const paymentId = paymentData.id;
-        const qrCodeResponse = await fetch(`${ASAAS_BASE_URL}/payments/${paymentId}/pixQrCode`, { method: 'GET', headers: { 'access_token': ASAAS_API_KEY } });
+        const qrCodeResponse = await fetch(`${ASAAS_BASE_URL}/payments/${paymentId}/pixQrCode`, { 
+          method: 'GET', 
+          headers: { 'access_token': ASAAS_API_KEY } 
+        });
         if(!qrCodeResponse.ok) throw new Error('Erro ao obter QR Code PIX');
         const qrCodeData = await qrCodeResponse.json();
         document.getElementById('qr-code-image').src = `data:image/png;base64,${qrCodeData.encodedImage}`;
@@ -719,7 +922,10 @@
         currentUserData.subscriptionStarted = new Date().getTime();
         startPaymentPolling(paymentId);
         document.getElementById('payment-status').classList.remove('hidden-section');
-      } catch(error) { console.error("Erro ao gerar QR Code:", error); alert("Erro ao gerar QR Code PIX. Verifique sua chave de API do Asaas."); }
+      } catch(error) { 
+        console.error("Erro ao gerar QR Code:", error); 
+        showMessage("Erro ao gerar QR Code PIX. Verifique sua chave de API do Asaas.", "error");
+      }
     }
 
     function startPaymentPolling(paymentId) {
@@ -728,31 +934,69 @@
           const response = await fetch(`${ASAAS_BASE_URL}/payments/${paymentId}`, { method: 'GET', headers: { 'access_token': ASAAS_API_KEY } });
           if(!response.ok) throw new Error('Erro ao verificar pagamento');
           const paymentData = await response.json();
-          if(paymentData.status === 'RECEIVED' || paymentData.status === 'CONFIRMED') { clearInterval(pollingInterval); await activateProfessionalPlan(); }
-          if(currentUserData.subscriptionStarted && (new Date().getTime() - currentUserData.subscriptionStarted) > 15 * 60 * 1000) { clearInterval(pollingInterval); document.getElementById('payment-status').classList.add('hidden-section'); }
-        } catch(error) { console.error("Erro no polling:", error); }
+          if(paymentData.status === 'RECEIVED' || paymentData.status === 'CONFIRMED') { 
+            clearInterval(pollingInterval); 
+            await activateProfessionalPlan(); 
+          }
+          if(currentUserData.subscriptionStarted && (new Date().getTime() - currentUserData.subscriptionStarted) > 15 * 60 * 1000) { 
+            clearInterval(pollingInterval); 
+            document.getElementById('payment-status').classList.add('hidden-section'); 
+          }
+        } catch(error) { 
+          console.error("Erro no polling:", error); 
+        }
       }, 5000);
     }
 
     async function activateProfessionalPlan() {
       if(!currentUserData || !db) return;
       try {
-        const nextRenewalDate = new Date(); nextRenewalDate.setMonth(nextRenewalDate.getMonth() + 1);
-        await db.collection('profissionais').doc(currentUserData.uid).update({ plano: 'Profissional', statusPagamento: 'active', dataPagamento: new Date().toISOString(), proximoVencimento: nextRenewalDate.toISOString(), leadsConsumidos: 0 });
-        currentUserData.plano = 'Profissional'; currentUserData.statusPagamento = 'active'; currentUserData.leadsConsumidos = 0;
-        alert("Pagamento confirmado! Seu plano foi ativado com sucesso!");
+        const nextRenewalDate = new Date(); 
+        nextRenewalDate.setMonth(nextRenewalDate.getMonth() + 1);
+        await db.collection('profissionais').doc(currentUserData.uid).update({ 
+          plano: 'Profissional', 
+          statusPagamento: 'active', 
+          dataPagamento: new Date().toISOString(), 
+          proximoVencimento: nextRenewalDate.toISOString(), 
+          leadsConsumidos: 0 
+        });
+        currentUserData.plano = 'Profissional'; 
+        currentUserData.statusPagamento = 'active'; 
+        currentUserData.leadsConsumidos = 0;
+        showMessage("Pagamento confirmado! Seu plano foi ativado com sucesso!", "success");
         document.getElementById('payment-status').classList.add('hidden-section');
         loadDashboardProfissional();
         showView('dashboard-profissional');
-      } catch(error) { console.error("Erro ao ativar plano:", error); alert("Erro ao ativar plano. Tente novamente."); }
+      } catch(error) { 
+        console.error("Erro ao ativar plano:", error); 
+        showMessage("Erro ao ativar plano. Tente novamente.", "error");
+      }
     }
 
     function copyPixCode() {
       const pixPayload = document.getElementById('pix-payload').textContent;
-      navigator.clipboard.writeText(pixPayload).then(() => alert("Código PIX copiado para a área de transferência!")).catch(err => { console.error("Erro ao copiar:", err); alert("Erro ao copiar o código PIX."); });
+      navigator.clipboard.writeText(pixPayload).then(() => {
+        showMessage("Código PIX copiado para a área de transferência!", "success");
+      }).catch(err => { 
+        console.error("Erro ao copiar:", err); 
+        showMessage("Erro ao copiar o código PIX.", "error");
+      });
     }
 
+    // ==================== INICIALIZAÇÃO ====================
     document.addEventListener('DOMContentLoaded', function() {
+      console.log("🚀 Lead Beauty - Sistema de Cadastro Inicializado");
+      console.log("📌 Os leads serão salvos em localStorage e Firebase (se disponível)");
+      
+      // Exibir leads já salvos no console para debug
+      const savedLeads = localStorage.getItem(LEADS_STORAGE_KEY);
+      if (savedLeads) {
+        const leads = JSON.parse(savedLeads);
+        console.log(`📊 Total de leads salvos no localStorage: ${leads.length}`);
+      } else {
+        console.log("📊 Nenhum lead salvo ainda no localStorage");
+      }
+      
       const observer = new MutationObserver(() => { 
         const paymentView = document.getElementById('view-payment-plan'); 
         if(paymentView && !paymentView.classList.contains('hidden-section')) generatePaymentQRCode();
