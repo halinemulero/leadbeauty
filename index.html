@@ -281,25 +281,28 @@
           <h2 class="text-[11px] font-bold uppercase tracking-widest text-roseGold mb-1">Para Profissionais</h2>
           <p class="font-serif text-3xl font-medium text-softBlack mb-4">Receba leads qualificados e validados</p>
           <p class="text-xs text-softGray mb-8 leading-relaxed">
-            Cadastre-se gratuitamente e receba 3 leads sem custo para conhecer a plataforma. Após utilizar os leads gratuitos, você poderá adquirir mais 3 leads através do plano profissional e continuar recebendo novos clientes.
+            Nossa plataforma conecta você a clientes reais da sua região, com curadoria especializada. 
+            Os 3 primeiros contatos são gratuitos para você testar e aprovar.
           </p>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto text-left">
             <div class="border border-cardBorder p-6 rounded-2xl bg-nudeBg/50 flex flex-col justify-between">
               <div>
-                <h4 class="font-bold text-sm text-softBlack uppercase tracking-wide">Leads Gratuitos</h4>
-                <div class="text-2xl font-serif font-bold text-roseGold my-2">3 leads</div>
-                <p class="text-xs text-softGray font-medium leading-relaxed">• Receba 3 leads gratuitos para conhecer a plataforma.<br>• Sem custo inicial.<br>• Teste nosso sistema de curadoria.</p>
+                <h4 class="font-bold text-sm text-softBlack uppercase tracking-wide">Plano de Validação</h4>
+                <div class="text-2xl font-serif font-bold text-roseGold my-2">Grátis</div>
+                <p class="text-xs text-softGray font-medium leading-relaxed">• Receba seus primeiros 3 leads qualificados gratuitamente.<br>• Teste nosso sistema de curadoria sem compromisso.</p>
               </div>
             </div>
             <div class="border-2 border-roseGold p-6 rounded-2xl bg-white relative flex flex-col justify-between">
               <span class="absolute -top-3 right-4 bg-roseGold text-white text-[9px] font-bold uppercase px-3 py-1 rounded-full">Plano Profissional</span>
               <div>
                 <h4 class="font-bold text-sm text-softBlack uppercase tracking-wide">Leads Adicionais</h4>
-                <div class="text-2xl font-serif font-bold text-softBlack my-2">+3 leads</div>
-                <p class="text-xs text-softGray font-medium mb-1.5">• Adquira mais 3 leads através do plano profissional.</p>
+                <div class="text-2xl font-serif font-bold text-softBlack my-2">R$ 9,90 <span class="text-xs text-softGray font-sans">/mês</span></div>
+                <p class="text-xs text-softGray font-medium mb-1.5">• Receba +3 leads qualificados por mês.</p>
                 <p class="text-xs text-softGray font-medium mb-1.5">• Continue recebendo novos clientes.</p>
                 <p class="text-xs text-softGray font-medium mb-1.5">• Direcionamento inteligente por cidade e região.</p>
-                <p class="text-[11px] text-softGray font-medium text-roseGold">• Total de 6 leads (3 gratuitos + 3 pagos)</p>
+                <p class="text-xs text-softGray font-medium mb-1.5">• Perfil profissional ativo na plataforma.</p>
+                <p class="text-xs text-softGray font-medium mb-1.5">• Destaque nas buscas da sua cidade.</p>
+                <p class="text-[11px] text-softGray font-medium text-roseGold mt-2">✓ Total de 6 leads (3 gratuitos + 3 pagos)</p>
               </div>
               <a href="https://www.asaas.com/c/k6draufxr8zz3iqj" target="_blank" class="block w-full text-center mt-4 bg-roseGold hover:bg-premiumRoseHover text-white font-bold py-2.5 px-4 rounded-xl transition-all duration-300 text-xs uppercase tracking-wider shadow-md">
                 <i class="fa-solid fa-qrcode mr-2"></i> Assinar via PIX
@@ -340,9 +343,9 @@
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Tipo de Atendimento</label>
             <select id="filtro-tipo" class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
               <option value="">Todos</option>
-              <option value="Profissional autônomo">Profissional autônomo</option>
-              <option value="Clínica de estética">Clínica de estética</option>
-              <option value="Espaço de estética">Espaço de estética</option>
+              <option value="Profissional Autônomo">Profissional Autônomo</option>
+              <option value="Clínica">Clínica</option>
+              <option value="Espaço de Estética">Espaço de Estética</option>
             </select>
           </div>
         </div>
@@ -447,14 +450,14 @@
             <select id="cli-tratamento" class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
               <option>Estética facial</option>
               <option>Estética corporal</option>
-              <option>Microagulhamento de estrias</option>
-              <option>Camuflagem de estrias</option>
-              <option>Camuflagem de cicatrizes</option>
+              <option>Microagulhamento</option>
+              <option>Camuflagem de Estrias</option>
+              <option>Camuflagem de Cicatrizes</option>
               <option>Tratamento de olheiras</option>
               <option>Revitalização da pele</option>
               <option>Limpeza de pele</option>
-              <option>Harmonização facial</option>
-              <option>Harmonização corporal</option>
+              <option>Harmonização Facial</option>
+              <option>Harmonização Corporal</option>
               <option>Outros</option>
             </select>
           </div>
@@ -607,9 +610,6 @@
               <div class="checkbox-item"><input type="checkbox" id="estrutura-espaco-compartilhado" value="Espaço compartilhado"><label>Espaço compartilhado</label></div>
               <div class="checkbox-item"><input type="checkbox" id="estrutura-clinica-parceira" value="Clínica parceira"><label>Clínica parceira</label></div>
               <div class="checkbox-item"><input type="checkbox" id="estrutura-domicilio" value="Atendimento domiciliar"><label>Atendimento domiciliar</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="estrutura-online" value="Atendimento online"><label>Atendimento online</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="estrutura-hibrido" value="Atendimento híbrido"><label>Atendimento híbrido</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="estrutura-coworking" value="Coworking de estética"><label>Coworking de estética</label></div>
               <div class="checkbox-item"><input type="checkbox" id="estrutura-outros" value="Outros"><label>Outros</label></div>
             </div>
           </div>
@@ -1056,7 +1056,7 @@
         const estrutura = [];
         const estrIds = [
           'estrutura-clinica-propria', 'estrutura-sala-comercial', 'estrutura-home-studio', 'estrutura-espaco-compartilhado',
-          'estrutura-clinica-parceira', 'estrutura-domicilio', 'estrutura-online', 'estrutura-hibrido', 'estrutura-coworking', 'estrutura-outros'
+          'estrutura-clinica-parceira', 'estrutura-domicilio', 'estrutura-outros'
         ];
         estrIds.forEach(id => { const cb = document.getElementById(id); if (cb && cb.checked) estrutura.push(cb.value); });
         
