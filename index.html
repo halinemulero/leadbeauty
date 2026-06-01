@@ -1,64 +1,99 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
   <title>Lead Beauty | Conexão Estética por Haline Mulero</title>
-  <meta name="description" content="A plataforma líder em captação de leads e conexão entre clientes e especialistas em estética.">
+  <meta name="description" content="A plataforma líder em captação de leads e conexão entre clientes e especialistas em estética. Transforme sua beleza com profissionais selecionados.">
+  <!-- Tailwind + Font Awesome -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background-color: #fefaf7; color: #2d2a2a; }
-    .font-serif-display { font-family: 'Playfair Display', serif; }
-    .btn-primary { transition: all 0.3s ease; box-shadow: 0 8px 18px rgba(201, 146, 93, 0.2); }
-    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 28px rgba(201, 146, 93, 0.3); }
-    .card-hover { transition: transform 0.25s ease, box-shadow 0.3s; }
-    .card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1); }
-    .form-focus:focus { border-color: #e6b17e; outline: none; box-shadow: 0 0 0 3px rgba(230, 177, 126, 0.2); }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fefaf7;
+      color: #2d2a2a;
+    }
+    .font-serif-display {
+      font-family: 'Playfair Display', serif;
+    }
+    /* Gradiente sutil e customização */
+    .gradient-bg {
+      background: linear-gradient(135deg, #fff6f0 0%, #fdece3 100%);
+    }
+    .gold-gradient {
+      background: linear-gradient(120deg, #e6b17e, #c9925d);
+    }
+    .btn-primary {
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 18px rgba(201, 146, 93, 0.2);
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 28px rgba(201, 146, 93, 0.3);
+    }
+    .card-hover {
+      transition: transform 0.25s ease, box-shadow 0.3s;
+    }
+    .card-hover:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
+    }
+    .form-focus:focus {
+      border-color: #e6b17e;
+      ring: 2px solid #e6b17e;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(230, 177, 126, 0.2);
+    }
+    .hero-wave {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-wave:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: repeating-linear-gradient(45deg, #fff5ef 0px, #fff5ef 20px, #fdece3 20px, #fdece3 40px);
+      opacity: 0.5;
+      pointer-events: none;
+    }
+    @media (max-width: 640px) {
+      .hero-wave:after {
+        height: 30px;
+      }
+    }
   </style>
 </head>
-<body>
+<body class="antialiased">
 
+  <!-- Header / Navegação -->
   <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-md shadow-sm border-b border-amber-100/50">
     <div class="container mx-auto px-5 lg:px-8 py-4 flex justify-between items-center">
       <div class="flex items-center gap-2">
         <i class="fas fa-spa text-3xl text-amber-600"></i>
-        <span class="font-serif-display text-2xl font-semibold text-stone-800">Lead<span class="text-amber-600">Beauty</span></span>
+        <span class="font-serif-display text-2xl font-semibold tracking-tight text-stone-800">Lead<span class="text-amber-600">Beauty</span></span>
       </div>
       <nav class="hidden md:flex space-x-8 text-stone-600 font-medium">
-        <a href="#home" class="hover:text-amber-600">Início</a>
-        <a href="#servicos" class="hover:text-amber-600">Serviços</a>
-        <a href="#beneficios" class="hover:text-amber-600">Benefícios</a>
-        <a href="#depoimentos" class="hover:text-amber-600">Depoimentos</a>
-        <a href="#contato" class="hover:text-amber-600">Contato</a>
+        <a href="#home" class="hover:text-amber-600 transition">Início</a>
+        <a href="#servicos" class="hover:text-amber-600 transition">Serviços</a>
+        <a href="#beneficios" class="hover:text-amber-600 transition">Benefícios</a>
+        <a href="#depoimentos" class="hover:text-amber-600 transition">Depoimentos</a>
+        <a href="#contato" class="hover:text-amber-600 transition">Contato</a>
       </nav>
-      <button id="mobileMenuBtn" class="md:hidden text-2xl text-stone-700"><i class="fas fa-bars"></i></button>
+      <button class="bg-amber-600 hover:bg-amber-700 text-white px-5 py-2 rounded-full font-medium text-sm shadow-md transition hidden md:block">Conectar agora</button>
+      <button id="mobileMenuBtn" class="md:hidden text-2xl text-stone-700 focus:outline-none"><i class="fas fa-bars"></i></button>
     </div>
-    <div id="mobileMenu" class="hidden md:hidden bg-white border-t px-5 py-4 flex flex-col space-y-3">
-      <a href="#home" class="hover:text-amber-600">Início</a>
-      <a href="#servicos" class="hover:text-amber-600">Serviços</a>
-      <a href="#beneficios" class="hover:text-amber-600">Benefícios</a>
-      <a href="#depoimentos" class="hover:text-amber-600">Depoimentos</a>
-      <a href="#contato" class="hover:text-amber-600">Contato</a>
-      <button class="bg-amber-600 text-white py-2 rounded-full w-full">Quero me conectar</button>
-    </div>
-  </header>
-
-  <main>
-    <section id="home" class="bg-gradient-to-br from-amber-50 to-white pt-10 pb-16 md:pt-20 md:pb-24">
-      <div class="container mx-auto px-5 lg:px-8 flex flex-col lg:flex-row items-center gap-12">
-        <div class="flex-1 text-center lg:text-left">
-          <div class="inline-flex items-center gap-2 bg-amber-100/70 rounded-full px-4 py-1.5 text-amber-800 text-sm font-medium mb-6">
-            <i class="fas fa-star-of-life text-amber-500"></i>
-            <span>Plataforma líder em captação de leads</span>
-          </div>
-          <h1 class="font-serif-display text-4xl md:text-5xl lg:text-6xl font-bold text-stone-800">
-            Conexão que <span class="text-amber-600">transforma</span> sua beleza
-          </h1>
-          <p class="text-stone-600 text-lg md:text-xl mt-6 max-w-xl mx-auto lg:mx-0">
-            Encontre especialistas em estética premium, agende em minutos e potencialize seus resultados.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 mt-8 justify-center lg:justify-start">
-            <button class="bt
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-amber-50 px-5 py-4 flex flex-col space-y-3 shadow-lg">
+      <a href="#home" class="text-stone-700 py-1 hover:text-amber-600">Início</a>
+      <a href="#servicos" class="text-stone-7
