@@ -28,161 +28,219 @@
         <span class="font-serif-display text-2xl font-semibold text-stone-800">Lead<span class="text-amber-600">Beauty</span></span>
       </div>
       <nav class="hidden md:flex space-x-8 text-stone-600 font-medium">
-        <a href="#home" class="hover:text-amber-600">Início</a>
-        <a href="#servicos" class="hover:text-amber-600">Serviços</a>
-        <a href="#beneficios" class="hover:text-amber-600">Benefícios</a>
-        <a href="#depoimentos" class="hover:text-amber-600">Depoimentos</a>
-        <a href="#contato" class="hover:text-amber-600">Contato</a>
+        <a href="#home" class="hover:text-amber-600 transition">Início</a>
+        <a href="#servicos" class="hover:text-amber-600 transition">Serviços</a>
+        <a href="#beneficios" class="hover:text-amber-600 transition">Benefícios</a>
+        <a href="#depoimentos" class="hover:text-amber-600 transition">Depoimentos</a>
+        <a href="#contato" class="hover:text-amber-600 transition">Contato</a>
       </nav>
-      <button id="mobileMenuBtn" class="md:hidden text-2xl text-stone-700"><i class="fas fa-bars"></i></button>
+      <button class="bg-amber-600 hover:bg-amber-700 text-white px-5 py-2 rounded-full font-medium text-sm shadow-md transition hidden md:block">Conectar agora</button>
+      <button id="mobileMenuBtn" class="md:hidden text-2xl text-stone-700 focus:outline-none"><i class="fas fa-bars"></i></button>
     </div>
-    <div id="mobileMenu" class="hidden md:hidden bg-white border-t px-5 py-4 flex flex-col space-y-3">
-      <a href="#home" class="hover:text-amber-600">Início</a>
-      <a href="#servicos" class="hover:text-amber-600">Serviços</a>
-      <a href="#beneficios" class="hover:text-amber-600">Benefícios</a>
-      <a href="#depoimentos" class="hover:text-amber-600">Depoimentos</a>
-      <a href="#contato" class="hover:text-amber-600">Contato</a>
-      <button class="bg-amber-600 text-white py-2 rounded-full w-full">Quero me conectar</button>
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-amber-50 px-5 py-4 flex flex-col space-y-3 shadow-lg">
+      <a href="#home" class="text-stone-700 py-1 hover:text-amber-600">Início</a>
+      <a href="#servicos" class="text-stone-700 py-1 hover:text-amber-600">Serviços</a>
+      <a href="#beneficios" class="text-stone-700 py-1 hover:text-amber-600">Benefícios</a>
+      <a href="#depoimentos" class="text-stone-700 py-1 hover:text-amber-600">Depoimentos</a>
+      <a href="#contato" class="text-stone-700 py-1 hover:text-amber-600">Contato</a>
+      <button class="bg-amber-600 text-white py-2 rounded-full w-full mt-2">Quero me conectar</button>
     </div>
   </header>
 
   <main>
-    <!-- Hero -->
-    <section id="home" class="bg-gradient-to-br from-amber-50 to-white pt-10 pb-16 md:pt-20 md:pb-24">
+    <!-- Seção Hero -->
+    <section id="home" class="gradient-bg pt-10 pb-16 md:pt-20 md:pb-24 relative overflow-hidden" style="background: linear-gradient(135deg, #fff6f0 0%, #fdece3 100%);">
       <div class="container mx-auto px-5 lg:px-8 flex flex-col lg:flex-row items-center gap-12">
         <div class="flex-1 text-center lg:text-left">
           <div class="inline-flex items-center gap-2 bg-amber-100/70 rounded-full px-4 py-1.5 text-amber-800 text-sm font-medium mb-6">
-            <i class="fas fa-star-of-life text-amber-500"></i>
+            <i class="fas fa-star-of-life text-amber-500 text-xs"></i>
             <span>Plataforma líder em captação de leads</span>
           </div>
-          <h1 class="font-serif-display text-4xl md:text-5xl lg:text-6xl font-bold text-stone-800">
+          <h1 class="font-serif-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-stone-800">
             Conexão que <span class="text-amber-600">transforma</span> sua beleza
           </h1>
           <p class="text-stone-600 text-lg md:text-xl mt-6 max-w-xl mx-auto lg:mx-0">
-            Encontre especialistas em estética premium, agende em minutos e potencialize seus resultados.
+            Encontre especialistas em estética premium, agende em minutos e potencialize seus resultados. Mais de 2.000 clientes conectados.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 mt-8 justify-center lg:justify-start">
-            <button class="btn-primary bg-amber-600 hover:bg-amber-700 text-white font-semibold px-8 py-3 rounded-full text-lg flex items-center justify-center gap-2"><i class="fas fa-calendar-check"></i> Quero agendar</button>
-            <button class="border border-amber-300 bg-white/80 text-stone-700 hover:bg-amber-50 px-8 py-3 rounded-full font-medium flex items-center justify-center gap-2"><i class="fas fa-play-circle"></i> Ver cases</button>
+            <button class="btn-primary bg-amber-600 hover:bg-amber-700 text-white font-semibold px-8 py-3 rounded-full text-lg shadow-lg transition flex items-center justify-center gap-2"><i class="fas fa-calendar-check"></i> Quero agendar</button>
+            <button class="border border-amber-300 bg-white/80 text-stone-700 hover:bg-amber-50 px-8 py-3 rounded-full font-medium transition flex items-center justify-center gap-2"><i class="fas fa-play-circle"></i> Ver cases de sucesso</button>
+          </div>
+          <div class="flex items-center gap-6 justify-center lg:justify-start mt-8 text-sm text-stone-500">
+            <div class="flex -space-x-2">
+              <div class="w-8 h-8 rounded-full border-2 border-white bg-amber-200 flex items-center justify-center text-amber-800 text-xs font-bold">+2k</div>
+            </div>
+            <span>Clientes satisfeitos em todo Brasil</span>
           </div>
         </div>
         <div class="flex-1 flex justify-center">
-          <img src="https://images.pexels.com/photos/3757946/pexels-photo-3757946.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Estética" class="rounded-3xl shadow-2xl object-cover w-80 md:w-96 border-4 border-white">
+          <div class="relative w-72 md:w-96">
+            <img src="https://images.pexels.com/photos/3757946/pexels-photo-3757946.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Especialista em estética" class="rounded-3xl shadow-2xl object-cover w-full h-auto border-4 border-white/50">
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Serviços -->
+    <!-- Seção Serviços -->
     <section id="servicos" class="py-20 bg-white">
       <div class="container mx-auto px-5 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-14">
-          <span class="text-amber-600 font-semibold uppercase text-sm">O que oferecemos</span>
-          <h2 class="font-serif-display text-3xl md:text-4xl font-bold mt-2">Serviços exclusivos</h2>
+          <span class="text-amber-600 font-semibold tracking-wide uppercase text-sm">O que oferecemos</span>
+          <h2 class="font-serif-display text-3xl md:text-4xl font-bold text-stone-800 mt-2">Serviços exclusivos para sua rotina de beleza</h2>
+          <p class="text-stone-500 mt-4">Especialidades mais procuradas na Lead Beauty — alta conversão e experiência personalizada.</p>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="bg-amber-50/40 p-6 rounded-2xl border border-amber-100 card-hover text-center">
+          <div class="bg-amber-50/40 p-6 rounded-2xl border border-amber-100 card-hover transition text-center">
             <div class="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-hand-sparkles text-amber-700 text-2xl"></i></div>
-            <h3 class="text-xl font-bold">Lifting Facial</h3>
-            <p class="text-stone-500 text-sm mt-2">Procedimentos não invasivos</p>
+            <h3 class="text-xl font-bold">Lifting & Facial</h3>
+            <p class="text-stone-500 text-sm mt-2">Procedimentos não invasivos com alta taxa de satisfação.</p>
           </div>
-          <div class="bg-amber-50/40 p-6 rounded-2xl border border-amber-100 card-hover text-center">
+          <div class="bg-amber-50/40 p-6 rounded-2xl border border-amber-100 card-hover transition text-center">
             <div class="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-heartbeat text-amber-700 text-2xl"></i></div>
             <h3 class="text-xl font-bold">Massoterapia</h3>
-            <p class="text-stone-500 text-sm mt-2">Relaxamento profundo</p>
+            <p class="text-stone-500 text-sm mt-2">Relaxamento profundo e terapias integrativas.</p>
           </div>
-          <div class="bg-amber-50/40 p-6 rounded-2xl border border-amber-100 card-hover text-center">
+          <div class="bg-amber-50/40 p-6 rounded-2xl border border-amber-100 card-hover transition text-center">
             <div class="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-palette text-amber-700 text-2xl"></i></div>
             <h3 class="text-xl font-bold">Design & Makeup</h3>
-            <p class="text-stone-500 text-sm mt-2">Visagismo profissional</p>
+            <p class="text-stone-500 text-sm mt-2">Visagismo e maquiagem profissional para grandes eventos.</p>
           </div>
-          <div class="bg-amber-50/40 p-6 rounded-2xl border border-amber-100 card-hover text-center">
+          <div class="bg-amber-50/40 p-6 rounded-2xl border border-amber-100 card-hover transition text-center">
             <div class="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-cut text-amber-700 text-2xl"></i></div>
             <h3 class="text-xl font-bold">Cabelos & Escova</h3>
-            <p class="text-stone-500 text-sm mt-2">Tratamentos capilares</p>
+            <p class="text-stone-500 text-sm mt-2">Cortes, coloração e tratamentos capilares exclusivos.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Benefícios -->
+    <!-- Seção Benefícios -->
     <section id="beneficios" class="py-20 bg-gradient-to-br from-amber-50 to-white">
-      <div class="container mx-auto px-5 lg:px-8 flex flex-col lg:flex-row items-center gap-12">
-        <div class="flex-1">
-          <span class="text-amber-600 font-bold uppercase text-sm">Lead Beauty por Haline Mulero</span>
-          <h2 class="font-serif-display text-3xl md:text-4xl font-bold mt-3 mb-5">Por que escolher a gente?</h2>
-          <ul class="space-y-4">
-            <li class="flex gap-3"><i class="fas fa-check-circle text-amber-600 text-xl"></i><span><strong>Leads qualificados</strong> - Conectamos clientes reais a especialistas</span></li>
-            <li class="flex gap-3"><i class="fas fa-check-circle text-amber-600 text-xl"></i><span><strong>Profissionais validados</strong> - Todos com portfólio verificado</span></li>
-            <li class="flex gap-3"><i class="fas fa-check-circle text-amber-600 text-xl"></i><span><strong>Atendimento humanizado</strong> - Suporte dedicado</span></li>
-          </ul>
-        </div>
-        <div class="flex-1">
-          <img src="https://images.pexels.com/photos/6456296/pexels-photo-6456296.jpeg?auto=compress&cs=tinysrgb&w=600" class="rounded-2xl shadow-2xl">
+      <div class="container mx-auto px-5 lg:px-8">
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+          <div class="flex-1 order-2 lg:order-1">
+            <span class="text-amber-600 font-bold uppercase text-sm tracking-wider">Lead Beauty por Haline Mulero</span>
+            <h2 class="font-serif-display text-3xl md:text-4xl font-bold text-stone-800 mt-3 mb-5">Por que profissionais e clientes escolhem a gente?</h2>
+            <ul class="space-y-4">
+              <li class="flex gap-3 items-start"><i class="fas fa-check-circle text-amber-600 text-xl mt-0.5"></i><span><strong class="font-semibold">Geração de leads qualificados:</strong> Algoritmo inteligente que conecta interessados reais a especialistas da sua região.</span></li>
+              <li class="flex gap-3 items-start"><i class="fas fa-check-circle text-amber-600 text-xl mt-0.5"></i><span><strong class="font-semibold">Curadoria e confiança:</strong> Todos os profissionais passam por verificação de portfólio e certificações.</span></li>
+              <li class="flex gap-3 items-start"><i class="fas fa-check-circle text-amber-600 text-xl mt-0.5"></i><span><strong class="font-semibold">Atendimento humanizado:</strong> Suporte dedicado e agendamento simplificado via WhatsApp e calendário.</span></li>
+              <li class="flex gap-3 items-start"><i class="fas fa-chart-line text-amber-600 text-xl mt-0.5"></i><span><strong class="font-semibold">Aumento de faturamento:</strong> Profissionais parceiros tiveram em média 37% mais agenda preenchida.</span></li>
+            </ul>
+            <button class="mt-8 bg-transparent border border-amber-500 text-amber-700 hover:bg-amber-100 px-7 py-2.5 rounded-full font-semibold transition">Quero ser um profissional parceiro →</button>
+          </div>
+          <div class="flex-1 order-1 lg:order-2 flex justify-center">
+            <div class="relative">
+              <img src="https://images.pexels.com/photos/6456296/pexels-photo-6456296.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Haline Mulero especialista" class="rounded-2xl shadow-2xl object-cover w-80 lg:w-full h-auto border-8 border-white">
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Depoimentos -->
+    <!-- Seção Depoimentos -->
     <section id="depoimentos" class="py-20 bg-white">
       <div class="container mx-auto px-5 lg:px-8">
-        <div class="text-center mb-12">
-          <h2 class="font-serif-display text-3xl md:text-4xl font-bold">O que dizem nossos clientes</h2>
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <i class="fas fa-quote-left text-amber-300 text-3xl"></i>
+          <h2 class="font-serif-display text-3xl md:text-4xl font-bold mt-2">O que dizem nossos clientes</h2>
         </div>
-        <div class="grid md:grid-cols-3 gap-8">
-          <div class="bg-amber-50 p-6 rounded-2xl">
-            <div class="text-amber-400 mb-2">★★★★★</div>
-            <p class="italic">"Encontrei uma profissional incrível! Recomendo demais."</p>
-            <p class="font-bold mt-4">- Mariana L.</p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-amber-50/30 p-6 rounded-2xl shadow-sm border border-amber-100/60">
+            <div class="flex items-center gap-1 text-amber-400 mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="text-stone-700 italic">"Encontrei uma profissional incrível para meu design de sobrancelhas. A Lead Beauty realmente filtra os melhores. Emocionante!"</p>
+            <div class="flex items-center gap-3 mt-5">
+              <div class="w-10 h-10 rounded-full bg-amber-200 flex items-center justify-center text-amber-800 font-bold">ML</div>
+              <div><p class="font-bold">Mariana L.</p><p class="text-xs text-stone-400">Cliente desde 2024</p></div>
+            </div>
           </div>
-          <div class="bg-amber-50 p-6 rounded-2xl">
-            <div class="text-amber-400 mb-2">★★★★★</div>
-            <p class="italic">"Minha agenda lotou depois que me cadastrei!"</p>
-            <p class="font-bold mt-4">- Carla M.</p>
+          <div class="bg-amber-50/30 p-6 rounded-2xl shadow-sm border border-amber-100/60">
+            <div class="flex items-center gap-1 text-amber-400 mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="text-stone-700 italic">"Excelente captação de clientes! Minha agenda lotou depois que me cadastrei na plataforma. Super recomendo para esteticistas."</p>
+            <div class="flex items-center gap-3 mt-5">
+              <div class="w-10 h-10 rounded-full bg-amber-200 flex items-center justify-center text-amber-800 font-bold">CM</div>
+              <div><p class="font-bold">Carla M.</p><p class="text-xs text-stone-400">Especialista Facial</p></div>
+            </div>
           </div>
-          <div class="bg-amber-50 p-6 rounded-2xl">
-            <div class="text-amber-400 mb-2">★★★★★</div>
-            <p class="italic">"Atendimento de primeira, inovador!"</p>
-            <p class="font-bold mt-4">- Rafael A.</p>
+          <div class="bg-amber-50/30 p-6 rounded-2xl shadow-sm border border-amber-100/60">
+            <div class="flex items-center gap-1 text-amber-400 mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+            <p class="text-stone-700 italic">"Atendimento de primeira, consegui marcas premium e me sinto mais confiante. A proposta da Haline é inovadora!"</p>
+            <div class="flex items-center gap-3 mt-5">
+              <div class="w-10 h-10 rounded-full bg-amber-200 flex items-center justify-center text-amber-800 font-bold">RA</div>
+              <div><p class="font-bold">Rafael A.</p><p class="text-xs text-stone-400">Cliente</p></div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Formulário de Contato -->
-    <section id="contato" class="py-20 bg-gradient-to-br from-amber-50 to-white">
+    <!-- Formulário de Captura / Lead - CORRIGIDO SEM FIREBASE -->
+    <section id="contato" class="py-20 bg-gradient-to-br from-amber-50 to-white relative overflow-hidden">
       <div class="container mx-auto px-5 lg:px-8 max-w-4xl">
-        <div class="bg-white rounded-3xl shadow-2xl p-6 md:p-10">
+        <div class="bg-white rounded-3xl shadow-2xl p-6 md:p-10 border border-amber-100/80">
           <div class="text-center mb-8">
-            <h2 class="font-serif-display text-3xl md:text-4xl font-bold">Cadastre-se agora</h2>
-            <p class="text-stone-500 mt-3">Preencha e nossa equipe entrará em contato</p>
+            <span class="bg-amber-100 text-amber-700 text-sm px-4 py-1.5 rounded-full font-medium">Conversão garantida</span>
+            <h2 class="font-serif-display text-3xl md:text-4xl font-bold mt-4">Quer atrair mais clientes ou encontrar o melhor profissional?</h2>
+            <p class="text-stone-500 mt-3">Preencha o formulário. Nossa equipe de conexão estética retorna em até 2h.</p>
           </div>
           <form id="leadForm" class="grid md:grid-cols-2 gap-5">
             <div>
-              <label class="block text-sm font-medium text-stone-700 mb-1">Nome completo *</label>
-              <input type="text" id="name" class="w-full border border-stone-300 rounded-xl px-4 py-3 form-focus" required>
+              <label class="block text-sm font-medium text-stone-700 mb-1">Nome completo</label>
+              <input type="text" id="name" class="w-full border border-stone-300 rounded-xl px-4 py-3 form-focus transition" placeholder="Seu nome" required>
             </div>
             <div>
-              <label class="block text-sm font-medium text-stone-700 mb-1">Telefone/WhatsApp *</label>
-              <input type="tel" id="phone" class="w-full border border-stone-300 rounded-xl px-4 py-3 form-focus" required>
+              <label class="block text-sm font-medium text-stone-700 mb-1">Telefone / WhatsApp</label>
+              <input type="tel" id="phone" class="w-full border border-stone-300 rounded-xl px-4 py-3 form-focus transition" placeholder="(11) 99999-9999" required>
             </div>
             <div class="md:col-span-2">
-              <label class="block text-sm font-medium text-stone-700 mb-1">E-mail *</label>
-              <input type="email" id="email" class="w-full border border-stone-300 rounded-xl px-4 py-3 form-focus" required>
+              <label class="block text-sm font-medium text-stone-700 mb-1">E-mail</label>
+              <input type="email" id="email" class="w-full border border-stone-300 rounded-xl px-4 py-3 form-focus transition" placeholder="seu@email.com" required>
             </div>
             <div class="md:col-span-2">
-              <button type="submit" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3.5 rounded-xl text-lg transition">Enviar cadastro</button>
+              <button type="submit" id="submitBtn" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3.5 rounded-xl text-lg transition shadow-md flex items-center justify-center gap-2"><i class="fas fa-paper-plane"></i> Quero me conectar agora</button>
             </div>
+            <p class="text-xs text-center text-stone-400 col-span-2 mt-2">Seus dados estão seguros. Ao enviar, você concorda com nossa política de privacidade.</p>
           </form>
-          <div id="formFeedback" class="mt-5 text-center hidden"></div>
+          <div id="formFeedback" class="mt-5 text-center text-green-700 font-medium hidden"></div>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer class="bg-stone-900 text-stone-300 py-12">
-    <div class="container mx-auto px-5 lg:px-8 text-center">
-      <p>© 2025 Lead Beauty - Todos os direitos reservados</p>
-      <p class="text-sm mt-2">Conexão Estética por Haline Mulero</p>
+    <div class="container mx-auto px-5 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <div class="flex items-center gap-2 mb-3"><i class="fas fa-spa text-amber-400 text-2xl"></i><span class="font-serif-display text-2xl font-semibold text-white">LeadBeauty</span></div>
+        <p class="text-sm">Conexão estética por Haline Mulero. Transformando relacionamentos no mundo da beleza desde 2021.</p>
+      </div>
+      <div>
+        <h4 class="font-bold text-white mb-3">Navegação</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#home" class="hover:text-amber-400">Início</a></li>
+          <li><a href="#servicos" class="hover:text-amber-400">Serviços</a></li>
+          <li><a href="#beneficios" class="hover:text-amber-400">Benefícios</a></li>
+          <li><a href="#depoimentos" class="hover:text-amber-400">Depoimentos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold text-white mb-3">Contato</h4>
+        <ul class="space-y-2 text-sm">
+          <li><i class="fab fa-whatsapp mr-2 text-amber-400"></i> (11) 98765-4321</li>
+          <li><i class="far fa-envelope mr-2 text-amber-400"></i> hello@leadbeauty.com</li>
+          <li><i class="fas fa-map-marker-alt mr-2 text-amber-400"></i> São Paulo - SP</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold text-white mb-3">Siga a Lead Beauty</h4>
+        <div class="flex gap-4 text-2xl">
+          <a href="#" class="hover:text-amber-400 transition"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="hover:text-amber-400 transition"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="hover:text-amber-400 transition"><i class="fab fa-tiktok"></i></a>
+          <a href="#" class="hover:text-amber-400 transition"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p class="text-xs mt-5">© 2025 Lead Beauty - Todos os direitos reservados.</p>
+      </div>
     </div>
   </footer>
 
@@ -190,48 +248,40 @@
     // Menu mobile
     const mobileBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
-    if (mobileBtn) {
-      mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+      const mobileLinks = mobileMenu.querySelectorAll('a');
+      mobileLinks.forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
     }
 
-    // Scroll suave
+    // Scroll suave para todos os links internos
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
+        const targetId = this.getAttribute('href');
+        if (targetId === "#" || targetId === "") return;
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
           e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth' });
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
     });
 
-    // FORMULÁRIO CORRIGIDO - Sem Firebase, sem erro!
-    const form = document.getElementById('leadForm');
-    const feedback = document.getElementById('formFeedback');
+    // FORMULÁRIO CORRIGIDO - SEM FIREBASE, SEM ERRO!
+    const leadForm = document.getElementById('leadForm');
+    const feedbackDiv = document.getElementById('formFeedback');
     
-    if (form) {
-      form.addEventListener('submit', (e) => {
+    if (leadForm) {
+      leadForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        const name = document.getElementById('name').value.trim();
-        const phone = document.getElementById('phone').value.trim();
-        const email = document.getElementById('email').value.trim();
+        const name = document.getElementById('name')?.value.trim();
+        const phone = document.getElementById('phone')?.value.trim();
+        const email = document.getElementById('email')?.value.trim();
         
         if (!name || !phone || !email) {
-          feedback.innerHTML = '<span class="text-red-600">⚠️ Preencha todos os campos!</span>';
-          feedback.classList.remove('hidden');
-          setTimeout(() => feedback.classList.add('hidden'), 3000);
-          return;
-        }
-        
-        // Cadastro enviado com sucesso!
-        feedback.innerHTML = '<span class="text-green-700 bg-green-100 px-4 py-2 rounded-full inline-flex items-center gap-2"><i class="fas fa-check-circle"></i> ✅ Cadastro enviado! Entraremos em contato em até 2h.</span>';
-        feedback.classList.remove('hidden');
-        form.reset();
-        
-        setTimeout(() => feedback.classList.add('hidden'), 5000);
-      });
-    }
-  </script>
-</body>
-</html>
+          feedbackDiv.innerHTML = '<span class="text-red-500"><i class="fas fa-exclamation-circle"></i> Por favor, preencha todos os campos.</span>';
+          feedbackDiv.classList.remove('hidden');
+          setTimeout(() => feedbackDiv.class
