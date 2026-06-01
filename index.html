@@ -217,12 +217,10 @@
           <span class="text-[11px] font-bold uppercase tracking-wider text-softGray">Plataforma de Curadoria em Estética</span>
         </div>
         
-        <!-- ALTERADO: Nova headline mais clara -->
         <h1 class="font-serif text-3xl md:text-5xl font-semibold leading-tight text-softBlack max-w-4xl mx-auto mb-6">
           Encontre o profissional de estética ideal na sua região com rapidez, segurança e confiança.
         </h1>
         
-        <!-- ALTERADO: Nova subheadline explicando o fluxo -->
         <p class="text-sm md:text-base text-softGray max-w-3xl mx-auto mb-10 leading-relaxed">
           Conte sua necessidade e nós conectamos você ao especialista mais adequado para seu atendimento.<br>
           <span class="text-roseGold text-xs font-semibold mt-2 inline-block">✓ Curadoria especializada • ✓ Indicação personalizada • ✓ Sem compromisso</span>
@@ -259,7 +257,6 @@
         </div>
       </section>
 
-      <!-- ADICIONADO: Seção explicativa do fluxo -->
       <section class="py-8 px-6 max-w-4xl mx-auto mb-8">
         <div class="bg-premiumRose/5 rounded-2xl p-6 border border-premiumRose/20 text-center">
           <p class="text-xs text-softGray font-medium mb-2">🔍 Como funciona nossa curadoria?</p>
@@ -714,6 +711,10 @@
       list.classList.toggle('hidden');
     }
     
+    // ==================== CONFIGURAÇÃO GOOGLE SHEETS ====================
+    // ⚠️ IMPORTANTE: Substitua pela URL do seu Apps Script
+    const GOOGLE_SHEETS_URL = "SUA_URL_DO_APPS_SCRIPT_AQUI";
+    
     // ==================== FUNÇÃO CIDADE DINÂMICA ====================
     function initCidadeDinamico() {
       const cidadeSelect = document.getElementById('cli-cidade');
@@ -733,6 +734,30 @@
           cidadeManual.value = '';
         }
       });
+    }
+    
+    // ==================== ENVIAR PARA GOOGLE SHEETS ====================
+    async function sendToGoogleSheets(lead) {
+      if (!GOOGLE_SHEETS_URL || GOOGLE_SHEETS_URL === "SUA_URL_DO_APPS_SCRIPT_AQUI") {
+        console.warn("⚠️ Google Sheets não configurado. Configure a URL do Apps Script.");
+        return false;
+      }
+      
+      try {
+        const response = await fetch(GOOGLE_SHEETS_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(lead)
+        });
+        console.log("📊 Lead enviado para Google Sheets:", lead);
+        return true;
+      } catch (error) {
+        console.error("❌ Erro ao enviar para Google Sheets:", error);
+        return false;
+      }
     }
     
     // ==================== DADOS DOS PROFISSIONAIS ====================
@@ -884,7 +909,7 @@
         if (existingLeads) leads = JSON.parse(existingLeads);
         leads.push({ ...lead, id: Date.now(), timestamp: new Date().toISOString(), status: 'aguardando_curadoria' });
         localStorage.setItem(LEADS_STORAGE_KEY, JSON.stringify(leads));
-        console.log("💾 Solicitação de indicação salva:", lead);
+        console.log("💾 Solicitação de indicação salva no localStorage:", lead);
         return true;
       } catch (error) { console.error("❌ Erro:", error); return false; }
     }
@@ -928,7 +953,7 @@
         `Analisar perfil e indicar o melhor profissional da região.`;
       
       window.open(`https://wa.me/5513974014176?text=${mensagem}`, '_blank');
-      console.log("📤 Solicitação enviada para curadoria");
+      console.log("📤 Solicitação enviada para curadoria via WhatsApp");
     }
     
     async function handleCadastroCliente(e) {
@@ -965,11 +990,27 @@
       const originalText = submitBtn?.innerHTML || 'Concluir Solicitação';
       if (submitBtn) { submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Enviando...'; submitBtn.disabled = true; }
       
-      const saved = saveLeadToLocalStorage(lead);
+      // Salvar no localStorage
+      const localStorageSaved = saveLeadToLocalStorage(lead);
       
-      if (saved) {
+      // Enviar para Google Sheets
+      const sheetsSaved = await sendToGoogleSheets(lead);
+      
+      if (localStorageSaved) {
         showMessage("Solicitação enviada com sucesso! Nossa equipe de curadoria analisará seu caso e entrará em contato em breve.", "success");
+        
+        // Enviar WhatsApp (opcional, mantido para alerta)
         sendLeadToAdminWhatsApp(lead);
+        
+        if (sheetsSaved) {
+          console.log("✅ Lead registrado no Google Sheets");
+        } else {
+          console.warn("⚠️ Lead salvo apenas localmente (Google Sheets não configurado)");
+          if (GOOGLE_SHEETS_URL === "SUA_URL_DO_APPS_SCRIPT_AQUI") {
+            console.log("📌 Configure a URL do Google Sheets Apps Script para ativar o salvamento automático");
+          }
+        }
+        
         document.getElementById('form-cliente').reset();
         const outraCidadeContainer = document.getElementById('outra-cidade-container');
         const cidadeManualInput = document.getElementById('cli-cidade-manual');
@@ -1067,6 +1108,7 @@
       console.log("🚀 Lead Beauty - Plataforma de Curadoria em Estética");
       console.log("📌 Clientes solicitam indicação → Curadoria analisa → Profissional recebe lead validado");
       console.log("📌 Plano Gratuito: 2 leads | Plano Profissional: 3 leads por mês");
+      console.log("📊 Google Sheets: " + (GOOGLE_SHEETS_URL !== "SUA_URL_DO_APPS_SCRIPT_AQUI" ? "✅ Configurado" : "⚠️ Aguardando configuração"));
       initCidadeDinamico();
       carregarProfissionaisDoStorage();
       popularFiltros();
