@@ -50,19 +50,21 @@
       width: 100%;
     }
     
+    /* ALTERADO: Marca d'água com opacidade 8% (entre 5% e 10%) */
     .watermark-bg {
         position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 300px;
-        height: 300px;
+        width: 350px;
+        height: 350px;
         background-image: url('logo.png');
         background-size: contain;
         background-repeat: no-repeat;
-        opacity: 0.1;
+        background-position: center;
+        opacity: 0.08;
         pointer-events: none;
-        z-index: -1;
+        z-index: 0;
     }
 
     .qr-code-container {
@@ -139,7 +141,6 @@
       text-align: center;
       margin-top: 0.5rem;
     }
-    /* ADICIONADO: honeypot oculto */
     .honeypot {
       position: absolute;
       left: -9999px;
@@ -187,7 +188,7 @@
         </p>
         
         <p class="text-xs text-roseGold font-semibold tracking-wide text-center max-w-3xl mx-auto mb-10">
-          ✨ Idealizado por Haline Mulero ✨
+          Idealizado por Haline Mulero
         </p>
         
         <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-xl mx-auto">
@@ -261,13 +262,12 @@
         <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Encontre o Profissional Ideal</h2>
         <p class="text-center text-xs text-softGray mb-6">Preencha seus dados para localizarmos o especialista ideal mais próximo de você.</p>
         
-        <!-- ADICIONADO: Contador de leads e área de vagas encerradas -->
         <div id="lead-counter-info" class="text-center mb-4 text-xs text-softGray">
-          📊 Leads disponíveis: <span id="lead-count-display">3</span>/3
+          Leads disponíveis: <span id="lead-count-display">3</span>/3
         </div>
         
         <div id="vagas-encerradas-box" class="vagas-encerradas-box hidden-section">
-          <p>🔒 Vagas encerradas!</p>
+          <p>Vagas encerradas</p>
           <p class="text-sm font-normal">O limite de 3 leads foi atingido.</p>
           <a href="https://wa.me/5513974014176?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20os%20serviços" target="_blank" class="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg transition mt-2">
             <i class="fa-brands fa-whatsapp mr-2"></i> Falar com Especialista
@@ -276,7 +276,6 @@
         
         <div id="form-cliente-container">
           <form id="form-cliente" class="space-y-4" onsubmit="handleCadastroCliente(event)">
-            <!-- ADICIONADO: Honeypot anti-robô -->
             <div class="honeypot">
               <label for="website">Website</label>
               <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
@@ -334,7 +333,6 @@
             </div>
             <button type="submit" id="submit-lead-btn" class="w-full bg-softBlack text-white py-4 rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-neutral-800 transition shadow-md">Concluir Solicitação</button>
           </form>
-          <!-- ADICIONADO: Timer cooldown -->
           <div id="cooldown-timer" class="cooldown-timer hidden-section"></div>
         </div>
       </div>
@@ -533,7 +531,7 @@
     </section>
   </main>
 
-  <!-- CHAT FLUTUANTE ESTILO INSTAGRAM -->
+  <!-- ALTERADO: CHAT FLUTUANTE ESTILO PROFISSIONAL (SEM EXCESSO DE EMOJIS) -->
   <div class="fixed bottom-6 right-6 z-50">
     <button onclick="toggleChat()" class="bg-roseGold text-white w-14 h-14 rounded-full shadow-2xl hover:scale-105 transition flex items-center justify-center border-2 border-white">
       <i class="fa-regular fa-comment-dots text-2xl"></i>
@@ -543,11 +541,11 @@
       <div class="bg-softBlack text-white p-4 flex justify-between items-center">
         <div class="flex items-center gap-3">
           <div class="w-10 h-10 bg-roseGold rounded-full flex items-center justify-center">
-            <i class="fa-regular fa-message text-white text-lg"></i>
+            <i class="fa-regular fa-comment text-white text-lg"></i>
           </div>
           <div>
-            <p class="font-bold text-sm">Atendimento Lead Beauty</p>
-            <p class="text-[10px] text-neutral-300">💬 Online • Resposta rápida</p>
+            <p class="font-bold text-sm">Lead Beauty</p>
+            <p class="text-[10px] text-neutral-300">Atendimento online • Resposta rápida</p>
           </div>
         </div>
         <button onclick="toggleChat()" class="text-neutral-400 hover:text-white text-xl leading-none">&times;</button>
@@ -555,35 +553,33 @@
       
       <div class="p-4 bg-nudeBg" style="max-height: 500px; overflow-y: auto;">
         <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm mb-4 max-w-[90%] border border-cardBorder">
-          <p class="text-sm font-semibold text-softBlack">✨ Olá! Bem-vindo(a) à Lead Beauty ✨</p>
-          <p class="text-xs text-softGray mt-1">Como posso ajudar você hoje?</p>
-          <p class="text-xs text-roseGold mt-2 font-medium">📞 WhatsApp: +55 13 97401-4176</p>
+          <p class="text-sm font-semibold text-softBlack">Olá, seja bem-vindo(a) à Lead Beauty.</p>
+          <p class="text-xs text-softGray mt-1">Sou a assistente virtual e posso te ajudar com informações sobre tratamentos e agendamentos.</p>
         </div>
         
-        <a href="https://wa.me/5513974014176?text=Olá!%20Quero%20mais%20informações" target="_blank" class="block w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-xl transition-all duration-300 text-center mb-3 shadow-md">
-          <i class="fa-brands fa-whatsapp mr-2 text-lg"></i> Falar com Atendente
+        <a href="https://wa.me/5513974014176?text=Olá!%20Quero%20atendimento%20na%20Lead%20Beauty" target="_blank" class="block w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300 text-center mb-3 shadow-md">
+          <i class="fa-brands fa-whatsapp mr-2 text-lg"></i> Falar com atendimento
         </a>
         
-        <button onclick="toggleEspecialidades()" class="block w-full bg-roseGold hover:bg-premiumRoseHover text-white font-bold py-3 px-4 rounded-xl transition-all duration-300 text-center shadow-md">
-          <i class="fa-regular fa-star mr-2"></i> Ver Especialidades
+        <button onclick="toggleTratamentos()" class="block w-full bg-roseGold hover:bg-premiumRoseHover text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300 text-center shadow-md">
+          <i class="fa-regular fa-calendar-check mr-2"></i> Ver tratamentos disponíveis
         </button>
         
-        <div id="especialidadesList" class="hidden mt-3 bg-white rounded-xl border border-cardBorder p-3 space-y-2">
-          <p class="text-[10px] font-bold text-roseGold uppercase tracking-wider mb-2">📍 Nossas Especialidades:</p>
+        <div id="tratamentosList" class="hidden mt-3 bg-white rounded-xl border border-cardBorder p-3 space-y-2">
+          <p class="text-[10px] font-bold text-roseGold uppercase tracking-wider mb-2">Tratamentos disponíveis</p>
           <ul class="space-y-1.5 text-sm text-softGray">
-            <li class="flex items-center gap-2"><i class="fa-solid fa-bolt text-roseGold text-xs"></i> Microagulhamento de estrias com sérum</li>
-            <li class="flex items-center gap-2"><i class="fa-solid fa-bolt text-roseGold text-xs"></i> Camuflagem de estrias</li>
-            <li class="flex items-center gap-2"><i class="fa-solid fa-bolt text-roseGold text-xs"></i> Camuflagem de cicatrizes</li>
-            <li class="flex items-center gap-2"><i class="fa-solid fa-bolt text-roseGold text-xs"></i> Tratamento de olheiras</li>
-            <li class="flex items-center gap-2"><i class="fa-solid fa-bolt text-roseGold text-xs"></i> Estética facial</li>
-            <li class="flex items-center gap-2"><i class="fa-solid fa-bolt text-roseGold text-xs"></i> Estética corporal</li>
-            <li class="flex items-center gap-2"><i class="fa-solid fa-bolt text-roseGold text-xs"></i> Revitalização da pele</li>
-            <li class="flex items-center gap-2"><i class="fa-solid fa-bolt text-roseGold text-xs"></i> Procedimentos estéticos não invasivos</li>
+            <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-roseGold text-xs"></i> Microagulhamento de estrias</li>
+            <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-roseGold text-xs"></i> Camuflagem de estrias</li>
+            <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-roseGold text-xs"></i> Camuflagem de cicatrizes</li>
+            <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-roseGold text-xs"></i> Tratamento de olheiras</li>
+            <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-roseGold text-xs"></i> Estética facial</li>
+            <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-roseGold text-xs"></i> Estética corporal</li>
+            <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-roseGold text-xs"></i> Revitalização da pele</li>
           </ul>
         </div>
         
         <div class="text-center mt-4 pt-3 border-t border-cardBorder">
-          <p class="text-[9px] text-softGray">Idealizado por Haline Mulero</p>
+          <p class="text-[9px] text-softGray">Lead Beauty | Conexão Estética</p>
         </div>
       </div>
     </div>
@@ -608,8 +604,9 @@
       modal.classList.toggle('hidden');
     }
     
-    function toggleEspecialidades() {
-      const list = document.getElementById('especialidadesList');
+    // ALTERADO: Função para tratamentos (antes especialidades)
+    function toggleTratamentos() {
+      const list = document.getElementById('tratamentosList');
       list.classList.toggle('hidden');
     }
     
@@ -641,8 +638,7 @@
     const ASAAS_API_KEY = "YOUR_ASAAS_API_KEY_HERE";
     const ASAAS_BASE_URL = "https://api.asaas.com/v3";
 
-    // ==================== ADICIONADO: SISTEMA DE LIMITE DE LEADS E PROTEÇÃO ====================
-    // Chave para localStorage
+    // ==================== SISTEMA DE LIMITE DE LEADS E PROTEÇÃO ====================
     const LEADS_STORAGE_KEY = 'lead_beauty_leads_count';
     const COOLDOWN_KEY = 'lead_beauty_cooldown';
     const ATTEMPTS_KEY = 'lead_beauty_attempts';
@@ -650,21 +646,17 @@
     const MAX_ATTEMPTS = 5;
     const COOLDOWN_SECONDS = 60;
     
-    // Inicializar contador de leads
     let leadCount = parseInt(localStorage.getItem(LEADS_STORAGE_KEY) || '0');
     let cooldownUntil = parseInt(localStorage.getItem(COOLDOWN_KEY) || '0');
     let attemptCount = parseInt(localStorage.getItem(ATTEMPTS_KEY) || '0');
     
-    // Função para atualizar UI do limite de leads
     function updateLeadLimitUI() {
       const leadCountDisplay = document.getElementById('lead-count-display');
       const vagasBox = document.getElementById('vagas-encerradas-box');
       const formContainer = document.getElementById('form-cliente-container');
       const counterInfo = document.getElementById('lead-counter-info');
       
-      if (leadCountDisplay) {
-        leadCountDisplay.textContent = leadCount;
-      }
+      if (leadCountDisplay) leadCountDisplay.textContent = leadCount;
       
       if (leadCount >= MAX_LEADS) {
         if (vagasBox) vagasBox.classList.remove('hidden-section');
@@ -677,20 +669,15 @@
       }
     }
     
-    // Verificar cooldown
     function isInCooldown() {
       const now = Date.now();
-      if (cooldownUntil > now) {
-        return Math.ceil((cooldownUntil - now) / 1000);
-      }
+      if (cooldownUntil > now) return Math.ceil((cooldownUntil - now) / 1000);
       return false;
     }
     
-    // Atualizar timer de cooldown na UI
     function updateCooldownTimer() {
       const timerElement = document.getElementById('cooldown-timer');
       const remaining = isInCooldown();
-      
       if (remaining && timerElement) {
         timerElement.classList.remove('hidden-section');
         timerElement.innerHTML = `<i class="fa-regular fa-clock"></i> Aguarde ${remaining} segundos para enviar novamente.`;
@@ -700,20 +687,15 @@
       }
     }
     
-    // Iniciar cooldown
     function startCooldown() {
       cooldownUntil = Date.now() + (COOLDOWN_SECONDS * 1000);
       localStorage.setItem(COOLDOWN_KEY, cooldownUntil);
-      
-      // Atualizar timer a cada segundo
       const timerInterval = setInterval(() => {
         const remaining = isInCooldown();
         const timerElement = document.getElementById('cooldown-timer');
-        
         if (!remaining) {
           clearInterval(timerInterval);
           if (timerElement) timerElement.classList.add('hidden-section');
-          // Resetar tentativas após cooldown
           attemptCount = 0;
           localStorage.setItem(ATTEMPTS_KEY, attemptCount);
         } else if (timerElement) {
@@ -723,60 +705,44 @@
       }, 1000);
     }
     
-    // Verificar e incrementar tentativas
     function checkAndIncrementAttempts() {
       const now = Date.now();
-      // Resetar tentativas se cooldown expirou
-      if (cooldownUntil <= now) {
-        attemptCount = 0;
-      }
-      
-      if (attemptCount >= MAX_ATTEMPTS) {
-        return false; // Limite de tentativas excedido
-      }
-      
+      if (cooldownUntil <= now) attemptCount = 0;
+      if (attemptCount >= MAX_ATTEMPTS) return false;
       attemptCount++;
       localStorage.setItem(ATTEMPTS_KEY, attemptCount);
       return true;
     }
     
-    // Incrementar lead
     function incrementLeadCount() {
       leadCount++;
       localStorage.setItem(LEADS_STORAGE_KEY, leadCount);
       updateLeadLimitUI();
     }
     
-    // Verificar honeypot
     function isHoneypotFilled() {
       const honeypot = document.getElementById('website');
       return honeypot && honeypot.value.trim() !== '';
     }
     
-    // Função para mostrar mensagem de erro
     function showErrorMessage(message) {
       const errorDiv = document.createElement('div');
       errorDiv.className = 'bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg text-xs mb-4';
       errorDiv.innerHTML = `<i class="fa-solid fa-circle-exclamation mr-2"></i> ${message}`;
-      
       const form = document.getElementById('form-cliente');
       const existingError = form.querySelector('.error-message-temp');
       if (existingError) existingError.remove();
-      
       errorDiv.classList.add('error-message-temp');
       form.insertBefore(errorDiv, form.firstChild);
-      
       setTimeout(() => errorDiv.remove(), 5000);
     }
     
-    // ==================== FUNÇÕES ORIGINAIS MODIFICADAS ====================
+    // ==================== FUNÇÕES ORIGINAIS ====================
     function showView(viewId) {
       document.querySelectorAll('.view-section').forEach(section => section.classList.add('hidden-section'));
       const target = document.getElementById(`view-${viewId}`);
       if (target) target.classList.remove('hidden-section');
       window.scrollTo(0, 0);
-      
-      // Atualizar UI do limite quando voltar para home ou cadastro-cliente
       if (viewId === 'home' || viewId === 'cadastro-cliente') {
         updateLeadLimitUI();
         updateCooldownTimer();
@@ -786,30 +752,25 @@
     async function handleCadastroCliente(e) {
       e.preventDefault();
       
-      // 1. Verificar limite de leads
       if (leadCount >= MAX_LEADS) {
         showErrorMessage(`Limite de ${MAX_LEADS} leads já atingido. Entre em contato pelo WhatsApp.`);
         return;
       }
       
-      // 2. Verificar cooldown
       const cooldownRemaining = isInCooldown();
       if (cooldownRemaining) {
         showErrorMessage(`Aguarde ${cooldownRemaining} segundos antes de enviar novamente.`);
         return;
       }
       
-      // 3. Verificar limite de tentativas
       if (!checkAndIncrementAttempts()) {
         showErrorMessage(`Limite de ${MAX_ATTEMPTS} tentativas excedido. Aguarde o cooldown de ${COOLDOWN_SECONDS} segundos.`);
         return;
       }
       
-      // 4. Verificar honeypot (anti-robô)
       if (isHoneypotFilled()) {
-        // Se honeypot foi preenchido, ignorar silenciosamente (fingir sucesso)
         console.log("Honeypot detectado - envio ignorado");
-        alert("Mensagem enviada com sucesso!"); // Falso sucesso para enganar robô
+        alert("Mensagem enviada com sucesso!");
         document.getElementById('form-cliente').reset();
         return;
       }
@@ -825,30 +786,23 @@
         dataCriacao: new Date().toLocaleString('pt-BR')
       };
       
-      try { 
-        if(db) await db.collection('leads').add(lead); 
-      } catch(err) { 
-        console.warn(err); 
-      }
+      try { if(db) await db.collection('leads').add(lead); } catch(err) { console.warn(err); }
       
       alert(`Triagem concluída com sucesso! Redirecionando para o WhatsApp.`);
       
-      const textoMensagem = `Novo Lead - Lead Beauty ✨\n\n` +
-                            `👤 Cliente: ${lead.nome}\n` +
-                            `📞 WhatsApp: ${lead.whatsapp}\n` +
-                            `📧 E-mail: ${lead.email}\n` +
-                            `📍 Local: ${lead.cidade} - ${lead.estado}\n` +
-                            `💆‍♀️ Procedimento: ${lead.tratamento}\n` +
-                            `📝 Relato: ${lead.relato}`;
+      const textoMensagem = `Novo Lead - Lead Beauty\n\n` +
+                            `Cliente: ${lead.nome}\n` +
+                            `WhatsApp: ${lead.whatsapp}\n` +
+                            `E-mail: ${lead.email}\n` +
+                            `Local: ${lead.cidade} - ${lead.estado}\n` +
+                            `Procedimento: ${lead.tratamento}\n` +
+                            `Relato: ${lead.relato}`;
                             
       window.open(`https://wa.me/5513974014176?text=${encodeURIComponent(textoMensagem)}`, '_blank');
       
       document.getElementById('form-cliente').reset();
-      
-      // Incrementar contador de leads e iniciar cooldown
       incrementLeadCount();
       startCooldown();
-      
       showView('home');
     }
 
@@ -957,7 +911,7 @@
       if(!currentUserData || !db) return;
       try {
         const nextRenewalDate = new Date(); nextRenewalDate.setMonth(nextRenewalDate.getMonth() + 1);
-        await db.collection('profissionais').doc(currentUserData.uid).update({ plano: 'Profissional', statusPagamento: 'active', dataPagamento: new Date().toISOString(), proximoVencimiento: nextRenewalDate.toISOString(), leadsConsumidos: 0 });
+        await db.collection('profissionais').doc(currentUserData.uid).update({ plano: 'Profissional', statusPagamento: 'active', dataPagamento: new Date().toISOString(), proximoVencimento: nextRenewalDate.toISOString(), leadsConsumidos: 0 });
         currentUserData.plano = 'Profissional'; currentUserData.statusPagamento = 'active'; currentUserData.leadsConsumidos = 0;
         alert("Pagamento confirmado! Seu plano foi ativado com sucesso!");
         document.getElementById('payment-status').classList.add('hidden-section');
@@ -973,11 +927,9 @@
 
     document.addEventListener('DOMContentLoaded', function() {
       updateLeadLimitUI();
-      
       const observer = new MutationObserver(() => { 
         const paymentView = document.getElementById('view-payment-plan'); 
         if(paymentView && !paymentView.classList.contains('hidden-section')) generatePaymentQRCode();
-        // Atualizar UI quando mudar de view
         if(document.getElementById('view-cadastro-cliente') && !document.getElementById('view-cadastro-cliente').classList.contains('hidden-section')) {
           updateLeadLimitUI();
           updateCooldownTimer();
