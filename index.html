@@ -147,6 +147,52 @@
       color: white;
       border-left: 4px solid #B91C1C;
     }
+    
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.7rem;
+      background-color: #FBF9F6;
+      padding: 0.4rem 0.8rem;
+      border-radius: 2rem;
+      border: 1px solid #E2D9D0;
+    }
+    .checkbox-item input {
+      width: 0.9rem;
+      height: 0.9rem;
+      accent-color: #C5A059;
+    }
+    
+    /* ADICIONADO: Estilos para a seção de busca */
+    .search-card {
+      transition: all 0.3s ease;
+    }
+    .search-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px -8px rgba(0,0,0,0.1);
+    }
+    .resultado-item {
+      border-bottom: 1px solid #E2D9D0;
+      transition: all 0.2s ease;
+    }
+    .resultado-item:last-child {
+      border-bottom: none;
+    }
+    .btn-whatsapp-busca {
+      background-color: #25D366;
+      transition: all 0.3s ease;
+    }
+    .btn-whatsapp-busca:hover {
+      background-color: #128C7E;
+      transform: scale(1.02);
+    }
   </style>
 </head>
 <body class="font-sans text-softBlack bg-nudeBg">
@@ -163,6 +209,7 @@
       </div>
       <div class="flex items-center gap-5">
         <button onclick="showView('cadastro-cliente')" class="text-xs font-bold text-softBlack hover:text-premiumRose transition">Buscar Especialista</button>
+        <button onclick="showView('busca-profissionais')" class="text-xs font-bold text-softBlack hover:text-premiumRose transition">Encontrar Profissionais</button>
         <button onclick="showView('login-profissional')" class="bg-softBlack text-white text-xs px-5 py-2.5 rounded-xl font-semibold transition hover:bg-neutral-800">Área do Profissional</button>
       </div>
     </div>
@@ -191,8 +238,11 @@
           <button onclick="showView('cadastro-cliente')" class="w-full bg-premiumRose text-white py-4 rounded-xl text-xs font-bold tracking-wider uppercase transition hover:bg-premiumRoseHover shadow-md">
             <i class="fa-solid fa-user-magnifying-glass mr-2"></i> Sou Cliente e Quero Agendar
           </button>
+          <button onclick="showView('busca-profissionais')" class="w-full bg-white border border-softBlack text-softBlack py-4 rounded-xl text-xs font-bold tracking-wider uppercase transition hover:bg-neutral-50 shadow-sm">
+            <i class="fa-solid fa-magnifying-glass mr-2"></i> Encontrar Profissionais
+          </button>
           <button onclick="showView('cadastro-profissional-view')" class="w-full bg-white border border-softBlack text-softBlack py-4 rounded-xl text-xs font-bold tracking-wider uppercase transition hover:bg-neutral-50 shadow-sm">
-            <i class="fa-solid fa-user-doctor mr-2"></i> Sou Profissional e Quero Clientes
+            <i class="fa-solid fa-user-doctor mr-2"></i> Sou Profissional
           </button>
         </div>
       </header>
@@ -235,7 +285,6 @@
               <div>
                 <h4 class="font-bold text-sm text-softBlack uppercase tracking-wide">Plano Profissional</h4>
                 <div class="text-2xl font-serif font-bold text-softBlack my-2">R$ 9,90 <span class="text-xs text-softGray font-sans">/mês</span></div>
-                <!-- ALTERADO: 5 leads para 3 leads -->
                 <p class="text-xs text-softGray font-medium mb-1.5">• Receba até 3 leads qualificados por mês.</p>
                 <p class="text-xs text-softGray font-medium mb-1.5">• Direcionamento inteligente por cidade e região.</p>
                 <p class="text-xs text-softGray font-medium mb-1.5">• Perfil profissional ativo na plataforma.</p>
@@ -248,6 +297,57 @@
           </div>
         </div>
       </section>
+    </section>
+
+    <!-- ADICIONADO: VIEW: BUSCA DE PROFISSIONAIS -->
+    <section id="view-busca-profissionais" class="view-section hidden-section py-12 px-4 max-w-6xl mx-auto">
+      <div class="bg-white/95 p-8 rounded-3xl border border-cardBorder premium-shadow relative backdrop-blur-sm">
+        <button onclick="showView('home')" class="absolute top-6 left-6 text-xs text-softGray hover:text-softBlack flex items-center gap-1 font-semibold">
+          <i class="fa-solid fa-arrow-left"></i> Voltar para Início
+        </button>
+        <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Encontre um Profissional</h2>
+        <p class="text-center text-xs text-softGray mb-8">Filtre por cidade, especialidade ou tipo de atendimento</p>
+        
+        <!-- Filtros de busca -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+          <div>
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Cidade</label>
+            <select id="filtro-cidade" class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
+              <option value="">Todas as cidades</option>
+            </select>
+          </div>
+          <div>
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Especialidade</label>
+            <select id="filtro-especialidade" class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
+              <option value="">Todas as especialidades</option>
+            </select>
+          </div>
+          <div>
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Tipo de Atendimento</label>
+            <select id="filtro-tipo" class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
+              <option value="">Todos</option>
+              <option value="Profissional autônomo">Profissional autônomo</option>
+              <option value="Clínica de estética">Clínica de estética</option>
+              <option value="Espaço compartilhado">Espaço compartilhado</option>
+            </select>
+          </div>
+        </div>
+        
+        <!-- Botão de buscar -->
+        <div class="text-center mb-8">
+          <button onclick="filtrarProfissionais()" class="bg-roseGold hover:bg-premiumRoseHover text-white font-semibold py-3 px-8 rounded-xl transition shadow-md">
+            <i class="fa-solid fa-magnifying-glass mr-2"></i> Buscar Profissionais
+          </button>
+        </div>
+        
+        <!-- Resultados -->
+        <div id="resultados-busca" class="space-y-4">
+          <div class="text-center text-softGray py-8">
+            <i class="fa-solid fa-search text-4xl mb-2 opacity-50"></i>
+            <p>Use os filtros acima para encontrar profissionais</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- VIEW: CADASTRO CLIENTE -->
@@ -316,7 +416,7 @@
     </section>
 
     <!-- VIEW: CADASTRO PROFISSIONAL -->
-    <section id="view-cadastro-profissional-view" class="view-section hidden-section py-12 px-4 max-w-lg mx-auto">
+    <section id="view-cadastro-profissional-view" class="view-section hidden-section py-12 px-4 max-w-2xl mx-auto">
       <div class="bg-white/95 p-8 rounded-3xl border border-cardBorder premium-shadow relative backdrop-blur-sm">
         <button onclick="showView('home')" class="absolute top-6 left-6 text-xs text-softGray hover:text-softBlack flex items-center gap-1 font-semibold">
           <i class="fa-solid fa-arrow-left"></i> Voltar
@@ -349,10 +449,49 @@
               <input type="text" id="prof-estado" maxlength="2" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
             </div>
           </div>
+          
           <div>
-            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">WhatsApp Comercial</label>
-            <input type="tel" id="prof-whatsapp" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Tipo de Atendimento *</label>
+            <select id="prof-tipo-atendimento" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
+              <option value="">Selecione</option>
+              <option value="Profissional autônomo">Profissional autônomo</option>
+              <option value="Clínica de estética">Clínica de estética</option>
+              <option value="Espaço compartilhado">Espaço compartilhado</option>
+              <option value="Outro">Outro</option>
+            </select>
           </div>
+          
+          <div>
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">WhatsApp para atendimento de clientes *</label>
+            <input type="tel" id="prof-whatsapp" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
+            <p class="text-[9px] text-softGray mt-1">Número que será divulgado para os clientes entrarem em contato</p>
+          </div>
+          
+          <div>
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Especialidades *</label>
+            <div class="checkbox-group">
+              <div class="checkbox-item"><input type="checkbox" id="esp-micro" value="Microagulhamento de estrias"><label>Microagulhamento de estrias</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-camuflagem-estrias" value="Camuflagem de estrias"><label>Camuflagem de estrias</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-camuflagem-cicatrizes" value="Camuflagem de cicatrizes"><label>Camuflagem de cicatrizes</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-tratamento-facial" value="Tratamento facial"><label>Tratamento facial</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-tratamento-corporal" value="Tratamento corporal"><label>Tratamento corporal</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-harmonizacao" value="Harmonização corporal"><label>Harmonização corporal</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-estetica-intima" value="Estética íntima"><label>Estética íntima</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-limpeza-pele" value="Limpeza de pele"><label>Limpeza de pele</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-outros" value="Outros"><label>Outros</label></div>
+            </div>
+          </div>
+          
+          <div>
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Estrutura disponível</label>
+            <div class="checkbox-group">
+              <div class="checkbox-item"><input type="checkbox" id="estrutura-sala" value="Sala própria"><label>Sala própria</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="estrutura-clinica" value="Clínica terceirizada"><label>Clínica terceirizada</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="estrutura-domicilio" value="Atendimento domiciliar"><label>Atendimento domiciliar</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="estrutura-online" value="Consultoria online"><label>Consultoria online</label></div>
+            </div>
+          </div>
+          
           <button type="submit" class="w-full bg-premiumRose text-white py-4 rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-premiumRoseHover transition shadow-md">Salvar Registro no Hub</button>
         </form>
       </div>
@@ -380,7 +519,7 @@
       </div>
     </section>
 
-    <!-- VIEW: DASHBOARD PROFISSIONAL (Após Login) -->
+    <!-- VIEW: DASHBOARD PROFISSIONAL -->
     <section id="view-dashboard-profissional" class="view-section hidden-section py-12 px-4 max-w-4xl mx-auto">
       <div class="bg-white/95 p-8 rounded-3xl border border-cardBorder premium-shadow relative backdrop-blur-sm">
         <button onclick="handleLogoutProfissional()" class="absolute top-6 left-6 text-xs text-softGray hover:text-softBlack flex items-center gap-1 font-semibold">
@@ -449,41 +588,31 @@
       </div>
     </section>
 
-    <!-- VIEW: PAYMENT PLAN (PIX QR Code) -->
+    <!-- VIEW: PAYMENT PLAN -->
     <section id="view-payment-plan" class="view-section hidden-section py-12 px-4 max-w-2xl mx-auto">
       <div class="bg-white/95 p-8 rounded-3xl border border-cardBorder premium-shadow relative backdrop-blur-sm">
         <button onclick="showView('dashboard-profissional')" class="absolute top-6 left-6 text-xs text-softGray hover:text-softBlack flex items-center gap-1 font-semibold">
           <i class="fa-solid fa-arrow-left"></i> Voltar
         </button>
-
         <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Ativar Plano Profissional</h2>
         <p class="text-center text-xs text-softGray mb-8">Realize o pagamento via PIX para ativar seu plano profissional.</p>
-
         <div id="qr-code-section" class="qr-code-container mb-8">
           <div class="text-center mb-4">
             <p class="text-sm font-bold text-softBlack mb-2">Escaneie o QR Code com seu banco</p>
             <p class="text-xs text-softGray">ou use a opção "Copia e Cola" abaixo</p>
           </div>
-          
           <img id="qr-code-image" src="" alt="QR Code PIX" class="qr-code-image border border-cardBorder rounded-lg p-2 bg-white">
-          
           <div class="w-full text-center">
             <p class="text-xs text-softGray mb-2">Código PIX Copia e Cola:</p>
-            <div class="bg-nudeBg p-4 rounded-lg border border-cardBorder mb-4 break-all text-[10px] font-mono text-softBlack max-h-24 overflow-y-auto" id="pix-payload">
-              Carregando...
-            </div>
-            <button onclick="copyPixCode()" class="copy-button w-full">
-              <i class="fa-solid fa-copy mr-2"></i> Copiar Código PIX
-            </button>
+            <div class="bg-nudeBg p-4 rounded-lg border border-cardBorder mb-4 break-all text-[10px] font-mono text-softBlack max-h-24 overflow-y-auto" id="pix-payload">Carregando...</div>
+            <button onclick="copyPixCode()" class="copy-button w-full"><i class="fa-solid fa-copy mr-2"></i> Copiar Código PIX</button>
           </div>
         </div>
-
         <div class="bg-nudeBg/50 p-6 rounded-2xl border border-cardBorder mb-8 text-center">
           <p class="text-xs text-softGray uppercase font-bold mb-2">Valor a Pagar</p>
           <p class="font-serif text-4xl font-bold text-roseGold">R$ 9,90</p>
           <p class="text-xs text-softGray mt-2">Plano mensal com renovação automática</p>
         </div>
-
         <div id="payment-status" class="bg-blue-50 border border-blue-200 p-4 rounded-lg text-center mb-8 hidden-section">
           <div class="flex items-center justify-center gap-2 mb-2">
             <i class="fa-solid fa-hourglass-end text-blue-600"></i>
@@ -491,57 +620,30 @@
           </div>
           <p class="text-xs text-softGray">Você será notificado assim que o pagamento for confirmado.</p>
         </div>
-
-        <div class="bg-white border border-cardBorder p-6 rounded-2xl">
-          <h3 class="font-bold text-softBlack mb-4 flex items-center gap-2">
-            <i class="fa-solid fa-info-circle text-roseGold"></i> Como Pagar
-          </h3>
-          <ol class="space-y-3 text-sm text-softGray">
-            <li class="flex gap-3"><span class="font-bold text-roseGold min-w-6">1.</span><span>Abra o aplicativo do seu banco ou instituição financeira</span></li>
-            <li class="flex gap-3"><span class="font-bold text-roseGold min-w-6">2.</span><span>Escolha a opção "Pagar com PIX" ou "PIX Copia e Cola"</span></li>
-            <li class="flex gap-3"><span class="font-bold text-roseGold min-w-6">3.</span><span>Escaneie o QR Code ou cole o código PIX</span></li>
-            <li class="flex gap-3"><span class="font-bold text-roseGold min-w-6">4.</span><span>Confirme o pagamento de R$ 9,90</span></li>
-            <li class="flex gap-3"><span class="font-bold text-roseGold min-w-6">5.</span><span>Seu plano será ativado automaticamente em segundos</span></li>
-          </ol>
-        </div>
       </div>
     </section>
   </main>
 
-  <!-- CHAT FLUTUANTE ESTILO PROFISSIONAL -->
+  <!-- CHAT FLUTUANTE -->
   <div class="fixed bottom-6 right-6 z-50">
     <button onclick="toggleChat()" class="bg-roseGold text-white w-14 h-14 rounded-full shadow-2xl hover:scale-105 transition flex items-center justify-center border-2 border-white">
       <i class="fa-regular fa-comment-dots text-2xl"></i>
     </button>
-    
     <div id="chatModal" class="hidden fixed bottom-24 right-6 w-96 bg-white rounded-2xl shadow-2xl overflow-hidden border border-cardBorder chat-modal">
       <div class="bg-softBlack text-white p-4 flex justify-between items-center">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 bg-roseGold rounded-full flex items-center justify-center">
-            <i class="fa-regular fa-comment text-white text-lg"></i>
-          </div>
-          <div>
-            <p class="font-bold text-sm">Lead Beauty</p>
-            <p class="text-[10px] text-neutral-300">Atendimento online • Resposta rápida</p>
-          </div>
+          <div class="w-10 h-10 bg-roseGold rounded-full flex items-center justify-center"><i class="fa-regular fa-comment text-white text-lg"></i></div>
+          <div><p class="font-bold text-sm">Lead Beauty</p><p class="text-[10px] text-neutral-300">Atendimento online • Resposta rápida</p></div>
         </div>
         <button onclick="toggleChat()" class="text-neutral-400 hover:text-white text-xl leading-none">&times;</button>
       </div>
-      
       <div class="p-4 bg-nudeBg" style="max-height: 500px; overflow-y: auto;">
         <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm mb-4 max-w-[90%] border border-cardBorder">
           <p class="text-sm font-semibold text-softBlack">Olá, seja bem-vindo(a) à Lead Beauty.</p>
           <p class="text-xs text-softGray mt-1">Sou a assistente virtual e posso te ajudar com informações sobre tratamentos e agendamentos.</p>
         </div>
-        
-        <a href="https://wa.me/5513974014176?text=Olá%20Quero%20Atendimento%20na%20Lead%20Beauty" target="_blank" class="block w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300 text-center mb-3 shadow-md">
-          <i class="fa-brands fa-whatsapp mr-2 text-lg"></i> Falar com atendimento
-        </a>
-        
-        <button onclick="toggleTratamentos()" class="block w-full bg-roseGold hover:bg-premiumRoseHover text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300 text-center shadow-md">
-          <i class="fa-regular fa-calendar-check mr-2"></i> Ver tratamentos disponíveis
-        </button>
-        
+        <a href="https://wa.me/5513974014176?text=Olá%20Quero%20Atendimento%20na%20Lead%20Beauty" target="_blank" class="block w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300 text-center mb-3 shadow-md"><i class="fa-brands fa-whatsapp mr-2 text-lg"></i> Falar com atendimento</a>
+        <button onclick="toggleTratamentos()" class="block w-full bg-roseGold hover:bg-premiumRoseHover text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300 text-center shadow-md"><i class="fa-regular fa-calendar-check mr-2"></i> Ver tratamentos disponíveis</button>
         <div id="tratamentosList" class="hidden mt-3 bg-white rounded-xl border border-cardBorder p-3 space-y-2">
           <p class="text-[10px] font-bold text-roseGold uppercase tracking-wider mb-2">Tratamentos disponíveis</p>
           <ul class="space-y-1.5 text-sm text-softGray">
@@ -554,25 +656,16 @@
             <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-roseGold text-xs"></i> Revitalização da pele</li>
           </ul>
         </div>
-        
-        <div class="text-center mt-4 pt-3 border-t border-cardBorder">
-          <p class="text-[9px] text-softGray">Lead Beauty | Conexão Estética</p>
-        </div>
+        <div class="text-center mt-4 pt-3 border-t border-cardBorder"><p class="text-[9px] text-softGray">Lead Beauty | Conexão Estética</p></div>
       </div>
     </div>
   </div>
 
   <footer class="border-t border-cardBorder bg-white py-12 px-6 text-center mt-16">
-    <div class="flex justify-center mb-4">
-      <img src="logo.png" alt="Logo" class="h-20 w-20 object-contain">
-    </div>
+    <div class="flex justify-center mb-4"><img src="logo.png" alt="Logo" class="h-20 w-20 object-contain"></div>
     <p class="font-serif text-xl font-bold text-softBlack tracking-tight">Lead Beauty</p>
     <p class="text-xs text-roseGold tracking-widest uppercase mb-4 font-extrabold mt-1">Idealizado, Projetado e Desenvolvido por Haline Mulero</p>
   </footer>
-
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
   <script>
     // ==================== FUNÇÕES DO CHAT ====================
@@ -580,92 +673,278 @@
       const modal = document.getElementById('chatModal');
       modal.classList.toggle('hidden');
     }
-    
     function toggleTratamentos() {
       const list = document.getElementById('tratamentosList');
       list.classList.toggle('hidden');
     }
     
-    // ==================== FUNÇÃO PARA EXIBIR MENSAGENS ====================
+    // ==================== DADOS DOS PROFISSIONAIS (JSON LOCAL) ====================
+    // Base de dados inicial - pode ser substituída pelo Google Sheets
+    let profissionaisDatabase = [
+      {
+        id: 1,
+        nome: "Clínica Derma Face",
+        cidade: "São Paulo",
+        estado: "SP",
+        whatsapp: "5511999999999",
+        tipoAtendimento: "Clínica de estética",
+        especialidades: ["Microagulhamento de estrias", "Tratamento facial", "Limpeza de pele"],
+        estrutura: ["Sala própria", "Clínica terceirizada"]
+      },
+      {
+        id: 2,
+        nome: "Haline Mulero Estética",
+        cidade: "Santos",
+        estado: "SP",
+        whatsapp: "5513974014176",
+        tipoAtendimento: "Profissional autônomo",
+        especialidades: ["Camuflagem de estrias", "Camuflagem de cicatrizes", "Tratamento corporal", "Estética íntima"],
+        estrutura: ["Atendimento domiciliar", "Consultoria online"]
+      },
+      {
+        id: 3,
+        nome: "Espaço Beleza & Bem-estar",
+        cidade: "Rio de Janeiro",
+        estado: "RJ",
+        whatsapp: "5521999999999",
+        tipoAtendimento: "Espaço compartilhado",
+        especialidades: ["Harmonização corporal", "Limpeza de pele", "Tratamento facial", "Outros"],
+        estrutura: ["Sala própria"]
+      },
+      {
+        id: 4,
+        nome: "Instituto de Estética Avançada",
+        cidade: "Campinas",
+        estado: "SP",
+        whatsapp: "5519988888888",
+        tipoAtendimento: "Clínica de estética",
+        especialidades: ["Microagulhamento de estrias", "Tratamento facial", "Tratamento corporal", "Harmonização corporal", "Estética íntima"],
+        estrutura: ["Sala própria", "Clínica terceirizada"]
+      },
+      {
+        id: 5,
+        nome: "Studio da Pele",
+        cidade: "São Vicente",
+        estado: "SP",
+        whatsapp: "5513974014176",
+        tipoAtendimento: "Profissional autônomo",
+        especialidades: ["Limpeza de pele", "Tratamento facial", "Camuflagem de cicatrizes"],
+        estrutura: ["Atendimento domiciliar"]
+      }
+    ];
+    
+    // Carregar profissionais do localStorage (se existirem)
+    function carregarProfissionaisDoStorage() {
+      const saved = localStorage.getItem('lead_beauty_profissionais');
+      if (saved) {
+        const profissionaisSalvos = JSON.parse(saved);
+        // Mapear os profissionais salvos para o formato da busca
+        profissionaisSalvos.forEach(prof => {
+          if (!profissionaisDatabase.find(p => p.email === prof.email)) {
+            profissionaisDatabase.push({
+              id: profissionaisDatabase.length + 1,
+              nome: prof.nome,
+              cidade: prof.cidade,
+              estado: prof.estado,
+              whatsapp: prof.whatsapp,
+              tipoAtendimento: prof.tipoAtendimento || "Profissional autônomo",
+              especialidades: prof.especialidades || [],
+              estrutura: prof.estrutura || []
+            });
+          }
+        });
+      }
+      console.log(`📊 ${profissionaisDatabase.length} profissionais carregados para busca`);
+    }
+    
+    // ==================== FUNÇÃO DE BUSCA ====================
+    function filtrarProfissionais() {
+      const cidadeFiltro = document.getElementById('filtro-cidade').value.toLowerCase();
+      const especialidadeFiltro = document.getElementById('filtro-especialidade').value.toLowerCase();
+      const tipoFiltro = document.getElementById('filtro-tipo').value;
+      
+      let resultados = [...profissionaisDatabase];
+      
+      // Filtrar por cidade
+      if (cidadeFiltro) {
+        resultados = resultados.filter(p => p.cidade.toLowerCase().includes(cidadeFiltro));
+      }
+      
+      // Filtrar por especialidade
+      if (especialidadeFiltro) {
+        resultados = resultados.filter(p => 
+          p.especialidades.some(esp => esp.toLowerCase().includes(especialidadeFiltro))
+        );
+      }
+      
+      // Filtrar por tipo de atendimento
+      if (tipoFiltro) {
+        resultados = resultados.filter(p => p.tipoAtendimento === tipoFiltro);
+      }
+      
+      exibirResultados(resultados);
+    }
+    
+    // ==================== EXIBIR RESULTADOS ====================
+    function exibirResultados(profissionais) {
+      const container = document.getElementById('resultados-busca');
+      
+      if (!container) return;
+      
+      if (profissionais.length === 0) {
+        container.innerHTML = `
+          <div class="text-center text-softGray py-8">
+            <i class="fa-solid fa-face-frown text-4xl mb-2 opacity-50"></i>
+            <p>Nenhum profissional encontrado com os filtros selecionados.</p>
+            <p class="text-xs mt-2">Tente alterar os critérios de busca.</p>
+          </div>
+        `;
+        return;
+      }
+      
+      container.innerHTML = `
+        <div class="mb-4 text-center">
+          <p class="text-xs text-softGray">${profissionais.length} profissional(is) encontrado(s)</p>
+        </div>
+        <div class="space-y-4">
+          ${profissionais.map(prof => `
+            <div class="resultado-item bg-white border border-cardBorder rounded-2xl p-5 hover:shadow-md transition-all">
+              <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div class="flex-1">
+                  <h3 class="font-bold text-softBlack text-base">${prof.nome}</h3>
+                  <div class="flex flex-wrap gap-3 mt-2">
+                    <span class="text-xs text-softGray"><i class="fa-solid fa-location-dot text-roseGold mr-1"></i> ${prof.cidade}/${prof.estado}</span>
+                    <span class="text-xs text-softGray"><i class="fa-solid fa-briefcase text-roseGold mr-1"></i> ${prof.tipoAtendimento}</span>
+                  </div>
+                  <div class="mt-2">
+                    <p class="text-[10px] font-bold text-softGray uppercase mb-1">Especialidades:</p>
+                    <div class="flex flex-wrap gap-1">
+                      ${prof.especialidades.map(esp => `<span class="text-[10px] bg-nudeBg px-2 py-1 rounded-full text-softBlack">${esp}</span>`).join('')}
+                    </div>
+                  </div>
+                  ${prof.estrutura && prof.estrutura.length > 0 ? `
+                    <div class="mt-2">
+                      <p class="text-[10px] font-bold text-softGray uppercase mb-1">Estrutura:</p>
+                      <div class="flex flex-wrap gap-1">
+                        ${prof.estrutura.map(est => `<span class="text-[10px] bg-premiumRose/10 px-2 py-1 rounded-full text-softBlack">${est}</span>`).join('')}
+                      </div>
+                    </div>
+                  ` : ''}
+                </div>
+                <div>
+                  <a href="https://wa.me/${prof.whatsapp}?text=Olá!%20Tenho%20interesse%20em%20seus%20serviços%20na%20Lead%20Beauty" target="_blank" class="btn-whatsapp-busca inline-flex items-center gap-2 bg-green-600 text-white font-semibold py-2.5 px-5 rounded-xl text-sm transition shadow-md">
+                    <i class="fa-brands fa-whatsapp text-base"></i> Falar no WhatsApp
+                  </a>
+                </div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+    
+    // ==================== POPULAR FILTROS ====================
+    function popularFiltros() {
+      const cidadeSelect = document.getElementById('filtro-cidade');
+      const especialidadeSelect = document.getElementById('filtro-especialidade');
+      
+      if (!cidadeSelect || !especialidadeSelect) return;
+      
+      // Cidades únicas
+      const cidades = [...new Set(profissionaisDatabase.map(p => p.cidade))];
+      cidades.sort().forEach(cidade => {
+        const option = document.createElement('option');
+        option.value = cidade;
+        option.textContent = cidade;
+        cidadeSelect.appendChild(option);
+      });
+      
+      // Especialidades únicas
+      const todasEspecialidades = [];
+      profissionaisDatabase.forEach(p => {
+        p.especialidades.forEach(esp => {
+          if (!todasEspecialidades.includes(esp)) todasEspecialidades.push(esp);
+        });
+      });
+      todasEspecialidades.sort().forEach(esp => {
+        const option = document.createElement('option');
+        option.value = esp;
+        option.textContent = esp;
+        especialidadeSelect.appendChild(option);
+      });
+    }
+    
+    // ==================== FUNÇÕES DO FORMULÁRIO ====================
     function showMessage(message, type = 'success') {
       const existingMsg = document.querySelector('.form-message');
       if (existingMsg) existingMsg.remove();
-      
       const msgDiv = document.createElement('div');
       msgDiv.className = `form-message ${type}`;
       msgDiv.innerHTML = `<i class="fa-${type === 'success' ? 'regular fa-circle-check' : 'fa-solid fa-circle-exclamation'} mr-2"></i> ${message}`;
       document.body.appendChild(msgDiv);
-      
       setTimeout(() => msgDiv.remove(), 5000);
     }
     
-    // ==================== CONFIGURAÇÃO FIREBASE (DESABILITADA - API KEY INVÁLIDA) ====================
-    // O Firebase foi desabilitado temporariamente devido à chave API inválida.
-    // O sistema continua funcionando perfeitamente com localStorage.
-    
-    let db = null;
-    let auth = null;
-    let currentUser = null;
-    let currentUserData = null;
-    
-    console.log("ℹ️ Firebase desabilitado - Usando apenas localStorage para salvamento de leads");
-    console.log("✅ Os cadastros serão salvos normalmente no localStorage do navegador");
-
-    const ASAAS_API_KEY = "YOUR_ASAAS_API_KEY_HERE";
-    const ASAAS_BASE_URL = "https://api.asaas.com/v3";
-
-    // ==================== CHAVE PARA LOCALSTORAGE ====================
     const LEADS_STORAGE_KEY = 'lead_beauty_leads';
     const PROFISSIONAIS_KEY = 'lead_beauty_profissionais';
-
-    // ==================== FUNÇÃO PARA SALVAR LEAD NO LOCALSTORAGE ====================
+    
     function saveLeadToLocalStorage(lead) {
       try {
         const existingLeads = localStorage.getItem(LEADS_STORAGE_KEY);
         let leads = [];
-        if (existingLeads) {
-          leads = JSON.parse(existingLeads);
-        }
-        leads.push({
-          ...lead,
-          id: Date.now(),
-          timestamp: new Date().toISOString()
-        });
+        if (existingLeads) leads = JSON.parse(existingLeads);
+        leads.push({ ...lead, id: Date.now(), timestamp: new Date().toISOString() });
         localStorage.setItem(LEADS_STORAGE_KEY, JSON.stringify(leads));
-        console.log("💾 Lead salvo no localStorage:", lead);
+        console.log("💾 Lead salvo:", lead);
         return true;
-      } catch (error) {
-        console.error("❌ Erro ao salvar no localStorage:", error);
-        return false;
-      }
+      } catch (error) { console.error("❌ Erro:", error); return false; }
     }
-
-    // ==================== FUNÇÃO PARA SALVAR PROFISSIONAL NO LOCALSTORAGE ====================
+    
     function saveProfissionalToLocalStorage(profissional) {
       try {
         const existing = localStorage.getItem(PROFISSIONAIS_KEY);
         let profissionais = [];
-        if (existing) {
-          profissionais = JSON.parse(existing);
-        }
+        if (existing) profissionais = JSON.parse(existing);
+        
+        const especialidades = [];
+        const espIds = ['esp-micro', 'esp-camuflagem-estrias', 'esp-camuflagem-cicatrizes', 'esp-tratamento-facial', 'esp-tratamento-corporal', 'esp-harmonizacao', 'esp-estetica-intima', 'esp-limpeza-pele', 'esp-outros'];
+        espIds.forEach(id => {
+          const checkbox = document.getElementById(id);
+          if (checkbox && checkbox.checked) especialidades.push(checkbox.value);
+        });
+        
+        const estrutura = [];
+        const estrIds = ['estrutura-sala', 'estrutura-clinica', 'estrutura-domicilio', 'estrutura-online'];
+        estrIds.forEach(id => {
+          const checkbox = document.getElementById(id);
+          if (checkbox && checkbox.checked) estrutura.push(checkbox.value);
+        });
+        
         profissionais.push({
           ...profissional,
-          id: Date.now(),
-          timestamp: new Date().toISOString(),
-          plano: 'Degustação Inicial',
-          statusPagamento: 'free',
-          leadsConsumidos: 0
+          especialidades, estrutura,
+          id: Date.now(), timestamp: new Date().toISOString(),
+          plano: 'Degustação Inicial', statusPagamento: 'free', leadsConsumidos: 0
         });
         localStorage.setItem(PROFISSIONAIS_KEY, JSON.stringify(profissionais));
-        console.log("💾 Profissional salvo no localStorage:", profissional);
+        
+        // Também adicionar à base de dados da busca
+        profissionaisDatabase.push({
+          id: profissionaisDatabase.length + 1,
+          nome: profissional.nome,
+          cidade: profissional.cidade,
+          estado: profissional.estado,
+          whatsapp: profissional.whatsapp,
+          tipoAtendimento: profissional.tipoAtendimento,
+          especialidades: especialidades,
+          estrutura: estrutura
+        });
+        
+        console.log("💾 Profissional salvo:", { ...profissional, especialidades, estrutura });
         return true;
-      } catch (error) {
-        console.error("❌ Erro ao salvar profissional:", error);
-        return false;
-      }
+      } catch (error) { console.error("❌ Erro:", error); return false; }
     }
-
-    // ==================== FUNÇÃO PARA BUSCAR PROFISSIONAL NO LOCALSTORAGE ====================
+    
     function findProfissionalByEmail(email) {
       try {
         const existing = localStorage.getItem(PROFISSIONAIS_KEY);
@@ -673,35 +952,17 @@
           const profissionais = JSON.parse(existing);
           return profissionais.find(p => p.email === email) || null;
         }
-      } catch (error) {
-        console.error("❌ Erro ao buscar profissional:", error);
-      }
+      } catch (error) { console.error("❌ Erro:", error); }
       return null;
     }
-
-    // ==================== FUNÇÃO PARA ENVIAR WHATSAPP ====================
+    
     function sendLeadToWhatsApp(lead) {
-      const mensagem = `*NOVO CADASTRO - LEAD BEAUTY* 🧴✨%0a%0a` +
-        `*👤 Nome:* ${lead.nome}%0a` +
-        `*📧 E-mail:* ${lead.email}%0a` +
-        `*📞 WhatsApp:* ${lead.whatsapp}%0a` +
-        `*📍 Cidade/UF:* ${lead.cidade} - ${lead.estado}%0a` +
-        `*💆‍♀️ Procedimento:* ${lead.tratamento}%0a` +
-        `*📝 Detalhes:* ${lead.relato || 'Não informado'}%0a%0a` +
-        `_Cadastro realizado em ${new Date().toLocaleString('pt-BR')}_`;
-      
-      const whatsappUrl = `https://wa.me/5513974014176?text=${mensagem}`;
-      console.log("📤 Abrindo WhatsApp com os dados:", lead);
-      window.open(whatsappUrl, '_blank');
+      const mensagem = `*NOVO CADASTRO - LEAD BEAUTY*%0a%0a*👤 Nome:* ${lead.nome}%0a*📧 E-mail:* ${lead.email}%0a*📞 WhatsApp:* ${lead.whatsapp}%0a*📍 Cidade/UF:* ${lead.cidade} - ${lead.estado}%0a*💆‍♀️ Procedimento:* ${lead.tratamento}%0a*📝 Detalhes:* ${lead.relato || 'Não informado'}%0a%0a_Cadastro realizado em ${new Date().toLocaleString('pt-BR')}_`;
+      window.open(`https://wa.me/5513974014176?text=${mensagem}`, '_blank');
     }
-
-    // ==================== FUNÇÃO PRINCIPAL DO FORMULÁRIO DE CLIENTE ====================
+    
     async function handleCadastroCliente(e) {
       e.preventDefault();
-      
-      console.log("🚀 Iniciando processamento do formulário...");
-      
-      // Coletar dados do formulário
       const lead = {
         nome: document.getElementById('cli-nome')?.value || '',
         whatsapp: document.getElementById('cli-whatsapp')?.value || '',
@@ -711,153 +972,90 @@
         tratamento: document.getElementById('cli-tratamento')?.value || '',
         relato: document.getElementById('cli-relato')?.value || 'Não informado'
       };
-      
-      // VALIDAÇÃO: Verificar se os campos obrigatórios estão preenchidos
       if (!lead.nome || !lead.whatsapp || !lead.email || !lead.cidade || !lead.estado) {
-        console.warn("⚠️ Campos obrigatórios não preenchidos");
-        showMessage("Por favor, preencha todos os campos obrigatórios.", "error");
+        showMessage("Preencha todos os campos obrigatórios.", "error");
         return;
       }
-      
-      console.log("📋 Dados coletados:", lead);
-      
-      // MOSTRAR INDICADOR DE CARREGAMENTO
       const submitBtn = document.getElementById('submit-lead-btn');
       const originalText = submitBtn?.innerHTML || 'Concluir Solicitação';
-      if (submitBtn) {
-        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Processando...';
-        submitBtn.disabled = true;
-      }
-      
-      // SALVAR NO LOCALSTORAGE
-      const localStorageSaved = saveLeadToLocalStorage(lead);
-      
-      if (localStorageSaved) {
-        console.log("✅ Lead salvo no localStorage com sucesso");
-        showMessage("Cadastro realizado com sucesso! Redirecionando para WhatsApp...", "success");
-        
-        // Enviar para o WhatsApp com os dados
+      if (submitBtn) { submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Processando...'; submitBtn.disabled = true; }
+      const saved = saveLeadToLocalStorage(lead);
+      if (saved) {
+        showMessage("Cadastro realizado! Redirecionando para WhatsApp...", "success");
         sendLeadToWhatsApp(lead);
-        
-        // Limpar formulário
         document.getElementById('form-cliente').reset();
-        
-        // Voltar para home após 2 segundos
-        setTimeout(() => {
-          showView('home');
-        }, 2000);
-      } else {
-        console.error("❌ Falha ao salvar o lead");
-        showMessage("Erro ao salvar o cadastro. Tente novamente.", "error");
-      }
-      
-      // RESTAURAR BOTÃO
-      if (submitBtn) {
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-      }
+        setTimeout(() => showView('home'), 2000);
+      } else { showMessage("Erro ao salvar. Tente novamente.", "error"); }
+      if (submitBtn) { submitBtn.innerHTML = originalText; submitBtn.disabled = false; }
     }
-
-    // ==================== FUNÇÃO DE CADASTRO PROFISSIONAL (LOCALSTORAGE) ====================
+    
     async function handleCadastroProfissional(e) {
       e.preventDefault();
-      
       const profissional = {
         nome: document.getElementById('prof-nome').value,
         email: document.getElementById('prof-email').value,
         senha: document.getElementById('prof-senha').value,
         cidade: document.getElementById('prof-cidade').value,
         estado: document.getElementById('prof-estado').value.toUpperCase(),
-        whatsapp: document.getElementById('prof-whatsapp').value
+        whatsapp: document.getElementById('prof-whatsapp').value,
+        tipoAtendimento: document.getElementById('prof-tipo-atendimento').value
       };
-      
-      // VALIDAÇÃO
-      if (!profissional.nome || !profissional.email || !profissional.senha || !profissional.cidade || !profissional.estado || !profissional.whatsapp) {
-        showMessage("Por favor, preencha todos os campos.", "error");
+      if (!profissional.nome || !profissional.email || !profissional.senha || !profissional.cidade || !profissional.estado || !profissional.whatsapp || !profissional.tipoAtendimento) {
+        showMessage("Preencha todos os campos obrigatórios.", "error");
         return;
       }
-      
-      // Verificar se email já existe
+      const espIds = ['esp-micro', 'esp-camuflagem-estrias', 'esp-camuflagem-cicatrizes', 'esp-tratamento-facial', 'esp-tratamento-corporal', 'esp-harmonizacao', 'esp-estetica-intima', 'esp-limpeza-pele', 'esp-outros'];
+      let hasEspecialidade = false;
+      espIds.forEach(id => { if (document.getElementById(id)?.checked) hasEspecialidade = true; });
+      if (!hasEspecialidade) { showMessage("Selecione pelo menos uma especialidade.", "error"); return; }
       const existing = findProfissionalByEmail(profissional.email);
-      if (existing) {
-        showMessage("Este e-mail já está cadastrado.", "error");
-        return;
-      }
-      
-      console.log("📋 Salvando profissional:", profissional);
-      
+      if (existing) { showMessage("Este e-mail já está cadastrado.", "error"); return; }
       const saved = saveProfissionalToLocalStorage(profissional);
-      
       if (saved) {
-        showMessage("Credenciamento efetuado com sucesso! Agora você pode fazer login.", "success");
+        showMessage("Credenciamento efetuado com sucesso!", "success");
         document.getElementById('form-prof-cadastro').reset();
         showView('home');
-      } else {
-        showMessage("Erro ao salvar o cadastro. Tente novamente.", "error");
-      }
+      } else { showMessage("Erro ao salvar. Tente novamente.", "error"); }
     }
-
-    // ==================== FUNÇÃO DE LOGIN PROFISSIONAL (LOCALSTORAGE) ====================
+    
     async function handleLoginProfissional(e) {
       e.preventDefault();
-      
       const email = document.getElementById('login-email').value;
       const senha = document.getElementById('login-senha').value;
-      
       const profissional = findProfissionalByEmail(email);
-      
       if (profissional && profissional.senha === senha) {
         currentUserData = profissional;
-        showMessage("Login realizado com sucesso!", "success");
+        showMessage("Login realizado!", "success");
         loadDashboardProfissional();
         showView('dashboard-profissional');
-      } else {
-        showMessage("E-mail ou senha incorretos.", "error");
-      }
+      } else { showMessage("E-mail ou senha incorretos.", "error"); }
     }
-
+    
     async function handleLogoutProfissional() {
-      currentUser = null;
       currentUserData = null;
       showView('home');
-      showMessage("Logout realizado com sucesso!", "success");
+      showMessage("Logout realizado!", "success");
     }
-
+    
     function loadDashboardProfissional() {
       if(!currentUserData) return;
-      
       const planName = currentUserData.plano === 'Profissional' ? 'Plano Profissional' : 'Plano de Validação';
       const planBadge = currentUserData.plano === 'Profissional' ? 'status-active' : 'status-free';
       const planBadgeText = currentUserData.plano === 'Profissional' ? 'Ativo' : 'Gratuito';
-      
       const dashPlanName = document.getElementById('dash-plan-name');
       const dashPlanBadge = document.getElementById('dash-plan-badge');
       const dashLeadsConsumed = document.getElementById('dash-leads-consumed');
-      const dashNextRenewal = document.getElementById('dash-next-renewal');
-      
       if (dashPlanName) dashPlanName.textContent = planName;
-      if (dashPlanBadge) {
-        dashPlanBadge.textContent = planBadgeText;
-        dashPlanBadge.className = `status-badge ${planBadge}`;
-      }
-      
-      const maxLeads = currentUserData.plano === 'Profissional' ? 3 : 3;
+      if (dashPlanBadge) { dashPlanBadge.textContent = planBadgeText; dashPlanBadge.className = `status-badge ${planBadge}`; }
+      const maxLeads = 3;
       const leadsConsumed = currentUserData.leadsConsumidos || 0;
       if (dashLeadsConsumed) dashLeadsConsumed.textContent = `${leadsConsumed}/${maxLeads}`;
-      if (dashNextRenewal && currentUserData.proximoVencimento) {
-        dashNextRenewal.textContent = new Date(currentUserData.proximoVencimento).toLocaleDateString('pt-BR');
-      } else if (dashNextRenewal) {
-        dashNextRenewal.textContent = '-';
-      }
-      
       const leadsWarning = document.getElementById('leads-warning');
       const limitWarning = document.getElementById('limit-warning');
       const upgradeSection = document.getElementById('upgrade-section');
-      
       if (leadsWarning) leadsWarning.classList.add('hidden-section');
       if (limitWarning) limitWarning.classList.add('hidden-section');
       if (upgradeSection) upgradeSection.classList.add('hidden-section');
-      
       if (currentUserData.plano === 'Degustação Inicial' && leadsConsumed >= 3) {
         if (leadsWarning) leadsWarning.classList.remove('hidden-section');
         if (upgradeSection) upgradeSection.classList.remove('hidden-section');
@@ -867,53 +1065,24 @@
         if (upgradeSection) upgradeSection.classList.remove('hidden-section');
       }
     }
-
-    // ==================== FUNÇÕES DE NAVEGAÇÃO ====================
+    
+    let currentUserData = null;
+    
     function showView(viewId) {
       document.querySelectorAll('.view-section').forEach(section => section.classList.add('hidden-section'));
       const target = document.getElementById(`view-${viewId}`);
       if (target) target.classList.remove('hidden-section');
       window.scrollTo(0, 0);
     }
-
-    // ==================== FUNÇÕES ASAAS (MANTIDAS) ====================
-    async function generatePaymentQRCode() {
-      showMessage("Sistema de pagamento em desenvolvimento. Em breve disponível!", "error");
-    }
-
-    function startPaymentPolling(paymentId) {
-      // Placeholder
-    }
-
-    async function activateProfessionalPlan() {
-      showMessage("Em breve você poderá ativar seu plano profissional via PIX!", "success");
-    }
-
-    function copyPixCode() {
-      showMessage("Sistema de pagamento em desenvolvimento.", "error");
-    }
-
-    // ==================== INICIALIZAÇÃO ====================
+    
+    function generatePaymentQRCode() { showMessage("Sistema de pagamento em desenvolvimento.", "error"); }
+    function copyPixCode() { showMessage("Sistema de pagamento em desenvolvimento.", "error"); }
+    
     document.addEventListener('DOMContentLoaded', function() {
-      console.log("🚀 Lead Beauty - Sistema de Cadastro Inicializado");
-      console.log("📌 Os leads serão salvos em localStorage");
-      console.log("📌 WhatsApp oficial: +55 13 97401-4176");
-      
-      // Exibir leads já salvos no console para debug
-      const savedLeads = localStorage.getItem(LEADS_STORAGE_KEY);
-      if (savedLeads) {
-        const leads = JSON.parse(savedLeads);
-        console.log(`📊 Total de leads salvos no localStorage: ${leads.length}`);
-      } else {
-        console.log("📊 Nenhum lead salvo ainda no localStorage");
-      }
-      
-      // Exibir profissionais salvos
-      const savedProfissionais = localStorage.getItem(PROFISSIONAIS_KEY);
-      if (savedProfissionais) {
-        const profissionais = JSON.parse(savedProfissionais);
-        console.log(`📊 Total de profissionais salvos: ${profissionais.length}`);
-      }
+      console.log("🚀 Lead Beauty - Sistema de Busca de Profissionais Ativado");
+      carregarProfissionaisDoStorage();
+      popularFiltros();
+      console.log(`📊 ${profissionaisDatabase.length} profissionais disponíveis para busca`);
     });
   </script>
 </body>
