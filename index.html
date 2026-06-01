@@ -212,8 +212,8 @@ index-assinatura.html
                 <p class="text-xs text-softGray font-medium mb-1.5">• Perfil profissional ativo na plataforma.</p>
                 <p class="text-[11px] text-softGray font-medium text-roseGold">• Destaque nas buscas da sua cidade.</p>
               </div>
-              <!-- ⬇️ BOTÃO ASSINAR VIA PIX ADICIONADO - PLANO MENSAL R$ 9,90 ⬇️ -->
-              <a href="https://www.asaas.com/c/k6draufxr8zz3iqj" target="_blank" class="block w-full text-center mt-4 bg-roseGold hover:bg-premiumRoseHover text-white font-bold py-2.5 px-4 rounded-xl transition-all duration-300 text-xs uppercase tracking-wider shadow-md" style="background-color: #C5A059;">
+              <!-- BOTÃO ASSINAR VIA PIX -->
+              <a href="https://www.asaas.com/c/k6draufxr8zz3iqj" target="_blank" class="block w-full text-center mt-4 bg-roseGold hover:bg-premiumRoseHover text-white font-bold py-2.5 px-4 rounded-xl transition-all duration-300 text-xs uppercase tracking-wider shadow-md">
                 <i class="fa-solid fa-qrcode mr-2"></i> Assinar via PIX
               </a>
             </div>
@@ -362,7 +362,6 @@ index-assinatura.html
         <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Dashboard do Profissional</h2>
         <p class="text-center text-xs text-softGray mb-8">Gerencie seus leads e seu plano de assinatura.</p>
 
-        <!-- Status do Profissional -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div class="bg-nudeBg/50 p-6 rounded-2xl border border-cardBorder">
             <p class="text-[10px] font-bold text-softGray uppercase mb-2">Plano Atual</p>
@@ -381,7 +380,6 @@ index-assinatura.html
           </div>
         </div>
 
-        <!-- Aviso de Leads Consumidos -->
         <div id="leads-warning" class="hidden-section mb-8 bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg">
           <div class="flex items-start gap-4">
             <i class="fa-solid fa-triangle-exclamation text-yellow-600 text-2xl mt-1"></i>
@@ -395,7 +393,6 @@ index-assinatura.html
           </div>
         </div>
 
-        <!-- Aviso de Limite Atingido -->
         <div id="limit-warning" class="hidden-section mb-8 bg-red-50 border-l-4 border-red-400 p-6 rounded-lg">
           <div class="flex items-start gap-4">
             <i class="fa-solid fa-circle-stop text-red-600 text-2xl mt-1"></i>
@@ -406,7 +403,6 @@ index-assinatura.html
           </div>
         </div>
 
-        <!-- Botão para Atualizar Plano -->
         <div id="upgrade-section" class="hidden-section mb-8">
           <div class="bg-gradient-to-r from-roseGold/10 to-premiumRose/10 p-8 rounded-2xl border border-roseGold/30">
             <div class="text-center">
@@ -435,7 +431,6 @@ index-assinatura.html
         <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Ativar Plano Profissional</h2>
         <p class="text-center text-xs text-softGray mb-8">Realize o pagamento via PIX para ativar seu plano profissional.</p>
 
-        <!-- QR Code Section -->
         <div id="qr-code-section" class="qr-code-container mb-8">
           <div class="text-center mb-4">
             <p class="text-sm font-bold text-softBlack mb-2">Escaneie o QR Code com seu banco</p>
@@ -455,14 +450,12 @@ index-assinatura.html
           </div>
         </div>
 
-        <!-- Valor e Informações -->
         <div class="bg-nudeBg/50 p-6 rounded-2xl border border-cardBorder mb-8 text-center">
           <p class="text-xs text-softGray uppercase font-bold mb-2">Valor a Pagar</p>
           <p class="font-serif text-4xl font-bold text-roseGold">R$ 9,90</p>
           <p class="text-xs text-softGray mt-2">Plano mensal com renovação automática</p>
         </div>
 
-        <!-- Status de Pagamento -->
         <div id="payment-status" class="bg-blue-50 border border-blue-200 p-4 rounded-lg text-center mb-8 hidden-section">
           <div class="flex items-center justify-center gap-2 mb-2">
             <i class="fa-solid fa-hourglass-end text-blue-600"></i>
@@ -471,48 +464,29 @@ index-assinatura.html
           <p class="text-xs text-softGray">Você será notificado assim que o pagamento for confirmado.</p>
         </div>
 
-        <!-- Instruções -->
         <div class="bg-white border border-cardBorder p-6 rounded-2xl">
           <h3 class="font-bold text-softBlack mb-4 flex items-center gap-2">
             <i class="fa-solid fa-info-circle text-roseGold"></i> Como Pagar
           </h3>
           <ol class="space-y-3 text-sm text-softGray">
-            <li class="flex gap-3">
-              <span class="font-bold text-roseGold min-w-6">1.</span>
-              <span>Abra o aplicativo do seu banco ou instituição financeira</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="font-bold text-roseGold min-w-6">2.</span>
-              <span>Escolha a opção "Pagar com PIX" ou "PIX Copia e Cola"</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="font-bold text-roseGold min-w-6">3.</span>
-              <span>Escaneie o QR Code ou cole o código PIX</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="font-bold text-roseGold min-w-6">4.</span>
-              <span>Confirme o pagamento de R$ 9,90</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="font-bold text-roseGold min-w-6">5.</span>
-              <span>Seu plano será ativado automaticamente em segundos</span>
-            </li>
+            <li class="flex gap-3"><span class="font-bold text-roseGold min-w-6">1.</span><span>Abra o aplicativo do seu banco ou instituição financeira</span></li>
+            <li class="flex gap-3"><span class="font-bold text-roseGold min-w-6">2.</span><span>Escolha a opção "Pagar com PIX" ou "PIX Copia e Cola"</span></li>
+            <li class="flex gap-3"><span class="font-bold text-roseGold min-w-6">3.</span><span>Escaneie o QR Code ou cole o código PIX</span></li>
+            <li class="flex gap-3"><span class="font-bold text-roseGold min-w-6">4.</span><span>Confirme o pagamento de R$ 9,90</span></li>
+            <li class="flex gap-3"><span class="font-bold text-roseGold min-w-6">5.</span><span>Seu plano será ativado automaticamente em segundos</span></li>
           </ol>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- NOVO CHAT FLUTUANTE ESTILO INSTAGRAM -->
+  <!-- CHAT FLUTUANTE ESTILO INSTAGRAM -->
   <div class="fixed bottom-6 right-6 z-50">
-    <!-- Botão flutuante -->
     <button onclick="toggleChat()" class="bg-roseGold text-white w-14 h-14 rounded-full shadow-2xl hover:scale-105 transition flex items-center justify-center border-2 border-white">
       <i class="fa-regular fa-comment-dots text-2xl"></i>
     </button>
     
-    <!-- Caixa de chat (escondida por padrão) -->
     <div id="chatModal" class="hidden fixed bottom-24 right-6 w-96 bg-white rounded-2xl shadow-2xl overflow-hidden border border-cardBorder" style="max-width: calc(100vw - 2rem);">
-      <!-- Cabeçalho -->
       <div class="bg-softBlack text-white p-4 flex justify-between items-center">
         <div class="flex items-center gap-3">
           <div class="w-10 h-10 bg-roseGold rounded-full flex items-center justify-center">
@@ -526,26 +500,21 @@ index-assinatura.html
         <button onclick="toggleChat()" class="text-neutral-400 hover:text-white text-xl leading-none">&times;</button>
       </div>
       
-      <!-- Corpo do chat -->
       <div class="p-4 bg-nudeBg" style="max-height: 500px; overflow-y: auto;">
-        <!-- Mensagem de boas-vindas -->
         <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm mb-4 max-w-[90%] border border-cardBorder">
           <p class="text-sm font-semibold text-softBlack">✨ Olá! Bem-vindo(a) à Lead Beauty ✨</p>
           <p class="text-xs text-softGray mt-1">Como posso ajudar você hoje?</p>
           <p class="text-xs text-roseGold mt-2 font-medium">📞 WhatsApp: +55 13 97401-4176</p>
         </div>
         
-        <!-- Botão WhatsApp -->
         <a href="https://wa.me/5513974014176?text=Olá!%20Quero%20mais%20informações" target="_blank" class="block w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-xl transition-all duration-300 text-center mb-3 shadow-md">
           <i class="fa-brands fa-whatsapp mr-2 text-lg"></i> Falar com Atendente
         </a>
         
-        <!-- Botão Ver Especialidades (expande/mostra lista) -->
         <button onclick="toggleEspecialidades()" class="block w-full bg-roseGold hover:bg-premiumRoseHover text-white font-bold py-3 px-4 rounded-xl transition-all duration-300 text-center shadow-md">
           <i class="fa-regular fa-star mr-2"></i> Ver Especialidades
         </button>
         
-        <!-- Lista de especialidades (escondida por padrão) -->
         <div id="especialidadesList" class="hidden mt-3 bg-white rounded-xl border border-cardBorder p-3 space-y-2">
           <p class="text-[10px] font-bold text-roseGold uppercase tracking-wider mb-2">📍 Nossas Especialidades:</p>
           <ul class="space-y-1.5 text-sm text-softGray">
@@ -560,7 +529,6 @@ index-assinatura.html
           </ul>
         </div>
         
-        <!-- Crédito final -->
         <div class="text-center mt-4 pt-3 border-t border-cardBorder">
           <p class="text-[9px] text-softGray">Idealizado por Haline Mulero</p>
         </div>
@@ -576,7 +544,6 @@ index-assinatura.html
     <p class="text-xs text-roseGold tracking-widest uppercase mb-4 font-extrabold mt-1">Idealizado, Projetado e Desenvolvido por Haline Mulero</p>
   </footer>
 
-  <!-- SCRIPTS -->
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
@@ -618,26 +585,18 @@ index-assinatura.html
       console.error("Erro na inicialização do Firebase:", e);
     }
 
-    // ==================== CONFIGURAÇÃO ASAAS ====================
     const ASAAS_API_KEY = "YOUR_ASAAS_API_KEY_HERE";
     const ASAAS_BASE_URL = "https://api.asaas.com/v3";
 
-    // ==================== FUNÇÕES DE NAVEGAÇÃO ====================
     function showView(viewId) {
       document.querySelectorAll('.view-section').forEach(section => section.classList.add('hidden-section'));
       const target = document.getElementById(`view-${viewId}`);
-      if (target) {
-        target.classList.remove('hidden-section');
-      } else {
-        console.warn("View não encontrada:", viewId);
-      }
+      if (target) target.classList.remove('hidden-section');
       window.scrollTo(0, 0);
     }
 
-    // ==================== CADASTRO CLIENTE ====================
     async function handleCadastroCliente(e) {
       e.preventDefault();
-      
       const lead = {
         nome: document.getElementById('cli-nome').value,
         whatsapp: document.getElementById('cli-whatsapp').value,
@@ -648,327 +607,135 @@ index-assinatura.html
         relato: document.getElementById('cli-relato').value || "Não informado",
         dataCriacao: new Date().toLocaleString('pt-BR')
       };
-
-      try {
-        if(db) {
-          await db.collection('leads').add(lead);
-        }
-      } catch(err) {
-        console.warn("Salvamento em nuvem indisponível:", err);
-      }
-
+      try { if(db) await db.collection('leads').add(lead); } catch(err) { console.warn(err); }
       alert(`Triagem concluída com sucesso! Redirecionando para o WhatsApp.`);
-      
-      const textoMensagem = `Novo Lead - Lead Beauty ✨\n\n` +
-                            `👤 Cliente: ${lead.nome}\n` +
-                            `📞 WhatsApp: ${lead.whatsapp}\n` +
-                            `📧 E-mail: ${lead.email}\n` +
-                            `📍 Local: ${lead.cidade} - ${lead.estado}\n` +
-                            `💆‍♀️ Procedimento: ${lead.tratamento}\n` +
-                            `📝 Relato: ${lead.relato}`;
-                            
+      const textoMensagem = `Novo Lead - Lead Beauty ✨\n\n👤 Cliente: ${lead.nome}\n📞 WhatsApp: ${lead.whatsapp}\n📧 E-mail: ${lead.email}\n📍 Local: ${lead.cidade} - ${lead.estado}\n💆‍♀️ Procedimento: ${lead.tratamento}\n📝 Relato: ${lead.relato}`;
       window.open(`https://wa.me/5513974014176?text=${encodeURIComponent(textoMensagem)}`, '_blank');
-      
       document.getElementById('form-cliente').reset();
       showView('home');
     }
 
-    // ==================== CADASTRO PROFISSIONAL ====================
     async function handleCadastroProfissional(e) {
       e.preventDefault();
-      
       const email = document.getElementById('prof-email').value;
       const senha = document.getElementById('prof-senha').value;
       const nome = document.getElementById('prof-nome').value;
       const cidade = document.getElementById('prof-cidade').value;
       const estado = document.getElementById('prof-estado').value.toUpperCase();
       const whatsapp = document.getElementById('prof-whatsapp').value;
-
-      if(!auth || !db) {
-        alert("O Banco de dados ainda está desconfigurado ou inacessível.");
-        return;
-      }
-
+      if(!auth || !db) { alert("Banco de dados indisponível."); return; }
       try {
         const cred = await auth.createUserWithEmailAndPassword(email, senha);
-        
-        await db.collection('profissionais').doc(cred.user.uid).set({
-          nome: nome,
-          email: email,
-          cidade: cidade,
-          estado: estado,
-          whatsapp: whatsapp,
-          plano: 'Degustação Inicial',
-          statusPagamento: 'free',
-          leadsConsumidos: 0,
-          dataCadastro: new Date().toISOString(),
-          proximoVencimento: null,
-          dataPagamento: null,
-          assinaturaAsaasId: null
-        });
-
+        await db.collection('profissionais').doc(cred.user.uid).set({ nome, email, cidade, estado, whatsapp, plano: 'Degustação Inicial', statusPagamento: 'free', leadsConsumidos: 0, dataCadastro: new Date().toISOString(), proximoVencimento: null, dataPagamento: null, assinaturaAsaasId: null });
         alert("Credenciamento efetuado com sucesso!");
         document.getElementById('form-prof-cadastro').reset();
         showView('home');
-      } catch(error) {
-        alert("Erro no cadastro: " + error.message);
-      }
+      } catch(error) { alert("Erro no cadastro: " + error.message); }
     }
 
-    // ==================== LOGIN PROFISSIONAL ====================
     async function handleLoginProfissional(e) {
       e.preventDefault();
       const email = document.getElementById('login-email').value;
       const senha = document.getElementById('login-senha').value;
-
-      if(!auth) {
-        alert("Sistema de validação inativo.");
-        return;
-      }
-
+      if(!auth) { alert("Sistema de validação inativo."); return; }
       try {
         const userCred = await auth.signInWithEmailAndPassword(email, senha);
         currentUser = userCred.user;
-        
         if(db) {
           const docSnap = await db.collection('profissionais').doc(currentUser.uid).get();
-          if(docSnap.exists()) {
-            currentUserData = docSnap.data();
-            currentUserData.uid = currentUser.uid;
-            loadDashboardProfissional();
-            showView('dashboard-profissional');
-          } else {
-            alert("Dados do profissional não encontrados.");
-          }
+          if(docSnap.exists()) { currentUserData = docSnap.data(); currentUserData.uid = currentUser.uid; loadDashboardProfissional(); showView('dashboard-profissional'); }
+          else alert("Dados do profissional não encontrados.");
         }
-      } catch(error) {
-        alert("Erro de autenticação: Verifique seus dados.");
-      }
+      } catch(error) { alert("Erro de autenticação: Verifique seus dados."); }
     }
 
-    // ==================== LOGOUT PROFISSIONAL ====================
     async function handleLogoutProfissional() {
-      try {
-        await auth.signOut();
-        currentUser = null;
-        currentUserData = null;
-        showView('home');
-      } catch(error) {
-        alert("Erro ao fazer logout: " + error.message);
-      }
+      try { await auth.signOut(); currentUser = null; currentUserData = null; showView('home'); }
+      catch(error) { alert("Erro ao fazer logout: " + error.message); }
     }
 
-    // ==================== CARREGAR DASHBOARD ====================
     function loadDashboardProfissional() {
       if(!currentUserData) return;
-
       const planName = currentUserData.plano === 'Profissional' ? 'Plano Profissional' : 'Plano de Validação';
       const planBadge = currentUserData.plano === 'Profissional' ? 'status-active' : 'status-free';
       const planBadgeText = currentUserData.plano === 'Profissional' ? 'Ativo' : 'Gratuito';
-
       document.getElementById('dash-plan-name').textContent = planName;
       document.getElementById('dash-plan-badge').textContent = planBadgeText;
       document.getElementById('dash-plan-badge').className = `status-badge ${planBadge}`;
-
       const maxLeads = currentUserData.plano === 'Profissional' ? 5 : 3;
       const leadsConsumed = currentUserData.leadsConsumidos || 0;
       document.getElementById('dash-leads-consumed').textContent = `${leadsConsumed}/${maxLeads}`;
-
-      if(currentUserData.proximoVencimento) {
-        const dataVencimento = new Date(currentUserData.proximoVencimento);
-        document.getElementById('dash-next-renewal').textContent = dataVencimento.toLocaleDateString('pt-BR');
-      }
-
+      if(currentUserData.proximoVencimento) document.getElementById('dash-next-renewal').textContent = new Date(currentUserData.proximoVencimento).toLocaleDateString('pt-BR');
       const leadsWarning = document.getElementById('leads-warning');
       const limitWarning = document.getElementById('limit-warning');
       const upgradeSection = document.getElementById('upgrade-section');
-
       leadsWarning.classList.add('hidden-section');
       limitWarning.classList.add('hidden-section');
       upgradeSection.classList.add('hidden-section');
-
-      if(currentUserData.plano === 'Degustação Inicial' && leadsConsumed >= 3) {
-        leadsWarning.classList.remove('hidden-section');
-        upgradeSection.classList.remove('hidden-section');
-      } else if(currentUserData.plano === 'Profissional' && leadsConsumed >= maxLeads) {
-        limitWarning.classList.remove('hidden-section');
-      } else if(currentUserData.plano === 'Degustação Inicial') {
-        upgradeSection.classList.remove('hidden-section');
-      }
+      if(currentUserData.plano === 'Degustação Inicial' && leadsConsumed >= 3) { leadsWarning.classList.remove('hidden-section'); upgradeSection.classList.remove('hidden-section'); }
+      else if(currentUserData.plano === 'Profissional' && leadsConsumed >= maxLeads) limitWarning.classList.remove('hidden-section');
+      else if(currentUserData.plano === 'Degustação Inicial') upgradeSection.classList.remove('hidden-section');
     }
 
-    // ==================== SISTEMA DE PAGAMENTO ASAAS ====================
     async function generatePaymentQRCode() {
-      if(!currentUserData) {
-        alert("Usuário não identificado.");
-        return;
-      }
-
+      if(!currentUserData) { alert("Usuário não identificado."); return; }
       try {
         let customerId = currentUserData.asaasCustomerId;
-        
         if(!customerId) {
-          const customerResponse = await fetch(`${ASAAS_BASE_URL}/customers`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'access_token': ASAAS_API_KEY
-            },
-            body: JSON.stringify({
-              name: currentUserData.nome,
-              email: currentUserData.email,
-              phone: currentUserData.whatsapp,
-              mobilePhone: currentUserData.whatsapp
-            })
-          });
-
-          if(!customerResponse.ok) {
-            throw new Error('Erro ao criar cliente no Asaas');
-          }
-
+          const customerResponse = await fetch(`${ASAAS_BASE_URL}/customers`, { method: 'POST', headers: { 'Content-Type': 'application/json', 'access_token': ASAAS_API_KEY }, body: JSON.stringify({ name: currentUserData.nome, email: currentUserData.email, phone: currentUserData.whatsapp, mobilePhone: currentUserData.whatsapp }) });
+          if(!customerResponse.ok) throw new Error('Erro ao criar cliente no Asaas');
           const customerData = await customerResponse.json();
           customerId = customerData.id;
-
-          await db.collection('profissionais').doc(currentUserData.uid).update({
-            asaasCustomerId: customerId
-          });
+          await db.collection('profissionais').doc(currentUserData.uid).update({ asaasCustomerId: customerId });
         }
-
-        const paymentResponse = await fetch(`${ASAAS_BASE_URL}/payments`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'access_token': ASAAS_API_KEY
-          },
-          body: JSON.stringify({
-            customer: customerId,
-            billingType: 'PIX',
-            value: 9.90,
-            dueDate: new Date().toISOString().split('T')[0],
-            description: 'Plano Profissional - Lead Beauty'
-          })
-        });
-
-        if(!paymentResponse.ok) {
-          throw new Error('Erro ao criar cobrança PIX');
-        }
-
+        const paymentResponse = await fetch(`${ASAAS_BASE_URL}/payments`, { method: 'POST', headers: { 'Content-Type': 'application/json', 'access_token': ASAAS_API_KEY }, body: JSON.stringify({ customer: customerId, billingType: 'PIX', value: 9.90, dueDate: new Date().toISOString().split('T')[0], description: 'Plano Profissional - Lead Beauty' }) });
+        if(!paymentResponse.ok) throw new Error('Erro ao criar cobrança PIX');
         const paymentData = await paymentResponse.json();
         const paymentId = paymentData.id;
-
-        const qrCodeResponse = await fetch(`${ASAAS_BASE_URL}/payments/${paymentId}/pixQrCode`, {
-          method: 'GET',
-          headers: {
-            'access_token': ASAAS_API_KEY
-          }
-        });
-
-        if(!qrCodeResponse.ok) {
-          throw new Error('Erro ao obter QR Code PIX');
-        }
-
+        const qrCodeResponse = await fetch(`${ASAAS_BASE_URL}/payments/${paymentId}/pixQrCode`, { method: 'GET', headers: { 'access_token': ASAAS_API_KEY } });
+        if(!qrCodeResponse.ok) throw new Error('Erro ao obter QR Code PIX');
         const qrCodeData = await qrCodeResponse.json();
-
         document.getElementById('qr-code-image').src = `data:image/png;base64,${qrCodeData.encodedImage}`;
         document.getElementById('pix-payload').textContent = qrCodeData.payload;
-
         currentUserData.paymentId = paymentId;
         currentUserData.subscriptionStarted = new Date().getTime();
-
         startPaymentPolling(paymentId);
-
         document.getElementById('payment-status').classList.remove('hidden-section');
-
-      } catch(error) {
-        console.error("Erro ao gerar QR Code:", error);
-        alert("Erro ao gerar QR Code PIX. Verifique sua chave de API do Asaas.");
-      }
+      } catch(error) { console.error("Erro ao gerar QR Code:", error); alert("Erro ao gerar QR Code PIX. Verifique sua chave de API do Asaas."); }
     }
 
-    // ==================== POLLING DE PAGAMENTO ====================
     function startPaymentPolling(paymentId) {
       const pollingInterval = setInterval(async () => {
         try {
-          const response = await fetch(`${ASAAS_BASE_URL}/payments/${paymentId}`, {
-            method: 'GET',
-            headers: {
-              'access_token': ASAAS_API_KEY
-            }
-          });
-
-          if(!response.ok) {
-            throw new Error('Erro ao verificar pagamento');
-          }
-
+          const response = await fetch(`${ASAAS_BASE_URL}/payments/${paymentId}`, { method: 'GET', headers: { 'access_token': ASAAS_API_KEY } });
+          if(!response.ok) throw new Error('Erro ao verificar pagamento');
           const paymentData = await response.json();
-
-          if(paymentData.status === 'RECEIVED' || paymentData.status === 'CONFIRMED') {
-            clearInterval(pollingInterval);
-            await activateProfessionalPlan();
-          }
-
-          if(currentUserData.subscriptionStarted && (new Date().getTime() - currentUserData.subscriptionStarted) > 15 * 60 * 1000) {
-            clearInterval(pollingInterval);
-            document.getElementById('payment-status').classList.add('hidden-section');
-          }
-
-        } catch(error) {
-          console.error("Erro no polling:", error);
-        }
+          if(paymentData.status === 'RECEIVED' || paymentData.status === 'CONFIRMED') { clearInterval(pollingInterval); await activateProfessionalPlan(); }
+          if(currentUserData.subscriptionStarted && (new Date().getTime() - currentUserData.subscriptionStarted) > 15 * 60 * 1000) { clearInterval(pollingInterval); document.getElementById('payment-status').classList.add('hidden-section'); }
+        } catch(error) { console.error("Erro no polling:", error); }
       }, 5000);
     }
 
-    // ==================== ATIVAR PLANO PROFISSIONAL ====================
     async function activateProfessionalPlan() {
       if(!currentUserData || !db) return;
-
       try {
-        const nextRenewalDate = new Date();
-        nextRenewalDate.setMonth(nextRenewalDate.getMonth() + 1);
-
-        await db.collection('profissionais').doc(currentUserData.uid).update({
-          plano: 'Profissional',
-          statusPagamento: 'active',
-          dataPagamento: new Date().toISOString(),
-          proximoVencimento: nextRenewalDate.toISOString(),
-          leadsConsumidos: 0
-        });
-
-        currentUserData.plano = 'Profissional';
-        currentUserData.statusPagamento = 'active';
-        currentUserData.leadsConsumidos = 0;
-
+        const nextRenewalDate = new Date(); nextRenewalDate.setMonth(nextRenewalDate.getMonth() + 1);
+        await db.collection('profissionais').doc(currentUserData.uid).update({ plano: 'Profissional', statusPagamento: 'active', dataPagamento: new Date().toISOString(), proximoVencimento: nextRenewalDate.toISOString(), leadsConsumidos: 0 });
+        currentUserData.plano = 'Profissional'; currentUserData.statusPagamento = 'active'; currentUserData.leadsConsumidos = 0;
         alert("Pagamento confirmado! Seu plano foi ativado com sucesso!");
         document.getElementById('payment-status').classList.add('hidden-section');
         loadDashboardProfissional();
         showView('dashboard-profissional');
-
-      } catch(error) {
-        console.error("Erro ao ativar plano:", error);
-        alert("Erro ao ativar plano. Tente novamente.");
-      }
+      } catch(error) { console.error("Erro ao ativar plano:", error); alert("Erro ao ativar plano. Tente novamente."); }
     }
 
-    // ==================== COPIAR CÓDIGO PIX ====================
     function copyPixCode() {
       const pixPayload = document.getElementById('pix-payload').textContent;
-      navigator.clipboard.writeText(pixPayload).then(() => {
-        alert("Código PIX copiado para a área de transferência!");
-      }).catch(err => {
-        console.error("Erro ao copiar:", err);
-        alert("Erro ao copiar o código PIX.");
-      });
+      navigator.clipboard.writeText(pixPayload).then(() => alert("Código PIX copiado para a área de transferência!")).catch(err => { console.error("Erro ao copiar:", err); alert("Erro ao copiar o código PIX."); });
     }
 
-    // ==================== INICIALIZAR PAYMENT PLAN VIEW ====================
     document.addEventListener('DOMContentLoaded', function() {
-      const observer = new MutationObserver(() => {
-        const paymentView = document.getElementById('view-payment-plan');
-        if(paymentView && !paymentView.classList.contains('hidden-section')) {
-          generatePaymentQRCode();
-        }
-      });
-
+      const observer = new MutationObserver(() => { const paymentView = document.getElementById('view-payment-plan'); if(paymentView && !paymentView.classList.contains('hidden-section')) generatePaymentQRCode(); });
       observer.observe(document.body, { attributes: true, subtree: true });
     });
   </script>
