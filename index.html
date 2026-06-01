@@ -153,17 +153,22 @@
       flex-wrap: wrap;
       gap: 0.75rem;
       margin-top: 0.5rem;
+      max-height: 200px;
+      overflow-y: auto;
+      padding: 0.5rem;
+      border: 1px solid #E2D9D0;
+      border-radius: 1rem;
+      background-color: #FBF9F6;
     }
     .checkbox-item {
       display: flex;
       align-items: center;
       gap: 0.5rem;
       font-size: 0.7rem;
-      background-color: #FBF9F6;
+      background-color: white;
       padding: 0.4rem 0.8rem;
       border-radius: 2rem;
       border: 1px solid #E2D9D0;
-      transition: all 0.2s;
     }
     .checkbox-item input {
       width: 0.9rem;
@@ -446,7 +451,7 @@
             </div>
           </div>
           
-          <!-- PROCEDIMENTO DESEJADO COM LISTA COMPLETA -->
+          <!-- PROCEDIMENTO DESEJADO COM TODAS AS 38 ESPECIALIDADES -->
           <div>
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Procedimento Desejado</label>
             <select id="cli-tratamento" class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
@@ -585,7 +590,7 @@
             </div>
           </div>
           
-          <!-- ESPECIALIDADES COM LISTA COMPLETA -->
+          <!-- ESPECIALIDADES COM TODAS AS 38 OPÇÕES -->
           <div>
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Especialidades *</label>
             <div class="checkbox-group" id="especialidades-group">
@@ -911,6 +916,19 @@
       "Ubatuba", "Caraguatatuba", "São Sebastião", "Ilhabela", "Iguape", "Ilha Comprida", "Cananéia"
     ];
     
+    // Lista completa de especialidades para o filtro
+    const todasEspecialidadesLista = [
+      "Camuflagem de Estrias", "Camuflagem de Cicatrizes", "Microagulhamento", "Limpeza de Pele",
+      "Estética Facial", "Estética Corporal", "Harmonização Facial", "Harmonização Corporal",
+      "Micropigmentação", "Design de Sobrancelhas", "Brow Designer", "Lash Designer",
+      "Extensão de Cílios", "Drenagem Linfática", "Massoterapia", "Depilação", "Depilação a Laser",
+      "Peeling Químico", "Peeling de Diamante", "Revitalização Facial", "Tratamento de Olheiras",
+      "Skinbooster", "Bioestimuladores", "Jato de Plasma", "Ozonioterapia", "Criolipólise",
+      "Radiofrequência", "Ultrassom Estético", "Tricologia", "Terapia Capilar", "Estética Íntima",
+      "Maquiagem Profissional", "Bronzeamento", "Terapias Holísticas", "Acupuntura Estética",
+      "Podologia", "Spa e Bem-Estar", "Outros"
+    ];
+    
     function carregarProfissionaisDoStorage() {
       const saved = localStorage.getItem('lead_beauty_profissionais');
       if (saved) {
@@ -936,6 +954,7 @@
       const especialidadeSelect = document.getElementById('filtro-especialidade');
       if (!cidadeSelect || !especialidadeSelect) return;
       
+      // Popular cidades
       while (cidadeSelect.options.length > 1) cidadeSelect.remove(1);
       todasCidades.sort().forEach(cidade => {
         const option = document.createElement('option');
@@ -944,15 +963,9 @@
         cidadeSelect.appendChild(option);
       });
       
-      const todasEspecialidades = [];
-      profissionaisDatabase.forEach(p => {
-        p.especialidades.forEach(esp => {
-          if (!todasEspecialidades.includes(esp)) todasEspecialidades.push(esp);
-        });
-      });
-      
+      // Popular especialidades com a lista completa
       while (especialidadeSelect.options.length > 1) especialidadeSelect.remove(1);
-      todasEspecialidades.sort().forEach(esp => {
+      todasEspecialidadesLista.sort().forEach(esp => {
         const option = document.createElement('option');
         option.value = esp;
         option.textContent = esp;
@@ -1303,6 +1316,7 @@
     document.addEventListener('DOMContentLoaded', function() {
       console.log("Lead Beauty - Plataforma de Curadoria em Estética");
       console.log("3 leads gratuitos + 3 leads pagos = 6 leads totais");
+      console.log(`Total de especialidades disponíveis: ${todasEspecialidadesLista.length}`);
       initCidadeDinamico();
       carregarProfissionaisDoStorage();
       popularFiltros();
