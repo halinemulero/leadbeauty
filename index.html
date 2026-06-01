@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lead Beauty | Conexão Estética por Haline Mulero</title>
+  <title>Lead Beauty | Curadoria em Estética por Haline Mulero</title>
   
-  <meta name="description" content="A plataforma líder em captação de leads e conexão entre clientes e especialistas em estética avançada. Criado e idealizado por Haline Mulero.">
+  <meta name="description" content="Plataforma de curadoria que conecta clientes aos melhores profissionais de estética da sua região. Solicite atendimento e nossa equipe indica o especialista ideal.">
   
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -200,7 +200,7 @@
       </div>
       <div class="flex items-center gap-5">
         <button onclick="showView('cadastro-cliente')" class="text-xs font-bold text-softBlack hover:text-premiumRose transition">Solicitar Atendimento</button>
-        <button onclick="showView('busca-profissionais')" class="text-xs font-bold text-softBlack hover:text-premiumRose transition">Ver Profissionais</button>
+        <button onclick="showView('busca-profissionais')" class="text-xs font-bold text-softBlack hover:text-premiumRose transition">Conhecer Profissionais</button>
         <button onclick="showView('login-profissional')" class="bg-softBlack text-white text-xs px-5 py-2.5 rounded-xl font-semibold transition hover:bg-neutral-800">Área do Profissional</button>
       </div>
     </div>
@@ -214,25 +214,26 @@
       <header class="text-center pt-20 pb-14 px-4 max-w-5xl mx-auto">
         <div class="inline-flex items-center gap-2 bg-white border border-cardBorder px-4 py-1.5 rounded-full mb-6 shadow-sm">
           <span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span class="text-[11px] font-bold uppercase tracking-wider text-softGray">Conexão segura entre clientes e profissionais de estética</span>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-softGray">Plataforma de Curadoria em Estética</span>
         </div>
         
+        <!-- ALTERADO: Nova headline mais clara -->
         <h1 class="font-serif text-3xl md:text-5xl font-semibold leading-tight text-softBlack max-w-4xl mx-auto mb-6">
-          Conte o que você precisa e conectamos você ao melhor profissional da sua região.
+          Encontre o profissional de estética ideal na sua região com rapidez, segurança e confiança.
         </h1>
         
+        <!-- ALTERADO: Nova subheadline explicando o fluxo -->
         <p class="text-sm md:text-base text-softGray max-w-3xl mx-auto mb-10 leading-relaxed">
-          A Lead Beauty conecta pessoas que buscam cuidados estéticos aos melhores profissionais da sua região. 
-          Você solicita o atendimento, analisamos sua necessidade e indicamos o profissional ideal. 
-          Para clientes, o uso da plataforma é totalmente gratuito.
+          Conte sua necessidade e nós conectamos você ao especialista mais adequado para seu atendimento.<br>
+          <span class="text-roseGold text-xs font-semibold mt-2 inline-block">✓ Curadoria especializada • ✓ Indicação personalizada • ✓ Sem compromisso</span>
         </p>
         
         <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-xl mx-auto">
           <button onclick="showView('cadastro-cliente')" class="w-full bg-premiumRose text-white py-4 rounded-xl text-xs font-bold tracking-wider uppercase transition hover:bg-premiumRoseHover shadow-md">
-            <i class="fa-solid fa-calendar-check mr-2"></i> Solicitar Atendimento
+            <i class="fa-solid fa-calendar-check mr-2"></i> Solicitar Atendimento Agora
           </button>
           <button onclick="showView('busca-profissionais')" class="w-full bg-white border border-softBlack text-softBlack py-4 rounded-xl text-xs font-bold tracking-wider uppercase transition hover:bg-neutral-50 shadow-sm">
-            <i class="fa-solid fa-magnifying-glass mr-2"></i> Ver Profissionais
+            <i class="fa-solid fa-magnifying-glass mr-2"></i> Conhecer Profissionais
           </button>
           <button onclick="showView('cadastro-profissional-view')" class="w-full bg-white border border-softBlack text-softBlack py-4 rounded-xl text-xs font-bold tracking-wider uppercase transition hover:bg-neutral-50 shadow-sm">
             <i class="fa-solid fa-user-doctor mr-2"></i> Sou Profissional
@@ -244,7 +245,7 @@
         <div class="bg-white/80 border border-cardBorder p-6 rounded-2xl text-center premium-shadow backdrop-blur-sm">
           <div class="text-3xl font-bold text-roseGold mb-1"><i class="fa-solid fa-gift"></i></div>
           <p class="text-xs font-bold uppercase tracking-wider text-softBlack mt-2">100% Gratuito para Clientes</p>
-          <p class="text-[11px] text-softGray mt-1">Solicite seu atendimento e nossa equipe conectará você ao profissional ideal.</p>
+          <p class="text-[11px] text-softGray mt-1">Solicite sua indicação e nossa curadoria conectará você ao profissional ideal, sem custo.</p>
         </div>
         <div class="bg-white/80 border border-cardBorder p-6 rounded-2xl text-center premium-shadow backdrop-blur-sm">
           <div class="text-3xl font-bold text-roseGold mb-1"><i class="fa-solid fa-shield-heart"></i></div>
@@ -258,12 +259,23 @@
         </div>
       </section>
 
+      <!-- ADICIONADO: Seção explicativa do fluxo -->
+      <section class="py-8 px-6 max-w-4xl mx-auto mb-8">
+        <div class="bg-premiumRose/5 rounded-2xl p-6 border border-premiumRose/20 text-center">
+          <p class="text-xs text-softGray font-medium mb-2">🔍 Como funciona nossa curadoria?</p>
+          <p class="text-xs text-softBlack max-w-2xl mx-auto">
+            Você solicita o atendimento → Nossa equipe analisa sua necessidade → Indicamos o profissional mais adequado da sua região.<br>
+            <span class="text-roseGold text-[10px] font-semibold">O contato direto com o profissional acontece apenas após nossa curadoria.</span>
+          </p>
+        </div>
+      </section>
+
       <section class="py-12 px-6 max-w-5xl mx-auto border-t border-cardBorder mb-12 bg-white/90 rounded-3xl premium-shadow border mt-4 backdrop-blur-sm">
         <div class="text-center max-w-3xl mx-auto">
           <h2 class="text-[11px] font-bold uppercase tracking-widest text-roseGold mb-1">Para Profissionais</h2>
           <p class="font-serif text-3xl font-medium text-softBlack mb-4">Receba leads qualificados e validados</p>
           <p class="text-xs text-softGray mb-8 leading-relaxed">
-            Nossa plataforma conecta você a clientes reais da sua região. 
+            Nossa plataforma conecta você a clientes reais da sua região, com curadoria especializada. 
             Os 2 primeiros contatos são gratuitos para você testar e aprovar.
           </p>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto text-left">
@@ -271,7 +283,7 @@
               <div>
                 <h4 class="font-bold text-sm text-softBlack uppercase tracking-wide">Plano de Validação</h4>
                 <div class="text-2xl font-serif font-bold text-roseGold my-2">Grátis</div>
-                <p class="text-xs text-softGray font-medium leading-relaxed">• Receba seus primeiros 2 leads qualificados gratuitamente.<br>• Teste nosso sistema sem compromisso.</p>
+                <p class="text-xs text-softGray font-medium leading-relaxed">• Receba seus primeiros 2 leads qualificados gratuitamente.<br>• Teste nosso sistema de curadoria sem compromisso.</p>
               </div>
             </div>
             <div class="border-2 border-roseGold p-6 rounded-2xl bg-white relative flex flex-col justify-between">
@@ -299,8 +311,8 @@
         <button onclick="showView('home')" class="absolute top-6 left-6 text-xs text-softGray hover:text-softBlack flex items-center gap-1 font-semibold">
           <i class="fa-solid fa-arrow-left"></i> Voltar para Início
         </button>
-        <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Conheça Nossos Profissionais</h2>
-        <p class="text-center text-xs text-softGray mb-8">Filtre por cidade, especialidade ou tipo de atendimento</p>
+        <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Conheça Nossos Profissionais Parceiros</h2>
+        <p class="text-center text-xs text-softGray mb-8">Filtre por cidade, especialidade ou tipo de atendimento. Ao escolher um profissional, você solicitará uma indicação para nossa curadoria.</p>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
           <div>
@@ -336,19 +348,20 @@
           <div class="text-center text-softGray py-8">
             <i class="fa-solid fa-search text-4xl mb-2 opacity-50"></i>
             <p>Use os filtros acima para conhecer nossos profissionais parceiros</p>
+            <p class="text-xs mt-2 text-roseGold">Ao escolher um profissional, solicitaremos sua indicação através da nossa curadoria.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- VIEW: CADASTRO CLIENTE -->
+    <!-- VIEW: CADASTRO CLIENTE (Solicitação de Atendimento) -->
     <section id="view-cadastro-cliente" class="view-section hidden-section py-12 px-4 max-w-xl mx-auto">
       <div class="bg-white/95 p-8 rounded-3xl border border-cardBorder premium-shadow relative backdrop-blur-sm">
         <button onclick="showView('home')" class="absolute top-6 left-6 text-xs text-softGray hover:text-softBlack flex items-center gap-1 font-semibold">
           <i class="fa-solid fa-arrow-left"></i> Voltar para Início
         </button>
-        <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Solicitar Atendimento</h2>
-        <p class="text-center text-xs text-softGray mb-6">Conte o que você precisa e nossa equipe conectará você ao melhor profissional da sua região.</p>
+        <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Solicitar Indicação de Profissional</h2>
+        <p class="text-center text-xs text-softGray mb-6">Conte o que você precisa. Nossa equipe de curadoria analisará seu caso e indicará o profissional mais adequado da sua região.</p>
         
         <form id="form-cliente" class="space-y-4" onsubmit="handleCadastroCliente(event)">
           <div>
@@ -430,9 +443,10 @@
             <textarea id="cli-relato" rows="3" placeholder="Conte mais sobre o que você precisa..." class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition resize-none"></textarea>
           </div>
           <button type="submit" id="submit-lead-btn" class="w-full bg-softBlack text-white py-4 rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-neutral-800 transition shadow-md">
-            <i class="fa-solid fa-paper-plane mr-2"></i> Solicitar Atendimento
+            <i class="fa-solid fa-paper-plane mr-2"></i> Solicitar Indicação
           </button>
         </form>
+        <p class="text-center text-[9px] text-softGray mt-4">Após o envio, nossa equipe analisará sua solicitação e entrará em contato com a indicação do profissional ideal.</p>
       </div>
     </section>
 
@@ -443,7 +457,7 @@
           <i class="fa-solid fa-arrow-left"></i> Voltar
         </button>
         <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Cadastro Profissional</h2>
-        <p class="text-center text-xs text-softGray mb-6">Cadastre-se para receber leads qualificados de clientes da sua região.</p>
+        <p class="text-center text-xs text-softGray mb-6">Cadastre-se para receber leads qualificados de clientes da sua região, através da nossa curadoria especializada.</p>
         
         <form id="form-prof-cadastro" class="space-y-4" onsubmit="handleCadastroProfissional(event)">
           <div>
@@ -548,7 +562,7 @@
         </button>
         
         <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Dashboard do Profissional</h2>
-        <p class="text-center text-xs text-softGray mb-8">Gerencie seus leads e seu plano de assinatura.</p>
+        <p class="text-center text-xs text-softGray mb-8">Gerencie seus leads recebidos através da nossa curadoria.</p>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div class="bg-nudeBg/50 p-6 rounded-2xl border border-cardBorder">
@@ -573,7 +587,7 @@
             <i class="fa-solid fa-triangle-exclamation text-yellow-600 text-2xl mt-1"></i>
             <div>
               <h3 class="font-bold text-softBlack mb-2">Você utilizou seus 2 leads gratuitos!</h3>
-              <p class="text-sm text-softGray mb-4">Para continuar recebendo clientes qualificados, ative o Plano Profissional.</p>
+              <p class="text-sm text-softGray mb-4">Para continuar recebendo clientes qualificados através da nossa curadoria, ative o Plano Profissional.</p>
               <button onclick="showView('payment-plan')" class="bg-roseGold text-white px-6 py-2 rounded-lg font-semibold text-sm hover:bg-premiumRoseHover transition">
                 <i class="fa-solid fa-crown mr-2"></i> ATIVAR PLANO PROFISSIONAL
               </button>
@@ -616,7 +630,7 @@
           <i class="fa-solid fa-arrow-left"></i> Voltar
         </button>
         <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Ativar Plano Profissional</h2>
-        <p class="text-center text-xs text-softGray mb-8">Realize o pagamento via PIX para ativar seu plano profissional e começar a receber leads qualificados.</p>
+        <p class="text-center text-xs text-softGray mb-8">Realize o pagamento via PIX para ativar seu plano profissional e começar a receber leads qualificados através da nossa curadoria.</p>
         <div id="qr-code-section" class="qr-code-container mb-8">
           <div class="text-center mb-4">
             <p class="text-sm font-bold text-softBlack mb-2">Escaneie o QR Code com seu banco</p>
@@ -661,9 +675,9 @@
       <div class="p-4 bg-nudeBg" style="max-height: 500px; overflow-y: auto;">
         <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm mb-4 max-w-[90%] border border-cardBorder">
           <p class="text-sm font-semibold text-softBlack">Olá, seja bem-vindo(a) à Lead Beauty.</p>
-          <p class="text-xs text-softGray mt-1">Sou a assistente virtual e posso te ajudar com informações sobre tratamentos e agendamentos.</p>
+          <p class="text-xs text-softGray mt-1">Somos uma plataforma de curadoria que conecta clientes aos melhores profissionais de estética da região.</p>
         </div>
-        <a href="https://wa.me/5513974014176?text=Olá!%20Quero%20solicitar%20um%20atendimento%20na%20Lead%20Beauty" target="_blank" class="block w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300 text-center mb-3 shadow-md"><i class="fa-brands fa-whatsapp mr-2 text-lg"></i> Falar com atendimento</a>
+        <a href="https://wa.me/5513974014176?text=Olá!%20Quero%20solicitar%20uma%20indicação%20de%20profissional%20na%20Lead%20Beauty" target="_blank" class="block w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300 text-center mb-3 shadow-md"><i class="fa-brands fa-whatsapp mr-2 text-lg"></i> Falar com atendimento</a>
         <button onclick="toggleTratamentos()" class="block w-full bg-roseGold hover:bg-premiumRoseHover text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300 text-center shadow-md"><i class="fa-regular fa-calendar-check mr-2"></i> Ver tratamentos disponíveis</button>
         <div id="tratamentosList" class="hidden mt-3 bg-white rounded-xl border border-cardBorder p-3 space-y-2">
           <p class="text-[10px] font-bold text-roseGold uppercase tracking-wider mb-2">Tratamentos disponíveis</p>
@@ -677,7 +691,7 @@
             <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-roseGold text-xs"></i> Revitalização da pele</li>
           </ul>
         </div>
-        <div class="text-center mt-4 pt-3 border-t border-cardBorder"><p class="text-[9px] text-softGray">Lead Beauty | Conexão Estética</p></div>
+        <div class="text-center mt-4 pt-3 border-t border-cardBorder"><p class="text-[9px] text-softGray">Lead Beauty | Curadoria em Estética</p></div>
       </div>
     </div>
   </div>
@@ -685,7 +699,8 @@
   <footer class="border-t border-cardBorder bg-white py-12 px-6 text-center mt-16">
     <div class="flex justify-center mb-4"><img src="logo.png" alt="Logo" class="h-20 w-20 object-contain"></div>
     <p class="font-serif text-xl font-bold text-softBlack tracking-tight">Lead Beauty</p>
-    <p class="text-xs text-roseGold tracking-widest uppercase mb-4 font-extrabold mt-1">Idealizado, Projetado e Desenvolvido por Haline Mulero</p>
+    <p class="text-xs text-roseGold tracking-widest uppercase mb-4 font-extrabold mt-1">Plataforma de Curadoria em Estética</p>
+    <p class="text-[9px] text-softGray">Idealizado, Projetado e Desenvolvido por Haline Mulero</p>
   </footer>
 
   <script>
@@ -804,7 +819,7 @@
       const container = document.getElementById('resultados-busca');
       if (!container) return;
       if (profissionais.length === 0) {
-        container.innerHTML = `<div class="text-center text-softGray py-8"><i class="fa-solid fa-face-frown text-4xl mb-2 opacity-50"></i><p>Nenhum profissional encontrado com os filtros selecionados.</p><p class="text-xs mt-2">Faça uma solicitação de atendimento e nossa equipe conectará você ao profissional ideal.</p></div>`;
+        container.innerHTML = `<div class="text-center text-softGray py-8"><i class="fa-solid fa-face-frown text-4xl mb-2 opacity-50"></i><p>Nenhum profissional encontrado com os filtros selecionados.</p><p class="text-xs mt-2">Solicite uma indicação e nossa curadoria conectará você ao profissional ideal.</p></div>`;
         return;
       }
       container.innerHTML = `
@@ -824,7 +839,7 @@
                 </div>
                 <div>
                   <button onclick="solicitarAtendimentoParaProfissional('${prof.nome}', '${prof.cidade}')" class="bg-roseGold hover:bg-premiumRoseHover text-white font-semibold py-2.5 px-5 rounded-xl text-sm transition shadow-md inline-flex items-center gap-2">
-                    <i class="fa-solid fa-calendar-check"></i> Solicitar Atendimento
+                    <i class="fa-solid fa-calendar-check"></i> Solicitar Indicação
                   </button>
                 </div>
               </div>
@@ -845,7 +860,7 @@
         }
       }
       showView('cadastro-cliente');
-      showMessage(`Você está solicitando atendimento para ${nomeProfissional}. Preencha seus dados e nossa equipe entrará em contato.`, "success");
+      showMessage(`Você está solicitando indicação para ${nomeProfissional}. Preencha seus dados e nossa equipe de curadoria entrará em contato.`, "success");
     }
     
     // ==================== FUNÇÕES DO FORMULÁRIO ====================
@@ -867,9 +882,9 @@
         const existingLeads = localStorage.getItem(LEADS_STORAGE_KEY);
         let leads = [];
         if (existingLeads) leads = JSON.parse(existingLeads);
-        leads.push({ ...lead, id: Date.now(), timestamp: new Date().toISOString(), status: 'pendente' });
+        leads.push({ ...lead, id: Date.now(), timestamp: new Date().toISOString(), status: 'aguardando_curadoria' });
         localStorage.setItem(LEADS_STORAGE_KEY, JSON.stringify(leads));
-        console.log("💾 Lead salvo no sistema:", lead);
+        console.log("💾 Solicitação de indicação salva:", lead);
         return true;
       } catch (error) { console.error("❌ Erro:", error); return false; }
     }
@@ -888,7 +903,7 @@
         profissionais.push({ ...profissional, especialidades, estrutura, id: Date.now(), timestamp: new Date().toISOString(), plano: 'Degustação Inicial', statusPagamento: 'free', leadsConsumidos: 0 });
         localStorage.setItem(PROFISSIONAIS_KEY, JSON.stringify(profissionais));
         profissionaisDatabase.push({ id: profissionaisDatabase.length + 1, nome: profissional.nome, cidade: profissional.cidade, estado: profissional.estado, tipoAtendimento: profissional.tipoAtendimento, especialidades: especialidades, estrutura: estrutura });
-        console.log("💾 Profissional salvo:", { ...profissional, especialidades, estrutura });
+        console.log("💾 Profissional salvo na base de curadoria:", { ...profissional, especialidades, estrutura });
         return true;
       } catch (error) { console.error("❌ Erro:", error); return false; }
     }
@@ -902,18 +917,18 @@
     }
     
     function sendLeadToAdminWhatsApp(lead) {
-      const mensagem = `*NOVO LEAD - AGUARDANDO DISTRIBUIÇÃO*%0a%0a` +
+      const mensagem = `*NOVA SOLICITAÇÃO DE INDICAÇÃO - LEAD BEAUTY*%0a%0a` +
         `*👤 Cliente:* ${lead.nome}%0a` +
         `*📧 E-mail:* ${lead.email}%0a` +
         `*📞 WhatsApp:* ${lead.whatsapp}%0a` +
         `*📍 Cidade/UF:* ${lead.cidade} - ${lead.estado}%0a` +
         `*💆‍♀️ Procedimento:* ${lead.tratamento}%0a` +
         `*📝 Detalhes:* ${lead.relato || 'Não informado'}%0a%0a` +
-        `*🔍 AÇÃO NECESSÁRIA:*%0a` +
-        `Conectar este cliente com o melhor profissional da região.`;
+        `*🔍 AÇÃO DE CURADORIA:*%0a` +
+        `Analisar perfil e indicar o melhor profissional da região.`;
       
       window.open(`https://wa.me/5513974014176?text=${mensagem}`, '_blank');
-      console.log("📤 Lead enviado para análise da administradora");
+      console.log("📤 Solicitação enviada para curadoria");
     }
     
     async function handleCadastroCliente(e) {
@@ -953,7 +968,7 @@
       const saved = saveLeadToLocalStorage(lead);
       
       if (saved) {
-        showMessage("Solicitação enviada com sucesso! Nossa equipe entrará em contato em breve.", "success");
+        showMessage("Solicitação enviada com sucesso! Nossa equipe de curadoria analisará seu caso e entrará em contato em breve.", "success");
         sendLeadToAdminWhatsApp(lead);
         document.getElementById('form-cliente').reset();
         const outraCidadeContainer = document.getElementById('outra-cidade-container');
@@ -988,7 +1003,7 @@
       const existing = findProfissionalByEmail(profissional.email);
       if (existing) { showMessage("Este e-mail já está cadastrado.", "error"); return; }
       const saved = saveProfissionalToLocalStorage(profissional);
-      if (saved) { showMessage("Cadastro realizado com sucesso! Agora você pode acessar sua área do profissional.", "success"); document.getElementById('form-prof-cadastro').reset(); showView('home'); } 
+      if (saved) { showMessage("Cadastro realizado com sucesso! Agora você pode acessar sua área do profissional e receber leads qualificados.", "success"); document.getElementById('form-prof-cadastro').reset(); showView('home'); } 
       else { showMessage("Erro ao salvar. Tente novamente.", "error"); }
     }
     
@@ -1007,7 +1022,6 @@
     
     async function handleLogoutProfissional() { currentUserData = null; showView('home'); showMessage("Logout realizado!", "success"); }
     
-    // ALTERADO: Limites atualizados para 2 leads grátis / 3 leads pagos
     function loadDashboardProfissional() {
       if(!currentUserData) return;
       const planName = currentUserData.plano === 'Profissional' ? 'Plano Profissional' : 'Plano de Validação';
@@ -1050,8 +1064,8 @@
     function copyPixCode() { showMessage("Sistema de pagamento em desenvolvimento.", "error"); }
     
     document.addEventListener('DOMContentLoaded', function() {
-      console.log("🚀 Lead Beauty - Sistema de Curadoria Ativado");
-      console.log("📌 Clientes solicitam atendimento → Admin distribui → Profissional recebe lead validado");
+      console.log("🚀 Lead Beauty - Plataforma de Curadoria em Estética");
+      console.log("📌 Clientes solicitam indicação → Curadoria analisa → Profissional recebe lead validado");
       console.log("📌 Plano Gratuito: 2 leads | Plano Profissional: 3 leads por mês");
       initCidadeDinamico();
       carregarProfissionaisDoStorage();
