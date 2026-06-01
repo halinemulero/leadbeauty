@@ -1,186 +1,108 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lead Beauty | Conexão Estética por Haline Mulero</title>
-  <meta name="description" content="A plataforma líder em captação de leads e conexão entre clientes e especialistas em estética.">
+  <title>Lead Beauty | Conexão Estética</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background-color: #fefaf7; color: #2d2a2a; }
-    .font-serif-display { font-family: 'Playfair Display', serif; }
-    .btn-primary { transition: all 0.3s ease; box-shadow: 0 8px 18px rgba(201, 146, 93, 0.2); }
-    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 28px rgba(201, 146, 93, 0.3); }
-    .card-hover { transition: transform 0.25s ease, box-shadow 0.3s; }
-    .card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1); }
-    .form-focus:focus { border-color: #e6b17e; outline: none; box-shadow: 0 0 0 3px rgba(230, 177, 126, 0.2); }
+    body { font-family: 'Arial', sans-serif; }
+    .btn { transition: all 0.3s ease; }
+    .btn:hover { transform: scale(1.02); }
   </style>
 </head>
-<body>
+<body class="bg-amber-50">
 
-  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-md shadow-sm border-b border-amber-100/50">
-    <div class="container mx-auto px-5 lg:px-8 py-4 flex justify-between items-center">
-      <div class="flex items-center gap-2">
-        <i class="fas fa-spa text-3xl text-amber-600"></i>
-        <span class="font-serif-display text-2xl font-semibold text-stone-800">Lead<span class="text-amber-600">Beauty</span></span>
-      </div>
-      <nav class="hidden md:flex space-x-8 text-stone-600 font-medium">
-        <a href="#home" class="hover:text-amber-600">Início</a>
-        <a href="#servicos" class="hover:text-amber-600">Serviços</a>
-        <a href="#beneficios" class="hover:text-amber-600">Benefícios</a>
-        <a href="#depoimentos" class="hover:text-amber-600">Depoimentos</a>
-        <a href="#contato" class="hover:text-amber-600">Contato</a>
-      </nav>
-      <button id="mobileMenuBtn" class="md:hidden text-2xl text-stone-700"><i class="fas fa-bars"></i></button>
-    </div>
-    <div id="mobileMenu" class="hidden md:hidden bg-white border-t px-5 py-4 flex flex-col space-y-3">
-      <a href="#home" class="hover:text-amber-600">Início</a>
-      <a href="#servicos" class="hover:text-amber-600">Serviços</a>
-      <a href="#beneficios" class="hover:text-amber-600">Benefícios</a>
-      <a href="#depoimentos" class="hover:text-amber-600">Depoimentos</a>
-      <a href="#contato" class="hover:text-amber-600">Contato</a>
-      <button class="bg-amber-600 text-white py-2 rounded-full w-full">Quero me conectar</button>
+  <!-- Header -->
+  <header class="bg-white shadow-md fixed w-full top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-amber-600">✨ Lead Beauty</h1>
+      <a href="#contato" class="bg-amber-600 text-white px-5 py-2 rounded-full hover:bg-amber-700 btn">Conectar</a>
     </div>
   </header>
 
-  <main>
-    <section id="home" class="bg-gradient-to-br from-amber-50 to-white pt-10 pb-16 md:pt-20 md:pb-24">
-      <div class="container mx-auto px-5 lg:px-8 flex flex-col lg:flex-row items-center gap-12">
-        <div class="flex-1 text-center lg:text-left">
-          <div class="inline-flex items-center gap-2 bg-amber-100/70 rounded-full px-4 py-1.5 text-amber-800 text-sm font-medium mb-6">
-            <i class="fas fa-star-of-life text-amber-500"></i>
-            <span>Plataforma líder em captação de leads</span>
-          </div>
-          <h1 class="font-serif-display text-4xl md:text-5xl lg:text-6xl font-bold text-stone-800">
-            Conexão que <span class="text-amber-600">transforma</span> sua beleza
-          </h1>
-          <p class="text-stone-600 text-lg md:text-xl mt-6 max-w-xl mx-auto lg:mx-0">
-            Encontre especialistas em estética premium, agende em minutos e potencialize seus resultados.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 mt-8 justify-center lg:justify-start">
-            <button class="btn-primary bg-amber-600 hover:bg-amber-700 text-white font-semibold px-8 py-3 rounded-full text-lg flex items-center justify-center gap-2"><i class="fas fa-calendar-check"></i> Quero agendar</button>
-            <button class="border border-amber-300 bg-white/80 text-stone-700 hover:bg-amber-50 px-8 py-3 rounded-full font-medium flex items-center justify-center gap-2"><i class="fas fa-play-circle"></i> Ver cases</button>
-          </div>
-        </div>
-        <div class="flex-1 flex justify-center">
-          <img src="https://images.pexels.com/photos/3757946/pexels-photo-3757946.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Estética" class="rounded-3xl shadow-2xl object-cover w-80 md:w-96 border-4 border-white">
-        </div>
-      </div>
-    </section>
-
-    <section id="servicos" class="py-20 bg-white">
-      <div class="container mx-auto px-5 lg:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-14">
-          <span class="text-amber-600 font-semibold uppercase text-sm">O que oferecemos</span>
-          <h2 class="font-serif-display text-3xl md:text-4xl font-bold mt-2">Serviços exclusivos</h2>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="bg-amber-50/40 p-6 rounded-2xl border border-amber-100 card-hover text-center">
-            <div class="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-hand-sparkles text-amber-700 text-2xl"></i></div>
-            <h3 class="text-xl font-bold">Lifting Facial</h3>
-            <p class="text-stone-500 text-sm mt-2">Procedimentos não invasivos</p>
-          </div>
-          <div class="bg-amber-50/40 p-6 rounded-2xl border border-amber-100 card-hover text-center">
-            <div class="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-heartbeat text-amber-700 text-2xl"></i></div>
-            <h3 class="text-xl font-bold">Massoterapia</h3>
-            <p class="text-stone-500 text-sm mt-2">Relaxamento profundo</p>
-          </div>
-          <div class="bg-amber-50/40 p-6 rounded-2xl border border-amber-100 card-hover text-center">
-            <div class="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-palette text-amber-700 text-2xl"></i></div>
-            <h3 class="text-xl font-bold">Design & Makeup</h3>
-            <p class="text-stone-500 text-sm mt-2">Visagismo profissional</p>
-          </div>
-          <div class="bg-amber-50/40 p-6 rounded-2xl border border-amber-100 card-hover text-center">
-            <div class="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-cut text-amber-700 text-2xl"></i></div>
-            <h3 class="text-xl font-bold">Cabelos & Escova</h3>
-            <p class="text-stone-500 text-sm mt-2">Tratamentos capilares</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contato" class="py-20 bg-gradient-to-br from-amber-50 to-white">
-      <div class="container mx-auto px-5 lg:px-8 max-w-4xl">
-        <div class="bg-white rounded-3xl shadow-2xl p-6 md:p-10">
-          <div class="text-center mb-8">
-            <h2 class="font-serif-display text-3xl md:text-4xl font-bold">Cadastre-se agora</h2>
-            <p class="text-stone-500 mt-3">Preencha e nossa equipe entrará em contato</p>
-          </div>
-          <form id="leadForm" class="grid md:grid-cols-2 gap-5">
-            <div>
-              <label class="block text-sm font-medium text-stone-700 mb-1">Nome completo *</label>
-              <input type="text" id="name" class="w-full border border-stone-300 rounded-xl px-4 py-3 form-focus" required>
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-stone-700 mb-1">Telefone/WhatsApp *</label>
-              <input type="tel" id="phone" class="w-full border border-stone-300 rounded-xl px-4 py-3 form-focus" required>
-            </div>
-            <div class="md:col-span-2">
-              <label class="block text-sm font-medium text-stone-700 mb-1">E-mail *</label>
-              <input type="email" id="email" class="w-full border border-stone-300 rounded-xl px-4 py-3 form-focus" required>
-            </div>
-            <div class="md:col-span-2">
-              <button type="submit" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3.5 rounded-xl text-lg transition">Enviar cadastro</button>
-            </div>
-            <p class="text-xs text-center text-stone-400 col-span-2">Seus dados estão seguros. Não enviamos spam.</p>
-          </form>
-          <div id="formFeedback" class="mt-5 text-center hidden"></div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="bg-stone-900 text-stone-300 py-12">
-    <div class="container mx-auto px-5 lg:px-8 text-center">
-      <p>© 2025 Lead Beauty - Todos os direitos reservados</p>
+  <!-- Hero -->
+  <section class="pt-24 pb-12 text-center">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Conexão Estética por <span class="text-amber-600">Haline Mulero</span></h2>
+      <p class="text-xl text-gray-600 mb-8">Encontre os melhores profissionais de beleza perto de você</p>
+      <img src="https://images.pexels.com/photos/3757946/pexels-photo-3757946.jpeg?auto=compress&cs=tinysrgb&w=600" class="rounded-2xl shadow-xl mx-auto max-w-md" alt="Estética">
     </div>
+  </section>
+
+  <!-- Formulário de Cadastro -->
+  <section id="contato" class="py-12 bg-white">
+    <div class="container mx-auto px-4 max-w-lg">
+      <div class="bg-amber-50 rounded-2xl p-8 shadow-xl">
+        <h3 class="text-2xl font-bold text-center mb-6">📋 Cadastre-se agora</h3>
+        
+        <form id="cadastroForm">
+          <div class="mb-4">
+            <label class="block text-gray-700 mb-2">Nome completo *</label>
+            <input type="text" id="nome" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-amber-500" required>
+          </div>
+          
+          <div class="mb-4">
+            <label class="block text-gray-700 mb-2">WhatsApp *</label>
+            <input type="tel" id="whatsapp" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-amber-500" required>
+          </div>
+          
+          <div class="mb-4">
+            <label class="block text-gray-700 mb-2">E-mail *</label>
+            <input type="email" id="email" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-amber-500" required>
+          </div>
+          
+          <button type="submit" class="w-full bg-amber-600 text-white font-bold py-3 rounded-lg hover:bg-amber-700 btn text-lg">
+            📩 Enviar cadastro
+          </button>
+        </form>
+        
+        <div id="mensagem" class="mt-4 text-center hidden"></div>
+        <p class="text-xs text-gray-500 text-center mt-4">Seus dados estão seguros</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white text-center py-6">
+    <p>© 2025 Lead Beauty - Todos os direitos reservados</p>
+    <p class="text-sm mt-2">Conexão Estética por Haline Mulero</p>
   </footer>
 
   <script>
-    // Menu mobile
-    const mobileBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    if (mobileBtn) {
-      mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-    }
-
-    // Scroll suave
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-    });
-
-    // Formulário - sem Firebase, só mensagem de sucesso!
-    const form = document.getElementById('leadForm');
-    const feedback = document.getElementById('formFeedback');
+    // Formulário funcionando sem Firebase!
+    const form = document.getElementById('cadastroForm');
+    const mensagem = document.getElementById('mensagem');
     
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', function(e) {
       e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const email = document.getElementById('email').value.trim();
       
-      if (!name || !phone || !email) {
-        feedback.innerHTML = '<span class="text-red-600">⚠️ Preencha todos os campos!</span>';
-        feedback.classList.remove('hidden');
-        setTimeout(() => feedback.classList.add('hidden'), 3000);
+      const nome = document.getElementById('nome').value;
+      const whatsapp = document.getElementById('whatsapp').value;
+      const email = document.getElementById('email').value;
+      
+      if(!nome || !whatsapp || !email) {
+        mensagem.innerHTML = '<span class="text-red-600">⚠️ Preencha todos os campos!</span>';
+        mensagem.classList.remove('hidden');
+        setTimeout(() => mensagem.classList.add('hidden'), 3000);
         return;
       }
       
-      // Sucesso! (sem Firebase)
-      feedback.innerHTML = '<span class="text-green-700 bg-green-100 px-4 py-2 rounded-full">✅ Cadastro enviado! Entraremos em contato em até 2h.</span>';
-      feedback.classList.remove('hidden');
+      // Sucesso!
+      mensagem.innerHTML = '<span class="text-green-600 bg-green-100 px-4 py-2 rounded-full">✅ Cadastro enviado! Entraremos em contato em até 2 horas.</span>';
+      mensagem.classList.remove('hidden');
+      
+      // Limpar formulário
       form.reset();
-      setTimeout(() => feedback.classList.add('hidden'), 5000);
+      
+      // Esconder mensagem depois de 5 segundos
+      setTimeout(() => mensagem.classList.add('hidden'), 5000);
+      
+      console.log('Lead cadastrado:', {nome, whatsapp, email});
     });
   </script>
 </body>
 </html>
+      
+            
