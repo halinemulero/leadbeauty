@@ -320,7 +320,7 @@
           <i class="fa-solid fa-arrow-left"></i> Voltar para Início
         </button>
         <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Conheça Nossos Profissionais</h2>
-        <p class="text-center text-xs text-softGray mb-8">Filtre por cidade, especialidade, nome do profissional, nome da clínica ou tipo de atendimento.</p>
+        <p class="text-center text-xs text-softGray mb-8">Filtre por cidade, especialidade, nome do profissional ou tipo de atendimento.</p>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
           <div>
@@ -445,22 +445,52 @@
               <input type="text" id="cli-estado" maxlength="2" placeholder="SP" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
             </div>
           </div>
+          
+          <!-- PROCEDIMENTO DESEJADO COM LISTA COMPLETA -->
           <div>
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Procedimento Desejado</label>
             <select id="cli-tratamento" class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
-              <option>Estética facial</option>
-              <option>Estética corporal</option>
-              <option>Microagulhamento</option>
               <option>Camuflagem de Estrias</option>
               <option>Camuflagem de Cicatrizes</option>
-              <option>Tratamento de olheiras</option>
-              <option>Revitalização da pele</option>
-              <option>Limpeza de pele</option>
+              <option>Microagulhamento</option>
+              <option>Limpeza de Pele</option>
+              <option>Estética Facial</option>
+              <option>Estética Corporal</option>
               <option>Harmonização Facial</option>
               <option>Harmonização Corporal</option>
+              <option>Micropigmentação</option>
+              <option>Design de Sobrancelhas</option>
+              <option>Brow Designer</option>
+              <option>Lash Designer</option>
+              <option>Extensão de Cílios</option>
+              <option>Drenagem Linfática</option>
+              <option>Massoterapia</option>
+              <option>Depilação</option>
+              <option>Depilação a Laser</option>
+              <option>Peeling Químico</option>
+              <option>Peeling de Diamante</option>
+              <option>Revitalização Facial</option>
+              <option>Tratamento de Olheiras</option>
+              <option>Skinbooster</option>
+              <option>Bioestimuladores</option>
+              <option>Jato de Plasma</option>
+              <option>Ozonioterapia</option>
+              <option>Criolipólise</option>
+              <option>Radiofrequência</option>
+              <option>Ultrassom Estético</option>
+              <option>Tricologia</option>
+              <option>Terapia Capilar</option>
+              <option>Estética Íntima</option>
+              <option>Maquiagem Profissional</option>
+              <option>Bronzeamento</option>
+              <option>Terapias Holísticas</option>
+              <option>Acupuntura Estética</option>
+              <option>Podologia</option>
+              <option>Spa e Bem-Estar</option>
               <option>Outros</option>
             </select>
           </div>
+          
           <div>
            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Detalhes do que você busca</label>
             <textarea id="cli-relato" rows="3" placeholder="Conte mais sobre o que você precisa..." class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition resize-none"></textarea>
@@ -555,7 +585,7 @@
             </div>
           </div>
           
-          <!-- Especialidades -->
+          <!-- ESPECIALIDADES COM LISTA COMPLETA -->
           <div>
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Especialidades *</label>
             <div class="checkbox-group" id="especialidades-group">
@@ -1039,7 +1069,6 @@
         let profissionais = [];
         if (existing) profissionais = JSON.parse(existing);
         
-        // Coletar especialidades
         const especialidades = [];
         const espIds = [
           'esp-camuflagem-estrias', 'esp-camuflagem-cicatrizes', 'esp-micro', 'esp-limpeza', 'esp-facial', 'esp-corporal',
@@ -1052,20 +1081,12 @@
         ];
         espIds.forEach(id => { const cb = document.getElementById(id); if (cb && cb.checked) especialidades.push(cb.value); });
         
-        // Coletar estrutura de atendimento
         const estrutura = [];
-        const estrIds = [
-          'estrutura-clinica-propria', 'estrutura-sala-comercial', 'estrutura-home-studio', 'estrutura-espaco-compartilhado',
-          'estrutura-clinica-parceira', 'estrutura-domicilio', 'estrutura-outros'
-        ];
+        const estrIds = ['estrutura-clinica-propria', 'estrutura-sala-comercial', 'estrutura-home-studio', 'estrutura-espaco-compartilhado', 'estrutura-clinica-parceira', 'estrutura-domicilio', 'estrutura-outros'];
         estrIds.forEach(id => { const cb = document.getElementById(id); if (cb && cb.checked) estrutura.push(cb.value); });
         
-        // Coletar tipo de atendimento
         const tipoAtendimento = [];
-        const tipoIds = [
-          'atende-clinica', 'atende-domicilio', 'atende-sala-comercial', 'atende-home-studio', 'atende-espaco-compartilhado',
-          'atende-clinica-parceira', 'atende-coworking', 'atende-online', 'atende-hibrido', 'atende-outros'
-        ];
+        const tipoIds = ['atende-clinica', 'atende-domicilio', 'atende-sala-comercial', 'atende-home-studio', 'atende-espaco-compartilhado', 'atende-clinica-parceira', 'atende-coworking', 'atende-online', 'atende-hibrido', 'atende-outros'];
         tipoIds.forEach(id => { const cb = document.getElementById(id); if (cb && cb.checked) tipoAtendimento.push(cb.value); });
         
         profissionais.push({
