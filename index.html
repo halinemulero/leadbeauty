@@ -44,7 +44,6 @@
       background-color: #FBF9F6;
     }
 
-    /* ADICIONADO: Marca d'água */
     .watermark-bg {
         position: fixed;
         top: 50%;
@@ -164,6 +163,7 @@
       padding: 0.4rem 0.8rem;
       border-radius: 2rem;
       border: 1px solid #E2D9D0;
+      transition: all 0.2s;
     }
     .checkbox-item input {
       width: 0.9rem;
@@ -171,7 +171,6 @@
       accent-color: #C5A059;
     }
     
-    /* ADICIONADO: Selos de credibilidade */
     .credibility-badge {
       display: inline-flex;
       align-items: center;
@@ -216,7 +215,6 @@
           <span class="text-[11px] font-bold uppercase tracking-wider text-softGray">Plataforma de Curadoria em Estética</span>
         </div>
         
-        <!-- ADICIONADO: Selos de credibilidade -->
         <div class="flex flex-wrap justify-center gap-2 mb-6">
           <span class="credibility-badge"><i class="fa-solid fa-shield-heart text-roseGold text-xs"></i> Atendimento Seguro</span>
           <span class="credibility-badge"><i class="fa-solid fa-user-check text-roseGold text-xs"></i> Profissionais Cadastrados</span>
@@ -228,10 +226,13 @@
           Encontre profissionais de estética qualificados na sua região de forma rápida, segura e gratuita.
         </h1>
         
-        <p class="text-sm md:text-base text-softGray max-w-3xl mx-auto mb-10 leading-relaxed">
+        <p class="text-sm md:text-base text-softGray max-w-3xl mx-auto mb-6 leading-relaxed">
           Conte sua necessidade e a Lead Beauty conecta você ao especialista ideal para seu atendimento.<br>
-          Para clientes, o uso da plataforma é totalmente gratuito.<br>
-          Para profissionais, os 3 primeiros contatos recebidos são gratuitos, sem burocracia e sem mensalidade inicial.
+          O uso da plataforma é totalmente gratuito para clientes.
+        </p>
+        
+        <p class="text-sm md:text-base text-softGray max-w-3xl mx-auto mb-10 leading-relaxed bg-premiumRose/5 p-4 rounded-xl">
+          <span class="font-semibold text-softBlack">Para profissionais:</span> Cadastre-se gratuitamente e receba 3 leads sem custo para conhecer a plataforma. Após utilizar os leads gratuitos, você poderá adquirir mais 3 leads através do plano profissional e continuar recebendo novos clientes.
         </p>
         
         <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-xl mx-auto">
@@ -280,26 +281,25 @@
           <h2 class="text-[11px] font-bold uppercase tracking-widest text-roseGold mb-1">Para Profissionais</h2>
           <p class="font-serif text-3xl font-medium text-softBlack mb-4">Receba leads qualificados e validados</p>
           <p class="text-xs text-softGray mb-8 leading-relaxed">
-            Nossa plataforma conecta você a clientes reais da sua região, com curadoria especializada. 
-            Os 3 primeiros contatos são gratuitos para você testar e aprovar.
+            Cadastre-se gratuitamente e receba 3 leads sem custo para conhecer a plataforma. Após utilizar os leads gratuitos, você poderá adquirir mais 3 leads através do plano profissional e continuar recebendo novos clientes.
           </p>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto text-left">
             <div class="border border-cardBorder p-6 rounded-2xl bg-nudeBg/50 flex flex-col justify-between">
               <div>
-                <h4 class="font-bold text-sm text-softBlack uppercase tracking-wide">Plano de Validação</h4>
-                <div class="text-2xl font-serif font-bold text-roseGold my-2">Grátis</div>
-                <p class="text-xs text-softGray font-medium leading-relaxed">• Receba seus primeiros 3 leads qualificados gratuitamente.<br>• Teste nosso sistema de curadoria sem compromisso.</p>
+                <h4 class="font-bold text-sm text-softBlack uppercase tracking-wide">Leads Gratuitos</h4>
+                <div class="text-2xl font-serif font-bold text-roseGold my-2">3 leads</div>
+                <p class="text-xs text-softGray font-medium leading-relaxed">• Receba 3 leads gratuitos para conhecer a plataforma.<br>• Sem custo inicial.<br>• Teste nosso sistema de curadoria.</p>
               </div>
             </div>
             <div class="border-2 border-roseGold p-6 rounded-2xl bg-white relative flex flex-col justify-between">
-              <span class="absolute -top-3 right-4 bg-roseGold text-white text-[9px] font-bold uppercase px-3 py-1 rounded-full">Mais Escolhido</span>
+              <span class="absolute -top-3 right-4 bg-roseGold text-white text-[9px] font-bold uppercase px-3 py-1 rounded-full">Plano Profissional</span>
               <div>
-                <h4 class="font-bold text-sm text-softBlack uppercase tracking-wide">Plano Profissional</h4>
-                <div class="text-2xl font-serif font-bold text-softBlack my-2">R$ 9,90 <span class="text-xs text-softGray font-sans">/mês</span></div>
-                <p class="text-xs text-softGray font-medium mb-1.5">• Receba até 6 leads qualificados por mês.</p>
+                <h4 class="font-bold text-sm text-softBlack uppercase tracking-wide">Leads Adicionais</h4>
+                <div class="text-2xl font-serif font-bold text-softBlack my-2">+3 leads</div>
+                <p class="text-xs text-softGray font-medium mb-1.5">• Adquira mais 3 leads através do plano profissional.</p>
+                <p class="text-xs text-softGray font-medium mb-1.5">• Continue recebendo novos clientes.</p>
                 <p class="text-xs text-softGray font-medium mb-1.5">• Direcionamento inteligente por cidade e região.</p>
-                <p class="text-xs text-softGray font-medium mb-1.5">• Perfil profissional ativo na plataforma.</p>
-                <p class="text-[11px] text-softGray font-medium text-roseGold">• Destaque nas buscas da sua cidade.</p>
+                <p class="text-[11px] text-softGray font-medium text-roseGold">• Total de 6 leads (3 gratuitos + 3 pagos)</p>
               </div>
               <a href="https://www.asaas.com/c/k6draufxr8zz3iqj" target="_blank" class="block w-full text-center mt-4 bg-roseGold hover:bg-premiumRoseHover text-white font-bold py-2.5 px-4 rounded-xl transition-all duration-300 text-xs uppercase tracking-wider shadow-md">
                 <i class="fa-solid fa-qrcode mr-2"></i> Assinar via PIX
@@ -317,9 +317,13 @@
           <i class="fa-solid fa-arrow-left"></i> Voltar para Início
         </button>
         <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Conheça Nossos Profissionais</h2>
-        <p class="text-center text-xs text-softGray mb-8">Filtre por cidade, especialidade ou tipo de atendimento. Ao escolher um profissional, você solicitará uma indicação para nossa curadoria.</p>
+        <p class="text-center text-xs text-softGray mb-8">Filtre por cidade, especialidade, nome do profissional, nome da clínica ou tipo de atendimento.</p>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+          <div>
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Nome do Profissional / Clínica</label>
+            <input type="text" id="filtro-nome" placeholder="Digite o nome" class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
+          </div>
           <div>
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Cidade</label>
             <select id="filtro-cidade" class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
@@ -338,7 +342,7 @@
               <option value="">Todos</option>
               <option value="Profissional autônomo">Profissional autônomo</option>
               <option value="Clínica de estética">Clínica de estética</option>
-              <option value="Espaço compartilhado">Espaço compartilhado</option>
+              <option value="Espaço de estética">Espaço de estética</option>
             </select>
           </div>
         </div>
@@ -449,6 +453,7 @@
               <option>Tratamento de olheiras</option>
               <option>Revitalização da pele</option>
               <option>Limpeza de pele</option>
+              <option>Harmonização facial</option>
               <option>Harmonização corporal</option>
               <option>Outros</option>
             </select>
@@ -465,16 +470,28 @@
       </div>
     </section>
 
-    <!-- VIEW: CADASTRO PROFISSIONAL (COM NOVOS CAMPOS) -->
+    <!-- VIEW: CADASTRO PROFISSIONAL -->
     <section id="view-cadastro-profissional-view" class="view-section hidden-section py-12 px-4 max-w-2xl mx-auto">
       <div class="bg-white/95 p-8 rounded-3xl border border-cardBorder premium-shadow relative backdrop-blur-sm">
         <button onclick="showView('home')" class="absolute top-6 left-6 text-xs text-softGray hover:text-softBlack flex items-center gap-1 font-semibold">
           <i class="fa-solid fa-arrow-left"></i> Voltar
         </button>
         <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Cadastro Profissional</h2>
-        <p class="text-center text-xs text-softGray mb-6">Cadastre-se para receber leads qualificados de clientes da sua região, através da nossa curadoria especializada. Os 3 primeiros contatos são gratuitos.</p>
+        <p class="text-center text-xs text-softGray mb-6">Cadastre-se gratuitamente e receba 3 leads sem custo para conhecer a plataforma. Após utilizar os leads gratuitos, você poderá adquirir mais 3 leads através do plano profissional.</p>
         
         <form id="form-prof-cadastro" class="space-y-4" onsubmit="handleCadastroProfissional(event)">
+          
+          <!-- Tipo de Cadastro -->
+          <div>
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Tipo de Cadastro *</label>
+            <select id="prof-tipo-cadastro" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
+              <option value="">Selecione</option>
+              <option value="Profissional Autônomo">Profissional Autônomo</option>
+              <option value="Clínica">Clínica</option>
+              <option value="Espaço de Estética">Espaço de Estética</option>
+            </select>
+          </div>
+          
           <div>
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Nome do Profissional *</label>
             <input type="text" id="prof-nome" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
@@ -513,11 +530,29 @@
             <p class="text-[9px] text-softGray mt-1">Número onde você receberá os contatos dos clientes qualificados</p>
           </div>
           
+          <!-- Instagram Profissional (Opcional) -->
           <div>
-            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Instagram Profissional</label>
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Instagram Profissional (Opcional)</label>
             <input type="text" id="prof-instagram" placeholder="@seudestac" class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
           </div>
           
+          <!-- Site / Portfólio / Facebook (Opcionais) -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Site (Opcional)</label>
+              <input type="url" id="prof-site" placeholder="https://" class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
+            </div>
+            <div>
+              <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Portfólio (Opcional)</label>
+              <input type="url" id="prof-portfolio" placeholder="Link do portfólio" class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
+            </div>
+            <div>
+              <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Facebook (Opcional)</label>
+              <input type="url" id="prof-facebook" placeholder="Facebook" class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
+            </div>
+          </div>
+          
+          <!-- Especialidades -->
           <div>
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Especialidades *</label>
             <div class="checkbox-group" id="especialidades-group">
@@ -527,29 +562,76 @@
               <div class="checkbox-item"><input type="checkbox" id="esp-limpeza" value="Limpeza de Pele"><label>Limpeza de Pele</label></div>
               <div class="checkbox-item"><input type="checkbox" id="esp-facial" value="Estética Facial"><label>Estética Facial</label></div>
               <div class="checkbox-item"><input type="checkbox" id="esp-corporal" value="Estética Corporal"><label>Estética Corporal</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-harmonizacao" value="Harmonização Facial"><label>Harmonização Facial</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-harmonizacao-facial" value="Harmonização Facial"><label>Harmonização Facial</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-harmonizacao-corporal" value="Harmonização Corporal"><label>Harmonização Corporal</label></div>
               <div class="checkbox-item"><input type="checkbox" id="esp-micropig" value="Micropigmentação"><label>Micropigmentação</label></div>
               <div class="checkbox-item"><input type="checkbox" id="esp-sobrancelhas" value="Design de Sobrancelhas"><label>Design de Sobrancelhas</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-brow-designer" value="Brow Designer"><label>Brow Designer</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-lash-designer" value="Lash Designer"><label>Lash Designer</label></div>
               <div class="checkbox-item"><input type="checkbox" id="esp-cilios" value="Extensão de Cílios"><label>Extensão de Cílios</label></div>
               <div class="checkbox-item"><input type="checkbox" id="esp-drenagem" value="Drenagem Linfática"><label>Drenagem Linfática</label></div>
               <div class="checkbox-item"><input type="checkbox" id="esp-massoterapia" value="Massoterapia"><label>Massoterapia</label></div>
               <div class="checkbox-item"><input type="checkbox" id="esp-depilacao" value="Depilação"><label>Depilação</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-depilacao-laser" value="Depilação a Laser"><label>Depilação a Laser</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-peeling-quimico" value="Peeling Químico"><label>Peeling Químico</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-peeling-diamante" value="Peeling de Diamante"><label>Peeling de Diamante</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-revitalizacao" value="Revitalização Facial"><label>Revitalização Facial</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-olheiras" value="Tratamento de Olheiras"><label>Tratamento de Olheiras</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-skinbooster" value="Skinbooster"><label>Skinbooster</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-bioestimuladores" value="Bioestimuladores"><label>Bioestimuladores</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-jato-plasma" value="Jato de Plasma"><label>Jato de Plasma</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-ozonioterapia" value="Ozonioterapia"><label>Ozonioterapia</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-criolipolise" value="Criolipólise"><label>Criolipólise</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-radiofrequencia" value="Radiofrequência"><label>Radiofrequência</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-ultrassom" value="Ultrassom Estético"><label>Ultrassom Estético</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-tricologia" value="Tricologia"><label>Tricologia</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-terapia-capilar" value="Terapia Capilar"><label>Terapia Capilar</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-estetica-intima" value="Estética Íntima"><label>Estética Íntima</label></div>
               <div class="checkbox-item"><input type="checkbox" id="esp-maquiagem" value="Maquiagem Profissional"><label>Maquiagem Profissional</label></div>
               <div class="checkbox-item"><input type="checkbox" id="esp-bronzeamento" value="Bronzeamento"><label>Bronzeamento</label></div>
               <div class="checkbox-item"><input type="checkbox" id="esp-terapias" value="Terapias Holísticas"><label>Terapias Holísticas</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-acupuntura" value="Acupuntura Estética"><label>Acupuntura Estética</label></div>
               <div class="checkbox-item"><input type="checkbox" id="esp-podologia" value="Podologia"><label>Podologia</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-spa" value="Spa e Bem-Estar"><label>Spa e Bem-Estar</label></div>
               <div class="checkbox-item"><input type="checkbox" id="esp-outros" value="Outros"><label>Outros</label></div>
             </div>
           </div>
           
+          <!-- Estrutura de Atendimento -->
+          <div>
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Estrutura de Atendimento</label>
+            <div class="checkbox-group">
+              <div class="checkbox-item"><input type="checkbox" id="estrutura-clinica-propria" value="Clínica própria"><label>Clínica própria</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="estrutura-sala-comercial" value="Sala comercial"><label>Sala comercial</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="estrutura-home-studio" value="Home Studio"><label>Home Studio</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="estrutura-espaco-compartilhado" value="Espaço compartilhado"><label>Espaço compartilhado</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="estrutura-clinica-parceira" value="Clínica parceira"><label>Clínica parceira</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="estrutura-domicilio" value="Atendimento domiciliar"><label>Atendimento domiciliar</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="estrutura-online" value="Atendimento online"><label>Atendimento online</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="estrutura-hibrido" value="Atendimento híbrido"><label>Atendimento híbrido</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="estrutura-coworking" value="Coworking de estética"><label>Coworking de estética</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="estrutura-outros" value="Outros"><label>Outros</label></div>
+            </div>
+          </div>
+          
+          <!-- Tipo de Atendimento -->
           <div>
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Tipo de Atendimento</label>
             <div class="checkbox-group">
               <div class="checkbox-item"><input type="checkbox" id="atende-clinica" value="Atende em clínica"><label>Atende em clínica</label></div>
               <div class="checkbox-item"><input type="checkbox" id="atende-domicilio" value="Atende em domicílio"><label>Atende em domicílio</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="atende-sala-comercial" value="Sala comercial própria"><label>Sala comercial própria</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="atende-home-studio" value="Home Studio"><label>Home Studio</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="atende-espaco-compartilhado" value="Espaço compartilhado"><label>Espaço compartilhado</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="atende-clinica-parceira" value="Clínica parceira"><label>Clínica parceira</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="atende-coworking" value="Coworking de estética"><label>Coworking de estética</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="atende-online" value="Atendimento online"><label>Atendimento online</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="atende-hibrido" value="Atendimento híbrido"><label>Atendimento híbrido</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="atende-outros" value="Outros"><label>Outros</label></div>
             </div>
           </div>
           
+          <!-- Descrição Profissional -->
           <div>
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Descrição Profissional</label>
             <textarea id="prof-descricao" rows="3" placeholder="Conte um pouco sobre sua experiência, especialidades e diferenciais..." class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition resize-none"></textarea>
@@ -594,19 +676,19 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div class="bg-nudeBg/50 p-6 rounded-2xl border border-cardBorder">
-            <p class="text-[10px] font-bold text-softGray uppercase mb-2">Plano Atual</p>
-            <p id="dash-plan-name" class="font-serif text-xl font-bold text-softBlack mb-2">Plano de Validação</p>
-            <span id="dash-plan-badge" class="status-badge status-free">Grátis</span>
+            <p class="text-[10px] font-bold text-softGray uppercase mb-2">Leads Gratuitos</p>
+            <p id="dash-free-leads" class="font-serif text-3xl font-bold text-roseGold">0/3</p>
+            <p class="text-[11px] text-softGray mt-2">Leads gratuitos disponíveis</p>
           </div>
           <div class="bg-nudeBg/50 p-6 rounded-2xl border border-cardBorder">
-            <p class="text-[10px] font-bold text-softGray uppercase mb-2">Leads Recebidos</p>
-            <p id="dash-leads-consumed" class="font-serif text-3xl font-bold text-roseGold">0/3</p>
-            <p class="text-[11px] text-softGray mt-2">Leads qualificados neste período (3 primeiros gratuitos)</p>
+            <p class="text-[10px] font-bold text-softGray uppercase mb-2">Leads Pagos</p>
+            <p id="dash-paid-leads" class="font-serif text-3xl font-bold text-roseGold">0/3</p>
+            <p class="text-[11px] text-softGray mt-2">Leads do plano profissional</p>
           </div>
           <div class="bg-nudeBg/50 p-6 rounded-2xl border border-cardBorder">
-            <p class="text-[10px] font-bold text-softGray uppercase mb-2">Próximo Vencimento</p>
-            <p id="dash-next-renewal" class="font-serif text-lg font-bold text-softBlack">-</p>
-            <p class="text-[11px] text-softGray mt-2">Data de renovação do plano</p>
+            <p class="text-[10px] font-bold text-softGray uppercase mb-2">Total Recebido</p>
+            <p id="dash-total-leads" class="font-serif text-3xl font-bold text-roseGold">0/6</p>
+            <p class="text-[11px] text-softGray mt-2">Total de leads (grátis + pagos)</p>
           </div>
         </div>
 
@@ -615,9 +697,9 @@
             <i class="fa-solid fa-triangle-exclamation text-yellow-600 text-2xl mt-1"></i>
             <div>
               <h3 class="font-bold text-softBlack mb-2">Você utilizou seus 3 leads gratuitos!</h3>
-              <p class="text-sm text-softGray mb-4">Para continuar recebendo clientes qualificados através da nossa curadoria, ative o Plano Profissional.</p>
+              <p class="text-sm text-softGray mb-4">Adquira o plano profissional para receber mais 3 leads e continuar recebendo novos clientes.</p>
               <button onclick="showView('payment-plan')" class="bg-roseGold text-white px-6 py-2 rounded-lg font-semibold text-sm hover:bg-premiumRoseHover transition">
-                <i class="fa-solid fa-crown mr-2"></i> ATIVAR PLANO PROFISSIONAL
+                <i class="fa-solid fa-crown mr-2"></i> ADQUIRIR PLANO PROFISSIONAL
               </button>
             </div>
           </div>
@@ -627,8 +709,8 @@
           <div class="flex items-start gap-4">
             <i class="fa-solid fa-circle-stop text-red-600 text-2xl mt-1"></i>
             <div>
-              <h3 class="font-bold text-softBlack mb-2">Limite mensal atingido</h3>
-              <p class="text-sm text-softGray">Você recebeu todos os 6 leads do seu plano este mês. Aguarde a renovação automática.</p>
+              <h3 class="font-bold text-softBlack mb-2">Limite total de 6 leads atingido</h3>
+              <p class="text-sm text-softGray">Você já recebeu todos os 6 leads (3 gratuitos + 3 pagos). Aguarde a renovação mensal do plano.</p>
             </div>
           </div>
         </div>
@@ -636,14 +718,14 @@
         <div id="upgrade-section" class="hidden-section mb-8">
           <div class="bg-gradient-to-r from-roseGold/10 to-premiumRose/10 p-8 rounded-2xl border border-roseGold/30">
             <div class="text-center">
-              <h3 class="font-serif text-2xl font-bold text-softBlack mb-2">Upgrade para Plano Profissional</h3>
-              <p class="text-sm text-softGray mb-6">Receba até 6 leads qualificados por mês e destaque seu perfil nas buscas regionais.</p>
+              <h3 class="font-serif text-2xl font-bold text-softBlack mb-2">Adquirir Plano Profissional</h3>
+              <p class="text-sm text-softGray mb-6">Receba +3 leads qualificados e continue recebendo novos clientes.</p>
               <div class="mb-6">
                 <p class="text-4xl font-serif font-bold text-roseGold">R$ 9,90</p>
                 <p class="text-sm text-softGray">/mês com renovação automática</p>
               </div>
               <button onclick="showView('payment-plan')" class="bg-roseGold text-white px-8 py-3 rounded-xl font-bold uppercase tracking-wider hover:bg-premiumRoseHover transition shadow-md">
-                <i class="fa-solid fa-crown mr-2"></i> Ativar Plano Profissional
+                <i class="fa-solid fa-crown mr-2"></i> Adquirir Plano Profissional
               </button>
             </div>
           </div>
@@ -657,8 +739,8 @@
         <button onclick="showView('dashboard-profissional')" class="absolute top-6 left-6 text-xs text-softGray hover:text-softBlack flex items-center gap-1 font-semibold">
           <i class="fa-solid fa-arrow-left"></i> Voltar
         </button>
-        <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Ativar Plano Profissional</h2>
-        <p class="text-center text-xs text-softGray mb-8">Realize o pagamento via PIX para ativar seu plano profissional e começar a receber leads qualificados através da nossa curadoria.</p>
+        <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Plano Profissional</h2>
+        <p class="text-center text-xs text-softGray mb-8">Adquira +3 leads qualificados e continue recebendo novos clientes através da nossa curadoria.</p>
         <div id="qr-code-section" class="qr-code-container mb-8">
           <div class="text-center mb-4">
             <p class="text-sm font-bold text-softBlack mb-2">Escaneie o QR Code com seu banco</p>
@@ -672,22 +754,23 @@
           </div>
         </div>
         <div class="bg-nudeBg/50 p-6 rounded-2xl border border-cardBorder mb-8 text-center">
-          <p class="text-xs text-softGray uppercase font-bold mb-2">Valor a Pagar</p>
+          <p class="text-xs text-softGray uppercase font-bold mb-2">Valor do Plano</p>
           <p class="font-serif text-4xl font-bold text-roseGold">R$ 9,90</p>
-          <p class="text-xs text-softGray mt-2">Plano mensal com renovação automática</p>
+          <p class="text-xs text-softGray mt-2">+3 leads por mês com renovação automática</p>
+          <p class="text-[10px] text-roseGold mt-1 font-semibold">Total de 6 leads (3 gratuitos + 3 pagos)</p>
         </div>
         <div id="payment-status" class="bg-blue-50 border border-blue-200 p-4 rounded-lg text-center mb-8 hidden-section">
           <div class="flex items-center justify-center gap-2 mb-2">
             <i class="fa-solid fa-hourglass-end text-blue-600"></i>
             <p class="font-bold text-softBlack">Aguardando confirmação do pagamento...</p>
           </div>
-          <p class="text-xs text-softGray">Você será notificado assim que o pagamento for confirmado.</p>
+          <p class="text-xs text-softGray">Você será notificado assim que o pagamento for confirmado e os leads adicionais serão liberados.</p>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- CHAT FLUTUANTE (AJUSTADO) -->
+  <!-- CHAT FLUTUANTE -->
   <div class="fixed bottom-6 right-6 z-50">
     <button onclick="toggleChat()" class="bg-roseGold text-white w-14 h-14 rounded-full shadow-2xl hover:scale-105 transition flex items-center justify-center border-2 border-white">
       <i class="fa-regular fa-comment-dots text-2xl"></i>
@@ -715,13 +798,13 @@
         <div id="tratamentosList" class="hidden mt-3 bg-white rounded-xl border border-cardBorder p-3 space-y-2">
           <p class="text-[10px] font-bold text-roseGold uppercase tracking-wider mb-2">Especialidades</p>
           <ul class="space-y-1.5 text-sm text-softGray">
-            <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-roseGold text-xs"></i> Microagulhamento de estrias</li>
-            <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-roseGold text-xs"></i> Camuflagem de estrias</li>
-            <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-roseGold text-xs"></i> Camuflagem de cicatrizes</li>
-            <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-roseGold text-xs"></i> Tratamento de olheiras</li>
-            <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-roseGold text-xs"></i> Estética facial</li>
-            <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-roseGold text-xs"></i> Estética corporal</li>
-            <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-roseGold text-xs"></i> Revitalização da pele</li>
+            <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-roseGold text-xs"></i> Microagulhamento</li>
+            <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-roseGold text-xs"></i> Camuflagem de Estrias</li>
+            <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-roseGold text-xs"></i> Camuflagem de Cicatrizes</li>
+            <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-roseGold text-xs"></i> Estética Facial</li>
+            <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-roseGold text-xs"></i> Estética Corporal</li>
+            <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-roseGold text-xs"></i> Harmonização Facial</li>
+            <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-roseGold text-xs"></i> Limpeza de Pele</li>
           </ul>
         </div>
         <div class="text-center mt-4 pt-3 border-t border-cardBorder"><p class="text-[9px] text-softGray">Lead Beauty | Curadoria em Estética</p></div>
@@ -787,11 +870,9 @@
     
     // ==================== DADOS DOS PROFISSIONAIS ====================
     let profissionaisDatabase = [
-      { id: 1, nome: "Clínica Derma Face", cidade: "São Paulo", estado: "SP", tipoAtendimento: "Clínica de estética", especialidades: ["Microagulhamento", "Estética Facial", "Limpeza de Pele"] },
-      { id: 2, nome: "Haline Mulero Estética", cidade: "São Vicente", estado: "SP", tipoAtendimento: "Profissional autônomo", especialidades: ["Camuflagem de Estrias", "Camuflagem de Cicatrizes", "Estética Corporal"] },
-      { id: 3, nome: "Espaço Beleza & Bem-estar", cidade: "Santos", estado: "SP", tipoAtendimento: "Espaço compartilhado", especialidades: ["Harmonização Facial", "Limpeza de Pele", "Design de Sobrancelhas"] },
-      { id: 4, nome: "Instituto de Estética Avançada", cidade: "Praia Grande", estado: "SP", tipoAtendimento: "Clínica de estética", especialidades: ["Microagulhamento", "Estética Facial", "Estética Corporal", "Harmonização Facial"] },
-      { id: 5, nome: "Studio da Pele", cidade: "Guarujá", estado: "SP", tipoAtendimento: "Profissional autônomo", especialidades: ["Limpeza de Pele", "Estética Facial", "Camuflagem de Cicatrizes"] }
+      { id: 1, nome: "Clínica Derma Face", cidade: "São Paulo", estado: "SP", tipoAtendimento: "Clínica", especialidades: ["Microagulhamento", "Estética Facial", "Limpeza de Pele"] },
+      { id: 2, nome: "Haline Mulero Estética", cidade: "São Vicente", estado: "SP", tipoAtendimento: "Profissional Autônomo", especialidades: ["Camuflagem de Estrias", "Camuflagem de Cicatrizes", "Estética Corporal"] },
+      { id: 3, nome: "Espaço Beleza & Bem-estar", cidade: "Santos", estado: "SP", tipoAtendimento: "Espaço de Estética", especialidades: ["Harmonização Facial", "Limpeza de Pele", "Design de Sobrancelhas"] }
     ];
     
     const todasCidades = [
@@ -812,13 +893,8 @@
               clinica: prof.clinica || '',
               cidade: prof.cidade,
               estado: prof.estado,
-              whatsapp: prof.whatsapp,
-              instagram: prof.instagram || '',
-              tipoAtendimento: "Profissional autônomo",
-              especialidades: prof.especialidades || [],
-              atendeClinica: prof.atendeClinica || false,
-              atendeDomicilio: prof.atendeDomicilio || false,
-              descricao: prof.descricao || ''
+              tipoAtendimento: prof.tipoCadastro || "Profissional Autônomo",
+              especialidades: prof.especialidades || []
             });
           }
         });
@@ -855,11 +931,16 @@
     }
     
     function filtrarProfissionais() {
+      const nomeFiltro = document.getElementById('filtro-nome')?.value.toLowerCase() || '';
       const cidadeFiltro = document.getElementById('filtro-cidade').value.toLowerCase();
       const especialidadeFiltro = document.getElementById('filtro-especialidade').value.toLowerCase();
+      const tipoFiltro = document.getElementById('filtro-tipo').value;
+      
       let resultados = [...profissionaisDatabase];
+      if (nomeFiltro) resultados = resultados.filter(p => p.nome.toLowerCase().includes(nomeFiltro) || (p.clinica && p.clinica.toLowerCase().includes(nomeFiltro)));
       if (cidadeFiltro) resultados = resultados.filter(p => p.cidade.toLowerCase().includes(cidadeFiltro));
       if (especialidadeFiltro) resultados = resultados.filter(p => p.especialidades.some(esp => esp.toLowerCase().includes(especialidadeFiltro)));
+      if (tipoFiltro) resultados = resultados.filter(p => p.tipoAtendimento === tipoFiltro);
       exibirResultados(resultados);
     }
     
@@ -921,7 +1002,6 @@
       setTimeout(() => msgDiv.remove(), 5000);
     }
     
-    // Controle de spam
     let lastSubmitTime = 0;
     const COOLDOWN_MS = 60000;
     const emailSolicitacoes = new Map();
@@ -959,26 +1039,54 @@
         let profissionais = [];
         if (existing) profissionais = JSON.parse(existing);
         
+        // Coletar especialidades
         const especialidades = [];
-        const espIds = ['esp-camuflagem-estrias', 'esp-camuflagem-cicatrizes', 'esp-micro', 'esp-limpeza', 'esp-facial', 'esp-corporal', 'esp-harmonizacao', 'esp-micropig', 'esp-sobrancelhas', 'esp-cilios', 'esp-drenagem', 'esp-massoterapia', 'esp-depilacao', 'esp-maquiagem', 'esp-bronzeamento', 'esp-terapias', 'esp-podologia', 'esp-outros'];
+        const espIds = [
+          'esp-camuflagem-estrias', 'esp-camuflagem-cicatrizes', 'esp-micro', 'esp-limpeza', 'esp-facial', 'esp-corporal',
+          'esp-harmonizacao-facial', 'esp-harmonizacao-corporal', 'esp-micropig', 'esp-sobrancelhas', 'esp-brow-designer',
+          'esp-lash-designer', 'esp-cilios', 'esp-drenagem', 'esp-massoterapia', 'esp-depilacao', 'esp-depilacao-laser',
+          'esp-peeling-quimico', 'esp-peeling-diamante', 'esp-revitalizacao', 'esp-olheiras', 'esp-skinbooster',
+          'esp-bioestimuladores', 'esp-jato-plasma', 'esp-ozonioterapia', 'esp-criolipolise', 'esp-radiofrequencia',
+          'esp-ultrassom', 'esp-tricologia', 'esp-terapia-capilar', 'esp-estetica-intima', 'esp-maquiagem',
+          'esp-bronzeamento', 'esp-terapias', 'esp-acupuntura', 'esp-podologia', 'esp-spa', 'esp-outros'
+        ];
         espIds.forEach(id => { const cb = document.getElementById(id); if (cb && cb.checked) especialidades.push(cb.value); });
         
-        const atendeClinica = document.getElementById('atende-clinica')?.checked || false;
-        const atendeDomicilio = document.getElementById('atende-domicilio')?.checked || false;
+        // Coletar estrutura de atendimento
+        const estrutura = [];
+        const estrIds = [
+          'estrutura-clinica-propria', 'estrutura-sala-comercial', 'estrutura-home-studio', 'estrutura-espaco-compartilhado',
+          'estrutura-clinica-parceira', 'estrutura-domicilio', 'estrutura-online', 'estrutura-hibrido', 'estrutura-coworking', 'estrutura-outros'
+        ];
+        estrIds.forEach(id => { const cb = document.getElementById(id); if (cb && cb.checked) estrutura.push(cb.value); });
+        
+        // Coletar tipo de atendimento
+        const tipoAtendimento = [];
+        const tipoIds = [
+          'atende-clinica', 'atende-domicilio', 'atende-sala-comercial', 'atende-home-studio', 'atende-espaco-compartilhado',
+          'atende-clinica-parceira', 'atende-coworking', 'atende-online', 'atende-hibrido', 'atende-outros'
+        ];
+        tipoIds.forEach(id => { const cb = document.getElementById(id); if (cb && cb.checked) tipoAtendimento.push(cb.value); });
         
         profissionais.push({
           ...profissional,
+          tipoCadastro: document.getElementById('prof-tipo-cadastro')?.value || '',
           clinica: document.getElementById('prof-clinica')?.value || '',
           instagram: document.getElementById('prof-instagram')?.value || '',
+          site: document.getElementById('prof-site')?.value || '',
+          portfolio: document.getElementById('prof-portfolio')?.value || '',
+          facebook: document.getElementById('prof-facebook')?.value || '',
           descricao: document.getElementById('prof-descricao')?.value || '',
           especialidades,
-          atendeClinica,
-          atendeDomicilio,
+          estrutura,
+          tipoAtendimento,
           id: Date.now(),
           timestamp: new Date().toISOString(),
           plano: 'Degustação Inicial',
           statusPagamento: 'free',
-          leadsConsumidos: 0
+          leadsGratuitos: 0,
+          leadsPagos: 0,
+          totalLeads: 0
         });
         
         localStorage.setItem(PROFISSIONAIS_KEY, JSON.stringify(profissionais));
@@ -1083,7 +1191,20 @@
         return;
       }
       
-      const espIds = ['esp-camuflagem-estrias', 'esp-camuflagem-cicatrizes', 'esp-micro', 'esp-limpeza', 'esp-facial', 'esp-corporal', 'esp-harmonizacao', 'esp-micropig', 'esp-sobrancelhas', 'esp-cilios', 'esp-drenagem', 'esp-massoterapia', 'esp-depilacao', 'esp-maquiagem', 'esp-bronzeamento', 'esp-terapias', 'esp-podologia', 'esp-outros'];
+      if (!document.getElementById('prof-tipo-cadastro').value) {
+        showMessage("Selecione o tipo de cadastro.", "error");
+        return;
+      }
+      
+      const espIds = [
+        'esp-camuflagem-estrias', 'esp-camuflagem-cicatrizes', 'esp-micro', 'esp-limpeza', 'esp-facial', 'esp-corporal',
+        'esp-harmonizacao-facial', 'esp-harmonizacao-corporal', 'esp-micropig', 'esp-sobrancelhas', 'esp-brow-designer',
+        'esp-lash-designer', 'esp-cilios', 'esp-drenagem', 'esp-massoterapia', 'esp-depilacao', 'esp-depilacao-laser',
+        'esp-peeling-quimico', 'esp-peeling-diamante', 'esp-revitalizacao', 'esp-olheiras', 'esp-skinbooster',
+        'esp-bioestimuladores', 'esp-jato-plasma', 'esp-ozonioterapia', 'esp-criolipolise', 'esp-radiofrequencia',
+        'esp-ultrassom', 'esp-tricologia', 'esp-terapia-capilar', 'esp-estetica-intima', 'esp-maquiagem',
+        'esp-bronzeamento', 'esp-terapias', 'esp-acupuntura', 'esp-podologia', 'esp-spa', 'esp-outros'
+      ];
       let hasEsp = false;
       espIds.forEach(id => { if (document.getElementById(id)?.checked) hasEsp = true; });
       if (!hasEsp) { showMessage("Selecione pelo menos uma especialidade.", "error"); return; }
@@ -1120,15 +1241,31 @@
     
     function loadDashboardProfissional() {
       if(!currentUserData) return;
-      const planName = currentUserData.plano === 'Profissional' ? 'Plano Profissional' : 'Plano de Validação';
-      const planBadge = currentUserData.plano === 'Profissional' ? 'status-active' : 'status-free';
-      const planBadgeText = currentUserData.plano === 'Profissional' ? 'Ativo' : 'Grátis';
-      document.getElementById('dash-plan-name').textContent = planName;
-      document.getElementById('dash-plan-badge').textContent = planBadgeText;
-      document.getElementById('dash-plan-badge').className = `status-badge ${planBadge}`;
-      const maxLeads = currentUserData.plano === 'Profissional' ? 6 : 3;
-      const leadsConsumed = currentUserData.leadsConsumidos || 0;
-      document.getElementById('dash-leads-consumed').textContent = `${leadsConsumed}/${maxLeads}`;
+      const freeLeads = currentUserData.leadsGratuitos || 0;
+      const paidLeads = currentUserData.leadsPagos || 0;
+      const maxFree = 3;
+      const maxPaid = currentUserData.plano === 'Profissional' ? 3 : 0;
+      
+      document.getElementById('dash-free-leads').textContent = `${freeLeads}/${maxFree}`;
+      document.getElementById('dash-paid-leads').textContent = `${paidLeads}/${maxPaid}`;
+      document.getElementById('dash-total-leads').textContent = `${freeLeads + paidLeads}/${maxFree + maxPaid}`;
+      
+      const leadsWarning = document.getElementById('leads-warning');
+      const limitWarning = document.getElementById('limit-warning');
+      const upgradeSection = document.getElementById('upgrade-section');
+      
+      if (leadsWarning) leadsWarning.classList.add('hidden-section');
+      if (limitWarning) limitWarning.classList.add('hidden-section');
+      if (upgradeSection) upgradeSection.classList.add('hidden-section');
+      
+      if (currentUserData.plano === 'Degustação Inicial' && freeLeads >= 3) {
+        if (leadsWarning) leadsWarning.classList.remove('hidden-section');
+        if (upgradeSection) upgradeSection.classList.remove('hidden-section');
+      } else if (currentUserData.plano === 'Profissional' && (freeLeads + paidLeads) >= 6) {
+        if (limitWarning) limitWarning.classList.remove('hidden-section');
+      } else if (currentUserData.plano === 'Degustação Inicial') {
+        if (upgradeSection) upgradeSection.classList.remove('hidden-section');
+      }
     }
     
     let currentUserData = null;
@@ -1143,7 +1280,8 @@
     function copyPixCode() { showMessage("Sistema em desenvolvimento.", "error"); }
     
     document.addEventListener('DOMContentLoaded', function() {
-      console.log("Lead Beauty - Plataforma de Curadoria");
+      console.log("Lead Beauty - Plataforma de Curadoria em Estética");
+      console.log("3 leads gratuitos + 3 leads pagos = 6 leads totais");
       initCidadeDinamico();
       carregarProfissionaisDoStorage();
       popularFiltros();
