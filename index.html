@@ -44,18 +44,19 @@
       background-color: #FBF9F6;
     }
 
+    /* ADICIONADO: Marca d'água */
     .watermark-bg {
         position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 350px;
-        height: 350px;
+        width: 300px;
+        height: 300px;
         background-image: url('logo.png');
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
-        opacity: 0.08;
+        opacity: 0.06;
         pointer-events: none;
         z-index: 0;
     }
@@ -170,19 +171,17 @@
       accent-color: #C5A059;
     }
     
-    .search-card {
-      transition: all 0.3s ease;
-    }
-    .search-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px -8px rgba(0,0,0,0.1);
-    }
-    .resultado-item {
-      border-bottom: 1px solid #E2D9D0;
-      transition: all 0.2s ease;
-    }
-    .resultado-item:last-child {
-      border-bottom: none;
+    /* ADICIONADO: Selos de credibilidade */
+    .credibility-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: rgba(197, 160, 89, 0.1);
+      padding: 0.4rem 0.8rem;
+      border-radius: 2rem;
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: #665E5A;
     }
   </style>
 </head>
@@ -200,7 +199,7 @@
       </div>
       <div class="flex items-center gap-5">
         <button onclick="showView('cadastro-cliente')" class="text-xs font-bold text-softBlack hover:text-premiumRose transition">Solicitar Atendimento</button>
-        <button onclick="showView('busca-profissionais')" class="text-xs font-bold text-softBlack hover:text-premiumRose transition">Conhecer Profissionais</button>
+        <button onclick="showView('busca-profissionais')" class="text-xs font-bold text-softBlack hover:text-premiumRose transition">Ver Profissionais</button>
         <button onclick="showView('login-profissional')" class="bg-softBlack text-white text-xs px-5 py-2.5 rounded-xl font-semibold transition hover:bg-neutral-800">Área do Profissional</button>
       </div>
     </div>
@@ -217,21 +216,30 @@
           <span class="text-[11px] font-bold uppercase tracking-wider text-softGray">Plataforma de Curadoria em Estética</span>
         </div>
         
+        <!-- ADICIONADO: Selos de credibilidade -->
+        <div class="flex flex-wrap justify-center gap-2 mb-6">
+          <span class="credibility-badge"><i class="fa-solid fa-shield-heart text-roseGold text-xs"></i> Atendimento Seguro</span>
+          <span class="credibility-badge"><i class="fa-solid fa-user-check text-roseGold text-xs"></i> Profissionais Cadastrados</span>
+          <span class="credibility-badge"><i class="fa-solid fa-handshake text-roseGold text-xs"></i> Conexão Personalizada</span>
+          <span class="credibility-badge"><i class="fa-solid fa-flag-checkered text-roseGold text-xs"></i> Plataforma Brasileira</span>
+        </div>
+        
         <h1 class="font-serif text-3xl md:text-5xl font-semibold leading-tight text-softBlack max-w-4xl mx-auto mb-6">
-          Encontre o profissional de estética ideal na sua região com rapidez, segurança e confiança.
+          Encontre profissionais de estética qualificados na sua região de forma rápida, segura e gratuita.
         </h1>
         
         <p class="text-sm md:text-base text-softGray max-w-3xl mx-auto mb-10 leading-relaxed">
-          Conte sua necessidade e nós conectamos você ao especialista mais adequado para seu atendimento.<br>
-          <span class="text-roseGold text-xs font-semibold mt-2 inline-block">✓ Curadoria especializada • ✓ Indicação personalizada • ✓ Sem compromisso</span>
+          Conte sua necessidade e a Lead Beauty conecta você ao especialista ideal para seu atendimento.<br>
+          Para clientes, o uso da plataforma é totalmente gratuito.<br>
+          Para profissionais, os 3 primeiros contatos recebidos são gratuitos, sem burocracia e sem mensalidade inicial.
         </p>
         
         <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-xl mx-auto">
           <button onclick="showView('cadastro-cliente')" class="w-full bg-premiumRose text-white py-4 rounded-xl text-xs font-bold tracking-wider uppercase transition hover:bg-premiumRoseHover shadow-md">
-            <i class="fa-solid fa-calendar-check mr-2"></i> Solicitar Atendimento Agora
+            <i class="fa-solid fa-calendar-check mr-2"></i> Solicitar Atendimento
           </button>
           <button onclick="showView('busca-profissionais')" class="w-full bg-white border border-softBlack text-softBlack py-4 rounded-xl text-xs font-bold tracking-wider uppercase transition hover:bg-neutral-50 shadow-sm">
-            <i class="fa-solid fa-magnifying-glass mr-2"></i> Conhecer Profissionais
+            <i class="fa-solid fa-magnifying-glass mr-2"></i> Ver Profissionais
           </button>
           <button onclick="showView('cadastro-profissional-view')" class="w-full bg-white border border-softBlack text-softBlack py-4 rounded-xl text-xs font-bold tracking-wider uppercase transition hover:bg-neutral-50 shadow-sm">
             <i class="fa-solid fa-user-doctor mr-2"></i> Sou Profissional
@@ -259,9 +267,9 @@
 
       <section class="py-8 px-6 max-w-4xl mx-auto mb-8">
         <div class="bg-premiumRose/5 rounded-2xl p-6 border border-premiumRose/20 text-center">
-          <p class="text-xs text-softGray font-medium mb-2">🔍 Como funciona nossa curadoria?</p>
+          <p class="text-xs text-softGray font-medium mb-2">📋 Como funciona nossa curadoria?</p>
           <p class="text-xs text-softBlack max-w-2xl mx-auto">
-            Você solicita o atendimento → Nossa equipe analisa sua necessidade → Indicamos o profissional mais adequado da sua região.<br>
+            Você solicita o atendimento pela plataforma → Nossa equipe analisa sua necessidade → Indicamos o profissional mais adequado da sua região.<br>
             <span class="text-roseGold text-[10px] font-semibold">O contato direto com o profissional acontece apenas após nossa curadoria.</span>
           </p>
         </div>
@@ -273,14 +281,14 @@
           <p class="font-serif text-3xl font-medium text-softBlack mb-4">Receba leads qualificados e validados</p>
           <p class="text-xs text-softGray mb-8 leading-relaxed">
             Nossa plataforma conecta você a clientes reais da sua região, com curadoria especializada. 
-            Os 2 primeiros contatos são gratuitos para você testar e aprovar.
+            Os 3 primeiros contatos são gratuitos para você testar e aprovar.
           </p>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto text-left">
             <div class="border border-cardBorder p-6 rounded-2xl bg-nudeBg/50 flex flex-col justify-between">
               <div>
                 <h4 class="font-bold text-sm text-softBlack uppercase tracking-wide">Plano de Validação</h4>
                 <div class="text-2xl font-serif font-bold text-roseGold my-2">Grátis</div>
-                <p class="text-xs text-softGray font-medium leading-relaxed">• Receba seus primeiros 2 leads qualificados gratuitamente.<br>• Teste nosso sistema de curadoria sem compromisso.</p>
+                <p class="text-xs text-softGray font-medium leading-relaxed">• Receba seus primeiros 3 leads qualificados gratuitamente.<br>• Teste nosso sistema de curadoria sem compromisso.</p>
               </div>
             </div>
             <div class="border-2 border-roseGold p-6 rounded-2xl bg-white relative flex flex-col justify-between">
@@ -288,7 +296,7 @@
               <div>
                 <h4 class="font-bold text-sm text-softBlack uppercase tracking-wide">Plano Profissional</h4>
                 <div class="text-2xl font-serif font-bold text-softBlack my-2">R$ 9,90 <span class="text-xs text-softGray font-sans">/mês</span></div>
-                <p class="text-xs text-softGray font-medium mb-1.5">• Receba até 3 leads qualificados por mês.</p>
+                <p class="text-xs text-softGray font-medium mb-1.5">• Receba até 6 leads qualificados por mês.</p>
                 <p class="text-xs text-softGray font-medium mb-1.5">• Direcionamento inteligente por cidade e região.</p>
                 <p class="text-xs text-softGray font-medium mb-1.5">• Perfil profissional ativo na plataforma.</p>
                 <p class="text-[11px] text-softGray font-medium text-roseGold">• Destaque nas buscas da sua cidade.</p>
@@ -308,7 +316,7 @@
         <button onclick="showView('home')" class="absolute top-6 left-6 text-xs text-softGray hover:text-softBlack flex items-center gap-1 font-semibold">
           <i class="fa-solid fa-arrow-left"></i> Voltar para Início
         </button>
-        <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Conheça Nossos Profissionais Parceiros</h2>
+        <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Conheça Nossos Profissionais</h2>
         <p class="text-center text-xs text-softGray mb-8">Filtre por cidade, especialidade ou tipo de atendimento. Ao escolher um profissional, você solicitará uma indicação para nossa curadoria.</p>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
@@ -351,7 +359,7 @@
       </div>
     </section>
 
-    <!-- VIEW: CADASTRO CLIENTE (Solicitação de Atendimento) -->
+    <!-- VIEW: CADASTRO CLIENTE -->
     <section id="view-cadastro-cliente" class="view-section hidden-section py-12 px-4 max-w-xl mx-auto">
       <div class="bg-white/95 p-8 rounded-3xl border border-cardBorder premium-shadow relative backdrop-blur-sm">
         <button onclick="showView('home')" class="absolute top-6 left-6 text-xs text-softGray hover:text-softBlack flex items-center gap-1 font-semibold">
@@ -380,8 +388,18 @@
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Cidade *</label>
             <select id="cli-cidade" name="cidade" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
               <option value="">Selecione sua cidade</option>
-              <option value="São Vicente">São Vicente</option>
+              <option value="São Paulo">São Paulo</option>
+              <option value="Rio de Janeiro">Rio de Janeiro</option>
+              <option value="Belo Horizonte">Belo Horizonte</option>
+              <option value="Brasília">Brasília</option>
+              <option value="Salvador">Salvador</option>
+              <option value="Fortaleza">Fortaleza</option>
+              <option value="Recife">Recife</option>
+              <option value="Porto Alegre">Porto Alegre</option>
+              <option value="Curitiba">Curitiba</option>
+              <option value="Campinas">Campinas</option>
               <option value="Santos">Santos</option>
+              <option value="São Vicente">São Vicente</option>
               <option value="Praia Grande">Praia Grande</option>
               <option value="Guarujá">Guarujá</option>
               <option value="Cubatão">Cubatão</option>
@@ -447,81 +465,94 @@
       </div>
     </section>
 
-    <!-- VIEW: CADASTRO PROFISSIONAL -->
+    <!-- VIEW: CADASTRO PROFISSIONAL (COM NOVOS CAMPOS) -->
     <section id="view-cadastro-profissional-view" class="view-section hidden-section py-12 px-4 max-w-2xl mx-auto">
       <div class="bg-white/95 p-8 rounded-3xl border border-cardBorder premium-shadow relative backdrop-blur-sm">
         <button onclick="showView('home')" class="absolute top-6 left-6 text-xs text-softGray hover:text-softBlack flex items-center gap-1 font-semibold">
           <i class="fa-solid fa-arrow-left"></i> Voltar
         </button>
         <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Cadastro Profissional</h2>
-        <p class="text-center text-xs text-softGray mb-6">Cadastre-se para receber leads qualificados de clientes da sua região, através da nossa curadoria especializada.</p>
+        <p class="text-center text-xs text-softGray mb-6">Cadastre-se para receber leads qualificados de clientes da sua região, através da nossa curadoria especializada. Os 3 primeiros contatos são gratuitos.</p>
         
         <form id="form-prof-cadastro" class="space-y-4" onsubmit="handleCadastroProfissional(event)">
           <div>
-            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Nome do Profissional / Clínica</label>
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Nome do Profissional *</label>
             <input type="text" id="prof-nome" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
           </div>
+          
+          <div>
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Nome da Clínica (opcional)</label>
+            <input type="text" id="prof-clinica" class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
+          </div>
+          
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label class="text-[10px] font-bold text-softGray uppercase block mb-1">E-mail Corporativo</label>
+              <label class="text-[10px] font-bold text-softGray uppercase block mb-1">E-mail Corporativo *</label>
               <input type="email" id="prof-email" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
             </div>
             <div>
-              <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Senha de Acesso</label>
+              <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Senha de Acesso *</label>
               <input type="password" id="prof-senha" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
             </div>
           </div>
+          
           <div class="grid grid-cols-2 gap-4">
             <div>
-              <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Cidade Base</label>
+              <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Cidade *</label>
               <input type="text" id="prof-cidade" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
             </div>
             <div>
-              <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Estado (UF)</label>
+              <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Estado (UF) *</label>
               <input type="text" id="prof-estado" maxlength="2" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
             </div>
           </div>
           
           <div>
-            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Tipo de Atendimento *</label>
-            <select id="prof-tipo-atendimento" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
-              <option value="">Selecione</option>
-              <option value="Profissional autônomo">Profissional autônomo</option>
-              <option value="Clínica de estética">Clínica de estética</option>
-              <option value="Espaço compartilhado">Espaço compartilhado</option>
-              <option value="Outro">Outro</option>
-            </select>
-          </div>
-          
-          <div>
-            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">WhatsApp para receber leads</label>
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">WhatsApp Comercial *</label>
             <input type="tel" id="prof-whatsapp" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
             <p class="text-[9px] text-softGray mt-1">Número onde você receberá os contatos dos clientes qualificados</p>
           </div>
           
           <div>
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Instagram Profissional</label>
+            <input type="text" id="prof-instagram" placeholder="@seudestac" class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
+          </div>
+          
+          <div>
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Especialidades *</label>
-            <div class="checkbox-group">
-              <div class="checkbox-item"><input type="checkbox" id="esp-micro" value="Microagulhamento de estrias"><label>Microagulhamento de estrias</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-camuflagem-estrias" value="Camuflagem de estrias"><label>Camuflagem de estrias</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-camuflagem-cicatrizes" value="Camuflagem de cicatrizes"><label>Camuflagem de cicatrizes</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-tratamento-facial" value="Tratamento facial"><label>Tratamento facial</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-tratamento-corporal" value="Tratamento corporal"><label>Tratamento corporal</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-harmonizacao" value="Harmonização corporal"><label>Harmonização corporal</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-estetica-intima" value="Estética íntima"><label>Estética íntima</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-limpeza-pele" value="Limpeza de pele"><label>Limpeza de pele</label></div>
+            <div class="checkbox-group" id="especialidades-group">
+              <div class="checkbox-item"><input type="checkbox" id="esp-camuflagem-estrias" value="Camuflagem de Estrias"><label>Camuflagem de Estrias</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-camuflagem-cicatrizes" value="Camuflagem de Cicatrizes"><label>Camuflagem de Cicatrizes</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-micro" value="Microagulhamento"><label>Microagulhamento</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-limpeza" value="Limpeza de Pele"><label>Limpeza de Pele</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-facial" value="Estética Facial"><label>Estética Facial</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-corporal" value="Estética Corporal"><label>Estética Corporal</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-harmonizacao" value="Harmonização Facial"><label>Harmonização Facial</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-micropig" value="Micropigmentação"><label>Micropigmentação</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-sobrancelhas" value="Design de Sobrancelhas"><label>Design de Sobrancelhas</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-cilios" value="Extensão de Cílios"><label>Extensão de Cílios</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-drenagem" value="Drenagem Linfática"><label>Drenagem Linfática</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-massoterapia" value="Massoterapia"><label>Massoterapia</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-depilacao" value="Depilação"><label>Depilação</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-maquiagem" value="Maquiagem Profissional"><label>Maquiagem Profissional</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-bronzeamento" value="Bronzeamento"><label>Bronzeamento</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-terapias" value="Terapias Holísticas"><label>Terapias Holísticas</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-podologia" value="Podologia"><label>Podologia</label></div>
               <div class="checkbox-item"><input type="checkbox" id="esp-outros" value="Outros"><label>Outros</label></div>
             </div>
           </div>
           
           <div>
-            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Estrutura disponível</label>
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Tipo de Atendimento</label>
             <div class="checkbox-group">
-              <div class="checkbox-item"><input type="checkbox" id="estrutura-sala" value="Sala própria"><label>Sala própria</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="estrutura-clinica" value="Clínica terceirizada"><label>Clínica terceirizada</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="estrutura-domicilio" value="Atendimento domiciliar"><label>Atendimento domiciliar</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="estrutura-online" value="Consultoria online"><label>Consultoria online</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="atende-clinica" value="Atende em clínica"><label>Atende em clínica</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="atende-domicilio" value="Atende em domicílio"><label>Atende em domicílio</label></div>
             </div>
+          </div>
+          
+          <div>
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Descrição Profissional</label>
+            <textarea id="prof-descricao" rows="3" placeholder="Conte um pouco sobre sua experiência, especialidades e diferenciais..." class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition resize-none"></textarea>
           </div>
           
           <button type="submit" class="w-full bg-premiumRose text-white py-4 rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-premiumRoseHover transition shadow-md">Cadastrar e Receber Leads</button>
@@ -569,8 +600,8 @@
           </div>
           <div class="bg-nudeBg/50 p-6 rounded-2xl border border-cardBorder">
             <p class="text-[10px] font-bold text-softGray uppercase mb-2">Leads Recebidos</p>
-            <p id="dash-leads-consumed" class="font-serif text-3xl font-bold text-roseGold">0/2</p>
-            <p class="text-[11px] text-softGray mt-2">Leads qualificados neste período</p>
+            <p id="dash-leads-consumed" class="font-serif text-3xl font-bold text-roseGold">0/3</p>
+            <p class="text-[11px] text-softGray mt-2">Leads qualificados neste período (3 primeiros gratuitos)</p>
           </div>
           <div class="bg-nudeBg/50 p-6 rounded-2xl border border-cardBorder">
             <p class="text-[10px] font-bold text-softGray uppercase mb-2">Próximo Vencimento</p>
@@ -583,7 +614,7 @@
           <div class="flex items-start gap-4">
             <i class="fa-solid fa-triangle-exclamation text-yellow-600 text-2xl mt-1"></i>
             <div>
-              <h3 class="font-bold text-softBlack mb-2">Você utilizou seus 2 leads gratuitos!</h3>
+              <h3 class="font-bold text-softBlack mb-2">Você utilizou seus 3 leads gratuitos!</h3>
               <p class="text-sm text-softGray mb-4">Para continuar recebendo clientes qualificados através da nossa curadoria, ative o Plano Profissional.</p>
               <button onclick="showView('payment-plan')" class="bg-roseGold text-white px-6 py-2 rounded-lg font-semibold text-sm hover:bg-premiumRoseHover transition">
                 <i class="fa-solid fa-crown mr-2"></i> ATIVAR PLANO PROFISSIONAL
@@ -597,7 +628,7 @@
             <i class="fa-solid fa-circle-stop text-red-600 text-2xl mt-1"></i>
             <div>
               <h3 class="font-bold text-softBlack mb-2">Limite mensal atingido</h3>
-              <p class="text-sm text-softGray">Você recebeu todos os 3 leads do seu plano este mês. Aguarde a renovação automática.</p>
+              <p class="text-sm text-softGray">Você recebeu todos os 6 leads do seu plano este mês. Aguarde a renovação automática.</p>
             </div>
           </div>
         </div>
@@ -606,7 +637,7 @@
           <div class="bg-gradient-to-r from-roseGold/10 to-premiumRose/10 p-8 rounded-2xl border border-roseGold/30">
             <div class="text-center">
               <h3 class="font-serif text-2xl font-bold text-softBlack mb-2">Upgrade para Plano Profissional</h3>
-              <p class="text-sm text-softGray mb-6">Receba até 3 leads qualificados por mês e destaque seu perfil nas buscas regionais.</p>
+              <p class="text-sm text-softGray mb-6">Receba até 6 leads qualificados por mês e destaque seu perfil nas buscas regionais.</p>
               <div class="mb-6">
                 <p class="text-4xl font-serif font-bold text-roseGold">R$ 9,90</p>
                 <p class="text-sm text-softGray">/mês com renovação automática</p>
@@ -656,7 +687,7 @@
     </section>
   </main>
 
-  <!-- CHAT FLUTUANTE -->
+  <!-- CHAT FLUTUANTE (AJUSTADO) -->
   <div class="fixed bottom-6 right-6 z-50">
     <button onclick="toggleChat()" class="bg-roseGold text-white w-14 h-14 rounded-full shadow-2xl hover:scale-105 transition flex items-center justify-center border-2 border-white">
       <i class="fa-regular fa-comment-dots text-2xl"></i>
@@ -665,19 +696,24 @@
       <div class="bg-softBlack text-white p-4 flex justify-between items-center">
         <div class="flex items-center gap-3">
           <div class="w-10 h-10 bg-roseGold rounded-full flex items-center justify-center"><i class="fa-regular fa-comment text-white text-lg"></i></div>
-          <div><p class="font-bold text-sm">Lead Beauty</p><p class="text-[10px] text-neutral-300">Atendimento online • Resposta rápida</p></div>
+          <div><p class="font-bold text-sm">Atendimento Lead Beauty</p><p class="text-[10px] text-neutral-300">Online • Resposta rápida</p></div>
         </div>
         <button onclick="toggleChat()" class="text-neutral-400 hover:text-white text-xl leading-none">&times;</button>
       </div>
       <div class="p-4 bg-nudeBg" style="max-height: 500px; overflow-y: auto;">
         <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm mb-4 max-w-[90%] border border-cardBorder">
-          <p class="text-sm font-semibold text-softBlack">Olá, seja bem-vindo(a) à Lead Beauty.</p>
-          <p class="text-xs text-softGray mt-1">Somos uma plataforma de curadoria que conecta clientes aos melhores profissionais de estética da região.</p>
+          <p class="text-sm font-semibold text-softBlack">Olá, seja bem-vindo(a).</p>
+          <p class="text-xs text-softGray mt-1">Como podemos ajudar?</p>
+          <p class="text-xs text-roseGold mt-2 font-medium">📞 WhatsApp: (13) 97401-4176</p>
         </div>
-        <a href="https://wa.me/5513974014176?text=Olá!%20Quero%20solicitar%20uma%20indicação%20de%20profissional%20na%20Lead%20Beauty" target="_blank" class="block w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300 text-center mb-3 shadow-md"><i class="fa-brands fa-whatsapp mr-2 text-lg"></i> Falar com atendimento</a>
-        <button onclick="toggleTratamentos()" class="block w-full bg-roseGold hover:bg-premiumRoseHover text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300 text-center shadow-md"><i class="fa-regular fa-calendar-check mr-2"></i> Ver tratamentos disponíveis</button>
+        <a href="https://wa.me/5513974014176?text=Olá!%20Quero%20solicitar%20um%20atendimento%20na%20Lead%20Beauty" target="_blank" class="block w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300 text-center mb-3 shadow-md">
+          <i class="fa-brands fa-whatsapp mr-2 text-lg"></i> Solicitar atendimento
+        </a>
+        <button onclick="toggleTratamentos()" class="block w-full bg-roseGold hover:bg-premiumRoseHover text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300 text-center shadow-md">
+          <i class="fa-regular fa-calendar-check mr-2"></i> Ver especialidades
+        </button>
         <div id="tratamentosList" class="hidden mt-3 bg-white rounded-xl border border-cardBorder p-3 space-y-2">
-          <p class="text-[10px] font-bold text-roseGold uppercase tracking-wider mb-2">Tratamentos disponíveis</p>
+          <p class="text-[10px] font-bold text-roseGold uppercase tracking-wider mb-2">Especialidades</p>
           <ul class="space-y-1.5 text-sm text-softGray">
             <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-roseGold text-xs"></i> Microagulhamento de estrias</li>
             <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-roseGold text-xs"></i> Camuflagem de estrias</li>
@@ -711,9 +747,9 @@
       list.classList.toggle('hidden');
     }
     
-    // ==================== CONFIGURAÇÃO GOOGLE SHEETS ====================
-    // ⚠️ IMPORTANTE: Substitua pela URL do seu Apps Script
+    // ==================== CONFIGURAÇÃO ====================
     const GOOGLE_SHEETS_URL = "SUA_URL_DO_APPS_SCRIPT_AQUI";
+    const WHATSAPP_ADMIN = "5513974014176";
     
     // ==================== FUNÇÃO CIDADE DINÂMICA ====================
     function initCidadeDinamico() {
@@ -739,63 +775,54 @@
     // ==================== ENVIAR PARA GOOGLE SHEETS ====================
     async function sendToGoogleSheets(lead) {
       if (!GOOGLE_SHEETS_URL || GOOGLE_SHEETS_URL === "SUA_URL_DO_APPS_SCRIPT_AQUI") {
-        console.warn("⚠️ Google Sheets não configurado. Configure a URL do Apps Script.");
+        console.warn("Google Sheets não configurado");
         return false;
       }
-      
       try {
-        const response = await fetch(GOOGLE_SHEETS_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(lead)
-        });
-        console.log("📊 Lead enviado para Google Sheets:", lead);
+        await fetch(GOOGLE_SHEETS_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(lead) });
+        console.log("Lead enviado para Google Sheets");
         return true;
-      } catch (error) {
-        console.error("❌ Erro ao enviar para Google Sheets:", error);
-        return false;
-      }
+      } catch (error) { console.error("Erro:", error); return false; }
     }
     
     // ==================== DADOS DOS PROFISSIONAIS ====================
     let profissionaisDatabase = [
-      { id: 1, nome: "Clínica Derma Face", cidade: "São Paulo", estado: "SP", tipoAtendimento: "Clínica de estética", especialidades: ["Microagulhamento de estrias", "Tratamento facial", "Limpeza de pele"], estrutura: ["Sala própria", "Clínica terceirizada"] },
-      { id: 2, nome: "Haline Mulero Estética", cidade: "São Vicente", estado: "SP", tipoAtendimento: "Profissional autônomo", especialidades: ["Camuflagem de estrias", "Camuflagem de cicatrizes", "Tratamento corporal", "Estética íntima"], estrutura: ["Atendimento domiciliar", "Consultoria online"] },
-      { id: 3, nome: "Espaço Beleza & Bem-estar", cidade: "Santos", estado: "SP", tipoAtendimento: "Espaço compartilhado", especialidades: ["Harmonização corporal", "Limpeza de pele", "Tratamento facial", "Outros"], estrutura: ["Sala própria"] },
-      { id: 4, nome: "Instituto de Estética Avançada", cidade: "Praia Grande", estado: "SP", tipoAtendimento: "Clínica de estética", especialidades: ["Microagulhamento de estrias", "Tratamento facial", "Tratamento corporal", "Harmonização corporal", "Estética íntima"], estrutura: ["Sala própria", "Clínica terceirizada"] },
-      { id: 5, nome: "Studio da Pele", cidade: "Guarujá", estado: "SP", tipoAtendimento: "Profissional autônomo", especialidades: ["Limpeza de pele", "Tratamento facial", "Camuflagem de cicatrizes"], estrutura: ["Atendimento domiciliar"] }
+      { id: 1, nome: "Clínica Derma Face", cidade: "São Paulo", estado: "SP", tipoAtendimento: "Clínica de estética", especialidades: ["Microagulhamento", "Estética Facial", "Limpeza de Pele"] },
+      { id: 2, nome: "Haline Mulero Estética", cidade: "São Vicente", estado: "SP", tipoAtendimento: "Profissional autônomo", especialidades: ["Camuflagem de Estrias", "Camuflagem de Cicatrizes", "Estética Corporal"] },
+      { id: 3, nome: "Espaço Beleza & Bem-estar", cidade: "Santos", estado: "SP", tipoAtendimento: "Espaço compartilhado", especialidades: ["Harmonização Facial", "Limpeza de Pele", "Design de Sobrancelhas"] },
+      { id: 4, nome: "Instituto de Estética Avançada", cidade: "Praia Grande", estado: "SP", tipoAtendimento: "Clínica de estética", especialidades: ["Microagulhamento", "Estética Facial", "Estética Corporal", "Harmonização Facial"] },
+      { id: 5, nome: "Studio da Pele", cidade: "Guarujá", estado: "SP", tipoAtendimento: "Profissional autônomo", especialidades: ["Limpeza de Pele", "Estética Facial", "Camuflagem de Cicatrizes"] }
     ];
     
     const todasCidades = [
-      "São Vicente", "Santos", "Praia Grande", "Guarujá", "Cubatão", "Bertioga",
-      "Itanhaém", "Peruíbe", "Mongaguá", "Ubatuba", "Caraguatatuba", "São Sebastião",
-      "Ilhabela", "Iguape", "Ilha Comprida", "Cananéia", "Miracatu", "Juquiá",
-      "Registro", "Pariquera-Açu", "Jacupiranga", "Cajati", "Barra do Turvo",
-      "Eldorado", "Sete Barras"
+      "São Paulo", "Rio de Janeiro", "Belo Horizonte", "Brasília", "Salvador", "Fortaleza", "Recife", "Porto Alegre", "Curitiba",
+      "Campinas", "Santos", "São Vicente", "Praia Grande", "Guarujá", "Cubatão", "Bertioga", "Itanhaém", "Peruíbe", "Mongaguá",
+      "Ubatuba", "Caraguatatuba", "São Sebastião", "Ilhabela", "Iguape", "Ilha Comprida", "Cananéia"
     ];
     
     function carregarProfissionaisDoStorage() {
       const saved = localStorage.getItem('lead_beauty_profissionais');
       if (saved) {
-        const profissionaisSalvos = JSON.parse(saved);
-        profissionaisSalvos.forEach(prof => {
+        const salvos = JSON.parse(saved);
+        salvos.forEach(prof => {
           if (!profissionaisDatabase.find(p => p.email === prof.email)) {
             profissionaisDatabase.push({
               id: profissionaisDatabase.length + 1,
               nome: prof.nome,
+              clinica: prof.clinica || '',
               cidade: prof.cidade,
               estado: prof.estado,
-              tipoAtendimento: prof.tipoAtendimento || "Profissional autônomo",
+              whatsapp: prof.whatsapp,
+              instagram: prof.instagram || '',
+              tipoAtendimento: "Profissional autônomo",
               especialidades: prof.especialidades || [],
-              estrutura: prof.estrutura || []
+              atendeClinica: prof.atendeClinica || false,
+              atendeDomicilio: prof.atendeDomicilio || false,
+              descricao: prof.descricao || ''
             });
           }
         });
       }
-      console.log(`📊 ${profissionaisDatabase.length} profissionais carregados para exibição`);
     }
     
     function popularFiltros() {
@@ -804,7 +831,6 @@
       if (!cidadeSelect || !especialidadeSelect) return;
       
       while (cidadeSelect.options.length > 1) cidadeSelect.remove(1);
-      
       todasCidades.sort().forEach(cidade => {
         const option = document.createElement('option');
         option.value = cidade;
@@ -820,7 +846,6 @@
       });
       
       while (especialidadeSelect.options.length > 1) especialidadeSelect.remove(1);
-      
       todasEspecialidades.sort().forEach(esp => {
         const option = document.createElement('option');
         option.value = esp;
@@ -832,11 +857,9 @@
     function filtrarProfissionais() {
       const cidadeFiltro = document.getElementById('filtro-cidade').value.toLowerCase();
       const especialidadeFiltro = document.getElementById('filtro-especialidade').value.toLowerCase();
-      const tipoFiltro = document.getElementById('filtro-tipo').value;
       let resultados = [...profissionaisDatabase];
       if (cidadeFiltro) resultados = resultados.filter(p => p.cidade.toLowerCase().includes(cidadeFiltro));
       if (especialidadeFiltro) resultados = resultados.filter(p => p.especialidades.some(esp => esp.toLowerCase().includes(especialidadeFiltro)));
-      if (tipoFiltro) resultados = resultados.filter(p => p.tipoAtendimento === tipoFiltro);
       exibirResultados(resultados);
     }
     
@@ -844,11 +867,11 @@
       const container = document.getElementById('resultados-busca');
       if (!container) return;
       if (profissionais.length === 0) {
-        container.innerHTML = `<div class="text-center text-softGray py-8"><i class="fa-solid fa-face-frown text-4xl mb-2 opacity-50"></i><p>Nenhum profissional encontrado com os filtros selecionados.</p><p class="text-xs mt-2">Solicite uma indicação e nossa curadoria conectará você ao profissional ideal.</p></div>`;
+        container.innerHTML = `<div class="text-center text-softGray py-8"><i class="fa-solid fa-face-frown text-4xl mb-2 opacity-50"></i><p>Nenhum profissional encontrado.</p><p class="text-xs mt-2">Solicite uma indicação e nossa curadoria conectará você ao profissional ideal.</p></div>`;
         return;
       }
       container.innerHTML = `
-        <div class="mb-4 text-center"><p class="text-xs text-softGray">${profissionais.length} profissional(is) parceiro(s) encontrado(s)</p></div>
+        <div class="mb-4 text-center"><p class="text-xs text-softGray">${profissionais.length} profissional(is) encontrado(s)</p></div>
         <div class="space-y-4">
           ${profissionais.map(prof => `
             <div class="resultado-item bg-white border border-cardBorder rounded-2xl p-5 hover:shadow-md transition-all">
@@ -860,7 +883,6 @@
                     <span class="text-xs text-softGray"><i class="fa-solid fa-briefcase text-roseGold mr-1"></i> ${prof.tipoAtendimento}</span>
                   </div>
                   <div class="mt-2"><p class="text-[10px] font-bold text-softGray uppercase mb-1">Especialidades:</p><div class="flex flex-wrap gap-1">${prof.especialidades.map(esp => `<span class="text-[10px] bg-nudeBg px-2 py-1 rounded-full text-softBlack">${esp}</span>`).join('')}</div></div>
-                  ${prof.estrutura && prof.estrutura.length > 0 ? `<div class="mt-2"><p class="text-[10px] font-bold text-softGray uppercase mb-1">Estrutura:</p><div class="flex flex-wrap gap-1">${prof.estrutura.map(est => `<span class="text-[10px] bg-premiumRose/10 px-2 py-1 rounded-full text-softBlack">${est}</span>`).join('')}</div></div>` : ''}
                 </div>
                 <div>
                   <button onclick="solicitarAtendimentoParaProfissional('${prof.nome}', '${prof.cidade}')" class="bg-roseGold hover:bg-premiumRoseHover text-white font-semibold py-2.5 px-5 rounded-xl text-sm transition shadow-md inline-flex items-center gap-2">
@@ -885,7 +907,7 @@
         }
       }
       showView('cadastro-cliente');
-      showMessage(`Você está solicitando indicação para ${nomeProfissional}. Preencha seus dados e nossa equipe de curadoria entrará em contato.`, "success");
+      showMessage(`Solicitação para ${nomeProfissional}. Preencha seus dados e nossa curadoria entrará em contato.`, "success");
     }
     
     // ==================== FUNÇÕES DO FORMULÁRIO ====================
@@ -899,6 +921,24 @@
       setTimeout(() => msgDiv.remove(), 5000);
     }
     
+    // Controle de spam
+    let lastSubmitTime = 0;
+    const COOLDOWN_MS = 60000;
+    const emailSolicitacoes = new Map();
+    
+    function isSpam(lead) {
+      const now = Date.now();
+      if (now - lastSubmitTime < COOLDOWN_MS) return true;
+      const ultimaSolicitacao = emailSolicitacoes.get(lead.email);
+      if (ultimaSolicitacao && now - ultimaSolicitacao < COOLDOWN_MS) return true;
+      return false;
+    }
+    
+    function registrarEnvio(lead) {
+      lastSubmitTime = Date.now();
+      emailSolicitacoes.set(lead.email, Date.now());
+    }
+    
     const LEADS_STORAGE_KEY = 'lead_beauty_leads';
     const PROFISSIONAIS_KEY = 'lead_beauty_profissionais';
     
@@ -909,9 +949,8 @@
         if (existingLeads) leads = JSON.parse(existingLeads);
         leads.push({ ...lead, id: Date.now(), timestamp: new Date().toISOString(), status: 'aguardando_curadoria' });
         localStorage.setItem(LEADS_STORAGE_KEY, JSON.stringify(leads));
-        console.log("💾 Solicitação de indicação salva no localStorage:", lead);
         return true;
-      } catch (error) { console.error("❌ Erro:", error); return false; }
+      } catch (error) { return false; }
     }
     
     function saveProfissionalToLocalStorage(profissional) {
@@ -919,41 +958,48 @@
         const existing = localStorage.getItem(PROFISSIONAIS_KEY);
         let profissionais = [];
         if (existing) profissionais = JSON.parse(existing);
+        
         const especialidades = [];
-        const espIds = ['esp-micro', 'esp-camuflagem-estrias', 'esp-camuflagem-cicatrizes', 'esp-tratamento-facial', 'esp-tratamento-corporal', 'esp-harmonizacao', 'esp-estetica-intima', 'esp-limpeza-pele', 'esp-outros'];
-        espIds.forEach(id => { const checkbox = document.getElementById(id); if (checkbox && checkbox.checked) especialidades.push(checkbox.value); });
-        const estrutura = [];
-        const estrIds = ['estrutura-sala', 'estrutura-clinica', 'estrutura-domicilio', 'estrutura-online'];
-        estrIds.forEach(id => { const checkbox = document.getElementById(id); if (checkbox && checkbox.checked) estrutura.push(checkbox.value); });
-        profissionais.push({ ...profissional, especialidades, estrutura, id: Date.now(), timestamp: new Date().toISOString(), plano: 'Degustação Inicial', statusPagamento: 'free', leadsConsumidos: 0 });
+        const espIds = ['esp-camuflagem-estrias', 'esp-camuflagem-cicatrizes', 'esp-micro', 'esp-limpeza', 'esp-facial', 'esp-corporal', 'esp-harmonizacao', 'esp-micropig', 'esp-sobrancelhas', 'esp-cilios', 'esp-drenagem', 'esp-massoterapia', 'esp-depilacao', 'esp-maquiagem', 'esp-bronzeamento', 'esp-terapias', 'esp-podologia', 'esp-outros'];
+        espIds.forEach(id => { const cb = document.getElementById(id); if (cb && cb.checked) especialidades.push(cb.value); });
+        
+        const atendeClinica = document.getElementById('atende-clinica')?.checked || false;
+        const atendeDomicilio = document.getElementById('atende-domicilio')?.checked || false;
+        
+        profissionais.push({
+          ...profissional,
+          clinica: document.getElementById('prof-clinica')?.value || '',
+          instagram: document.getElementById('prof-instagram')?.value || '',
+          descricao: document.getElementById('prof-descricao')?.value || '',
+          especialidades,
+          atendeClinica,
+          atendeDomicilio,
+          id: Date.now(),
+          timestamp: new Date().toISOString(),
+          plano: 'Degustação Inicial',
+          statusPagamento: 'free',
+          leadsConsumidos: 0
+        });
+        
         localStorage.setItem(PROFISSIONAIS_KEY, JSON.stringify(profissionais));
-        profissionaisDatabase.push({ id: profissionaisDatabase.length + 1, nome: profissional.nome, cidade: profissional.cidade, estado: profissional.estado, tipoAtendimento: profissional.tipoAtendimento, especialidades: especialidades, estrutura: estrutura });
-        console.log("💾 Profissional salvo na base de curadoria:", { ...profissional, especialidades, estrutura });
         return true;
-      } catch (error) { console.error("❌ Erro:", error); return false; }
+      } catch (error) { return false; }
     }
     
     function findProfissionalByEmail(email) {
       try {
         const existing = localStorage.getItem(PROFISSIONAIS_KEY);
-        if (existing) { const profissionais = JSON.parse(existing); return profissionais.find(p => p.email === email) || null; }
-      } catch (error) { console.error("❌ Erro:", error); }
+        if (existing) {
+          const profissionais = JSON.parse(existing);
+          return profissionais.find(p => p.email === email) || null;
+        }
+      } catch (error) { return null; }
       return null;
     }
     
     function sendLeadToAdminWhatsApp(lead) {
-      const mensagem = `*NOVA SOLICITAÇÃO DE INDICAÇÃO - LEAD BEAUTY*%0a%0a` +
-        `*👤 Cliente:* ${lead.nome}%0a` +
-        `*📧 E-mail:* ${lead.email}%0a` +
-        `*📞 WhatsApp:* ${lead.whatsapp}%0a` +
-        `*📍 Cidade/UF:* ${lead.cidade} - ${lead.estado}%0a` +
-        `*💆‍♀️ Procedimento:* ${lead.tratamento}%0a` +
-        `*📝 Detalhes:* ${lead.relato || 'Não informado'}%0a%0a` +
-        `*🔍 AÇÃO DE CURADORIA:*%0a` +
-        `Analisar perfil e indicar o melhor profissional da região.`;
-      
-      window.open(`https://wa.me/5513974014176?text=${mensagem}`, '_blank');
-      console.log("📤 Solicitação enviada para curadoria via WhatsApp");
+      const msg = `*NOVA SOLICITAÇÃO - LEAD BEAUTY*%0a%0a*👤 Cliente:* ${lead.nome}%0a*📧 E-mail:* ${lead.email}%0a*📞 WhatsApp:* ${lead.whatsapp}%0a*📍 Cidade:* ${lead.cidade} - ${lead.estado}%0a*💆‍♀️ Procedimento:* ${lead.tratamento}%0a*📝 Detalhes:* ${lead.relato}%0a%0a*🔍 AÇÃO:* Analisar e indicar profissional.`;
+      window.open(`https://wa.me/${WHATSAPP_ADMIN}?text=${msg}`, '_blank');
     }
     
     async function handleCadastroCliente(e) {
@@ -961,14 +1007,11 @@
       
       const cidadeSelect = document.getElementById('cli-cidade').value;
       const cidadeManual = document.getElementById('cli-cidade-manual').value;
-      let cidadeFinal = cidadeSelect;
+      let cidadeFinal = cidadeSelect === 'Minha cidade não está na lista' ? cidadeManual.trim() : cidadeSelect;
       
-      if (cidadeSelect === 'Minha cidade não está na lista') {
-        if (!cidadeManual.trim()) {
-          showMessage("Por favor, digite o nome da sua cidade.", "error");
-          return;
-        }
-        cidadeFinal = cidadeManual.trim();
+      if ((cidadeSelect === 'Minha cidade não está na lista' && !cidadeManual.trim())) {
+        showMessage("Digite sua cidade.", "error");
+        return;
       }
       
       const lead = {
@@ -982,70 +1025,80 @@
       };
       
       if (!lead.nome || !lead.whatsapp || !lead.email || !lead.cidade || !lead.estado) {
-        showMessage("Preencha todos os campos obrigatórios.", "error");
+        showMessage("Preencha todos os campos.", "error");
+        return;
+      }
+      
+      if (!lead.email.includes('@') || !lead.email.includes('.')) {
+        showMessage("E-mail inválido.", "error");
+        return;
+      }
+      
+      const telefoneLimpo = lead.whatsapp.replace(/\D/g, '');
+      if (telefoneLimpo.length < 10) {
+        showMessage("WhatsApp inválido.", "error");
+        return;
+      }
+      
+      if (isSpam(lead)) {
+        showMessage("Aguarde 1 minuto antes de enviar novamente.", "error");
         return;
       }
       
       const submitBtn = document.getElementById('submit-lead-btn');
-      const originalText = submitBtn?.innerHTML || 'Concluir Solicitação';
+      const originalText = submitBtn?.innerHTML || 'Enviar';
       if (submitBtn) { submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Enviando...'; submitBtn.disabled = true; }
       
-      // Salvar no localStorage
-      const localStorageSaved = saveLeadToLocalStorage(lead);
+      const saved = saveLeadToLocalStorage(lead);
+      await sendToGoogleSheets(lead);
+      sendLeadToAdminWhatsApp(lead);
+      registrarEnvio(lead);
       
-      // Enviar para Google Sheets
-      const sheetsSaved = await sendToGoogleSheets(lead);
-      
-      if (localStorageSaved) {
-        showMessage("Solicitação enviada com sucesso! Nossa equipe de curadoria analisará seu caso e entrará em contato em breve.", "success");
-        
-        // Enviar WhatsApp (opcional, mantido para alerta)
-        sendLeadToAdminWhatsApp(lead);
-        
-        if (sheetsSaved) {
-          console.log("✅ Lead registrado no Google Sheets");
-        } else {
-          console.warn("⚠️ Lead salvo apenas localmente (Google Sheets não configurado)");
-          if (GOOGLE_SHEETS_URL === "SUA_URL_DO_APPS_SCRIPT_AQUI") {
-            console.log("📌 Configure a URL do Google Sheets Apps Script para ativar o salvamento automático");
-          }
-        }
-        
+      if (saved) {
+        showMessage("Solicitação enviada! Nossa equipe entrará em contato em breve.", "success");
         document.getElementById('form-cliente').reset();
-        const outraCidadeContainer = document.getElementById('outra-cidade-container');
-        const cidadeManualInput = document.getElementById('cli-cidade-manual');
-        if (outraCidadeContainer) outraCidadeContainer.classList.add('hidden-section');
-        if (cidadeManualInput) cidadeManualInput.value = '';
-        setTimeout(() => showView('home'), 3000);
-      } else { showMessage("Erro ao enviar. Tente novamente.", "error"); }
+        document.getElementById('outra-cidade-container')?.classList.add('hidden-section');
+      } else {
+        showMessage("Erro ao enviar.", "error");
+      }
       
       if (submitBtn) { submitBtn.innerHTML = originalText; submitBtn.disabled = false; }
+      setTimeout(() => showView('home'), 3000);
     }
     
     async function handleCadastroProfissional(e) {
       e.preventDefault();
+      
       const profissional = {
         nome: document.getElementById('prof-nome').value,
         email: document.getElementById('prof-email').value,
         senha: document.getElementById('prof-senha').value,
         cidade: document.getElementById('prof-cidade').value,
         estado: document.getElementById('prof-estado').value.toUpperCase(),
-        whatsapp: document.getElementById('prof-whatsapp').value,
-        tipoAtendimento: document.getElementById('prof-tipo-atendimento').value
+        whatsapp: document.getElementById('prof-whatsapp').value
       };
-      if (!profissional.nome || !profissional.email || !profissional.senha || !profissional.cidade || !profissional.estado || !profissional.whatsapp || !profissional.tipoAtendimento) {
+      
+      if (!profissional.nome || !profissional.email || !profissional.senha || !profissional.cidade || !profissional.estado || !profissional.whatsapp) {
         showMessage("Preencha todos os campos obrigatórios.", "error");
         return;
       }
-      const espIds = ['esp-micro', 'esp-camuflagem-estrias', 'esp-camuflagem-cicatrizes', 'esp-tratamento-facial', 'esp-tratamento-corporal', 'esp-harmonizacao', 'esp-estetica-intima', 'esp-limpeza-pele', 'esp-outros'];
-      let hasEspecialidade = false;
-      espIds.forEach(id => { if (document.getElementById(id)?.checked) hasEspecialidade = true; });
-      if (!hasEspecialidade) { showMessage("Selecione pelo menos uma especialidade.", "error"); return; }
+      
+      const espIds = ['esp-camuflagem-estrias', 'esp-camuflagem-cicatrizes', 'esp-micro', 'esp-limpeza', 'esp-facial', 'esp-corporal', 'esp-harmonizacao', 'esp-micropig', 'esp-sobrancelhas', 'esp-cilios', 'esp-drenagem', 'esp-massoterapia', 'esp-depilacao', 'esp-maquiagem', 'esp-bronzeamento', 'esp-terapias', 'esp-podologia', 'esp-outros'];
+      let hasEsp = false;
+      espIds.forEach(id => { if (document.getElementById(id)?.checked) hasEsp = true; });
+      if (!hasEsp) { showMessage("Selecione pelo menos uma especialidade.", "error"); return; }
+      
       const existing = findProfissionalByEmail(profissional.email);
-      if (existing) { showMessage("Este e-mail já está cadastrado.", "error"); return; }
+      if (existing) { showMessage("E-mail já cadastrado.", "error"); return; }
+      
       const saved = saveProfissionalToLocalStorage(profissional);
-      if (saved) { showMessage("Cadastro realizado com sucesso! Agora você pode acessar sua área do profissional e receber leads qualificados.", "success"); document.getElementById('form-prof-cadastro').reset(); showView('home'); } 
-      else { showMessage("Erro ao salvar. Tente novamente.", "error"); }
+      if (saved) {
+        showMessage("Cadastro realizado! Agora você pode acessar sua área.", "success");
+        document.getElementById('form-prof-cadastro').reset();
+        showView('home');
+      } else {
+        showMessage("Erro ao cadastrar.", "error");
+      }
     }
     
     async function handleLoginProfissional(e) {
@@ -1055,60 +1108,42 @@
       const profissional = findProfissionalByEmail(email);
       if (profissional && profissional.senha === senha) {
         currentUserData = profissional;
-        showMessage("Login realizado com sucesso!", "success");
+        showMessage("Login realizado!", "success");
         loadDashboardProfissional();
         showView('dashboard-profissional');
-      } else { showMessage("E-mail ou senha incorretos.", "error"); }
+      } else {
+        showMessage("E-mail ou senha incorretos.", "error");
+      }
     }
     
-    async function handleLogoutProfissional() { currentUserData = null; showView('home'); showMessage("Logout realizado!", "success"); }
+    function handleLogoutProfissional() { currentUserData = null; showView('home'); showMessage("Logout realizado!", "success"); }
     
     function loadDashboardProfissional() {
       if(!currentUserData) return;
       const planName = currentUserData.plano === 'Profissional' ? 'Plano Profissional' : 'Plano de Validação';
       const planBadge = currentUserData.plano === 'Profissional' ? 'status-active' : 'status-free';
       const planBadgeText = currentUserData.plano === 'Profissional' ? 'Ativo' : 'Grátis';
-      const dashPlanName = document.getElementById('dash-plan-name');
-      const dashPlanBadge = document.getElementById('dash-plan-badge');
-      const dashLeadsConsumed = document.getElementById('dash-leads-consumed');
-      if (dashPlanName) dashPlanName.textContent = planName;
-      if (dashPlanBadge) { dashPlanBadge.textContent = planBadgeText; dashPlanBadge.className = `status-badge ${planBadge}`; }
-      const maxLeads = currentUserData.plano === 'Profissional' ? 3 : 2;
+      document.getElementById('dash-plan-name').textContent = planName;
+      document.getElementById('dash-plan-badge').textContent = planBadgeText;
+      document.getElementById('dash-plan-badge').className = `status-badge ${planBadge}`;
+      const maxLeads = currentUserData.plano === 'Profissional' ? 6 : 3;
       const leadsConsumed = currentUserData.leadsConsumidos || 0;
-      if (dashLeadsConsumed) dashLeadsConsumed.textContent = `${leadsConsumed}/${maxLeads}`;
-      const leadsWarning = document.getElementById('leads-warning');
-      const limitWarning = document.getElementById('limit-warning');
-      const upgradeSection = document.getElementById('upgrade-section');
-      if (leadsWarning) leadsWarning.classList.add('hidden-section');
-      if (limitWarning) limitWarning.classList.add('hidden-section');
-      if (upgradeSection) upgradeSection.classList.add('hidden-section');
-      if (currentUserData.plano === 'Degustação Inicial' && leadsConsumed >= 2) {
-        if (leadsWarning) leadsWarning.classList.remove('hidden-section');
-        if (upgradeSection) upgradeSection.classList.remove('hidden-section');
-      } else if (currentUserData.plano === 'Profissional' && leadsConsumed >= maxLeads) {
-        if (limitWarning) limitWarning.classList.remove('hidden-section');
-      } else if (currentUserData.plano === 'Degustação Inicial') {
-        if (upgradeSection) upgradeSection.classList.remove('hidden-section');
-      }
+      document.getElementById('dash-leads-consumed').textContent = `${leadsConsumed}/${maxLeads}`;
     }
     
     let currentUserData = null;
-    
     function showView(viewId) {
-      document.querySelectorAll('.view-section').forEach(section => section.classList.add('hidden-section'));
+      document.querySelectorAll('.view-section').forEach(s => s.classList.add('hidden-section'));
       const target = document.getElementById(`view-${viewId}`);
       if (target) target.classList.remove('hidden-section');
       window.scrollTo(0, 0);
     }
     
-    function generatePaymentQRCode() { showMessage("Sistema de pagamento em desenvolvimento. Em breve disponível!", "error"); }
-    function copyPixCode() { showMessage("Sistema de pagamento em desenvolvimento.", "error"); }
+    function generatePaymentQRCode() { showMessage("Sistema em desenvolvimento.", "error"); }
+    function copyPixCode() { showMessage("Sistema em desenvolvimento.", "error"); }
     
     document.addEventListener('DOMContentLoaded', function() {
-      console.log("🚀 Lead Beauty - Plataforma de Curadoria em Estética");
-      console.log("📌 Clientes solicitam indicação → Curadoria analisa → Profissional recebe lead validado");
-      console.log("📌 Plano Gratuito: 2 leads | Plano Profissional: 3 leads por mês");
-      console.log("📊 Google Sheets: " + (GOOGLE_SHEETS_URL !== "SUA_URL_DO_APPS_SCRIPT_AQUI" ? "✅ Configurado" : "⚠️ Aguardando configuração"));
+      console.log("Lead Beauty - Plataforma de Curadoria");
       initCidadeDinamico();
       carregarProfissionaisDoStorage();
       popularFiltros();
