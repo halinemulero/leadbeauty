@@ -1,99 +1,365 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>Lead Beauty | Conexão Estética por Haline Mulero</title>
-  <meta name="description" content="A plataforma líder em captação de leads e conexão entre clientes e especialistas em estética. Transforme sua beleza com profissionais selecionados.">
-  <!-- Tailwind + Font Awesome -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #fefaf7;
-      color: #2d2a2a;
-    }
-    .font-serif-display {
-      font-family: 'Playfair Display', serif;
-    }
-    /* Gradiente sutil e customização */
-    .gradient-bg {
-      background: linear-gradient(135deg, #fff6f0 0%, #fdece3 100%);
-    }
-    .gold-gradient {
-      background: linear-gradient(120deg, #e6b17e, #c9925d);
-    }
-    .btn-primary {
-      transition: all 0.3s ease;
-      box-shadow: 0 8px 18px rgba(201, 146, 93, 0.2);
-    }
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 16px 28px rgba(201, 146, 93, 0.3);
-    }
-    .card-hover {
-      transition: transform 0.25s ease, box-shadow 0.3s;
-    }
-    .card-hover:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
-    }
-    .form-focus:focus {
-      border-color: #e6b17e;
-      ring: 2px solid #e6b17e;
-      outline: none;
-      box-shadow: 0 0 0 3px rgba(230, 177, 126, 0.2);
-    }
-    .hero-wave {
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-wave:after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 60px;
-      background: repeating-linear-gradient(45deg, #fff5ef 0px, #fff5ef 20px, #fdece3 20px, #fdece3 40px);
-      opacity: 0.5;
-      pointer-events: none;
-    }
-    @media (max-width: 640px) {
-      .hero-wave:after {
-        height: 30px;
-      }
-    }
-  </style>
-</head>
-<body class="antialiased">
+ <!DOCTYPE html>  <html lang="pt-BR" class="scroll-smooth">  
+<head>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">  
+  <title>Lead Beauty | Conexão Estética por Haline Mulero</title>    <meta name="description" content="A plataforma líder em captação de leads e conexão entre clientes e especialistas em estética avançada. Criado e idealizado por Haline Mulero.">  
+  <meta name="keywords" content="estética, leads, conexão estética, haline mulero, beleza, especialistas">  
+  <meta name="author" content="Haline Mulero">    <script src="https://cdn.tailwindcss.com"></script>    <link rel="preconnect" href="https://fonts.googleapis.com">  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">    <script>  
+    tailwind.config = {  
+      theme: {  
+        extend: {  
+          fontFamily: {  
+            sans: ['Plus Jakarta Sans', 'sans-serif'],  
+            serif: ['Playfair Display', 'serif']  
+          },  
+          colors: {  
+            roseGold: '#C5A059',  
+            premiumRose: '#CDA49E',  
+            premiumRoseHover: '#BD938D',  
+            nudeBg: '#FBF9F6',  
+            softBlack: '#1E1A17',  
+            softGray: '#665E5A',  
+            cardBorder: '#E2D9D0'  
+          },  
+          animation: {  
+            'fade-in': 'fadeIn 0.8s ease-out',  
+            'slide-up': 'slideUp 0.6s ease-out',  
+          },  
+          keyframes: {  
+            fadeIn: {  
+              '0%': { opacity: '0', transform: 'translateY(20px)' },  
+              '100%': { opacity: '1', transform: 'translateY(0)' },  
+            },  
+            slideUp: {  
+              '0%': { transform: 'translateY(20px)', opacity: '0' },  
+              '100%': { transform: 'translateY(0)', opacity: '1' },  
+            }  
+          }  
+        }  
+      }  
+    }  
+  </script>    <style>  
+    .premium-shadow { box-shadow: 0 12px 40px -12px rgba(30, 26, 23, 0.08); }  
+    .btn-hover {  
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);  
+    }  
+    .btn-hover:hover {  
+      transform: translateY(-2px);  
+      box-shadow: 0 10px 25px -5px rgba(197, 160, 89, 0.2);  
+    }  
+    .whatsapp-float {  
+      position: fixed;  
+      bottom: 30px;  
+      right: 30px;  
+      z-index: 50;  
+      background-color: #25D366;  
+      width: 60px;  
+      height: 60px;  
+      border-radius: 50%;  
+      display: flex;  
+      align-items: center;  
+      justify-content: center;  
+      box-shadow: 0 10px 25px -5px rgba(37, 211, 102, 0.3);  
+      transition: all 0.3s;  
+      cursor: pointer;  
+    }  
+    .whatsapp-float:hover {  
+      transform: scale(1.05);  
+      background-color: #20b859;  
+    }  
+    @media (max-width: 640px) {  
+      .whatsapp-float {  
+        width: 50px;  
+        height: 50px;  
+        bottom: 20px;  
+        right: 20px;  
+      }  
+    }  
+    input, textarea, select {  
+      transition: all 0.2s;  
+      outline: none;  
+    }  
+    input:focus, textarea:focus, select:focus {  
+      ring: 2px solid #CDA49E;  
+      border-color: #CDA49E;  
+    }  
+    .toast-notification {  
+      animation: slideInRight 0.3s ease-out;  
+    }  
+    @keyframes slideInRight {  
+      from {  
+        transform: translateX(100%);  
+        opacity: 0;  
+      }  
+      to {  
+        transform: translateX(0);  
+        opacity: 1;  
+      }  
+    }  
+    .form-success {  
+      animation: fadeInUp 0.5s ease-out;  
+    }  
+    @keyframes fadeInUp {  
+      from {  
+        opacity: 0;  
+        transform: translateY(20px);  
+      }  
+      to {  
+        opacity: 1;  
+        transform: translateY(0);  
+      }  
+    }  
+    .pulse-animation {  
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;  
+    }  
+    @keyframes pulse {  
+      0%, 100% {  
+        opacity: 1;  
+      }  
+      50% {  
+        opacity: 0.7;  
+      }  
+    }  
+  </style>  </head>  
+<body class="bg-nudeBg font-sans text-softBlack antialiased">    <!-- WhatsApp Flutuante -->  <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20Lead%20Beauty"   
+target="_blank"   
+class="whatsapp-float"  
+aria-label="WhatsApp">
+<i class="fab fa-whatsapp text-white text-3xl"></i>
+</a>
 
-  <!-- Header / Navegação -->
-  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-md shadow-sm border-b border-amber-100/50">
-    <div class="container mx-auto px-5 lg:px-8 py-4 flex justify-between items-center">
-      <div class="flex items-center gap-2">
-        <i class="fas fa-spa text-3xl text-amber-600"></i>
-        <span class="font-serif-display text-2xl font-semibold tracking-tight text-stone-800">Lead<span class="text-amber-600">Beauty</span></span>
-      </div>
-      <nav class="hidden md:flex space-x-8 text-stone-600 font-medium">
-        <a href="#home" class="hover:text-amber-600 transition">Início</a>
-        <a href="#servicos" class="hover:text-amber-600 transition">Serviços</a>
-        <a href="#beneficios" class="hover:text-amber-600 transition">Benefícios</a>
-        <a href="#depoimentos" class="hover:text-amber-600 transition">Depoimentos</a>
-        <a href="#contato" class="hover:text-amber-600 transition">Contato</a>
-      </nav>
-      <button class="bg-amber-600 hover:bg-amber-700 text-white px-5 py-2 rounded-full font-medium text-sm shadow-md transition hidden md:block">Conectar agora</button>
-      <button id="mobileMenuBtn" class="md:hidden text-2xl text-stone-700 focus:outline-none"><i class="fas fa-bars"></i></button>
-    </div>
-    <!-- Mobile menu -->
-    <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-amber-50 px-5 py-4 flex flex-col space-y-3 shadow-lg">
-      <a href="#home" class="text-stone-700 py-1 hover:text-amber-600">Início</a>
-      <a href="#servicos" class="text-stone-7
+  <!-- Toast Container -->    <div id="toastContainer" class="fixed top-20 right-5 z-50 space-y-2"></div>    <!-- NAVEGAÇÃO -->    <nav class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-cardBorder premium-shadow">  
+    <div class="max-w-7xl mx-auto px-5 lg:px-8 py-4 flex justify-between items-center">  
+      <div class="flex items-center gap-2">  
+        <i class="fas fa-spa text-roseGold text-2xl"></i>  
+        <span class="font-serif font-bold text-2xl tracking-tight text-softBlack">Lead<span class="text-roseGold">Beauty</span></span>  
+      </div>  
+      <div class="hidden md:flex gap-8 text-softGray font-medium">  
+        <a href="#home" class="hover:text-premiumRose transition">Início</a>  
+        <a href="#plataforma" class="hover:text-premiumRose transition">Plataforma</a>  
+        <a href="#planos" class="hover:text-premiumRose transition">Planos</a>  
+        <a href="#depoimentos" class="hover:text-premiumRose transition">Depoimentos</a>  
+        <a href="#contato" class="hover:text-premiumRose transition">Contato</a>  
+      </div>  
+      <a href="#form-lead" class="hidden md:block bg-premiumRose text-white px-5 py-2 rounded-full font-semibold btn-hover text-sm">Conectar agora <i class="fas fa-arrow-right ml-1"></i></a>  
+      <button class="md:hidden text-softBlack text-2xl focus:outline-none" id="mobileMenuBtn">  
+        <i class="fas fa-bars"></i>  
+      </button>  
+    </div>  
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-cardBorder px-5 py-4 flex flex-col gap-3">  
+      <a href="#home" class="text-softGray hover:text-premiumRose py-2">Início</a>  
+      <a href="#plataforma" class="text-softGray hover:text-premiumRose py-2">Plataforma</a>  
+      <a href="#planos" class="text-softGray hover:text-premiumRose py-2">Planos</a>  
+      <a href="#depoimentos" class="text-softGray hover:text-premiumRose py-2">Depoimentos</a>  
+      <a href="#contato" class="text-softGray hover:text-premiumRose py-2">Contato</a>  
+      <a href="#form-lead" class="bg-premiumRose text-white text-center rounded-full py-2 font-semibold">Conectar agora</a>  
+    </div>  
+  </nav>    <main class="relative z-10">  
+    <!-- HERO Section -->  
+    <section id="home" class="max-w-7xl mx-auto px-5 lg:px-8 py-12 md:py-20">  
+      <div class="flex flex-col lg:flex-row items-center gap-12">  
+        <div class="flex-1 text-center lg:text-left animate-fade-in">  
+          <div class="inline-block px-4 py-1.5 rounded-full bg-premiumRose/10 text-premiumRose font-semibold text-sm mb-6">  
+            ✨ Conectando Beleza & Negócios  
+          </div>  
+          <h1 class="font-serif text-4xl md:text-6xl font-bold leading-tight text-softBlack mb-6">  
+            A nova era da <span class="text-premiumRose">conexão estética</span>  
+          </h1>  
+          <p class="text-softGray text-lg md:text-xl mb-8 max-w-xl mx-auto lg:mx-0">  
+            Lead Beauty: a plataforma que transforma leads qualificados em clientes fiéis para especialistas em estética avançada. Idealizado por <span class="font-semibold text-softBlack">Haline Mulero</span>.  
+          </p>  
+          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">  
+            <a href="#form-lead" class="bg-premiumRose text-white px-8 py-3 rounded-full font-semibold btn-hover text-center inline-flex items-center justify-center gap-2">  
+              Quero ser um lead <i class="fas fa-heart text-sm"></i>  
+            </a>  
+            <a href="#planos" class="border-2 border-premiumRose text-premiumRose px-8 py-3 rounded-full font-semibold hover:bg-premiumRose/5 transition text-center">  
+              Assinar plataforma  
+            </a>  
+          </div>  
+        </div>  
+        <div class="flex-1 flex justify-center">  
+          <div class="relative w-80 h-80 md:w-96 md:h-96 rounded-full bg-gradient-to-br from-premiumRose/20 to-roseGold/20 flex items-center justify-center premium-shadow">  
+            <i class="fas fa-users text-7xl text-premiumRose"></i>  
+          </div>  
+        </div>  
+      </div>  
+    </section>  <!-- FORMULÁRIO DE CAPTAÇÃO (SEM FIREBASE) -->  
+<section id="form-lead" class="max-w-4xl mx-auto px-5 lg:px-8 py-16">  
+  <div class="bg-white rounded-3xl premium-shadow p-6 md:p-10 border border-cardBorder">  
+    <div class="text-center mb-8">  
+      <i class="fas fa-star-of-life text-roseGold text-3xl mb-3"></i>  
+      <h2 class="font-serif text-3xl md:text-4xl font-bold text-softBlack">Cadastre-se gratuitamente</h2>  
+      <p class="text-softGray mt-3">Receba conteúdos exclusivos e seja prioridade na conexão com especialistas</p>  
+    </div>  
+      
+    <form id="leadForm" class="space-y-6">  
+      <div class="grid md:grid-cols-2 gap-5">  
+        <div>  
+          <label class="block text-sm font-semibold text-softBlack mb-2">Nome completo *</label>  
+          <input type="text" id="nome" required class="w-full px-4 py-3 border border-cardBorder rounded-xl focus:border-premiumRose transition" placeholder="Digite seu nome">  
+        </div>  
+        <div>  
+          <label class="block text-sm font-semibold text-softBlack mb-2">E-mail *</label>  
+          <input type="email" id="email" required class="w-full px-4 py-3 border border-cardBorder rounded-xl focus:border-premiumRose transition" placeholder="seu@email.com">  
+        </div>  
+      </div>  
+      <div class="grid md:grid-cols-2 gap-5">  
+        <div>  
+          <label class="block text-sm font-semibold text-softBlack mb-2">WhatsApp *</label>  
+          <input type="tel" id="whatsapp" required class="w-full px-4 py-3 border border-cardBorder rounded-xl focus:border-premiumRose transition" placeholder="(11) 99999-9999">  
+        </div>  
+        <div>  
+          <label class="block text-sm font-semibold text-softBlack mb-2">Área de interesse</label>  
+          <select id="interesse" class="w-full px-4 py-3 border border-cardBorder rounded-xl focus:border-premiumRose transition bg-white">  
+            <option value="Estética facial">Estética facial</option>  
+            <option value="Estética corporal">Estética corporal</option>  
+            <option value="Bem-estar holístico">Bem-estar holístico</option>  
+            <option value="Maquiagem profissional">Maquiagem profissional</option>  
+            <option value="Outros">Outros</option>  
+          </select>  
+        </div>  
+      </div>  
+      <div>  
+        <label class="block text-sm font-semibold text-softBlack mb-2">Mensagem (opcional)</label>  
+        <textarea id="mensagem" rows="3" class="w-full px-4 py-3 border border-cardBorder rounded-xl focus:border-premiumRose transition" placeholder="Conte-nos suas expectativas..."></textarea>  
+      </div>  
+      <button type="submit" id="submitBtn" class="w-full bg-premiumRose text-white py-4 rounded-xl font-bold text-lg btn-hover flex items-center justify-center gap-2">  
+        <i class="fas fa-check-circle"></i> Enviar cadastro  
+      </button>  
+      <p class="text-xs text-center text-softGray mt-4">  
+        <i class="fas fa-lock"></i> Seus dados estão seguros e não serão compartilhados.  
+      </p>  
+    </form>  
+      
+    <div id="formSuccess" class="hidden mt-6 p-4 bg-green-50 border border-green-200 rounded-xl text-center form-success">  
+      <i class="fas fa-check-circle text-green-500 text-2xl mb-2"></i>  
+      <p class="text-green-700 font-semibold">Cadastro realizado com sucesso!</p>  
+      <p class="text-green-600 text-sm mt-1">Em breve entraremos em contato via WhatsApp.</p>  
+    </div>  
+  </div>  
+</section>  
+
+<!-- SEÇÃO DE PLANOS E ASSINATURA COM ASAAS -->  
+<section id="planos" class="max-w-7xl mx-auto px-5 lg:px-8 py-16">  
+  <div class="text-center mb-12">  
+    <i class="fas fa-crown text-roseGold text-3xl mb-3"></i>  
+    <h2 class="font-serif text-3xl md:text-4xl font-bold text-softBlack">Assine a <span class="text-premiumRose">Lead Beauty</span></h2>  
+    <p class="text-softGray mt-3 max-w-2xl mx-auto">Desbloqueie acesso completo à maior rede de conexão estética do Brasil</p>  
+  </div>  
+
+  <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">  
+    <!-- Plano Mensal -->  
+    <div class="bg-white rounded-3xl premium-shadow border border-cardBorder overflow-hidden hover:scale-105 transition-transform duration-300">  
+      <div class="bg-gradient-to-r from-premiumRose to-roseGold p-6 text-white text-center">  
+        <h3 class="font-serif text-2xl font-bold">Plano Profissional</h3>  
+        <p class="text-white/90 mt-1">Para especialistas em estética</p>  
+      </div>  
+      <div class="p-8 text-center">  
+        <div class="mb-6">  
+          <span class="text-4xl font-bold text-softBlack">R$ 97</span>  
+          <span class="text-softGray">/mês</span>  
+        </div>  
+        <ul class="space-y-3 text-left mb-8">  
+          <li class="flex items-center gap-2"><i class="fas fa-check-circle text-premiumRose"></i> Leads ilimitados</li>  
+          <li class="flex items-center gap-2"><i class="fas fa-check-circle text-premiumRose"></i> Dashboard exclusivo</li>  
+          <li class="flex items-center gap-2"><i class="fas fa-check-circle text-premiumRose"></i> Suporte prioritário</li>  
+          <li class="flex items-center gap-2"><i class="fas fa-check-circle text-premiumRose"></i> Certificação Lead Beauty</li>  
+        </ul>  
+        <a href="https://www.asaas.com/c/k6draufxr8zz3iqj"  
+           target="_blank"  
+           class="block w-full bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-3 rounded-full font-semibold btn-hover text-center inline-flex items-center justify-center gap-2">  
+          <i class="fas fa-qrcode text-lg"></i> Assinar via PIX  
+        </a>  
+        <p class="text-xs text-softGray mt-3">Pagamento seguro via Asaas</p>  
+      </div>  
+    </div>  
+
+    <!-- Plano Anual (Destaque) -->  
+    <div class="bg-white rounded-3xl premium-shadow border-2 border-premiumRose overflow-hidden relative hover:scale-105 transition-transform duration-300">  
+      <div class="absolute top-4 right-4 bg-roseGold text-white text-xs font-bold px-3 py-1 rounded-full">MAIS ECONÔMICO</div>  
+      <div class="bg-gradient-to-r from-softBlack to-premiumRose/80 p-6 text-white text-center">  
+        <h3 class="font-serif text-2xl font-bold">Plano Premium</h3>  
+        <p class="text-white/90 mt-1">Anual com 2 meses grátis</p>  
+      </div>  
+      <div class="p-8 text-center">  
+        <div class="mb-6">  
+          <span class="text-4xl font-bold text-softBlack">R$ 970</span>  
+          <span class="text-softGray line-through ml-2">R$ 1.164</span>  
+          <span class="text-softGray text-sm block">Economia de 17%</span>  
+        </div>  
+        <ul class="space-y-3 text-left mb-8">  
+          <li class="flex items-center gap-2"><i class="fas fa-check-circle text-premiumRose"></i> Todos os benefícios do Profissional</li>  
+          <li class="flex items-center gap-2"><i class="fas fa-check-circle text-premiumRose"></i> Consultoria estratégica mensal</li>  
+          <li class="flex items-center gap-2"><i class="fas fa-check-circle text-premiumRose"></i> Destaque na plataforma</li>  
+          <li class="flex items-center gap-2"><i class="fas fa-check-circle text-premiumRose"></i> 12 meses por apenas 10</li>  
+        </ul>  
+        <a href="https://www.asaas.com/c/k6draufxr8zz3iqj"  
+           target="_blank"  
+           class="block w-full bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-3 rounded-full font-semibold btn-hover text-center inline-flex items-center justify-center gap-2">  
+          <i class="fas fa-qrcode text-lg"></i> Assinar via PIX  
+        </a>  
+        <p class="text-xs text-softGray mt-3">Pagamento seguro via Asaas</p>  
+      </div>  
+    </div>  
+  </div>  
+
+  <!-- Selo de segurança Asaas -->  
+  <div class="text-center mt-8">  
+    <div class="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 text-sm text-softGray">  
+      <i class="fas fa-shield-alt text-green-500"></i>  
+      <span>Ambiente seguro e criptografado</span>  
+      <i class="fas fa-lock text-softGray"></i>  
+    </div>  
+  </div>  
+</section>  
+
+<!-- PLATAFORMA -->  
+<section id="plataforma" class="max-w-7xl mx-auto px-5 lg:px-8 py-16">  
+  <div class="text-center mb-12">  
+    <h2 class="font-serif text-3xl md:text-4xl font-bold text-softBlack">Como funciona a <span class="text-premiumRose">Lead Beauty</span>?</h2>  
+    <p class="text-softGray mt-3 max-w-2xl mx-auto">Conexão inteligente entre clientes e os melhores especialistas em estética</p>  
+  </div>  
+  <div class="grid md:grid-cols-3 gap-8">  
+    <div class="bg-white rounded-2xl p-6 text-center border border-cardBorder premium-shadow hover:-translate-y-1 transition">  
+      <div class="w-16 h-16 bg-premiumRose/10 rounded-full flex items-center justify-center mx-auto mb-4">  
+        <i class="fas fa-user-plus text-premiumRose text-2xl"></i>  
+      </div>  
+      <h3 class="font-bold text-xl mb-2">1. Cadastro simples</h3>  
+      <p class="text-softGray">Preencha seus dados e nos conte suas necessidades estéticas.</p>  
+    </div>  
+    <div class="bg-white rounded-2xl p-6 text-center border border-cardBorder premium-shadow hover:-translate-y-1 transition">  
+      <div class="w-16 h-16 bg-premiumRose/10 rounded-full flex items-center justify-center mx-auto mb-4">  
+        <i class="fas fa-chart-line text-premiumRose text-2xl"></i>  
+      </div>  
+      <h3 class="font-bold text-xl mb-2">2. Análise de perfil</h3>  
+      <p class="text-softGray">Nossa curadoria encontra os especialistas ideais para você.</p>  
+    </div>  
+    <div class="bg-white rounded-2xl p-6 text-center border border-cardBorder premium-shadow hover:-translate-y-1 transition">  
+      <div class="w-16 h-16 bg-premiumRose/10 rounded-full flex items-center justify-center mx-auto mb-4">  
+        <i class="fas fa-handshake text-premiumRose text-2xl"></i>  
+      </div>  
+      <h3 class="font-bold text-xl mb-2">3. Conexão exclusiva</h3>  
+      <p class="text-softGray">Apresentamos você aos melhores profissionais da região.</p>  
+    </div>  
+  </div>  
+</section>  
+
+<!-- DEPOIMENTOS -->  
+<section id="depoimentos" class="max-w-7xl mx-auto px-5 lg:px-8 py-16 bg-white/50 rounded-3xl my-8">  
+  <div class="text-center mb-12">  
+    <i class="fas fa-quote-left text-roseGold text-3xl mb-3"></i>  
+    <h2 class="font-serif text-3xl md:text-4xl font-bold text-softBlack">O que dizem sobre nós</h2>  
+  </div>  
+  <div class="grid md:grid-cols-2 gap-8">  
+    <div class="bg-white p-6 rounded-2xl premium-shadow border border-cardBorder">  
+      <p class="text-softGray italic mb-4">"A Lead Beauty revolucionou meu negócio! Em apenas 2 semanas consegui 15 leads qualificados. Haline Mulero criou algo realmente transformador."</p>  
+      <div class="flex items-center gap-3">  
+        <div class="w-10 h-10 bg-premiumRose rounded-full flex items-center justify-center text-white font-bold">F</div>  
+        <div><strong>Fernanda Lima</strong><p class="text-sm text-softGray">Especialista em Estética</p></div>  
+      </div>  
+    </div>  
+    <div class="bg-white p-6 rounded-2xl premium-shadow border border-cardBorder">  
+      <p class="text-softGray italic mb-4">"Como cliente, encontrei profissionais incríveis. Processo segur
+      
