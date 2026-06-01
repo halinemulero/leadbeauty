@@ -119,6 +119,33 @@
       background-color: #FEE2E2;
       color: #7F1D1D;
     }
+
+    /* ADICIONADO: Estilos para limite de leads e proteção */
+    .vagas-encerradas-box {
+      background-color: #FEE2E2;
+      border-left: 4px solid #EF4444;
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      text-align: center;
+    }
+    .vagas-encerradas-box p {
+      color: #991B1B;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .cooldown-timer {
+      font-size: 0.7rem;
+      color: #666;
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+    /* ADICIONADO: honeypot oculto */
+    .honeypot {
+      position: absolute;
+      left: -9999px;
+      opacity: 0;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body class="font-sans text-softBlack bg-nudeBg">
@@ -159,7 +186,6 @@
           Idealizado por quem vive a rotina da estética e entende que o talento precisa de clientes reais. Para quem busca um procedimento, a plataforma é <span class="text-softBlack font-bold">100% gratuita do início ao fim</span>. Para o profissional, é a oportunidade de parar de depender do algoritmo do Instagram e receber contatos diretos de quem quer agendar na sua cidade.
         </p>
         
-        <!-- ⬇️ TEXTO ADICIONADO: Idealizado por Haline Mulero ⬇️ -->
         <p class="text-xs text-roseGold font-semibold tracking-wide text-center max-w-3xl mx-auto mb-10">
           ✨ Idealizado por Haline Mulero ✨
         </p>
@@ -217,7 +243,6 @@
                 <p class="text-xs text-softGray font-medium mb-1.5">• Perfil profissional ativo na plataforma.</p>
                 <p class="text-[11px] text-softGray font-medium text-roseGold">• Destaque nas buscas da sua cidade.</p>
               </div>
-              <!-- BOTÃO ASSINAR VIA PIX -->
               <a href="https://www.asaas.com/c/k6draufxr8zz3iqj" target="_blank" class="block w-full text-center mt-4 bg-roseGold hover:bg-premiumRoseHover text-white font-bold py-2.5 px-4 rounded-xl transition-all duration-300 text-xs uppercase tracking-wider shadow-md">
                 <i class="fa-solid fa-qrcode mr-2"></i> Assinar via PIX
               </a>
@@ -236,59 +261,82 @@
         <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Encontre o Profissional Ideal</h2>
         <p class="text-center text-xs text-softGray mb-6">Preencha seus dados para localizarmos o especialista ideal mais próximo de você.</p>
         
-        <form id="form-cliente" class="space-y-4" onsubmit="handleCadastroCliente(event)">
-          <div>
-            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Nome Completo</label>
-            <input type="text" id="cli-nome" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
-          </div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- ADICIONADO: Contador de leads e área de vagas encerradas -->
+        <div id="lead-counter-info" class="text-center mb-4 text-xs text-softGray">
+          📊 Leads disponíveis: <span id="lead-count-display">3</span>/3
+        </div>
+        
+        <div id="vagas-encerradas-box" class="vagas-encerradas-box hidden-section">
+          <p>🔒 Vagas encerradas!</p>
+          <p class="text-sm font-normal">O limite de 3 leads foi atingido.</p>
+          <a href="https://wa.me/5513974014176?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20os%20serviços" target="_blank" class="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg transition mt-2">
+            <i class="fa-brands fa-whatsapp mr-2"></i> Falar com Especialista
+          </a>
+        </div>
+        
+        <div id="form-cliente-container">
+          <form id="form-cliente" class="space-y-4" onsubmit="handleCadastroCliente(event)">
+            <!-- ADICIONADO: Honeypot anti-robô -->
+            <div class="honeypot">
+              <label for="website">Website</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+            
             <div>
-              <label class="text-[10px] font-bold text-softGray uppercase block mb-1">WhatsApp de Contato</label>
-              <input type="tel" id="cli-whatsapp" placeholder="(13) 99999-9999" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
+              <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Nome Completo</label>
+              <input type="text" id="cli-nome" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="text-[10px] font-bold text-softGray uppercase block mb-1">WhatsApp de Contato</label>
+                <input type="tel" id="cli-whatsapp" placeholder="(13) 99999-9999" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
+              </div>
+              <div>
+                <label class="text-[10px] font-bold text-softGray uppercase block mb-1">E-mail</label>
+                <input type="email" id="cli-email" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Cidade</label>
+                <input type="text" id="cli-cidade" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
+              </div>
+              <div>
+                <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Estado (UF)</label>
+                <input type="text" id="cli-estado" maxlength="2" placeholder="SP" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
+              </div>
             </div>
             <div>
-              <label class="text-[10px] font-bold text-softGray uppercase block mb-1">E-mail</label>
-              <input type="email" id="cli-email" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
+              <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Procedimento Solicitado</label>
+              <select id="cli-tratamento" class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
+                <option>Cabeleireiro</option>
+                <option>Manicure e Pedicure</option>
+                <option>Maquiagem</option>
+                <option>Designer de Sobrancelhas</option>
+                <option>Lash Designer</option>
+                <option>Barbeiro</option>
+                <option>Esteticista</option>
+                <option>Massoterapeuta</option>
+                <option>Micropigmentação</option>
+                <option>Harmonização Facial</option>
+                <option>Depilação</option>
+                <option>Bronzeamento</option>
+                <option>Microagulhamento de Estrias</option>
+                <option>Camuflagem de Cicatrizes</option>
+                <option>Estética Facial</option>
+                <option>Estética Corporal</option>
+                <option>Outros</option>
+              </select>
             </div>
-          </div>
-          <div class="grid grid-cols-2 gap-4">
             <div>
-              <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Cidade</label>
-              <input type="text" id="cli-cidade" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
+             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Serviço Desejado</label>
+              <textarea id="cli-relato" rows="3" placeholder="Escreva detalhes adicionais aqui..." class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition resize-none"></textarea>
             </div>
-            <div>
-              <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Estado (UF)</label>
-              <input type="text" id="cli-estado" maxlength="2" placeholder="SP" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
-            </div>
-          </div>
-          <div>
-            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Procedimento Solicitado</label>
-            <select id="cli-tratamento" class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
-              <option>Cabeleireiro</option>
-              <option>Manicure e Pedicure</option>
-              <option>Maquiagem</option>
-              <option>Designer de Sobrancelhas</option>
-              <option>Lash Designer</option>
-              <option>Barbeiro</option>
-              <option>Esteticista</option>
-              <option>Massoterapeuta</option>
-              <option>Micropigmentação</option>
-              <option>Harmonização Facial</option>
-              <option>Depilação</option>
-              <option>Bronzeamento</option>
-              <option>Microagulhamento de Estrias</option>
-              <option>Camuflagem de Cicatrizes</option>
-              <option>Estética Facial</option>
-              <option>Estética Corporal</option>
-              <option>Outros</option>
-            </select>
-          </div>
-          <div>
-           <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Serviço Desejado</label>
-            <textarea id="cli-relato" rows="3" placeholder="Escreva detalhes adicionais aqui..." class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition resize-none"></textarea>
-          </div>
-          <button type="submit" class="w-full bg-softBlack text-white py-4 rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-neutral-800 transition shadow-md">Concluir Solicitação</button>
-        </form>
+            <button type="submit" id="submit-lead-btn" class="w-full bg-softBlack text-white py-4 rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-neutral-800 transition shadow-md">Concluir Solicitação</button>
+          </form>
+          <!-- ADICIONADO: Timer cooldown -->
+          <div id="cooldown-timer" class="cooldown-timer hidden-section"></div>
+        </div>
       </div>
     </section>
 
@@ -593,15 +641,179 @@
     const ASAAS_API_KEY = "YOUR_ASAAS_API_KEY_HERE";
     const ASAAS_BASE_URL = "https://api.asaas.com/v3";
 
+    // ==================== ADICIONADO: SISTEMA DE LIMITE DE LEADS E PROTEÇÃO ====================
+    // Chave para localStorage
+    const LEADS_STORAGE_KEY = 'lead_beauty_leads_count';
+    const COOLDOWN_KEY = 'lead_beauty_cooldown';
+    const ATTEMPTS_KEY = 'lead_beauty_attempts';
+    const MAX_LEADS = 3;
+    const MAX_ATTEMPTS = 5;
+    const COOLDOWN_SECONDS = 60;
+    
+    // Inicializar contador de leads
+    let leadCount = parseInt(localStorage.getItem(LEADS_STORAGE_KEY) || '0');
+    let cooldownUntil = parseInt(localStorage.getItem(COOLDOWN_KEY) || '0');
+    let attemptCount = parseInt(localStorage.getItem(ATTEMPTS_KEY) || '0');
+    
+    // Função para atualizar UI do limite de leads
+    function updateLeadLimitUI() {
+      const leadCountDisplay = document.getElementById('lead-count-display');
+      const vagasBox = document.getElementById('vagas-encerradas-box');
+      const formContainer = document.getElementById('form-cliente-container');
+      const counterInfo = document.getElementById('lead-counter-info');
+      
+      if (leadCountDisplay) {
+        leadCountDisplay.textContent = leadCount;
+      }
+      
+      if (leadCount >= MAX_LEADS) {
+        if (vagasBox) vagasBox.classList.remove('hidden-section');
+        if (formContainer) formContainer.classList.add('hidden-section');
+        if (counterInfo) counterInfo.classList.add('hidden-section');
+      } else {
+        if (vagasBox) vagasBox.classList.add('hidden-section');
+        if (formContainer) formContainer.classList.remove('hidden-section');
+        if (counterInfo) counterInfo.classList.remove('hidden-section');
+      }
+    }
+    
+    // Verificar cooldown
+    function isInCooldown() {
+      const now = Date.now();
+      if (cooldownUntil > now) {
+        return Math.ceil((cooldownUntil - now) / 1000);
+      }
+      return false;
+    }
+    
+    // Atualizar timer de cooldown na UI
+    function updateCooldownTimer() {
+      const timerElement = document.getElementById('cooldown-timer');
+      const remaining = isInCooldown();
+      
+      if (remaining && timerElement) {
+        timerElement.classList.remove('hidden-section');
+        timerElement.innerHTML = `<i class="fa-regular fa-clock"></i> Aguarde ${remaining} segundos para enviar novamente.`;
+      } else if (timerElement) {
+        timerElement.classList.add('hidden-section');
+        timerElement.innerHTML = '';
+      }
+    }
+    
+    // Iniciar cooldown
+    function startCooldown() {
+      cooldownUntil = Date.now() + (COOLDOWN_SECONDS * 1000);
+      localStorage.setItem(COOLDOWN_KEY, cooldownUntil);
+      
+      // Atualizar timer a cada segundo
+      const timerInterval = setInterval(() => {
+        const remaining = isInCooldown();
+        const timerElement = document.getElementById('cooldown-timer');
+        
+        if (!remaining) {
+          clearInterval(timerInterval);
+          if (timerElement) timerElement.classList.add('hidden-section');
+          // Resetar tentativas após cooldown
+          attemptCount = 0;
+          localStorage.setItem(ATTEMPTS_KEY, attemptCount);
+        } else if (timerElement) {
+          timerElement.classList.remove('hidden-section');
+          timerElement.innerHTML = `<i class="fa-regular fa-clock"></i> Aguarde ${remaining} segundos para enviar novamente.`;
+        }
+      }, 1000);
+    }
+    
+    // Verificar e incrementar tentativas
+    function checkAndIncrementAttempts() {
+      const now = Date.now();
+      // Resetar tentativas se cooldown expirou
+      if (cooldownUntil <= now) {
+        attemptCount = 0;
+      }
+      
+      if (attemptCount >= MAX_ATTEMPTS) {
+        return false; // Limite de tentativas excedido
+      }
+      
+      attemptCount++;
+      localStorage.setItem(ATTEMPTS_KEY, attemptCount);
+      return true;
+    }
+    
+    // Incrementar lead
+    function incrementLeadCount() {
+      leadCount++;
+      localStorage.setItem(LEADS_STORAGE_KEY, leadCount);
+      updateLeadLimitUI();
+    }
+    
+    // Verificar honeypot
+    function isHoneypotFilled() {
+      const honeypot = document.getElementById('website');
+      return honeypot && honeypot.value.trim() !== '';
+    }
+    
+    // Função para mostrar mensagem de erro
+    function showErrorMessage(message) {
+      const errorDiv = document.createElement('div');
+      errorDiv.className = 'bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg text-xs mb-4';
+      errorDiv.innerHTML = `<i class="fa-solid fa-circle-exclamation mr-2"></i> ${message}`;
+      
+      const form = document.getElementById('form-cliente');
+      const existingError = form.querySelector('.error-message-temp');
+      if (existingError) existingError.remove();
+      
+      errorDiv.classList.add('error-message-temp');
+      form.insertBefore(errorDiv, form.firstChild);
+      
+      setTimeout(() => errorDiv.remove(), 5000);
+    }
+    
+    // ==================== FUNÇÕES ORIGINAIS MODIFICADAS ====================
     function showView(viewId) {
       document.querySelectorAll('.view-section').forEach(section => section.classList.add('hidden-section'));
       const target = document.getElementById(`view-${viewId}`);
       if (target) target.classList.remove('hidden-section');
       window.scrollTo(0, 0);
+      
+      // Atualizar UI do limite quando voltar para home ou cadastro-cliente
+      if (viewId === 'home' || viewId === 'cadastro-cliente') {
+        updateLeadLimitUI();
+        updateCooldownTimer();
+      }
     }
 
     async function handleCadastroCliente(e) {
       e.preventDefault();
+      
+      // 1. Verificar limite de leads
+      if (leadCount >= MAX_LEADS) {
+        showErrorMessage(`Limite de ${MAX_LEADS} leads já atingido. Entre em contato pelo WhatsApp.`);
+        return;
+      }
+      
+      // 2. Verificar cooldown
+      const cooldownRemaining = isInCooldown();
+      if (cooldownRemaining) {
+        showErrorMessage(`Aguarde ${cooldownRemaining} segundos antes de enviar novamente.`);
+        return;
+      }
+      
+      // 3. Verificar limite de tentativas
+      if (!checkAndIncrementAttempts()) {
+        showErrorMessage(`Limite de ${MAX_ATTEMPTS} tentativas excedido. Aguarde o cooldown de ${COOLDOWN_SECONDS} segundos.`);
+        return;
+      }
+      
+      // 4. Verificar honeypot (anti-robô)
+      if (isHoneypotFilled()) {
+        // Se honeypot foi preenchido, ignorar silenciosamente (fingir sucesso)
+        console.log("Honeypot detectado - envio ignorado");
+        alert("Mensagem enviada com sucesso!"); // Falso sucesso para enganar robô
+        document.getElementById('form-cliente').reset();
+        return;
+      }
+      
       const lead = {
         nome: document.getElementById('cli-nome').value,
         whatsapp: document.getElementById('cli-whatsapp').value,
@@ -612,11 +824,31 @@
         relato: document.getElementById('cli-relato').value || "Não informado",
         dataCriacao: new Date().toLocaleString('pt-BR')
       };
-      try { if(db) await db.collection('leads').add(lead); } catch(err) { console.warn(err); }
+      
+      try { 
+        if(db) await db.collection('leads').add(lead); 
+      } catch(err) { 
+        console.warn(err); 
+      }
+      
       alert(`Triagem concluída com sucesso! Redirecionando para o WhatsApp.`);
-      const textoMensagem = `Novo Lead - Lead Beauty ✨\n\n👤 Cliente: ${lead.nome}\n📞 WhatsApp: ${lead.whatsapp}\n📧 E-mail: ${lead.email}\n📍 Local: ${lead.cidade} - ${lead.estado}\n💆‍♀️ Procedimento: ${lead.tratamento}\n📝 Relato: ${lead.relato}`;
+      
+      const textoMensagem = `Novo Lead - Lead Beauty ✨\n\n` +
+                            `👤 Cliente: ${lead.nome}\n` +
+                            `📞 WhatsApp: ${lead.whatsapp}\n` +
+                            `📧 E-mail: ${lead.email}\n` +
+                            `📍 Local: ${lead.cidade} - ${lead.estado}\n` +
+                            `💆‍♀️ Procedimento: ${lead.tratamento}\n` +
+                            `📝 Relato: ${lead.relato}`;
+                            
       window.open(`https://wa.me/5513974014176?text=${encodeURIComponent(textoMensagem)}`, '_blank');
+      
       document.getElementById('form-cliente').reset();
+      
+      // Incrementar contador de leads e iniciar cooldown
+      incrementLeadCount();
+      startCooldown();
+      
       showView('home');
     }
 
@@ -725,7 +957,7 @@
       if(!currentUserData || !db) return;
       try {
         const nextRenewalDate = new Date(); nextRenewalDate.setMonth(nextRenewalDate.getMonth() + 1);
-        await db.collection('profissionais').doc(currentUserData.uid).update({ plano: 'Profissional', statusPagamento: 'active', dataPagamento: new Date().toISOString(), proximoVencimento: nextRenewalDate.toISOString(), leadsConsumidos: 0 });
+        await db.collection('profissionais').doc(currentUserData.uid).update({ plano: 'Profissional', statusPagamento: 'active', dataPagamento: new Date().toISOString(), proximoVencimiento: nextRenewalDate.toISOString(), leadsConsumidos: 0 });
         currentUserData.plano = 'Profissional'; currentUserData.statusPagamento = 'active'; currentUserData.leadsConsumidos = 0;
         alert("Pagamento confirmado! Seu plano foi ativado com sucesso!");
         document.getElementById('payment-status').classList.add('hidden-section');
@@ -740,15 +972,19 @@
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-      const observer = new MutationObserver(() => { const paymentView = document.getElementById('view-payment-plan'); if(paymentView && !paymentView.classList.contains('hidden-section')) generatePaymentQRCode(); });
+      updateLeadLimitUI();
+      
+      const observer = new MutationObserver(() => { 
+        const paymentView = document.getElementById('view-payment-plan'); 
+        if(paymentView && !paymentView.classList.contains('hidden-section')) generatePaymentQRCode();
+        // Atualizar UI quando mudar de view
+        if(document.getElementById('view-cadastro-cliente') && !document.getElementById('view-cadastro-cliente').classList.contains('hidden-section')) {
+          updateLeadLimitUI();
+          updateCooldownTimer();
+        }
+      });
       observer.observe(document.body, { attributes: true, subtree: true });
     });
   </script>
 </body>
 </html>
-
-          
-
-
-     
- 
