@@ -2,17 +2,16 @@
 <html lang="pt-BR" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
   <title>Lead Beauty | Curadoria em Estética por Haline Mulero</title>
-
+  
   <meta name="description" content="Plataforma de curadoria que conecta clientes aos melhores profissionais de estética da sua região. Solicite atendimento e nossa equipe indica o especialista ideal.">
-
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <script>
@@ -40,7 +39,7 @@
     /* ===== ESTILOS ORIGINAIS PRESERVADOS ===== */
     .premium-shadow { box-shadow: 0 12px 40px -12px rgba(30, 26, 23, 0.08); }
     .hidden-section { display: none !important; }
-
+    
     html, body {
       min-height: 100%;
       background-color: #FBF9F6;
@@ -149,7 +148,7 @@
       color: white;
       border-left: 4px solid #B91C1C;
     }
-
+    
     .checkbox-group {
       display: flex;
       flex-wrap: wrap;
@@ -177,7 +176,7 @@
       height: 0.9rem;
       accent-color: #C5A059;
     }
-
+    
     .credibility-badge {
       display: inline-flex;
       align-items: center;
@@ -372,13 +371,6 @@
 <body class="font-sans text-softBlack bg-nudeBg">
 
   <!-- HEADER / NAV -->
-  <nav class="bg-white/80 backdrop-blur-md border-b border-cardBorder sticky top-0 z-40 py-4 px-6">
-    <div class="max-w-6xl mx-auto flex items-center justify-between">
-      <div class="flex items-center gap-4 cursor-pointer" onclick="showView('home')">
-        <img src="logo.png" alt="Logo" class="h-12 w-12 object-contain">
-        <div class="flex flex-col">
-          <span class="font-serif font-bold text-3xl tracking-tight text-softBlack">Lead Beauty</span>
-          <span class="text-[14px] tracking-[0.4em] text-roseGold uppercase font-bold">BY HALINE MULERO</span>
   <nav class="bg-white/80 backdrop-blur-md border-b border-cardBorder sticky top-0 z-40 py-3 px-4 md:py-4 md:px-6">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4">
       <div class="flex items-center gap-3 md:gap-4 cursor-pointer" onclick="showView('home')">
@@ -388,10 +380,6 @@
           <span class="text-[10px] md:text-[14px] tracking-[0.2em] md:tracking-[0.4em] text-roseGold uppercase font-bold">BY HALINE MULERO</span>
         </div>
       </div>
-      <div class="flex items-center gap-5">
-        <button onclick="showView('cadastro-cliente')" class="text-xs font-bold text-softBlack hover:text-premiumRose transition">Solicitar Atendimento</button>
-        <button onclick="showView('busca-profissionais')" class="text-xs font-bold text-softBlack hover:text-premiumRose transition">Ver Profissionais</button>
-        <button onclick="showView('login-profissional')" class="bg-softBlack text-white text-xs px-5 py-2.5 rounded-xl font-semibold transition hover:bg-neutral-800">Área do Profissional</button>
       <div class="flex flex-wrap items-center justify-center gap-3 md:gap-5">
         <button onclick="showView('cadastro-cliente')" class="text-xs font-bold text-softBlack hover:text-premiumRose transition px-2 py-1 md:px-0">Solicitar Atendimento</button>
         <button onclick="showView('busca-profissionais')" class="text-xs font-bold text-softBlack hover:text-premiumRose transition px-2 py-1 md:px-0">Ver Profissionais</button>
@@ -405,86 +393,63 @@
 
     <!-- VIEW: HOME -->
     <section id="view-home" class="view-section">
-      <header class="text-center pt-20 pb-14 px-4 max-w-5xl mx-auto">
-        <div class="inline-flex items-center gap-2 bg-white border border-cardBorder px-4 py-1.5 rounded-full mb-6 shadow-sm">
       <header class="text-center pt-12 md:pt-20 pb-8 md:pb-14 px-4 max-w-5xl mx-auto">
         <div class="inline-flex items-center gap-2 bg-white border border-cardBorder px-3 py-1 md:px-4 md:py-1.5 rounded-full mb-4 md:mb-6 shadow-sm">
           <span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span class="text-[11px] font-bold uppercase tracking-wider text-softGray">Plataforma de Curadoria em Estética</span>
           <span class="text-[9px] md:text-[11px] font-bold uppercase tracking-wider text-softGray">Plataforma de Curadoria em Estética</span>
         </div>
-
-        <div class="flex flex-wrap justify-center gap-2 mb-6">
+        
         <div class="flex flex-wrap justify-center gap-2 mb-4 md:mb-6">
           <span class="credibility-badge"><i class="fa-solid fa-shield-heart text-roseGold text-xs"></i> Atendimento Seguro</span>
           <span class="credibility-badge"><i class="fa-solid fa-user-check text-roseGold text-xs"></i> Profissionais Cadastrados</span>
           <span class="credibility-badge"><i class="fa-solid fa-handshake text-roseGold text-xs"></i> Conexão Personalizada</span>
           <span class="credibility-badge"><i class="fa-solid fa-flag-checkered text-roseGold text-xs"></i> Plataforma Brasileira</span>
         </div>
-
-        <h1 class="font-serif text-3xl md:text-5xl font-semibold leading-tight text-softBlack max-w-4xl mx-auto mb-6">
+        
         <h1 class="font-serif text-2xl md:text-5xl font-semibold leading-tight text-softBlack max-w-4xl mx-auto mb-4 md:mb-6">
           Encontre profissionais de estética qualificados na sua região de forma rápida, segura e gratuita.
         </h1>
-
-        <p class="text-sm md:text-base text-softGray max-w-3xl mx-auto mb-6 leading-relaxed">
+        
         <p class="text-sm md:text-base text-softGray max-w-3xl mx-auto mb-4 md:mb-6 leading-relaxed">
           Conte sua necessidade e a Lead Beauty conecta você ao especialista ideal para seu atendimento.<br>
           O uso da plataforma é totalmente gratuito para clientes.
         </p>
-
-        <p class="text-sm md:text-base text-softGray max-w-3xl mx-auto mb-10 leading-relaxed bg-premiumRose/5 p-4 rounded-xl">
+        
         <p class="text-sm md:text-base text-softGray max-w-3xl mx-auto mb-6 md:mb-10 leading-relaxed bg-premiumRose/5 p-3 md:p-4 rounded-xl">
           <span class="font-semibold text-softBlack">Para profissionais:</span> Cadastre-se gratuitamente e receba 3 leads sem custo para conhecer a plataforma. Após utilizar os leads gratuitos, você poderá adquirir mais 3 leads através do plano profissional e continuar recebendo novos clientes.
         </p>
-
-        <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-xl mx-auto">
-          <button onclick="showView('cadastro-cliente')" class="w-full bg-premiumRose text-white py-4 rounded-xl text-xs font-bold tracking-wider uppercase transition hover:bg-premiumRoseHover shadow-md">
+        
         <div class="flex flex-col gap-3 max-w-md mx-auto">
           <button onclick="showView('cadastro-cliente')" class="w-full bg-premiumRose text-white py-3 md:py-4 rounded-xl text-xs font-bold tracking-wider uppercase transition hover:bg-premiumRoseHover shadow-md">
             <i class="fa-solid fa-calendar-check mr-2"></i> Solicitar Atendimento
           </button>
-          <button onclick="showView('busca-profissionais')" class="w-full bg-white border border-softBlack text-softBlack py-4 rounded-xl text-xs font-bold tracking-wider uppercase transition hover:bg-neutral-50 shadow-sm">
           <button onclick="showView('busca-profissionais')" class="w-full bg-white border border-softBlack text-softBlack py-3 md:py-4 rounded-xl text-xs font-bold tracking-wider uppercase transition hover:bg-neutral-50 shadow-sm">
             <i class="fa-solid fa-magnifying-glass mr-2"></i> Ver Profissionais
           </button>
-          <button onclick="showView('cadastro-profissional-view')" class="w-full bg-white border border-softBlack text-softBlack py-4 rounded-xl text-xs font-bold tracking-wider uppercase transition hover:bg-neutral-50 shadow-sm">
           <button onclick="showView('cadastro-profissional-view')" class="w-full bg-white border border-softBlack text-softBlack py-3 md:py-4 rounded-xl text-xs font-bold tracking-wider uppercase transition hover:bg-neutral-50 shadow-sm">
             <i class="fa-solid fa-user-doctor mr-2"></i> Sou Profissional
           </button>
         </div>
       </header>
 
-      <section class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto px-6 mb-16">
-        <div class="bg-white/80 border border-cardBorder p-6 rounded-2xl text-center premium-shadow backdrop-blur-sm">
-          <div class="text-3xl font-bold text-roseGold mb-1"><i class="fa-solid fa-gift"></i></div>
       <section class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto px-4 md:px-6 mb-12 md:mb-16">
         <div class="bg-white/80 border border-cardBorder p-4 md:p-6 rounded-2xl text-center premium-shadow backdrop-blur-sm">
           <div class="text-2xl md:text-3xl font-bold text-roseGold mb-1"><i class="fa-solid fa-gift"></i></div>
           <p class="text-xs font-bold uppercase tracking-wider text-softBlack mt-2">100% Gratuito para Clientes</p>
-          <p class="text-[11px] text-softGray mt-1">Solicite sua indicação e nossa curadoria conectará você ao profissional ideal, sem custo.</p>
           <p class="text-[10px] md:text-[11px] text-softGray mt-1">Solicite sua indicação e nossa curadoria conectará você ao profissional ideal, sem custo.</p>
         </div>
-        <div class="bg-white/80 border border-cardBorder p-6 rounded-2xl text-center premium-shadow backdrop-blur-sm">
-          <div class="text-3xl font-bold text-roseGold mb-1"><i class="fa-solid fa-shield-heart"></i></div>
         <div class="bg-white/80 border border-cardBorder p-4 md:p-6 rounded-2xl text-center premium-shadow backdrop-blur-sm">
           <div class="text-2xl md:text-3xl font-bold text-roseGold mb-1"><i class="fa-solid fa-shield-heart"></i></div>
           <p class="text-xs font-bold uppercase tracking-wider text-softBlack mt-2">Curadoria Especializada</p>
-          <p class="text-[11px] text-softGray mt-1">Analisamos sua necessidade e indicamos o profissional mais qualificado da sua região.</p>
           <p class="text-[10px] md:text-[11px] text-softGray mt-1">Analisamos sua necessidade e indicamos o profissional mais qualificado da sua região.</p>
         </div>
-        <div class="bg-white/80 border border-cardBorder p-6 rounded-2xl text-center premium-shadow backdrop-blur-sm">
-          <div class="text-3xl font-bold text-roseGold mb-1"><i class="fa-solid fa-headset"></i></div>
         <div class="bg-white/80 border border-cardBorder p-4 md:p-6 rounded-2xl text-center premium-shadow backdrop-blur-sm">
           <div class="text-2xl md:text-3xl font-bold text-roseGold mb-1"><i class="fa-solid fa-headset"></i></div>
           <p class="text-xs font-bold uppercase tracking-wider text-softBlack mt-2">Atendimento Humanizado</p>
-          <p class="text-[11px] text-softGray mt-1">Nossa equipe acompanha sua jornada para garantir a melhor experiência.</p>
           <p class="text-[10px] md:text-[11px] text-softGray mt-1">Nossa equipe acompanha sua jornada para garantir a melhor experiência.</p>
         </div>
       </section>
 
-      <section class="py-8 px-6 max-w-4xl mx-auto mb-8">
-        <div class="bg-premiumRose/5 rounded-2xl p-6 border border-premiumRose/20 text-center">
       <section class="py-6 md:py-8 px-4 max-w-4xl mx-auto mb-6 md:mb-8">
         <div class="bg-premiumRose/5 rounded-2xl p-4 md:p-6 border border-premiumRose/20 text-center">
           <p class="text-xs text-softGray font-medium mb-2">📋 Como funciona nossa curadoria?</p>
@@ -495,20 +460,14 @@
         </div>
       </section>
 
-      <section class="py-12 px-6 max-w-5xl mx-auto border-t border-cardBorder mb-12 bg-white/90 rounded-3xl premium-shadow border mt-4 backdrop-blur-sm">
       <section class="py-8 md:py-12 px-4 max-w-5xl mx-auto border-t border-cardBorder mb-8 md:mb-12 bg-white/90 rounded-3xl premium-shadow border mt-4 backdrop-blur-sm">
         <div class="text-center max-w-3xl mx-auto">
-          <h2 class="text-[11px] font-bold uppercase tracking-widest text-roseGold mb-1">Para Profissionais</h2>
-          <p class="font-serif text-3xl font-medium text-softBlack mb-4">Receba leads qualificados e validados</p>
-          <p class="text-xs text-softGray mb-8 leading-relaxed">
           <h2 class="text-[10px] md:text-[11px] font-bold uppercase tracking-widest text-roseGold mb-1">Para Profissionais</h2>
           <p class="font-serif text-2xl md:text-3xl font-medium text-softBlack mb-3 md:mb-4">Receba leads qualificados e validados</p>
           <p class="text-xs text-softGray mb-6 md:mb-8 leading-relaxed">
             Nossa plataforma conecta você a clientes reais da sua região, com curadoria especializada. 
             Os 3 primeiros contatos são gratuitos para você testar e aprovar.
           </p>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto text-left">
-            <div class="border border-cardBorder p-6 rounded-2xl bg-nudeBg/50 flex flex-col justify-between">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-2xl mx-auto text-left">
             <div class="border border-cardBorder p-4 md:p-6 rounded-2xl bg-nudeBg/50 flex flex-col justify-between">
               <div>
@@ -517,8 +476,6 @@
                 <p class="text-xs text-softGray font-medium leading-relaxed">• Receba seus primeiros 3 leads qualificados gratuitamente.<br>• Teste nosso sistema de curadoria sem compromisso.</p>
               </div>
             </div>
-            <div class="border-2 border-roseGold p-6 rounded-2xl bg-white relative flex flex-col justify-between">
-              <span class="absolute -top-3 right-4 bg-roseGold text-white text-[9px] font-bold uppercase px-3 py-1 rounded-full">Plano Profissional</span>
             <div class="border-2 border-roseGold p-4 md:p-6 rounded-2xl bg-white relative flex flex-col justify-between">
               <span class="absolute -top-3 right-4 bg-roseGold text-white text-[8px] md:text-[9px] font-bold uppercase px-2 py-1 md:px-3 rounded-full">Plano Profissional</span>
               <div>
@@ -529,7 +486,6 @@
                 <p class="text-xs text-softGray font-medium mb-1.5">• Direcionamento inteligente por cidade e região.</p>
                 <p class="text-xs text-softGray font-medium mb-1.5">• Perfil profissional ativo na plataforma.</p>
                 <p class="text-xs text-softGray font-medium mb-1.5">• Destaque nas buscas da sua cidade.</p>
-                <p class="text-[11px] text-softGray font-medium text-roseGold mt-2">✓ Total de 6 leads (3 gratuitos + 3 pagos)</p>
                 <p class="text-[10px] md:text-[11px] text-softGray font-medium text-roseGold mt-2">✓ Total de 6 leads (3 gratuitos + 3 pagos)</p>
               </div>
               <a href="https://www.asaas.com/c/k6draufxr8zz3iqj" target="_blank" class="block w-full text-center mt-4 bg-roseGold hover:bg-premiumRoseHover text-white font-bold py-2.5 px-4 rounded-xl transition-all duration-300 text-xs uppercase tracking-wider shadow-md">
@@ -542,21 +498,14 @@
     </section>
 
     <!-- VIEW: BUSCA DE PROFISSIONAIS -->
-    <section id="view-busca-profissionais" class="view-section hidden-section py-12 px-4 max-w-6xl mx-auto">
-      <div class="bg-white/95 p-8 rounded-3xl border border-cardBorder premium-shadow relative backdrop-blur-sm">
-        <button onclick="showView('home')" class="absolute top-6 left-6 text-xs text-softGray hover:text-softBlack flex items-center gap-1 font-semibold">
-          <i class="fa-solid fa-arrow-left"></i> Voltar para Início
     <section id="view-busca-profissionais" class="view-section hidden-section py-8 md:py-12 px-4 max-w-6xl mx-auto">
       <div class="bg-white/95 p-4 md:p-8 rounded-3xl border border-cardBorder premium-shadow relative backdrop-blur-sm">
         <button onclick="showView('home')" class="absolute top-4 left-4 md:top-6 md:left-6 text-xs text-softGray hover:text-softBlack flex items-center gap-1 font-semibold">
           <i class="fa-solid fa-arrow-left"></i> Voltar
         </button>
-        <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Conheça Nossos Profissionais</h2>
-        <p class="text-center text-xs text-softGray mb-8">Filtre por cidade, especialidade, nome do profissional ou tipo de atendimento.</p>
         <h2 class="font-serif text-xl md:text-2xl font-bold text-center mt-6 md:mt-8 mb-2 text-softBlack">Conheça Nossos Profissionais</h2>
         <p class="text-center text-xs text-softGray mb-6 md:mb-8">Filtre por cidade, especialidade, nome do profissional ou tipo de atendimento.</p>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        
         <div class="grid grid-cols-1 gap-4 mb-6 md:mb-8">
           <div>
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Nome do Profissional / Clínica</label>
@@ -567,6 +516,10 @@
             <select id="filtro-cidade" class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
               <option value="">Todas as cidades</option>
             </select>
+          </div>
+          <div>
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Bairro</label>
+            <input type="text" id="filtro-bairro" placeholder="Digite o bairro" class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
           </div>
           <div>
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Especialidade</label>
@@ -584,15 +537,13 @@
             </select>
           </div>
         </div>
-
-        <div class="text-center mb-8">
-          <button onclick="filtrarProfissionais()" class="bg-roseGold hover:bg-premiumRoseHover text-white font-semibold py-3 px-8 rounded-xl transition shadow-md">
+        
         <div class="text-center mb-6 md:mb-8">
           <button onclick="filtrarProfissionais()" class="bg-roseGold hover:bg-premiumRoseHover text-white font-semibold py-3 px-6 md:px-8 rounded-xl transition shadow-md">
             <i class="fa-solid fa-magnifying-glass mr-2"></i> Buscar Profissionais
           </button>
         </div>
-
+        
         <div id="resultados-busca" class="space-y-4">
           <div class="text-center text-softGray py-8">
             <i class="fa-solid fa-search text-4xl mb-2 opacity-50"></i>
@@ -603,27 +554,20 @@
       </div>
     </section>
 
-    <!-- VIEW: CADASTRO CLIENTE -->
-    <section id="view-cadastro-cliente" class="view-section hidden-section py-12 px-4 max-w-xl mx-auto">
-      <div class="bg-white/95 p-8 rounded-3xl border border-cardBorder premium-shadow relative backdrop-blur-sm">
-        <button onclick="showView('home')" class="absolute top-6 left-6 text-xs text-softGray hover:text-softBlack flex items-center gap-1 font-semibold">
-          <i class="fa-solid fa-arrow-left"></i> Voltar para Início
     <!-- VIEW: CADASTRO CLIENTE (FORMULÁRIO RESPONSIVO) -->
     <section id="view-cadastro-cliente" class="view-section hidden-section py-8 md:py-12 px-4 max-w-xl mx-auto">
       <div class="bg-white/95 p-4 md:p-8 rounded-3xl border border-cardBorder premium-shadow relative backdrop-blur-sm">
         <button onclick="showView('home')" class="absolute top-4 left-4 md:top-6 md:left-6 text-xs text-softGray hover:text-softBlack flex items-center gap-1 font-semibold">
           <i class="fa-solid fa-arrow-left"></i> Voltar
         </button>
-        <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Solicitar Indicação de Profissional</h2>
         <h2 class="font-serif text-xl md:text-2xl font-bold text-center mt-6 md:mt-8 mb-2 text-softBlack">Solicitar Indicação de Profissional</h2>
         <p class="text-center text-xs text-softGray mb-6">Conte o que você precisa. Nossa equipe de curadoria analisará seu caso e indicará o profissional mais adequado da sua região.</p>
-
+        
         <form id="form-cliente" class="space-y-4" onsubmit="handleCadastroCliente(event)">
           <div>
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Nome Completo</label>
             <input type="text" id="cli-nome" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
           </div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div class="space-y-4">
             <div>
               <label class="text-[10px] font-bold text-softGray uppercase block mb-1">WhatsApp de Contato</label>
@@ -634,7 +578,7 @@
               <input type="email" id="cli-email" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
             </div>
           </div>
-
+          
           <div>
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Cidade *</label>
             <select id="cli-cidade" name="cidade" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
@@ -677,23 +621,22 @@
               <option value="Minha cidade não está na lista">Minha cidade não está na lista</option>
             </select>
           </div>
-
+          
           <div id="outra-cidade-container" class="hidden-section">
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Digite sua cidade *</label>
             <input type="text" id="cli-cidade-manual" placeholder="Ex: Ribeirão Preto, Niterói, Florianópolis..." class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
           </div>
-
-          <div class="grid grid-cols-2 gap-4">
-            <div>
-              <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Estado (UF)</label>
-              <input type="text" id="cli-estado" maxlength="2" placeholder="SP" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
-            </div>
+          
+          <div>
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Bairro *</label>
+            <input type="text" id="cli-bairro" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition" placeholder="Digite seu bairro">
+          </div>
+          
           <div>
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Estado (UF)</label>
             <input type="text" id="cli-estado" maxlength="2" placeholder="SP" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
           </div>
-
-          <!-- PROCEDIMENTO DESEJADO COM TODAS AS 38 ESPECIALIDADES -->
+          
           <div>
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Procedimento Desejado</label>
             <select id="cli-tratamento" class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
@@ -737,19 +680,10 @@
               <option>Outros</option>
             </select>
           </div>
-          
-          <!-- ===== CAMPO BAIRRO - CLIENTE (ADICIONADO) ===== -->
-          <div>
-            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Bairro *</label>
-            <input type="text" id="cli-bairro" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition" placeholder="Digite seu bairro">
-          </div>
-          <!-- ===== FIM DO CAMPO BAIRRO - CLIENTE ===== -->
-          
           <div>
            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Detalhes do que você busca</label>
             <textarea id="cli-relato" rows="3" placeholder="Conte mais sobre o que você precisa..." class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition resize-none"></textarea>
           </div>
-          <button type="submit" id="submit-lead-btn" class="w-full bg-softBlack text-white py-4 rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-neutral-800 transition shadow-md">
           <button type="submit" id="submit-lead-btn" class="w-full bg-softBlack text-white py-3 md:py-4 rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-neutral-800 transition shadow-md">
             <i class="fa-solid fa-paper-plane mr-2"></i> Solicitar Indicação
           </button>
@@ -758,23 +692,17 @@
       </div>
     </section>
 
-    <!-- VIEW: CADASTRO PROFISSIONAL -->
-    <section id="view-cadastro-profissional-view" class="view-section hidden-section py-12 px-4 max-w-2xl mx-auto">
-      <div class="bg-white/95 p-8 rounded-3xl border border-cardBorder premium-shadow relative backdrop-blur-sm">
-        <button onclick="showView('home')" class="absolute top-6 left-6 text-xs text-softGray hover:text-softBlack flex items-center gap-1 font-semibold">
     <!-- VIEW: CADASTRO PROFISSIONAL (FORMULÁRIO RESPONSIVO) -->
     <section id="view-cadastro-profissional-view" class="view-section hidden-section py-8 md:py-12 px-4 max-w-2xl mx-auto">
       <div class="bg-white/95 p-4 md:p-8 rounded-3xl border border-cardBorder premium-shadow relative backdrop-blur-sm">
         <button onclick="showView('home')" class="absolute top-4 left-4 md:top-6 md:left-6 text-xs text-softGray hover:text-softBlack flex items-center gap-1 font-semibold">
           <i class="fa-solid fa-arrow-left"></i> Voltar
         </button>
-        <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Cadastro Profissional</h2>
         <h2 class="font-serif text-xl md:text-2xl font-bold text-center mt-6 md:mt-8 mb-2 text-softBlack">Cadastro Profissional</h2>
         <p class="text-center text-xs text-softGray mb-6">Cadastre-se gratuitamente e receba 3 leads sem custo para conhecer a plataforma. Após utilizar os leads gratuitos, você poderá adquirir mais 3 leads através do plano profissional.</p>
-
+        
         <form id="form-prof-cadastro" class="space-y-4" onsubmit="handleCadastroProfissional(event)">
-
-          <!-- Tipo de Cadastro -->
+          
           <div>
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Tipo de Cadastro *</label>
             <select id="prof-tipo-cadastro" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
@@ -784,18 +712,17 @@
               <option value="Espaço de Estética">Espaço de Estética</option>
             </select>
           </div>
-
+          
           <div>
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Nome do Profissional *</label>
             <input type="text" id="prof-nome" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
           </div>
-
+          
           <div>
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Nome da Clínica (opcional)</label>
             <input type="text" id="prof-clinica" class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
           </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          
           <div class="space-y-4">
             <div>
               <label class="text-[10px] font-bold text-softGray uppercase block mb-1">E-mail Corporativo *</label>
@@ -806,33 +733,33 @@
               <input type="password" id="prof-senha" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
             </div>
           </div>
-
-          <div class="grid grid-cols-2 gap-4">
+          
           <div class="space-y-4">
             <div>
               <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Cidade *</label>
               <input type="text" id="prof-cidade" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
             </div>
             <div>
+              <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Bairro de Atendimento *</label>
+              <input type="text" id="prof-bairro" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition" placeholder="Digite seu bairro principal de atendimento">
+            </div>
+            <div>
               <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Estado (UF) *</label>
               <input type="text" id="prof-estado" maxlength="2" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
             </div>
           </div>
-
+          
           <div>
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">WhatsApp Comercial *</label>
             <input type="tel" id="prof-whatsapp" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
             <p class="text-[9px] text-softGray mt-1">Número onde você receberá os contatos dos clientes qualificados</p>
           </div>
-
-          <!-- Instagram Profissional (Opcional) -->
+          
           <div>
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Instagram Profissional (Opcional)</label>
             <input type="text" id="prof-instagram" placeholder="@seudestac" class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
           </div>
-
-          <!-- Site / Portfólio / Facebook (Opcionais) -->
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          
           <div class="space-y-4">
             <div>
               <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Site (Opcional)</label>
@@ -847,15 +774,7 @@
               <input type="url" id="prof-facebook" placeholder="Facebook" class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
             </div>
           </div>
-
-          <!-- ===== CAMPO BAIRRO DE ATENDIMENTO - PROFISSIONAL (ADICIONADO) ===== -->
-          <div>
-            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Bairro de Atendimento *</label>
-            <input type="text" id="prof-bairro-atendimento" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition" placeholder="Digite seu bairro principal de atendimento">
-          </div>
-          <!-- ===== FIM DO CAMPO BAIRRO DE ATENDIMENTO - PROFISSIONAL ===== -->
-
-          <!-- ESPECIALIDADES COM TODAS AS 38 OPÇÕES -->
+          
           <div>
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Especialidades *</label>
             <div class="checkbox-group" id="especialidades-group">
@@ -899,8 +818,7 @@
               <div class="checkbox-item"><input type="checkbox" id="esp-outros" value="Outros"><label>Outros</label></div>
             </div>
           </div>
-
-          <!-- Estrutura de Atendimento -->
+          
           <div>
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Estrutura de Atendimento</label>
             <div class="checkbox-group">
@@ -913,8 +831,7 @@
               <div class="checkbox-item"><input type="checkbox" id="estrutura-outros" value="Outros"><label>Outros</label></div>
             </div>
           </div>
-
-          <!-- Tipo de Atendimento -->
+          
           <div>
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Tipo de Atendimento</label>
             <div class="checkbox-group">
@@ -930,31 +847,25 @@
               <div class="checkbox-item"><input type="checkbox" id="atende-outros" value="Outros"><label>Outros</label></div>
             </div>
           </div>
-
-          <!-- Descrição Profissional -->
+          
           <div>
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Descrição Profissional</label>
             <textarea id="prof-descricao" rows="3" placeholder="Conte um pouco sobre sua experiência, especialidades e diferenciais..." class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition resize-none"></textarea>
           </div>
-
-          <button type="submit" class="w-full bg-premiumRose text-white py-4 rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-premiumRoseHover transition shadow-md">Cadastrar e Receber Leads</button>
+          
           <button type="submit" class="w-full bg-premiumRose text-white py-3 md:py-4 rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-premiumRoseHover transition shadow-md">Cadastrar e Receber Leads</button>
         </form>
       </div>
     </section>
 
     <!-- VIEW: LOGIN PROFISSIONAL -->
-    <section id="view-login-profissional" class="view-section hidden-section py-12 px-4 max-w-lg mx-auto">
-      <div class="bg-white/95 p-8 rounded-3xl border border-cardBorder premium-shadow relative backdrop-blur-sm">
-        <button onclick="showView('home')" class="absolute top-6 left-6 text-xs text-softGray hover:text-softBlack flex items-center gap-1 font-semibold">
     <section id="view-login-profissional" class="view-section hidden-section py-8 md:py-12 px-4 max-w-lg mx-auto">
       <div class="bg-white/95 p-4 md:p-8 rounded-3xl border border-cardBorder premium-shadow relative backdrop-blur-sm">
         <button onclick="showView('home')" class="absolute top-4 left-4 md:top-6 md:left-6 text-xs text-softGray hover:text-softBlack flex items-center gap-1 font-semibold">
           <i class="fa-solid fa-arrow-left"></i> Voltar
         </button>
-        <h2 class="font-serif text-xl font-bold text-center mt-6 mb-4 text-softBlack">Área do Profissional</h2>
         <h2 class="font-serif text-xl font-bold text-center mt-6 md:mt-8 mb-4 text-softBlack">Área do Profissional</h2>
-
+        
         <form id="form-login" class="space-y-4" onsubmit="handleLoginProfissional(event)">
           <div>
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">E-mail Registrado</label>
@@ -964,65 +875,43 @@
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Senha Corporativa</label>
             <input type="password" id="login-senha" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
           </div>
-          <button type="submit" class="w-full bg-softBlack text-white py-3.5 rounded-xl text-xs font-semibold uppercase tracking-wider transition hover:bg-neutral-800 shadow-md">Acessar Dashboard</button>
           <button type="submit" class="w-full bg-softBlack text-white py-3 md:py-3.5 rounded-xl text-xs font-semibold uppercase tracking-wider transition hover:bg-neutral-800 shadow-md">Acessar Dashboard</button>
         </form>
       </div>
     </section>
 
     <!-- VIEW: DASHBOARD PROFISSIONAL -->
-    <section id="view-dashboard-profissional" class="view-section hidden-section py-12 px-4 max-w-4xl mx-auto">
-      <div class="bg-white/95 p-8 rounded-3xl border border-cardBorder premium-shadow relative backdrop-blur-sm">
-        <button onclick="handleLogoutProfissional()" class="absolute top-6 left-6 text-xs text-softGray hover:text-softBlack flex items-center gap-1 font-semibold">
     <section id="view-dashboard-profissional" class="view-section hidden-section py-8 md:py-12 px-4 max-w-4xl mx-auto">
       <div class="bg-white/95 p-4 md:p-8 rounded-3xl border border-cardBorder premium-shadow relative backdrop-blur-sm">
         <button onclick="handleLogoutProfissional()" class="absolute top-4 left-4 md:top-6 md:left-6 text-xs text-softGray hover:text-softBlack flex items-center gap-1 font-semibold">
           <i class="fa-solid fa-arrow-left"></i> Sair
         </button>
-
-        <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Dashboard do Profissional</h2>
-        <p class="text-center text-xs text-softGray mb-8">Gerencie seus leads recebidos através da nossa curadoria.</p>
+        
         <h2 class="font-serif text-xl md:text-2xl font-bold text-center mt-6 md:mt-8 mb-2 text-softBlack">Dashboard do Profissional</h2>
         <p class="text-center text-xs text-softGray mb-6 md:mb-8">Gerencie seus leads recebidos através da nossa curadoria.</p>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div class="bg-nudeBg/50 p-6 rounded-2xl border border-cardBorder">
         <div class="grid grid-cols-1 gap-4 md:gap-6 mb-6 md:mb-8">
           <div class="bg-nudeBg/50 p-4 md:p-6 rounded-2xl border border-cardBorder">
             <p class="text-[10px] font-bold text-softGray uppercase mb-2">Leads Gratuitos</p>
-            <p id="dash-free-leads" class="font-serif text-3xl font-bold text-roseGold">0/3</p>
-            <p class="text-[11px] text-softGray mt-2">Leads gratuitos disponíveis</p>
             <p id="dash-free-leads" class="font-serif text-2xl md:text-3xl font-bold text-roseGold">0/3</p>
             <p class="text-[10px] md:text-[11px] text-softGray mt-2">Leads gratuitos disponíveis</p>
           </div>
-          <div class="bg-nudeBg/50 p-6 rounded-2xl border border-cardBorder">
           <div class="bg-nudeBg/50 p-4 md:p-6 rounded-2xl border border-cardBorder">
             <p class="text-[10px] font-bold text-softGray uppercase mb-2">Leads Pagos</p>
-            <p id="dash-paid-leads" class="font-serif text-3xl font-bold text-roseGold">0/3</p>
-            <p class="text-[11px] text-softGray mt-2">Leads do plano profissional</p>
             <p id="dash-paid-leads" class="font-serif text-2xl md:text-3xl font-bold text-roseGold">0/3</p>
             <p class="text-[10px] md:text-[11px] text-softGray mt-2">Leads do plano profissional</p>
           </div>
-          <div class="bg-nudeBg/50 p-6 rounded-2xl border border-cardBorder">
           <div class="bg-nudeBg/50 p-4 md:p-6 rounded-2xl border border-cardBorder">
             <p class="text-[10px] font-bold text-softGray uppercase mb-2">Total Recebido</p>
-            <p id="dash-total-leads" class="font-serif text-3xl font-bold text-roseGold">0/6</p>
-            <p class="text-[11px] text-softGray mt-2">Total de leads (grátis + pagos)</p>
             <p id="dash-total-leads" class="font-serif text-2xl md:text-3xl font-bold text-roseGold">0/6</p>
             <p class="text-[10px] md:text-[11px] text-softGray mt-2">Total de leads (grátis + pagos)</p>
           </div>
         </div>
 
-        <div id="leads-warning" class="hidden-section mb-8 bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg">
-          <div class="flex items-start gap-4">
-            <i class="fa-solid fa-triangle-exclamation text-yellow-600 text-2xl mt-1"></i>
         <div id="leads-warning" class="hidden-section mb-6 md:mb-8 bg-yellow-50 border-l-4 border-yellow-400 p-4 md:p-6 rounded-lg">
           <div class="flex items-start gap-3 md:gap-4">
             <i class="fa-solid fa-triangle-exclamation text-yellow-600 text-xl md:text-2xl mt-1"></i>
             <div>
-              <h3 class="font-bold text-softBlack mb-2">Você utilizou seus 3 leads gratuitos!</h3>
-              <p class="text-sm text-softGray mb-4">Adquira o plano profissional para receber mais 3 leads e continuar recebendo novos clientes.</p>
-              <button onclick="showView('payment-plan')" class="bg-roseGold text-white px-6 py-2 rounded-lg font-semibold text-sm hover:bg-premiumRoseHover transition">
               <h3 class="font-bold text-softBlack text-sm md:text-base mb-2">Você utilizou seus 3 leads gratuitos!</h3>
               <p class="text-xs md:text-sm text-softGray mb-3 md:mb-4">Adquira o plano profissional para receber mais 3 leads e continuar recebendo novos clientes.</p>
               <button onclick="showView('payment-plan')" class="bg-roseGold text-white px-4 md:px-6 py-2 rounded-lg font-semibold text-xs md:text-sm hover:bg-premiumRoseHover transition">
@@ -1032,38 +921,25 @@
           </div>
         </div>
 
-        <div id="limit-warning" class="hidden-section mb-8 bg-red-50 border-l-4 border-red-400 p-6 rounded-lg">
-          <div class="flex items-start gap-4">
-            <i class="fa-solid fa-circle-stop text-red-600 text-2xl mt-1"></i>
         <div id="limit-warning" class="hidden-section mb-6 md:mb-8 bg-red-50 border-l-4 border-red-400 p-4 md:p-6 rounded-lg">
           <div class="flex items-start gap-3 md:gap-4">
             <i class="fa-solid fa-circle-stop text-red-600 text-xl md:text-2xl mt-1"></i>
             <div>
-              <h3 class="font-bold text-softBlack mb-2">Limite total de 6 leads atingido</h3>
-              <p class="text-sm text-softGray">Você já recebeu todos os 6 leads (3 gratuitos + 3 pagos). Aguarde a renovação mensal do plano.</p>
               <h3 class="font-bold text-softBlack text-sm md:text-base mb-2">Limite total de 6 leads atingido</h3>
               <p class="text-xs md:text-sm text-softGray">Você já recebeu todos os 6 leads (3 gratuitos + 3 pagos). Aguarde a renovação mensal do plano.</p>
             </div>
           </div>
         </div>
 
-        <div id="upgrade-section" class="hidden-section mb-8">
-          <div class="bg-gradient-to-r from-roseGold/10 to-premiumRose/10 p-8 rounded-2xl border border-roseGold/30">
         <div id="upgrade-section" class="hidden-section mb-6 md:mb-8">
           <div class="bg-gradient-to-r from-roseGold/10 to-premiumRose/10 p-4 md:p-8 rounded-2xl border border-roseGold/30">
             <div class="text-center">
-              <h3 class="font-serif text-2xl font-bold text-softBlack mb-2">Adquirir Plano Profissional</h3>
-              <p class="text-sm text-softGray mb-6">Receba +3 leads qualificados e continue recebendo novos clientes.</p>
-              <div class="mb-6">
-                <p class="text-4xl font-serif font-bold text-roseGold">R$ 9,90</p>
-                <p class="text-sm text-softGray">/mês com renovação automática</p>
               <h3 class="font-serif text-xl md:text-2xl font-bold text-softBlack mb-2">Adquirir Plano Profissional</h3>
               <p class="text-xs md:text-sm text-softGray mb-4 md:mb-6">Receba +3 leads qualificados e continue recebendo novos clientes.</p>
               <div class="mb-4 md:mb-6">
                 <p class="text-3xl md:text-4xl font-serif font-bold text-roseGold">R$ 9,90</p>
                 <p class="text-xs md:text-sm text-softGray">/mês com renovação automática</p>
               </div>
-              <button onclick="showView('payment-plan')" class="bg-roseGold text-white px-8 py-3 rounded-xl font-bold uppercase tracking-wider hover:bg-premiumRoseHover transition shadow-md">
               <button onclick="showView('payment-plan')" class="bg-roseGold text-white px-6 md:px-8 py-2 md:py-3 rounded-xl font-bold uppercase tracking-wider hover:bg-premiumRoseHover transition shadow-md text-xs md:text-sm">
                 <i class="fa-solid fa-crown mr-2"></i> Adquirir Plano Profissional
               </button>
@@ -1074,57 +950,36 @@
     </section>
 
     <!-- VIEW: PAYMENT PLAN -->
-    <section id="view-payment-plan" class="view-section hidden-section py-12 px-4 max-w-2xl mx-auto">
-      <div class="bg-white/95 p-8 rounded-3xl border border-cardBorder premium-shadow relative backdrop-blur-sm">
-        <button onclick="showView('dashboard-profissional')" class="absolute top-6 left-6 text-xs text-softGray hover:text-softBlack flex items-center gap-1 font-semibold">
     <section id="view-payment-plan" class="view-section hidden-section py-8 md:py-12 px-4 max-w-2xl mx-auto">
       <div class="bg-white/95 p-4 md:p-8 rounded-3xl border border-cardBorder premium-shadow relative backdrop-blur-sm">
         <button onclick="showView('dashboard-profissional')" class="absolute top-4 left-4 md:top-6 md:left-6 text-xs text-softGray hover:text-softBlack flex items-center gap-1 font-semibold">
           <i class="fa-solid fa-arrow-left"></i> Voltar
         </button>
-        <h2 class="font-serif text-2xl font-bold text-center mt-6 mb-2 text-softBlack">Plano Profissional</h2>
-        <p class="text-center text-xs text-softGray mb-8">Adquira +3 leads qualificados e continue recebendo novos clientes através da nossa curadoria.</p>
-        <div id="qr-code-section" class="qr-code-container mb-8">
         <h2 class="font-serif text-xl md:text-2xl font-bold text-center mt-6 md:mt-8 mb-2 text-softBlack">Plano Profissional</h2>
         <p class="text-center text-xs text-softGray mb-6 md:mb-8">Adquira +3 leads qualificados e continue recebendo novos clientes através da nossa curadoria.</p>
         <div id="qr-code-section" class="qr-code-container p-4 md:p-8 mb-6 md:mb-8">
           <div class="text-center mb-4">
-            <p class="text-sm font-bold text-softBlack mb-2">Escaneie o QR Code com seu banco</p>
-            <p class="text-xs text-softGray">ou use a opção "Copia e Cola" abaixo</p>
             <p class="text-xs md:text-sm font-bold text-softBlack mb-2">Escaneie o QR Code com seu banco</p>
             <p class="text-[10px] md:text-xs text-softGray">ou use a opção "Copia e Cola" abaixo</p>
           </div>
-          <img id="qr-code-image" src="" alt="QR Code PIX" class="qr-code-image border border-cardBorder rounded-lg p-2 bg-white">
           <img id="qr-code-image" src="" alt="QR Code PIX" class="qr-code-image border border-cardBorder rounded-lg p-2 bg-white max-w-[200px] md:max-w-[300px]">
           <div class="w-full text-center">
-            <p class="text-xs text-softGray mb-2">Código PIX Copia e Cola:</p>
-            <div class="bg-nudeBg p-4 rounded-lg border border-cardBorder mb-4 break-all text-[10px] font-mono text-softBlack max-h-24 overflow-y-auto" id="pix-payload">Carregando...</div>
-            <button onclick="copyPixCode()" class="copy-button w-full"><i class="fa-solid fa-copy mr-2"></i> Copiar Código PIX</button>
             <p class="text-[10px] md:text-xs text-softGray mb-2">Código PIX Copia e Cola:</p>
             <div class="bg-nudeBg p-3 md:p-4 rounded-lg border border-cardBorder mb-3 md:mb-4 break-all text-[8px] md:text-[10px] font-mono text-softBlack max-h-24 overflow-y-auto" id="pix-payload">Carregando...</div>
             <button onclick="copyPixCode()" class="copy-button w-full py-2 md:py-3 text-xs md:text-sm"><i class="fa-solid fa-copy mr-2"></i> Copiar Código PIX</button>
           </div>
         </div>
-        <div class="bg-nudeBg/50 p-6 rounded-2xl border border-cardBorder mb-8 text-center">
-          <p class="text-xs text-softGray uppercase font-bold mb-2">Valor do Plano</p>
-          <p class="font-serif text-4xl font-bold text-roseGold">R$ 9,90</p>
-          <p class="text-xs text-softGray mt-2">+3 leads por mês com renovação automática</p>
-          <p class="text-[10px] text-roseGold mt-1 font-semibold">Total de 6 leads (3 gratuitos + 3 pagos)</p>
         <div class="bg-nudeBg/50 p-4 md:p-6 rounded-2xl border border-cardBorder mb-6 md:mb-8 text-center">
           <p class="text-[10px] md:text-xs text-softGray uppercase font-bold mb-2">Valor do Plano</p>
           <p class="font-serif text-3xl md:text-4xl font-bold text-roseGold">R$ 9,90</p>
           <p class="text-[10px] md:text-xs text-softGray mt-2">+3 leads por mês com renovação automática</p>
           <p class="text-[8px] md:text-[10px] text-roseGold mt-1 font-semibold">Total de 6 leads (3 gratuitos + 3 pagos)</p>
         </div>
-        <div id="payment-status" class="bg-blue-50 border border-blue-200 p-4 rounded-lg text-center mb-8 hidden-section">
         <div id="payment-status" class="bg-blue-50 border border-blue-200 p-3 md:p-4 rounded-lg text-center mb-6 md:mb-8 hidden-section">
           <div class="flex items-center justify-center gap-2 mb-2">
-            <i class="fa-solid fa-hourglass-end text-blue-600"></i>
-            <p class="font-bold text-softBlack">Aguardando confirmação do pagamento...</p>
             <i class="fa-solid fa-hourglass-end text-blue-600 text-sm md:text-base"></i>
             <p class="font-bold text-softBlack text-xs md:text-sm">Aguardando confirmação do pagamento...</p>
           </div>
-          <p class="text-xs text-softGray">Você será notificado assim que o pagamento for confirmado e os leads adicionais serão liberados.</p>
           <p class="text-[10px] md:text-xs text-softGray">Você será notificado assim que o pagamento for confirmado e os leads adicionais serão liberados.</p>
         </div>
       </div>
@@ -1132,58 +987,30 @@
   </main>
 
   <!-- CHAT FLUTUANTE -->
-  <div class="fixed bottom-6 right-6 z-50">
-    <button onclick="toggleChat()" class="bg-roseGold text-white w-14 h-14 rounded-full shadow-2xl hover:scale-105 transition flex items-center justify-center border-2 border-white">
-      <i class="fa-regular fa-comment-dots text-2xl"></i>
   <div class="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50">
     <button onclick="toggleChat()" class="bg-roseGold text-white w-12 h-12 md:w-14 md:h-14 rounded-full shadow-2xl hover:scale-105 transition flex items-center justify-center border-2 border-white">
       <i class="fa-regular fa-comment-dots text-xl md:text-2xl"></i>
     </button>
-    <div id="chatModal" class="hidden fixed bottom-24 right-6 w-96 bg-white rounded-2xl shadow-2xl overflow-hidden border border-cardBorder chat-modal">
-      <div class="bg-softBlack text-white p-4 flex justify-between items-center">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 bg-roseGold rounded-full flex items-center justify-center"><i class="fa-regular fa-comment text-white text-lg"></i></div>
-          <div><p class="font-bold text-sm">Atendimento Lead Beauty</p><p class="text-[10px] text-neutral-300">Online • Resposta rápida</p></div>
     <div id="chatModal" class="hidden fixed bottom-20 right-4 md:bottom-24 md:right-6 w-[85vw] md:w-96 bg-white rounded-2xl shadow-2xl overflow-hidden border border-cardBorder chat-modal">
       <div class="bg-softBlack text-white p-3 md:p-4 flex justify-between items-center">
         <div class="flex items-center gap-2 md:gap-3">
           <div class="w-8 h-8 md:w-10 md:h-10 bg-roseGold rounded-full flex items-center justify-center"><i class="fa-regular fa-comment text-white text-sm md:text-lg"></i></div>
           <div><p class="font-bold text-xs md:text-sm">Atendimento Lead Beauty</p><p class="text-[8px] md:text-[10px] text-neutral-300">Online • Resposta rápida</p></div>
         </div>
-        <button onclick="toggleChat()" class="text-neutral-400 hover:text-white text-xl leading-none">&times;</button>
         <button onclick="toggleChat()" class="text-neutral-400 hover:text-white text-lg md:text-xl leading-none">&times;</button>
       </div>
-      <div class="p-4 bg-nudeBg" style="max-height: 500px; overflow-y: auto;">
-        <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm mb-4 max-w-[90%] border border-cardBorder">
-          <p class="text-sm font-semibold text-softBlack">Olá, seja bem-vindo(a).</p>
-          <p class="text-xs text-softGray mt-1">Como podemos ajudar?</p>
-          <p class="text-xs text-roseGold mt-2 font-medium">📞 WhatsApp: (13) 97401-4176</p>
       <div class="p-3 md:p-4 bg-nudeBg" style="max-height: 400px md:500px; overflow-y: auto;">
         <div class="bg-white p-2 md:p-3 rounded-2xl rounded-tl-none shadow-sm mb-3 md:mb-4 max-w-[90%] border border-cardBorder">
           <p class="text-xs md:text-sm font-semibold text-softBlack">Olá, seja bem-vindo(a).</p>
           <p class="text-[10px] md:text-xs text-softGray mt-1">Como podemos ajudar?</p>
           <p class="text-[10px] md:text-xs text-roseGold mt-2 font-medium">📞 WhatsApp: (13) 97401-4176</p>
         </div>
-        <a href="https://wa.me/5513974014176?text=Olá!%20Quero%20solicitar%20um%20atendimento%20na%20Lead%20Beauty" target="_blank" class="block w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300 text-center mb-3 shadow-md">
-          <i class="fa-brands fa-whatsapp mr-2 text-lg"></i> Solicitar atendimento
         <a href="https://wa.me/5513974014176?text=Olá!%20Quero%20solicitar%20um%20atendimento%20na%20Lead%20Beauty" target="_blank" class="block w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 md:py-3 px-3 md:px-4 rounded-xl transition-all duration-300 text-center mb-3 shadow-md text-xs md:text-sm">
           <i class="fa-brands fa-whatsapp mr-2 text-sm md:text-lg"></i> Solicitar atendimento
         </a>
-        <button onclick="toggleTratamentos()" class="block w-full bg-roseGold hover:bg-premiumRoseHover text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300 text-center shadow-md">
-          <i class="fa-regular fa-calendar-check mr-2"></i> Ver especialidades
         <button onclick="toggleTratamentos()" class="block w-full bg-roseGold hover:bg-premiumRoseHover text-white font-semibold py-2 md:py-3 px-3 md:px-4 rounded-xl transition-all duration-300 text-center shadow-md text-xs md:text-sm">
           <i class="fa-regular fa-calendar-check mr-2 text-sm md:text-lg"></i> Ver especialidades
         </button>
-        <div id="tratamentosList" class="hidden mt-3 bg-white rounded-xl border border-cardBorder p-3 space-y-2">
-          <p class="text-[10px] font-bold text-roseGold uppercase tracking-wider mb-2">Especialidades</p>
-          <ul class="space-y-1.5 text-sm text-softGray">
-            <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-roseGold text-xs"></i> Microagulhamento</li>
-            <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-roseGold text-xs"></i> Camuflagem de Estrias</li>
-            <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-roseGold text-xs"></i> Camuflagem de Cicatrizes</li>
-            <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-roseGold text-xs"></i> Estética Facial</li>
-            <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-roseGold text-xs"></i> Estética Corporal</li>
-            <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-roseGold text-xs"></i> Harmonização Facial</li>
-            <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-roseGold text-xs"></i> Limpeza de Pele</li>
         <div id="tratamentosList" class="hidden mt-3 bg-white rounded-xl border border-cardBorder p-2 md:p-3 space-y-2">
           <p class="text-[9px] md:text-[10px] font-bold text-roseGold uppercase tracking-wider mb-2">Especialidades</p>
           <ul class="space-y-1 md:space-y-1.5 text-xs md:text-sm text-softGray">
@@ -1196,17 +1023,11 @@
             <li class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-roseGold text-[10px] md:text-xs"></i> Limpeza de Pele</li>
           </ul>
         </div>
-        <div class="text-center mt-4 pt-3 border-t border-cardBorder"><p class="text-[9px] text-softGray">Lead Beauty | Curadoria em Estética</p></div>
         <div class="text-center mt-3 md:mt-4 pt-2 md:pt-3 border-t border-cardBorder"><p class="text-[7px] md:text-[9px] text-softGray">Lead Beauty | Curadoria em Estética</p></div>
       </div>
     </div>
   </div>
 
-  <footer class="border-t border-cardBorder bg-white py-12 px-6 text-center mt-16">
-    <div class="flex justify-center mb-4"><img src="logo.png" alt="Logo" class="h-20 w-20 object-contain"></div>
-    <p class="font-serif text-xl font-bold text-softBlack tracking-tight">Lead Beauty</p>
-    <p class="text-xs text-roseGold tracking-widest uppercase mb-4 font-extrabold mt-1">Plataforma de Curadoria em Estética</p>
-    <p class="text-[9px] text-softGray">Idealizado, Projetado e Desenvolvido por Haline Mulero</p>
   <footer class="border-t border-cardBorder bg-white py-6 md:py-12 px-4 md:px-6 text-center mt-8 md:mt-16">
     <div class="flex justify-center mb-3 md:mb-4"><img src="logo.png" alt="Logo" class="h-12 w-12 md:h-20 md:w-20 object-contain"></div>
     <p class="font-serif text-lg md:text-xl font-bold text-softBlack tracking-tight">Lead Beauty</p>
@@ -1224,19 +1045,19 @@
       const list = document.getElementById('tratamentosList');
       list.classList.toggle('hidden');
     }
-
+    
     // ==================== CONFIGURAÇÃO ====================
     const GOOGLE_SHEETS_URL = "SUA_URL_DO_APPS_SCRIPT_AQUI";
     const WHATSAPP_ADMIN = "5513974014176";
-
+    
     // ==================== FUNÇÃO CIDADE DINÂMICA ====================
     function initCidadeDinamico() {
       const cidadeSelect = document.getElementById('cli-cidade');
       const outraCidadeContainer = document.getElementById('outra-cidade-container');
       const cidadeManual = document.getElementById('cli-cidade-manual');
-
+      
       if (!cidadeSelect) return;
-
+      
       cidadeSelect.addEventListener('change', function() {
         if (this.value === 'Minha cidade não está na lista') {
           outraCidadeContainer.classList.remove('hidden-section');
@@ -1249,7 +1070,7 @@
         }
       });
     }
-
+    
     // ==================== ENVIAR PARA GOOGLE SHEETS ====================
     async function sendToGoogleSheets(lead) {
       if (!GOOGLE_SHEETS_URL || GOOGLE_SHEETS_URL === "SUA_URL_DO_APPS_SCRIPT_AQUI") {
@@ -1262,21 +1083,20 @@
         return true;
       } catch (error) { console.error("Erro:", error); return false; }
     }
-
+    
     // ==================== DADOS DOS PROFISSIONAIS ====================
     let profissionaisDatabase = [
-      { id: 1, nome: "Clínica Derma Face", cidade: "São Paulo", estado: "SP", tipoAtendimento: "Clínica", especialidades: ["Microagulhamento", "Estética Facial", "Limpeza de Pele"] },
-      { id: 2, nome: "Haline Mulero Estética", cidade: "São Vicente", estado: "SP", tipoAtendimento: "Profissional Autônomo", especialidades: ["Camuflagem de Estrias", "Camuflagem de Cicatrizes", "Estética Corporal"] },
-      { id: 3, nome: "Espaço Beleza & Bem-estar", cidade: "Santos", estado: "SP", tipoAtendimento: "Espaço de Estética", especialidades: ["Harmonização Facial", "Limpeza de Pele", "Design de Sobrancelhas"] }
+      { id: 1, nome: "Clínica Derma Face", cidade: "São Paulo", estado: "SP", bairro: "Jardins", tipoAtendimento: "Clínica", especialidades: ["Microagulhamento", "Estética Facial", "Limpeza de Pele"] },
+      { id: 2, nome: "Haline Mulero Estética", cidade: "São Vicente", estado: "SP", bairro: "Centro", tipoAtendimento: "Profissional Autônomo", especialidades: ["Camuflagem de Estrias", "Camuflagem de Cicatrizes", "Estética Corporal"] },
+      { id: 3, nome: "Espaço Beleza & Bem-estar", cidade: "Santos", estado: "SP", bairro: "Gonzaga", tipoAtendimento: "Espaço de Estética", especialidades: ["Harmonização Facial", "Limpeza de Pele", "Design de Sobrancelhas"] }
     ];
-
+    
     const todasCidades = [
       "São Paulo", "Rio de Janeiro", "Belo Horizonte", "Brasília", "Salvador", "Fortaleza", "Recife", "Porto Alegre", "Curitiba",
       "Campinas", "Santos", "São Vicente", "Praia Grande", "Guarujá", "Cubatão", "Bertioga", "Itanhaém", "Peruíbe", "Mongaguá",
       "Ubatuba", "Caraguatatuba", "São Sebastião", "Ilhabela", "Iguape", "Ilha Comprida", "Cananéia"
     ];
-
-    // Lista completa de especialidades para o filtro
+    
     const todasEspecialidadesLista = [
       "Camuflagem de Estrias", "Camuflagem de Cicatrizes", "Microagulhamento", "Limpeza de Pele",
       "Estética Facial", "Estética Corporal", "Harmonização Facial", "Harmonização Corporal",
@@ -1288,7 +1108,7 @@
       "Maquiagem Profissional", "Bronzeamento", "Terapias Holísticas", "Acupuntura Estética",
       "Podologia", "Spa e Bem-Estar", "Outros"
     ];
-
+    
     function carregarProfissionaisDoStorage() {
       const saved = localStorage.getItem('lead_beauty_profissionais');
       if (saved) {
@@ -1301,6 +1121,7 @@
               clinica: prof.clinica || '',
               cidade: prof.cidade,
               estado: prof.estado,
+              bairro: prof.bairroAtendimento || '',
               tipoAtendimento: prof.tipoCadastro || "Profissional Autônomo",
               especialidades: prof.especialidades || []
             });
@@ -1308,13 +1129,12 @@
         });
       }
     }
-
+    
     function popularFiltros() {
       const cidadeSelect = document.getElementById('filtro-cidade');
       const especialidadeSelect = document.getElementById('filtro-especialidade');
       if (!cidadeSelect || !especialidadeSelect) return;
-
-      // Popular cidades
+      
       while (cidadeSelect.options.length > 1) cidadeSelect.remove(1);
       todasCidades.sort().forEach(cidade => {
         const option = document.createElement('option');
@@ -1322,8 +1142,7 @@
         option.textContent = cidade;
         cidadeSelect.appendChild(option);
       });
-
-      // Popular especialidades com a lista completa
+      
       while (especialidadeSelect.options.length > 1) especialidadeSelect.remove(1);
       todasEspecialidadesLista.sort().forEach(esp => {
         const option = document.createElement('option');
@@ -1332,21 +1151,23 @@
         especialidadeSelect.appendChild(option);
       });
     }
-
+    
     function filtrarProfissionais() {
       const nomeFiltro = document.getElementById('filtro-nome')?.value.toLowerCase() || '';
       const cidadeFiltro = document.getElementById('filtro-cidade').value.toLowerCase();
+      const bairroFiltro = document.getElementById('filtro-bairro')?.value.toLowerCase() || '';
       const especialidadeFiltro = document.getElementById('filtro-especialidade').value.toLowerCase();
       const tipoFiltro = document.getElementById('filtro-tipo').value;
-
+      
       let resultados = [...profissionaisDatabase];
       if (nomeFiltro) resultados = resultados.filter(p => p.nome.toLowerCase().includes(nomeFiltro) || (p.clinica && p.clinica.toLowerCase().includes(nomeFiltro)));
       if (cidadeFiltro) resultados = resultados.filter(p => p.cidade.toLowerCase().includes(cidadeFiltro));
+      if (bairroFiltro) resultados = resultados.filter(p => p.bairro && p.bairro.toLowerCase().includes(bairroFiltro));
       if (especialidadeFiltro) resultados = resultados.filter(p => p.especialidades.some(esp => esp.toLowerCase().includes(especialidadeFiltro)));
       if (tipoFiltro) resultados = resultados.filter(p => p.tipoAtendimento === tipoFiltro);
       exibirResultados(resultados);
     }
-
+    
     function exibirResultados(profissionais) {
       const container = document.getElementById('resultados-busca');
       if (!container) return;
@@ -1364,6 +1185,7 @@
                   <h3 class="font-bold text-softBlack text-base">${prof.nome}</h3>
                   <div class="flex flex-wrap gap-3 mt-2">
                     <span class="text-xs text-softGray"><i class="fa-solid fa-location-dot text-roseGold mr-1"></i> ${prof.cidade}/${prof.estado}</span>
+                    ${prof.bairro ? `<span class="text-xs text-softGray"><i class="fa-solid fa-map-pin text-roseGold mr-1"></i> ${prof.bairro}</span>` : ''}
                     <span class="text-xs text-softGray"><i class="fa-solid fa-briefcase text-roseGold mr-1"></i> ${prof.tipoAtendimento}</span>
                   </div>
                   <div class="mt-2"><p class="text-[10px] font-bold text-softGray uppercase mb-1">Especialidades:</p><div class="flex flex-wrap gap-1">${prof.especialidades.map(esp => `<span class="text-[10px] bg-nudeBg px-2 py-1 rounded-full text-softBlack">${esp}</span>`).join('')}</div></div>
@@ -1379,7 +1201,7 @@
         </div>
       `;
     }
-
+    
     function solicitarAtendimentoParaProfissional(nomeProfissional, cidade) {
       const cidadeSelect = document.getElementById('cli-cidade');
       if (cidadeSelect) {
@@ -1393,7 +1215,7 @@
       showView('cadastro-cliente');
       showMessage(`Solicitação para ${nomeProfissional}. Preencha seus dados e nossa curadoria entrará em contato.`, "success");
     }
-
+    
     // ==================== FUNÇÕES DO FORMULÁRIO ====================
     function showMessage(message, type = 'success') {
       const existingMsg = document.querySelector('.form-message');
@@ -1404,11 +1226,11 @@
       document.body.appendChild(msgDiv);
       setTimeout(() => msgDiv.remove(), 5000);
     }
-
+    
     let lastSubmitTime = 0;
     const COOLDOWN_MS = 60000;
     const emailSolicitacoes = new Map();
-
+    
     function isSpam(lead) {
       const now = Date.now();
       if (now - lastSubmitTime < COOLDOWN_MS) return true;
@@ -1416,15 +1238,15 @@
       if (ultimaSolicitacao && now - ultimaSolicitacao < COOLDOWN_MS) return true;
       return false;
     }
-
+    
     function registrarEnvio(lead) {
       lastSubmitTime = Date.now();
       emailSolicitacoes.set(lead.email, Date.now());
     }
-
+    
     const LEADS_STORAGE_KEY = 'lead_beauty_leads';
     const PROFISSIONAIS_KEY = 'lead_beauty_profissionais';
-
+    
     function saveLeadToLocalStorage(lead) {
       try {
         const existingLeads = localStorage.getItem(LEADS_STORAGE_KEY);
@@ -1435,13 +1257,13 @@
         return true;
       } catch (error) { return false; }
     }
-
+    
     function saveProfissionalToLocalStorage(profissional) {
       try {
         const existing = localStorage.getItem(PROFISSIONAIS_KEY);
         let profissionais = [];
         if (existing) profissionais = JSON.parse(existing);
-
+        
         const especialidades = [];
         const espIds = [
           'esp-camuflagem-estrias', 'esp-camuflagem-cicatrizes', 'esp-micro', 'esp-limpeza', 'esp-facial', 'esp-corporal',
@@ -1453,15 +1275,15 @@
           'esp-bronzeamento', 'esp-terapias', 'esp-acupuntura', 'esp-podologia', 'esp-spa', 'esp-outros'
         ];
         espIds.forEach(id => { const cb = document.getElementById(id); if (cb && cb.checked) especialidades.push(cb.value); });
-
+        
         const estrutura = [];
         const estrIds = ['estrutura-clinica-propria', 'estrutura-sala-comercial', 'estrutura-home-studio', 'estrutura-espaco-compartilhado', 'estrutura-clinica-parceira', 'estrutura-domicilio', 'estrutura-outros'];
         estrIds.forEach(id => { const cb = document.getElementById(id); if (cb && cb.checked) estrutura.push(cb.value); });
-
+        
         const tipoAtendimento = [];
         const tipoIds = ['atende-clinica', 'atende-domicilio', 'atende-sala-comercial', 'atende-home-studio', 'atende-espaco-compartilhado', 'atende-clinica-parceira', 'atende-coworking', 'atende-online', 'atende-hibrido', 'atende-outros'];
         tipoIds.forEach(id => { const cb = document.getElementById(id); if (cb && cb.checked) tipoAtendimento.push(cb.value); });
-
+        
         profissionais.push({
           ...profissional,
           tipoCadastro: document.getElementById('prof-tipo-cadastro')?.value || '',
@@ -1474,9 +1296,7 @@
           especialidades,
           estrutura,
           tipoAtendimento,
-          // ===== CAMPO BAIRRO DE ATENDIMENTO (ADICIONADO) =====
-          bairroAtendimento: document.getElementById('prof-bairro-atendimento')?.value || '',
-          // ===== FIM DO CAMPO BAIRRO DE ATENDIMENTO =====
+          bairroAtendimento: document.getElementById('prof-bairro')?.value || '',
           id: Date.now(),
           timestamp: new Date().toISOString(),
           plano: 'Degustação Inicial',
@@ -1485,12 +1305,12 @@
           leadsPagos: 0,
           totalLeads: 0
         });
-
+        
         localStorage.setItem(PROFISSIONAIS_KEY, JSON.stringify(profissionais));
         return true;
       } catch (error) { return false; }
     }
-
+    
     function findProfissionalByEmail(email) {
       try {
         const existing = localStorage.getItem(PROFISSIONAIS_KEY);
@@ -1501,32 +1321,30 @@
       } catch (error) { return null; }
       return null;
     }
-
+    
     function sendLeadToAdminWhatsApp(lead) {
       const msg = `*NOVA SOLICITAÇÃO - LEAD BEAUTY*%0a%0a*👤 Cliente:* ${lead.nome}%0a*📧 E-mail:* ${lead.email}%0a*📞 WhatsApp:* ${lead.whatsapp}%0a*📍 Cidade:* ${lead.cidade} - ${lead.estado}%0a*🏠 Bairro:* ${lead.bairro}%0a*💆‍♀️ Procedimento:* ${lead.tratamento}%0a*📝 Detalhes:* ${lead.relato}%0a%0a*🔍 AÇÃO:* Analisar e indicar profissional.`;
       window.open(`https://wa.me/${WHATSAPP_ADMIN}?text=${msg}`, '_blank');
     }
-
+    
     async function handleCadastroCliente(e) {
       e.preventDefault();
-
+      
       const cidadeSelect = document.getElementById('cli-cidade').value;
       const cidadeManual = document.getElementById('cli-cidade-manual').value;
       let cidadeFinal = cidadeSelect === 'Minha cidade não está na lista' ? cidadeManual.trim() : cidadeSelect;
-
+      
       if ((cidadeSelect === 'Minha cidade não está na lista' && !cidadeManual.trim())) {
         showMessage("Digite sua cidade.", "error");
         return;
       }
-
-      // ===== CAMPO BAIRRO DO CLIENTE (ADICIONADO) =====
+      
       const bairro = document.getElementById('cli-bairro').value.trim();
       if (!bairro) {
         showMessage("Digite seu bairro.", "error");
         return;
       }
-      // ===== FIM DO CAMPO BAIRRO DO CLIENTE =====
-
+      
       const lead = {
         nome: document.getElementById('cli-nome')?.value || '',
         whatsapp: document.getElementById('cli-whatsapp')?.value || '',
@@ -1537,37 +1355,37 @@
         tratamento: document.getElementById('cli-tratamento')?.value || '',
         relato: document.getElementById('cli-relato')?.value || 'Não informado'
       };
-
+      
       if (!lead.nome || !lead.whatsapp || !lead.email || !lead.cidade || !lead.estado) {
         showMessage("Preencha todos os campos.", "error");
         return;
       }
-
+      
       if (!lead.email.includes('@') || !lead.email.includes('.')) {
         showMessage("E-mail inválido.", "error");
         return;
       }
-
+      
       const telefoneLimpo = lead.whatsapp.replace(/\D/g, '');
       if (telefoneLimpo.length < 10) {
         showMessage("WhatsApp inválido.", "error");
         return;
       }
-
+      
       if (isSpam(lead)) {
         showMessage("Aguarde 1 minuto antes de enviar novamente.", "error");
         return;
       }
-
+      
       const submitBtn = document.getElementById('submit-lead-btn');
       const originalText = submitBtn?.innerHTML || 'Enviar';
       if (submitBtn) { submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Enviando...'; submitBtn.disabled = true; }
-
+      
       const saved = saveLeadToLocalStorage(lead);
       await sendToGoogleSheets(lead);
       sendLeadToAdminWhatsApp(lead);
       registrarEnvio(lead);
-
+      
       if (saved) {
         showMessage("Solicitação enviada! Nossa equipe entrará em contato em breve.", "success");
         document.getElementById('form-cliente').reset();
@@ -1575,22 +1393,20 @@
       } else {
         showMessage("Erro ao enviar.", "error");
       }
-
+      
       if (submitBtn) { submitBtn.innerHTML = originalText; submitBtn.disabled = false; }
       setTimeout(() => showView('home'), 3000);
     }
-
+    
     async function handleCadastroProfissional(e) {
       e.preventDefault();
-
-      // ===== CAMPO BAIRRO DE ATENDIMENTO DO PROFISSIONAL (ADICIONADO) =====
-      const bairroAtendimento = document.getElementById('prof-bairro-atendimento').value.trim();
+      
+      const bairroAtendimento = document.getElementById('prof-bairro').value.trim();
       if (!bairroAtendimento) {
         showMessage("Digite seu bairro principal de atendimento.", "error");
         return;
       }
-      // ===== FIM DO CAMPO BAIRRO DE ATENDIMENTO =====
-
+      
       const profissional = {
         nome: document.getElementById('prof-nome').value,
         email: document.getElementById('prof-email').value,
@@ -1600,17 +1416,17 @@
         whatsapp: document.getElementById('prof-whatsapp').value,
         bairroAtendimento: bairroAtendimento
       };
-
+      
       if (!profissional.nome || !profissional.email || !profissional.senha || !profissional.cidade || !profissional.estado || !profissional.whatsapp) {
         showMessage("Preencha todos os campos obrigatórios.", "error");
         return;
       }
-
+      
       if (!document.getElementById('prof-tipo-cadastro').value) {
         showMessage("Selecione o tipo de cadastro.", "error");
         return;
       }
-
+      
       const espIds = [
         'esp-camuflagem-estrias', 'esp-camuflagem-cicatrizes', 'esp-micro', 'esp-limpeza', 'esp-facial', 'esp-corporal',
         'esp-harmonizacao-facial', 'esp-harmonizacao-corporal', 'esp-micropig', 'esp-sobrancelhas', 'esp-brow-designer',
@@ -1623,10 +1439,10 @@
       let hasEsp = false;
       espIds.forEach(id => { if (document.getElementById(id)?.checked) hasEsp = true; });
       if (!hasEsp) { showMessage("Selecione pelo menos uma especialidade.", "error"); return; }
-
+      
       const existing = findProfissionalByEmail(profissional.email);
       if (existing) { showMessage("E-mail já cadastrado.", "error"); return; }
-
+      
       const saved = saveProfissionalToLocalStorage(profissional);
       if (saved) {
         showMessage("Cadastro realizado! Agora você pode acessar sua área.", "success");
@@ -1636,7 +1452,7 @@
         showMessage("Erro ao cadastrar.", "error");
       }
     }
-
+    
     async function handleLoginProfissional(e) {
       e.preventDefault();
       const email = document.getElementById('login-email').value;
@@ -1651,28 +1467,28 @@
         showMessage("E-mail ou senha incorretos.", "error");
       }
     }
-
+    
     function handleLogoutProfissional() { currentUserData = null; showView('home'); showMessage("Logout realizado!", "success"); }
-
+    
     function loadDashboardProfissional() {
       if(!currentUserData) return;
       const freeLeads = currentUserData.leadsGratuitos || 0;
       const paidLeads = currentUserData.leadsPagos || 0;
       const maxFree = 3;
       const maxPaid = currentUserData.plano === 'Profissional' ? 3 : 0;
-
+      
       document.getElementById('dash-free-leads').textContent = `${freeLeads}/${maxFree}`;
       document.getElementById('dash-paid-leads').textContent = `${paidLeads}/${maxPaid}`;
       document.getElementById('dash-total-leads').textContent = `${freeLeads + paidLeads}/${maxFree + maxPaid}`;
-
+      
       const leadsWarning = document.getElementById('leads-warning');
       const limitWarning = document.getElementById('limit-warning');
       const upgradeSection = document.getElementById('upgrade-section');
-
+      
       if (leadsWarning) leadsWarning.classList.add('hidden-section');
       if (limitWarning) limitWarning.classList.add('hidden-section');
       if (upgradeSection) upgradeSection.classList.add('hidden-section');
-
+      
       if (currentUserData.plano === 'Degustação Inicial' && freeLeads >= 3) {
         if (leadsWarning) leadsWarning.classList.remove('hidden-section');
         if (upgradeSection) upgradeSection.classList.remove('hidden-section');
@@ -1682,7 +1498,7 @@
         if (upgradeSection) upgradeSection.classList.remove('hidden-section');
       }
     }
-
+    
     let currentUserData = null;
     function showView(viewId) {
       document.querySelectorAll('.view-section').forEach(s => s.classList.add('hidden-section'));
@@ -1690,10 +1506,10 @@
       if (target) target.classList.remove('hidden-section');
       window.scrollTo(0, 0);
     }
-
+    
     function generatePaymentQRCode() { showMessage("Sistema em desenvolvimento.", "error"); }
     function copyPixCode() { showMessage("Sistema em desenvolvimento.", "error"); }
-
+    
     document.addEventListener('DOMContentLoaded', function() {
       console.log("Lead Beauty - Plataforma de Curadoria em Estética");
       console.log("3 leads gratuitos + 3 leads pagos = 6 leads totais");
@@ -1705,4 +1521,4 @@
   </script>
 </body>
 </html>
-     
+
