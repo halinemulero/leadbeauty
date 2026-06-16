@@ -191,136 +191,96 @@
 
     /* ===== MELHORIAS DE RESPONSIVIDADE PARA CELULAR ===== */
     @media (max-width: 768px) {
-      /* Ajuste do header/nav */
       nav .max-w-6xl {
         flex-direction: column;
         gap: 0.75rem;
       }
-      
       nav .flex.items-center.gap-4 {
         justify-content: center;
       }
-      
       nav .flex.items-center.gap-5 {
         justify-content: center;
         flex-wrap: wrap;
       }
-      
-      /* Botões principais */
       .flex.flex-col.sm\\:flex-row {
         flex-direction: column;
       }
-      
       .flex.flex-col.sm\\:flex-row button {
         width: 100%;
         margin-bottom: 0.5rem;
       }
-      
-      /* Grid de 3 colunas vira 1 coluna */
       .grid.md\\:grid-cols-3 {
         grid-template-columns: 1fr;
       }
-      
-      /* Grid de 2 colunas vira 1 coluna */
       .grid.md\\:grid-cols-2 {
         grid-template-columns: 1fr;
       }
-      
-      /* Títulos menores */
       h1.font-serif {
         font-size: 1.75rem;
         line-height: 1.3;
       }
-      
-      /* Espaçamento do header */
       header.pt-20 {
         padding-top: 2rem;
       }
-      
-      /* Selos de credibilidade */
       .flex.flex-wrap.justify-center.gap-2 {
         gap: 0.5rem;
       }
-      
       .credibility-badge {
         font-size: 0.6rem;
         padding: 0.3rem 0.6rem;
       }
-      
-      /* Cards de planos */
       .py-12.px-6 {
         padding-left: 1rem;
         padding-right: 1rem;
       }
-      
-      /* Formulários */
       .max-w-xl, .max-w-lg, .max-w-2xl, .max-w-4xl, .max-w-6xl {
         margin-left: 1rem;
         margin-right: 1rem;
         width: calc(100% - 2rem);
       }
-      
       .bg-white\\/95.p-8 {
         padding: 1.5rem;
       }
-      
-      /* Grid de 2 colunas no formulário vira 1 coluna */
       .grid.grid-cols-1.sm\\:grid-cols-2 {
         grid-template-columns: 1fr;
         gap: 0.75rem;
       }
-      
       .grid.grid-cols-2 {
         grid-template-columns: 1fr;
         gap: 0.75rem;
       }
-      
-      /* Checkbox group */
       .checkbox-group {
         max-height: 250px;
       }
-      
       .checkbox-item {
         font-size: 0.65rem;
         padding: 0.3rem 0.6rem;
       }
-      
-      /* Chat flutuante */
       .fixed.bottom-6.right-6 {
         bottom: 1rem;
         right: 1rem;
       }
-      
       .fixed.bottom-6.right-6 button {
         width: 3rem;
         height: 3rem;
       }
-      
       #chatModal {
         width: 90vw !important;
         right: 5vw !important;
         bottom: 5rem !important;
       }
-      
-      /* Dashboard */
       .grid.grid-cols-1.md\\:grid-cols-3 {
         grid-template-columns: 1fr;
         gap: 1rem;
       }
-      
-      /* Footer */
       footer.py-12 {
         padding-top: 2rem;
         padding-bottom: 2rem;
       }
-      
-      /* Ajuste da logo no footer */
       footer .flex.justify-center.mb-4 img {
         width: 3rem;
         height: 3rem;
       }
-      
-      /* Ajuste do watermark em mobile (menor e mais discreto) */
       .watermark-bg {
         width: 200px;
         height: 200px;
@@ -328,42 +288,34 @@
       }
     }
     
-    /* Ajustes para telas muito pequenas (iPhone SE, etc) */
     @media (max-width: 480px) {
       h1.font-serif {
         font-size: 1.5rem;
       }
-      
       .text-sm.md\\:text-base {
         font-size: 0.8rem;
       }
-      
       button {
         font-size: 0.7rem;
       }
-      
       .credibility-badge {
         font-size: 0.55rem;
       }
-      
       .bg-white\\/95.p-8 {
         padding: 1rem;
       }
-      
       .checkbox-item {
         font-size: 0.6rem;
       }
     }
     
-    /* Ajuste para garantir que botões sejam grandes o suficiente no mobile */
     @media (max-width: 768px) {
       button, .btn, a.btn-primary, .bg-premiumRose, .bg-softBlack, .bg-white.border {
         min-height: 48px;
         cursor: pointer;
       }
-      
       input, select, textarea {
-        font-size: 16px !important; /* Evita zoom automático no iOS */
+        font-size: 16px !important;
       }
     }
   </style>
@@ -640,50 +592,49 @@
           <div>
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Procedimento Desejado</label>
             <select id="cli-tratamento" class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
-              <option>Camuflagem de Estrias</option>
-              <option>Camuflagem de Cicatrizes</option>
-              <option>Microagulhamento</option>
-              <option>Limpeza de Pele</option>
-              <option>Estética Facial</option>
-              <option>Estética Corporal</option>
-              <option>Harmonização Facial</option>
-              <option>Harmonização Corporal</option>
-              <option>Micropigmentação</option>
-              <option>Design de Sobrancelhas</option>
+              <option>Acupuntura Estética</option>
+              <option>Alongamento de Unhas</option>
+              <option>Barbeiro</option>
+              <option>Bioestimuladores</option>
+              <option>Bronzeamento</option>
               <option>Brow Designer</option>
-              <option>Lash Designer</option>
-              <option>Extensão de Cílios</option>
-              <option>Drenagem Linfática</option>
-              <option>Massoterapia</option>
+              <option>Cabeleireira</option>
+              <option>Camuflagem de Cicatrizes</option>
+              <option>Criolipólise</option>
               <option>Depilação</option>
               <option>Depilação a Laser</option>
-              <option>Peeling Químico</option>
-              <option>Peeling de Diamante</option>
-              <option>Revitalização Facial</option>
-              <option>Tratamento de Olheiras</option>
-              <option>Skinbooster</option>
-              <option>Bioestimuladores</option>
-              <option>Jato de Plasma</option>
-              <option>Ozonioterapia</option>
-              <option>Criolipólise</option>
-              <option>Radiofrequência</option>
-              <option>Ultrassom Estético</option>
-              <option>Tricologia</option>
-              <option>Terapia Capilar</option>
-              <option>Estética Íntima</option>
-              <option>Maquiagem Profissional</option>
-              <option>Bronzeamento</option>
-              <option>Terapias Holísticas</option>
-              <option>Acupuntura Estética</option>
-              <option>Podologia</option>
-              <option>Spa e Bem-Estar</option>
-              <option>Cabeleireira</option>
-              <option>Manicure e Pedicure</option>
-              <option>Nail Designer</option>
               <option>Depiladora</option>
+              <option>Design de Sobrancelhas</option>
+              <option>Drenagem Linfática</option>
+              <option>Estética Corporal</option>
+              <option>Estética Facial</option>
+              <option>Estética Íntima</option>
+              <option>Extensão de Cílios</option>
+              <option>Harmonização Corporal</option>
+              <option>Harmonização Facial</option>
+              <option>Jato de Plasma</option>
+              <option>Lash Designer</option>
+              <option>Limpeza de Pele</option>
+              <option>Manicure e Pedicure</option>
+              <option>Maquiagem Profissional</option>
+              <option>Massoterapia</option>
+              <option>Microagulhamento</option>
+              <option>Micropigmentação</option>
+              <option>Nail Designer</option>
+              <option>Ozonioterapia</option>
+              <option>Peeling de Diamante</option>
+              <option>Peeling Químico</option>
+              <option>Podologia</option>
+              <option>Radiofrequência</option>
+              <option>Revitalização Facial</option>
+              <option>Skinbooster</option>
+              <option>Spa e Bem-Estar</option>
+              <option>Terapias Holísticas</option>
+              <option>Terapia Capilar</option>
               <option>Trancista</option>
-              <option>Barbeiro</option>
-              <option>Alongamento de Unhas</option>
+              <option>Tratamento de Olheiras</option>
+              <option>Tricologia</option>
+              <option>Ultrassom Estético</option>
               <option>Outros</option>
             </select>
           </div>
@@ -785,51 +736,49 @@
           <div>
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Especialidades *</label>
             <div class="checkbox-group" id="especialidades-group">
-              <div class="checkbox-item"><input type="checkbox" id="esp-camuflagem-estrias" value="Camuflagem de Estrias"><label>Camuflagem de Estrias</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-camuflagem-cicatrizes" value="Camuflagem de Cicatrizes"><label>Camuflagem de Cicatrizes</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-micro" value="Microagulhamento"><label>Microagulhamento</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-limpeza" value="Limpeza de Pele"><label>Limpeza de Pele</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-facial" value="Estética Facial"><label>Estética Facial</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-corporal" value="Estética Corporal"><label>Estética Corporal</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-harmonizacao-facial" value="Harmonização Facial"><label>Harmonização Facial</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-harmonizacao-corporal" value="Harmonização Corporal"><label>Harmonização Corporal</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-micropig" value="Micropigmentação"><label>Micropigmentação</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-sobrancelhas" value="Design de Sobrancelhas"><label>Design de Sobrancelhas</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-acupuntura-estetica" value="Acupuntura Estética"><label>Acupuntura Estética</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-alongamento-unhas" value="Alongamento de Unhas"><label>Alongamento de Unhas</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-barbeiro" value="Barbeiro"><label>Barbeiro</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-bioestimuladores" value="Bioestimuladores"><label>Bioestimuladores</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-bronzeamento" value="Bronzeamento"><label>Bronzeamento</label></div>
               <div class="checkbox-item"><input type="checkbox" id="esp-brow-designer" value="Brow Designer"><label>Brow Designer</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-lash-designer" value="Lash Designer"><label>Lash Designer</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-cilios" value="Extensão de Cílios"><label>Extensão de Cílios</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-drenagem" value="Drenagem Linfática"><label>Drenagem Linfática</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-massoterapia" value="Massoterapia"><label>Massoterapia</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-cabeleireira" value="Cabeleireira"><label>Cabeleireira</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-camuflagem-cicatrizes" value="Camuflagem de Cicatrizes"><label>Camuflagem de Cicatrizes</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-criolipolise" value="Criolipólise"><label>Criolipólise</label></div>
               <div class="checkbox-item"><input type="checkbox" id="esp-depilacao" value="Depilação"><label>Depilação</label></div>
               <div class="checkbox-item"><input type="checkbox" id="esp-depilacao-laser" value="Depilação a Laser"><label>Depilação a Laser</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-peeling-quimico" value="Peeling Químico"><label>Peeling Químico</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-peeling-diamante" value="Peeling de Diamante"><label>Peeling de Diamante</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-revitalizacao" value="Revitalização Facial"><label>Revitalização Facial</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-olheiras" value="Tratamento de Olheiras"><label>Tratamento de Olheiras</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-skinbooster" value="Skinbooster"><label>Skinbooster</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-bioestimuladores" value="Bioestimuladores"><label>Bioestimuladores</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-jato-plasma" value="Jato de Plasma"><label>Jato de Plasma</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-ozonioterapia" value="Ozonioterapia"><label>Ozonioterapia</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-criolipolise" value="Criolipólise"><label>Criolipólise</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-radiofrequencia" value="Radiofrequência"><label>Radiofrequência</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-ultrassom" value="Ultrassom Estético"><label>Ultrassom Estético</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-tricologia" value="Tricologia"><label>Tricologia</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-terapia-capilar" value="Terapia Capilar"><label>Terapia Capilar</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-estetica-intima" value="Estética Íntima"><label>Estética Íntima</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-maquiagem" value="Maquiagem Profissional"><label>Maquiagem Profissional</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-bronzeamento" value="Bronzeamento"><label>Bronzeamento</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-terapias" value="Terapias Holísticas"><label>Terapias Holísticas</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-acupuntura" value="Acupuntura Estética"><label>Acupuntura Estética</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-podologia" value="Podologia"><label>Podologia</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-spa" value="Spa e Bem-Estar"><label>Spa e Bem-Estar</label></div>
-              <!-- NOVAS ESPECIALIDADES ADICIONADAS -->
-              <div class="checkbox-item"><input type="checkbox" id="esp-cabeleireira" value="Cabeleireira"><label>Cabeleireira</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-manicure-pedicure" value="Manicure e Pedicure"><label>Manicure e Pedicure</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-nail-designer" value="Nail Designer"><label>Nail Designer</label></div>
               <div class="checkbox-item"><input type="checkbox" id="esp-depiladora" value="Depiladora"><label>Depiladora</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-design-sobrancelhas" value="Design de Sobrancelhas"><label>Design de Sobrancelhas</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-drenagem" value="Drenagem Linfática"><label>Drenagem Linfática</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-estetica-corporal" value="Estética Corporal"><label>Estética Corporal</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-estetica-facial" value="Estética Facial"><label>Estética Facial</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-estetica-intima" value="Estética Íntima"><label>Estética Íntima</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-extensao-cilios" value="Extensão de Cílios"><label>Extensão de Cílios</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-harmonizacao-corporal" value="Harmonização Corporal"><label>Harmonização Corporal</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-harmonizacao-facial" value="Harmonização Facial"><label>Harmonização Facial</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-jato-plasma" value="Jato de Plasma"><label>Jato de Plasma</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-lash-designer" value="Lash Designer"><label>Lash Designer</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-limpeza" value="Limpeza de Pele"><label>Limpeza de Pele</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-manicure-pedicure" value="Manicure e Pedicure"><label>Manicure e Pedicure</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-maquiagem" value="Maquiagem Profissional"><label>Maquiagem Profissional</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-massoterapia" value="Massoterapia"><label>Massoterapia</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-micro" value="Microagulhamento"><label>Microagulhamento</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-micropig" value="Micropigmentação"><label>Micropigmentação</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-nail-designer" value="Nail Designer"><label>Nail Designer</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-ozonioterapia" value="Ozonioterapia"><label>Ozonioterapia</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-peeling-diamante" value="Peeling de Diamante"><label>Peeling de Diamante</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-peeling-quimico" value="Peeling Químico"><label>Peeling Químico</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-podologia" value="Podologia"><label>Podologia</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-radiofrequencia" value="Radiofrequência"><label>Radiofrequência</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-revitalizacao" value="Revitalização Facial"><label>Revitalização Facial</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-skinbooster" value="Skinbooster"><label>Skinbooster</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-spa" value="Spa e Bem-Estar"><label>Spa e Bem-Estar</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-terapias" value="Terapias Holísticas"><label>Terapias Holísticas</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-terapia-capilar" value="Terapia Capilar"><label>Terapia Capilar</label></div>
               <div class="checkbox-item"><input type="checkbox" id="esp-trancista" value="Trancista"><label>Trancista</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-barbeiro" value="Barbeiro"><label>Barbeiro</label></div>
-              <div class="checkbox-item"><input type="checkbox" id="esp-alongamento-unhas" value="Alongamento de Unhas"><label>Alongamento de Unhas</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-olheiras" value="Tratamento de Olheiras"><label>Tratamento de Olheiras</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-tricologia" value="Tricologia"><label>Tricologia</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-ultrassom" value="Ultrassom Estético"><label>Ultrassom Estético</label></div>
               <div class="checkbox-item"><input type="checkbox" id="esp-outros" value="Outros"><label>Outros</label></div>
             </div>
           </div>
@@ -1112,20 +1061,54 @@
       "Ubatuba", "Caraguatatuba", "São Sebastião", "Ilhabela", "Iguape", "Ilha Comprida", "Cananéia"
     ];
     
-    // ===== LISTA COMPLETA DE ESPECIALIDADES (ATUALIZADA) =====
+    // ===== LISTA COMPLETA DE ESPECIALIDADES EM ORDEM ALFABÉTICA =====
     const todasEspecialidadesLista = [
-      "Camuflagem de Estrias", "Camuflagem de Cicatrizes", "Microagulhamento", "Limpeza de Pele",
-      "Estética Facial", "Estética Corporal", "Harmonização Facial", "Harmonização Corporal",
-      "Micropigmentação", "Design de Sobrancelhas", "Brow Designer", "Lash Designer",
-      "Extensão de Cílios", "Drenagem Linfática", "Massoterapia", "Depilação", "Depilação a Laser",
-      "Peeling Químico", "Peeling de Diamante", "Revitalização Facial", "Tratamento de Olheiras",
-      "Skinbooster", "Bioestimuladores", "Jato de Plasma", "Ozonioterapia", "Criolipólise",
-      "Radiofrequência", "Ultrassom Estético", "Tricologia", "Terapia Capilar", "Estética Íntima",
-      "Maquiagem Profissional", "Bronzeamento", "Terapias Holísticas", "Acupuntura Estética",
-      "Podologia", "Spa e Bem-Estar", "Cabeleireira", "Manicure e Pedicure", "Nail Designer",
-      "Depiladora", "Trancista", "Barbeiro", "Alongamento de Unhas", "Outros"
+      "Acupuntura Estética",
+      "Alongamento de Unhas",
+      "Barbeiro",
+      "Bioestimuladores",
+      "Bronzeamento",
+      "Brow Designer",
+      "Cabeleireira",
+      "Camuflagem de Cicatrizes",
+      "Criolipólise",
+      "Depilação",
+      "Depilação a Laser",
+      "Depiladora",
+      "Design de Sobrancelhas",
+      "Drenagem Linfática",
+      "Estética Corporal",
+      "Estética Facial",
+      "Estética Íntima",
+      "Extensão de Cílios",
+      "Harmonização Corporal",
+      "Harmonização Facial",
+      "Jato de Plasma",
+      "Lash Designer",
+      "Limpeza de Pele",
+      "Manicure e Pedicure",
+      "Maquiagem Profissional",
+      "Massoterapia",
+      "Microagulhamento",
+      "Micropigmentação",
+      "Nail Designer",
+      "Ozonioterapia",
+      "Peeling de Diamante",
+      "Peeling Químico",
+      "Podologia",
+      "Radiofrequência",
+      "Revitalização Facial",
+      "Skinbooster",
+      "Spa e Bem-Estar",
+      "Terapias Holísticas",
+      "Terapia Capilar",
+      "Trancista",
+      "Tratamento de Olheiras",
+      "Tricologia",
+      "Ultrassom Estético",
+      "Outros"
     ];
-    // ===== FIM DA LISTA ATUALIZADA =====
+    // ===== FIM DA LISTA =====
     
     function carregarProfissionaisDoStorage() {
       const saved = localStorage.getItem('lead_beauty_profissionais');
@@ -1283,19 +1266,54 @@
         if (existing) profissionais = JSON.parse(existing);
         
         const especialidades = [];
-        // ===== LISTA DE IDs ATUALIZADA COM AS NOVAS ESPECIALIDADES =====
+        // ===== LISTA DE IDs EM ORDEM ALFABÉTICA =====
         const espIds = [
-          'esp-camuflagem-estrias', 'esp-camuflagem-cicatrizes', 'esp-micro', 'esp-limpeza', 'esp-facial', 'esp-corporal',
-          'esp-harmonizacao-facial', 'esp-harmonizacao-corporal', 'esp-micropig', 'esp-sobrancelhas', 'esp-brow-designer',
-          'esp-lash-designer', 'esp-cilios', 'esp-drenagem', 'esp-massoterapia', 'esp-depilacao', 'esp-depilacao-laser',
-          'esp-peeling-quimico', 'esp-peeling-diamante', 'esp-revitalizacao', 'esp-olheiras', 'esp-skinbooster',
-          'esp-bioestimuladores', 'esp-jato-plasma', 'esp-ozonioterapia', 'esp-criolipolise', 'esp-radiofrequencia',
-          'esp-ultrassom', 'esp-tricologia', 'esp-terapia-capilar', 'esp-estetica-intima', 'esp-maquiagem',
-          'esp-bronzeamento', 'esp-terapias', 'esp-acupuntura', 'esp-podologia', 'esp-spa',
-          'esp-cabeleireira', 'esp-manicure-pedicure', 'esp-nail-designer', 'esp-depiladora',
-          'esp-trancista', 'esp-barbeiro', 'esp-alongamento-unhas', 'esp-outros'
+          'esp-acupuntura-estetica',
+          'esp-alongamento-unhas',
+          'esp-barbeiro',
+          'esp-bioestimuladores',
+          'esp-bronzeamento',
+          'esp-brow-designer',
+          'esp-cabeleireira',
+          'esp-camuflagem-cicatrizes',
+          'esp-criolipolise',
+          'esp-depilacao',
+          'esp-depilacao-laser',
+          'esp-depiladora',
+          'esp-design-sobrancelhas',
+          'esp-drenagem',
+          'esp-estetica-corporal',
+          'esp-estetica-facial',
+          'esp-estetica-intima',
+          'esp-extensao-cilios',
+          'esp-harmonizacao-corporal',
+          'esp-harmonizacao-facial',
+          'esp-jato-plasma',
+          'esp-lash-designer',
+          'esp-limpeza',
+          'esp-manicure-pedicure',
+          'esp-maquiagem',
+          'esp-massoterapia',
+          'esp-micro',
+          'esp-micropig',
+          'esp-nail-designer',
+          'esp-ozonioterapia',
+          'esp-peeling-diamante',
+          'esp-peeling-quimico',
+          'esp-podologia',
+          'esp-radiofrequencia',
+          'esp-revitalizacao',
+          'esp-skinbooster',
+          'esp-spa',
+          'esp-terapias',
+          'esp-terapia-capilar',
+          'esp-trancista',
+          'esp-olheiras',
+          'esp-tricologia',
+          'esp-ultrassom',
+          'esp-outros'
         ];
-        // ===== FIM DA LISTA ATUALIZADA =====
+        // ===== FIM DA LISTA =====
         espIds.forEach(id => { const cb = document.getElementById(id); if (cb && cb.checked) especialidades.push(cb.value); });
         
         const estrutura = [];
@@ -1449,19 +1467,54 @@
         return;
       }
       
-      // ===== LISTA DE IDs ATUALIZADA COM AS NOVAS ESPECIALIDADES =====
+      // ===== LISTA DE IDs EM ORDEM ALFABÉTICA =====
       const espIds = [
-        'esp-camuflagem-estrias', 'esp-camuflagem-cicatrizes', 'esp-micro', 'esp-limpeza', 'esp-facial', 'esp-corporal',
-        'esp-harmonizacao-facial', 'esp-harmonizacao-corporal', 'esp-micropig', 'esp-sobrancelhas', 'esp-brow-designer',
-        'esp-lash-designer', 'esp-cilios', 'esp-drenagem', 'esp-massoterapia', 'esp-depilacao', 'esp-depilacao-laser',
-        'esp-peeling-quimico', 'esp-peeling-diamante', 'esp-revitalizacao', 'esp-olheiras', 'esp-skinbooster',
-        'esp-bioestimuladores', 'esp-jato-plasma', 'esp-ozonioterapia', 'esp-criolipolise', 'esp-radiofrequencia',
-        'esp-ultrassom', 'esp-tricologia', 'esp-terapia-capilar', 'esp-estetica-intima', 'esp-maquiagem',
-        'esp-bronzeamento', 'esp-terapias', 'esp-acupuntura', 'esp-podologia', 'esp-spa',
-        'esp-cabeleireira', 'esp-manicure-pedicure', 'esp-nail-designer', 'esp-depiladora',
-        'esp-trancista', 'esp-barbeiro', 'esp-alongamento-unhas', 'esp-outros'
+        'esp-acupuntura-estetica',
+        'esp-alongamento-unhas',
+        'esp-barbeiro',
+        'esp-bioestimuladores',
+        'esp-bronzeamento',
+        'esp-brow-designer',
+        'esp-cabeleireira',
+        'esp-camuflagem-cicatrizes',
+        'esp-criolipolise',
+        'esp-depilacao',
+        'esp-depilacao-laser',
+        'esp-depiladora',
+        'esp-design-sobrancelhas',
+        'esp-drenagem',
+        'esp-estetica-corporal',
+        'esp-estetica-facial',
+        'esp-estetica-intima',
+        'esp-extensao-cilios',
+        'esp-harmonizacao-corporal',
+        'esp-harmonizacao-facial',
+        'esp-jato-plasma',
+        'esp-lash-designer',
+        'esp-limpeza',
+        'esp-manicure-pedicure',
+        'esp-maquiagem',
+        'esp-massoterapia',
+        'esp-micro',
+        'esp-micropig',
+        'esp-nail-designer',
+        'esp-ozonioterapia',
+        'esp-peeling-diamante',
+        'esp-peeling-quimico',
+        'esp-podologia',
+        'esp-radiofrequencia',
+        'esp-revitalizacao',
+        'esp-skinbooster',
+        'esp-spa',
+        'esp-terapias',
+        'esp-terapia-capilar',
+        'esp-trancista',
+        'esp-olheiras',
+        'esp-tricologia',
+        'esp-ultrassom',
+        'esp-outros'
       ];
-      // ===== FIM DA LISTA ATUALIZADA =====
+      // ===== FIM DA LISTA =====
       let hasEsp = false;
       espIds.forEach(id => { if (document.getElementById(id)?.checked) hasEsp = true; });
       if (!hasEsp) { showMessage("Selecione pelo menos uma especialidade.", "error"); return; }
