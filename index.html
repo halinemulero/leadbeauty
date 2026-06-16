@@ -504,7 +504,7 @@
           <i class="fa-solid fa-arrow-left"></i> Voltar
         </button>
         <h2 class="font-serif text-xl md:text-2xl font-bold text-center mt-6 md:mt-8 mb-2 text-softBlack">Conheça Nossos Profissionais</h2>
-        <p class="text-center text-xs text-softGray mb-6 md:mb-8">Filtre por cidade, especialidade, nome do profissional ou tipo de atendimento.</p>
+        <p class="text-center text-xs text-softGray mb-6 md:mb-8">Filtre por cidade, bairro, especialidade, nome do profissional ou tipo de atendimento.</p>
         
         <div class="grid grid-cols-1 gap-4 mb-6 md:mb-8">
           <div>
@@ -517,12 +517,10 @@
               <option value="">Todas as cidades</option>
             </select>
           </div>
-          <!-- ===== CAMPO BAIRRO - FILTRO BUSCA (ADICIONADO) ===== -->
           <div>
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Bairro</label>
             <input type="text" id="filtro-bairro" placeholder="Digite o bairro" class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
           </div>
-          <!-- ===== FIM DO CAMPO BAIRRO - FILTRO BUSCA ===== -->
           <div>
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Especialidade</label>
             <select id="filtro-especialidade" class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
@@ -567,16 +565,16 @@
         
         <form id="form-cliente" class="space-y-4" onsubmit="handleCadastroCliente(event)">
           <div>
-            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Nome Completo</label>
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Nome Completo *</label>
             <input type="text" id="cli-nome" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
           </div>
           <div class="space-y-4">
             <div>
-              <label class="text-[10px] font-bold text-softGray uppercase block mb-1">WhatsApp de Contato</label>
+              <label class="text-[10px] font-bold text-softGray uppercase block mb-1">WhatsApp de Contato *</label>
               <input type="tel" id="cli-whatsapp" placeholder="(13) 99999-9999" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
             </div>
             <div>
-              <label class="text-[10px] font-bold text-softGray uppercase block mb-1">E-mail</label>
+              <label class="text-[10px] font-bold text-softGray uppercase block mb-1">E-mail *</label>
               <input type="email" id="cli-email" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
             </div>
           </div>
@@ -629,15 +627,13 @@
             <input type="text" id="cli-cidade-manual" placeholder="Ex: Ribeirão Preto, Niterói, Florianópolis..." class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
           </div>
           
-          <!-- ===== CAMPO BAIRRO - CADASTRO CLIENTE (ADICIONADO) ===== -->
           <div>
             <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Bairro *</label>
             <input type="text" id="cli-bairro" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition" placeholder="Digite seu bairro">
           </div>
-          <!-- ===== FIM DO CAMPO BAIRRO - CADASTRO CLIENTE ===== -->
           
           <div>
-            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Estado (UF)</label>
+            <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Estado (UF) *</label>
             <input type="text" id="cli-estado" maxlength="2" placeholder="SP" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
           </div>
           
@@ -681,6 +677,13 @@
               <option>Acupuntura Estética</option>
               <option>Podologia</option>
               <option>Spa e Bem-Estar</option>
+              <option>Cabeleireira</option>
+              <option>Manicure e Pedicure</option>
+              <option>Nail Designer</option>
+              <option>Depiladora</option>
+              <option>Trancista</option>
+              <option>Barbeiro</option>
+              <option>Alongamento de Unhas</option>
               <option>Outros</option>
             </select>
           </div>
@@ -743,12 +746,10 @@
               <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Cidade *</label>
               <input type="text" id="prof-cidade" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
             </div>
-            <!-- ===== CAMPO BAIRRO DE ATENDIMENTO - CADASTRO PROFISSIONAL (ADICIONADO) ===== -->
             <div>
               <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Bairro de Atendimento *</label>
               <input type="text" id="prof-bairro" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition" placeholder="Digite seu bairro principal de atendimento">
             </div>
-            <!-- ===== FIM DO CAMPO BAIRRO DE ATENDIMENTO ===== -->
             <div>
               <label class="text-[10px] font-bold text-softGray uppercase block mb-1">Estado (UF) *</label>
               <input type="text" id="prof-estado" maxlength="2" required class="w-full border border-cardBorder rounded-xl px-4 py-3 text-xs bg-nudeBg/80 focus:outline-none focus:border-roseGold transition">
@@ -821,6 +822,14 @@
               <div class="checkbox-item"><input type="checkbox" id="esp-acupuntura" value="Acupuntura Estética"><label>Acupuntura Estética</label></div>
               <div class="checkbox-item"><input type="checkbox" id="esp-podologia" value="Podologia"><label>Podologia</label></div>
               <div class="checkbox-item"><input type="checkbox" id="esp-spa" value="Spa e Bem-Estar"><label>Spa e Bem-Estar</label></div>
+              <!-- NOVAS ESPECIALIDADES ADICIONADAS -->
+              <div class="checkbox-item"><input type="checkbox" id="esp-cabeleireira" value="Cabeleireira"><label>Cabeleireira</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-manicure-pedicure" value="Manicure e Pedicure"><label>Manicure e Pedicure</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-nail-designer" value="Nail Designer"><label>Nail Designer</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-depiladora" value="Depiladora"><label>Depiladora</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-trancista" value="Trancista"><label>Trancista</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-barbeiro" value="Barbeiro"><label>Barbeiro</label></div>
+              <div class="checkbox-item"><input type="checkbox" id="esp-alongamento-unhas" value="Alongamento de Unhas"><label>Alongamento de Unhas</label></div>
               <div class="checkbox-item"><input type="checkbox" id="esp-outros" value="Outros"><label>Outros</label></div>
             </div>
           </div>
@@ -1103,6 +1112,7 @@
       "Ubatuba", "Caraguatatuba", "São Sebastião", "Ilhabela", "Iguape", "Ilha Comprida", "Cananéia"
     ];
     
+    // ===== LISTA COMPLETA DE ESPECIALIDADES (ATUALIZADA) =====
     const todasEspecialidadesLista = [
       "Camuflagem de Estrias", "Camuflagem de Cicatrizes", "Microagulhamento", "Limpeza de Pele",
       "Estética Facial", "Estética Corporal", "Harmonização Facial", "Harmonização Corporal",
@@ -1112,8 +1122,10 @@
       "Skinbooster", "Bioestimuladores", "Jato de Plasma", "Ozonioterapia", "Criolipólise",
       "Radiofrequência", "Ultrassom Estético", "Tricologia", "Terapia Capilar", "Estética Íntima",
       "Maquiagem Profissional", "Bronzeamento", "Terapias Holísticas", "Acupuntura Estética",
-      "Podologia", "Spa e Bem-Estar", "Outros"
+      "Podologia", "Spa e Bem-Estar", "Cabeleireira", "Manicure e Pedicure", "Nail Designer",
+      "Depiladora", "Trancista", "Barbeiro", "Alongamento de Unhas", "Outros"
     ];
+    // ===== FIM DA LISTA ATUALIZADA =====
     
     function carregarProfissionaisDoStorage() {
       const saved = localStorage.getItem('lead_beauty_profissionais');
@@ -1271,6 +1283,7 @@
         if (existing) profissionais = JSON.parse(existing);
         
         const especialidades = [];
+        // ===== LISTA DE IDs ATUALIZADA COM AS NOVAS ESPECIALIDADES =====
         const espIds = [
           'esp-camuflagem-estrias', 'esp-camuflagem-cicatrizes', 'esp-micro', 'esp-limpeza', 'esp-facial', 'esp-corporal',
           'esp-harmonizacao-facial', 'esp-harmonizacao-corporal', 'esp-micropig', 'esp-sobrancelhas', 'esp-brow-designer',
@@ -1278,8 +1291,11 @@
           'esp-peeling-quimico', 'esp-peeling-diamante', 'esp-revitalizacao', 'esp-olheiras', 'esp-skinbooster',
           'esp-bioestimuladores', 'esp-jato-plasma', 'esp-ozonioterapia', 'esp-criolipolise', 'esp-radiofrequencia',
           'esp-ultrassom', 'esp-tricologia', 'esp-terapia-capilar', 'esp-estetica-intima', 'esp-maquiagem',
-          'esp-bronzeamento', 'esp-terapias', 'esp-acupuntura', 'esp-podologia', 'esp-spa', 'esp-outros'
+          'esp-bronzeamento', 'esp-terapias', 'esp-acupuntura', 'esp-podologia', 'esp-spa',
+          'esp-cabeleireira', 'esp-manicure-pedicure', 'esp-nail-designer', 'esp-depiladora',
+          'esp-trancista', 'esp-barbeiro', 'esp-alongamento-unhas', 'esp-outros'
         ];
+        // ===== FIM DA LISTA ATUALIZADA =====
         espIds.forEach(id => { const cb = document.getElementById(id); if (cb && cb.checked) especialidades.push(cb.value); });
         
         const estrutura = [];
@@ -1433,6 +1449,7 @@
         return;
       }
       
+      // ===== LISTA DE IDs ATUALIZADA COM AS NOVAS ESPECIALIDADES =====
       const espIds = [
         'esp-camuflagem-estrias', 'esp-camuflagem-cicatrizes', 'esp-micro', 'esp-limpeza', 'esp-facial', 'esp-corporal',
         'esp-harmonizacao-facial', 'esp-harmonizacao-corporal', 'esp-micropig', 'esp-sobrancelhas', 'esp-brow-designer',
@@ -1440,8 +1457,11 @@
         'esp-peeling-quimico', 'esp-peeling-diamante', 'esp-revitalizacao', 'esp-olheiras', 'esp-skinbooster',
         'esp-bioestimuladores', 'esp-jato-plasma', 'esp-ozonioterapia', 'esp-criolipolise', 'esp-radiofrequencia',
         'esp-ultrassom', 'esp-tricologia', 'esp-terapia-capilar', 'esp-estetica-intima', 'esp-maquiagem',
-        'esp-bronzeamento', 'esp-terapias', 'esp-acupuntura', 'esp-podologia', 'esp-spa', 'esp-outros'
+        'esp-bronzeamento', 'esp-terapias', 'esp-acupuntura', 'esp-podologia', 'esp-spa',
+        'esp-cabeleireira', 'esp-manicure-pedicure', 'esp-nail-designer', 'esp-depiladora',
+        'esp-trancista', 'esp-barbeiro', 'esp-alongamento-unhas', 'esp-outros'
       ];
+      // ===== FIM DA LISTA ATUALIZADA =====
       let hasEsp = false;
       espIds.forEach(id => { if (document.getElementById(id)?.checked) hasEsp = true; });
       if (!hasEsp) { showMessage("Selecione pelo menos uma especialidade.", "error"); return; }
